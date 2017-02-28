@@ -1,0 +1,7 @@
+#dashboard_right_now .inside .main .project-count a:before {
+  content: "\f339";
+}
+
+#dashboard_right_now .inside .main .event-count a:before {
+  content: "\f145";
+}

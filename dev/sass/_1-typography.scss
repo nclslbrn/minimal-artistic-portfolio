@@ -1,0 +1,235 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+/*
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+@include font-face('Open Sans', '../fonts/opensans-bold-webfont', null, null, woff woff2);
+
+@include font-face('Gentium Basic Regular', '../fonts/genbasr-webfont', null, null, woff woff2);
+
+@include font-face('Gentium Basic Italic', '../fonts/genbasi-webfont', null, null, woff woff2);
+*/
+
+//Open sans & Gentium basic baseline for plumber
+$headline_font: 'Oxygen', sans-serif;
+$headline_baseline: 0.104492;
+
+$body_font: 'Source Sans Pro', sans-serif;
+$italic_font: 'Source Sans Pro', sans-serif;
+$body_baseline: 0.144500;
+
+$headline_num: 6;
+$body_font_size: 16px;
+
+$ratio: 1.414;
+$grid-height: 1rem;
+
+@import "../../node_modules/plumber-sass/plumber";
+
+body {
+  line-height: 1;
+  font-size: 1em;
+  font-family: $body_font;
+  color: #333;
+  box-sizing: border-box;
+}
+
+p,
+em,
+blockquote,
+textarea,
+input[type="text"],
+.project-summary a,
+.event-info a,
+.entry-content ul li p,
+.entry-content ul li a,
+.related-projects li a,
+.related-events li a{
+  line-height: 1 * $ratio;
+  font-size: 1em * $ratio;
+  font-family: $body_font;
+}
+p,
+textarea,
+input[type="text"],
+.entry-content ul li p {
+  color: #333;
+}
+
+em,
+blockquote {
+  color: #777;
+}
+em, blockquote { font-style: italic; font-size: 1em; }
+
+@for $i from 1 through $headline_num {
+
+  $anti_i: ( $headline_num + 1 ) - $i;
+
+  h#{$i} {
+    @include plumber(
+      $grid-height: 1rem,
+      $baseline: $headline_baseline,
+      $font-size: $anti_i,
+      $line-height: $anti_i + 1,
+      $leading-top: $anti_i - 2,
+      $leading-bottom: $anti_i - 3	);
+
+    font-family: $headline_font;
+  }
+}
+
+a.button,
+button.button,
+.search-form input[type="submit"]
+a {
+  text-decoration: none;
+  color: #0072FF;
+  border-bottom: 1px dotted #0072FF;
+	z-index: 1;
+}
+a.button,
+button.button,
+.search-form input[type="submit"] {
+	position: relative;
+	height: 2em;
+	line-height: 2em;
+	font-size: 1em;
+  padding: .6em 1em;
+  border: none;
+  box-shadow: 0 0 4px #e3e3e3;
+  background-color: #fefefe;
+
+  transition: background-color .5s ease-in;
+}
+button.button,
+.search-form input[type="submit"] {
+  font-family: $headline_font;
+  vertical-align: top;
+  line-height: 1em;
+  max-height: 2em;
+	background-color: transparent;
+	cursor:pointer;
+  -webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+a:link {
+  color: #0072FF;
+  border-color: #0072FF;
+}
+a:visited {
+  color: #4C9CFF;
+  border-color: #4C9CFF;
+}
+a:hover {
+  color: #264E7F;
+  border-color: #264E7F;
+}
+a:active {
+  color: #005BCC;
+  border-color: #005BCC;
+}
+header nav ul.menu li a,
+.language-chooser-item.active a,
+.site-branding .site-title a{
+	border-bottom: none; color: #444;
+}
+.site-branding .site-title a:hover,
+.site-branding .site-title a:focus,
+.language-chooser-item.active a:hover{
+	color: #555;
+}
+
+a.button::before,
+button.button::before,
+.search-form input[type="submit"]::before {
+	font-family: $headline_font;
+	content: '⟩⟩ ';
+	z-index: inherit;
+	color: inherit;
+}
+
+a.button::after,
+button.button::after,
+.search-form input[type="submit"]::after {
+	display: block;
+	position: absolute;
+	content: '';
+	bottom: 0;
+	left: 0;
+	background-color: desaturate( darken( $accent_color, .3) , .3);
+	height: .1em;
+	width: 0;
+	z-index: -1;
+	-webkit-transition: width .35s ease-out;
+     -moz-transition: width .35s ease-out;
+       -o-transition: width .35s ease-out;
+          transition: width .35s ease-out;
+}
+button.button::after,
+.search-form input[type="submit"]::after {
+	top: 0em;
+  height: 2em;
+}
+a.button:hover,
+button.button:hover,
+.search-form input[type="submit"]:hover {
+	color: #fff;
+  background-color: lighten($accent_color, .5);
+}
+
+a.button:hover::after,
+button.button:hover::after,
+.search-form input[type="submit"]::after {
+	width: 97%;
+}
+button.button:hover::after,
+.search-form input[type="submit"]::after {
+  width: 100%;
+}
+.entry-content .event-info,
+.entry-content .cartel {
+	padding-bottom: 2em;
+}

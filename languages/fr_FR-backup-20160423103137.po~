@@ -1,0 +1,443 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2016-04-13 18:16+0100\n"
+"PO-Revision-Date: Fri Apr 22 2016 10:38:43 GMT+0100 (CET)\n"
+"Last-Translator: Nicolas <nclslbrn@gmail.com>\n"
+"Language-Team: \n"
+"Language: French (France)\n"
+"Plural-Forms: nplurals=2; plural=n > 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Loco-Target-Locale: fr_FR"
+
+#: ../contact.php:71
+msgid "Someone sent a message from "
+msgstr "Quelqu’un vous a envoyé un message via "
+
+#: ../404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups! Cette page n’existe pas !"
+
+#: ../404.php:22
+msgid "Sorry, we couldn't find the page you were looking for!"
+msgstr "Désolé, nous ne pouvons trouver la page que vous cherchez."
+
+#: ../404.php:26
+msgid "error"
+msgstr "erreur"
+
+#: ../comments.php:31
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Une remarque sur  &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s remarques sur &ldquo;%2$s&rdquo;"
+
+#: ../comments.php:40 ../comments.php:61
+msgid "Comment navigation"
+msgstr "Navigation des commentaires"
+
+#: ../comments.php:43 ../comments.php:64
+msgid "Older Comments"
+msgstr "Commentaires plus anciens"
+
+#: ../comments.php:44 ../comments.php:65
+msgid "Newer Comments"
+msgstr "Commentaires plus récents"
+
+#: ../comments.php:78
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés"
+
+#. Name of the template
+msgid "Contact"
+msgstr "Contact"
+
+#: ../contact.php:29
+msgid "Human verification incorrect."
+msgstr "La réponse au code de vérification n’est pas correct."
+
+#: ../contact.php:30
+msgid "Please supply all information."
+msgstr "S’il vous plaît, remplissez tous les champs obligatoires."
+
+#: ../contact.php:31
+msgid "Email Address Invalid."
+msgstr "Adresse Mail invalide."
+
+#: ../contact.php:32
+msgid "Message was not sent. Try Again."
+msgstr "Le message n’a pas été envoyé, réessayer."
+
+#: ../contact.php:33
+msgid "Thanks! Your message has been sent."
+msgstr "Merci! Votre message a bien été envoyé."
+
+#: ../contact.php:128
+msgid "Name *"
+msgstr "Nom *"
+
+#: ../contact.php:135
+msgid "Email *"
+msgstr "E-mail *"
+
+#: ../contact.php:141
+msgid "Message *"
+msgstr "Message *"
+
+#: ../contact.php:147
+msgid "Human Verification *"
+msgstr "Code de vérification *"
+
+#: ../contact.php:152
+msgid "* : require field"
+msgstr "* : champs requis"
+
+#: ../contact.php:154
+msgid "send"
+msgstr "envoyer"
+
+msgid "Events"
+msgstr "Évènements"
+
+#: ../events.php:31 ../inc/home-project-layout.php:27 ../template-parts/content-
+#: page.php:22 ../template-parts/content.php:38
+msgid "Pages:"
+msgstr "Pages:"
+
+#: ../footer.php:21
+msgid "All right reserved"
+msgstr "Tous droits réservés"
+
+#: ../footer.php:23
+msgid "Designed by Nicolas Lebrun"
+msgstr "Design : Nicolas Lebrun"
+
+#: ../functions.php:55
+msgid "Primary"
+msgstr "Menu"
+
+#: ../functions.php:56
+msgid "Footer Menu"
+msgstr "Menu de pied de page"
+
+#: ../functions.php:111
+msgid "Sidebar"
+msgstr "Barre latérale"
+
+#: ../functions.php:113
+msgid "Add widgets here."
+msgstr "Ajouter des widgets ici."
+
+#: ../header.php:43
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#. Name of the template
+msgid "Homepage"
+msgstr "Accueil"
+
+#: ../search.php:19
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Résultat de la recherche pour: %s"
+
+#: ../inc/custom-post-widget.php:7
+msgid "Custom Post list Widget"
+msgstr "Type d’Article Personnalisé"
+
+#: ../inc/custom-post-widget.php:72
+msgid "Widget Title"
+msgstr "Titre du Widget"
+
+#: ../inc/custom-post-widget.php:77
+msgid "Custom post:<br>"
+msgstr "Type d’Article Personnalisé:<br>"
+
+#: ../inc/custom-post-widget.php:92
+msgid "Number:<br>"
+msgstr "Nombre:<br>"
+
+#: ../inc/custom-post-widget.php:115
+msgid "Menu Sidebar"
+msgstr "Menu latéral"
+
+#: ../inc/custom-post-widget.php:117
+msgid "Widgets in this area will be shown on all posts and pages."
+msgstr "Les widgets seront visibles sur toutes les pages"
+
+#: ../inc/custom-post.php:6
+msgctxt "post type general name"
+msgid "Projects"
+msgstr "Projets"
+
+#: ../inc/custom-post.php:7
+msgctxt "post type singular name"
+msgid "Project"
+msgstr "Projet"
+
+#: ../inc/custom-post.php:8 ../inc/custom-post.php:147 ../inc/custom-post.php:199
+msgid "Projects"
+msgstr "Projets"
+
+#: ../inc/custom-post.php:9
+msgid "Project"
+msgstr "Projet"
+
+#: ../inc/custom-post.php:10 ../inc/custom-post.php:46
+msgid "Add New"
+msgstr "Ajouter nouveau"
+
+#: ../inc/custom-post.php:11
+msgid "Add New Project"
+msgstr "Ajouter un nouveau projet"
+
+#: ../inc/custom-post.php:12
+msgid "New Project"
+msgstr "Nouveau projet"
+
+#: ../inc/custom-post.php:13
+msgid "Edit Project"
+msgstr "Editer le projet"
+
+#: ../inc/custom-post.php:14
+msgid "View Project"
+msgstr "voir le projet"
+
+#: ../inc/custom-post.php:15
+msgid "All Projects"
+msgstr "Tous les projets"
+
+#: ../inc/custom-post.php:16
+msgid "Search Projects"
+msgstr "Cherche un projet"
+
+#: ../inc/custom-post.php:17
+msgid "Parent Projects:"
+msgstr "Projet parent"
+
+#: ../inc/custom-post.php:18
+msgid "No projects found."
+msgstr "Pas de projet trouvé."
+
+#: ../inc/custom-post.php:19
+msgid "No projects found in Trash."
+msgstr "Pas de projet trouvé dans la corbeille."
+
+#: ../inc/custom-post.php:42
+msgctxt "post type general name"
+msgid "Events"
+msgstr "Évènements"
+
+#: ../inc/custom-post.php:43
+msgctxt "post type singular name"
+msgid "Event"
+msgstr "Évènement"
+
+#: ../inc/custom-post.php:45 ../inc/meta-box.php:6
+msgid "Event"
+msgstr "Évènement"
+
+#: ../inc/custom-post.php:47
+msgid "Add New Event"
+msgstr "Ajouter un nouvel évènement"
+
+#: ../inc/custom-post.php:48
+msgid "New Event"
+msgstr "Nouvel évènement"
+
+#: ../inc/custom-post.php:49
+msgid "Edit Event"
+msgstr "Editer l’évènement"
+
+#: ../inc/custom-post.php:50
+msgid "View Event"
+msgstr "Voir l’évènement"
+
+#: ../inc/custom-post.php:51
+msgid "All Events"
+msgstr "Tous les évènements"
+
+#: ../inc/custom-post.php:52
+msgid "Search Events"
+msgstr "Chercher un évènement"
+
+#: ../inc/custom-post.php:53
+msgid "Parent Events:"
+msgstr "Avènement parent:"
+
+#: ../inc/custom-post.php:54
+msgid "No events found."
+msgstr "Pas d’évènement trouvé."
+
+#: ../inc/custom-post.php:55
+msgid "No events found in Trash."
+msgstr "Pas d’évènement trouvé dans la corbeille."
+
+#: ../inc/custom-post.php:75
+msgid "category"
+msgstr "catégorie"
+
+#: ../inc/custom-post.php:322 ../template-parts/content-event.php:32
+msgid "From"
+msgstr "Du"
+
+#: ../inc/custom-post.php:324 ../template-parts/content-event.php:33
+msgid "to"
+msgstr "au"
+
+#: ../inc/custom-post.php:436
+msgid "Coming soon / Now"
+msgstr "A venir / en cours"
+
+#: ../inc/custom-post.php:447
+msgid "learn more"
+msgstr "an savoir plus"
+
+#: ../inc/custom-post.php:550
+msgid "Today"
+msgstr "Aujourd’hui"
+
+#: ../inc/custom-post.php:552
+msgid "Tomorrow"
+msgstr "Demain"
+
+#: ../inc/custom-post.php:555
+msgid "M jS"
+msgstr "M jS"
+
+#: ../inc/custom-post.php:560
+#, php-format
+msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
+msgstr "<span>%1$s, %2$s</span> <a href=« %3$s »>%4$s</a>"
+
+#: ../inc/custom-post.php:595
+msgid "Publishing Soon"
+msgstr "publication à venir"
+
+#: ../inc/custom-post.php:605
+msgid "Recently Published"
+msgstr "Récemment publié"
+
+#: ../inc/custom-post.php:614
+msgid "No activity yet!"
+msgstr "Pas d’activité encore!"
+
+#: ../inc/home-project-layout.php:15
+msgid "Edit"
+msgstr "Editer"
+
+#: ../inc/home-project-layout.php:31
+msgid "Page"
+msgstr "Page"
+
+#: ../inc/meta-box.php:73 ../inc/meta-box.php:136
+msgid "Place"
+msgstr "Lieu"
+
+#: ../inc/meta-box.php:135
+msgid "Date"
+msgstr "Date"
+
+#: ../inc/template-tags.php:28
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Ecrit dans %1$s"
+
+#: ../inc/template-tags.php:33
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "par %s"
+
+#: ../inc/template-tags.php:50 ../inc/template-tags.php:56
+msgid ", "
+msgstr ", "
+
+#: ../inc/template-tags.php:52
+#, php-format
+msgid "Posted in %1$s"
+msgstr "Ecrit dans %1$s"
+
+#: ../inc/template-tags.php:58
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Tag %1$s"
+
+#: ../inc/template-tags.php:65
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
+
+#: ../inc/template-tags.php:72 ../template-parts/content-page.php:33
+#, php-format
+msgid "Edit %s"
+msgstr "Editer %s"
+
+#: ../template-parts/content-events.php:5
+msgid "Map"
+msgstr "Carte"
+
+#: ../template-parts/content-events.php:8
+msgid "List"
+msgstr "Liste"
+
+#: ../template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Rien de trouvé"
+
+#: ../template-parts/content-none.php:21
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Ready to public your first post? <a href=« %1$s »>Get started hère</a>."
+
+#: ../template-parts/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, rien a été trouvé avec vos termes de recherches. Essayer avec "
+"d’autres termes "
+
+#: ../template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Il semblerait que nous ne pouvons trouvé ce que vous cherchez. Essayer de "
+"chercher."
+
+#: ../template-parts/content.php:33
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Lire plus sur  %s <span class=« meta-nav »>&rarr;</span>"
+
+#. Name of the theme
+msgid "Minimal-Artistic-Portfolio"
+msgstr "Minimal-Artistic-Portfolio"
+
+#. Theme URI of the theme
+msgid "http://underscores.me/"
+msgstr "http://underscores.me/"
+
+#. Description of the theme
+msgid "Description"
+msgstr "Description"
+
+#. Author of the theme
+msgid "Nicolas Lebrun"
+msgstr "Nicolas Lebrun"

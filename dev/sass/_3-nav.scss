@@ -1,0 +1,403 @@
+header.site-header {
+  position: relative;
+}
+
+header.site-header .row{
+
+  @include breakpoint( phone ) {
+    display: table;
+  }
+  @include breakpoint( tablet ) {
+    display: table;
+  }
+  @include breakpoint( laptop ) {
+    display: block;
+    height: 4.5em;
+  }
+
+
+  .site-branding h1.site-title {
+    @include plumber(
+      $grid-height: 1rem,
+      $baseline: $headline_baseline,
+      $font-size: 2,
+      $line-height: 3,
+      $leading-top: 1,
+      $leading-bottom: 1);
+
+      text-align: justify;
+      color: #9aa7bc;
+
+      @include breakpoint( phone ) {
+      }
+      @include breakpoint( laptop ) {
+        text-indent: none;
+        box-shadow: none;
+        border: none;
+      }
+      a { text-transform: uppercase; text-decoration: none;}
+  }
+  .menu-toggle {
+    @include breakpoint( phone ) {
+      display: block;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 2rem;
+      margin:0;
+      width: 64px;
+      height: 64px;
+      border: none;
+      border-bottom: none;
+  		background: none;
+      vertical-align: middle;
+    }
+    @include breakpoint( laptop ) {
+      display: none;
+    }
+  }
+  .menu-toggle.open {
+    box-shadow: 0 0 150px $base_color inset;
+  }
+  .menu-toggle:hover,
+  .menu-toggle:focus,
+  .menu-toggle:active
+  {
+    outline: none;
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+  .menu-toggle .menu-icon,
+  .menu-toggle .menu-icon::before,
+  .menu-toggle .menu-icon::after
+  {
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 4px;
+    background: #333;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .menu-toggle .menu-icon {
+    top: 50%;
+    left: 25%;
+  }
+  .menu-toggle .menu-icon::before,
+  .menu-toggle .menu-icon::after {
+    content: "";
+    display: block;
+  }
+
+  .menu-toggle .menu-icon::before {
+    margin-top: -12px;
+  }
+  .menu-toggle .menu-icon::after {
+    margin-top: 12px;
+  }
+
+  .menu-toggle.open .menu-icon {
+    background: transparent;
+  }
+  .menu-toggle.open .menu-icon::before {
+    margin-top: 0px;
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  .menu-toggle.open .menu-icon::after {
+    margin-top: 0px;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+
+.site-header .row .main-navigation,
+.site-header .row .widget-area{
+
+  @include breakpoint( phone ) {
+    display: none;
+    float: none;
+  }
+  @include breakpoint( laptop ) {
+    display: table-cell;
+  }
+}
+.site-header .row .site-branding,
+.site-header .row .menu-toggle,
+{
+  display: table-cell;
+
+
+  @include breakpoint( phone ) {
+    clear: both;
+    float: none;
+  }
+  @include breakpoint( laptop ) {
+    display: table-cell;
+  }
+  text-decoration: none;
+}
+.site-header .row .main-navigation{
+  @include breakpoint( phone ) {
+
+    display: inline;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    padding: 0;
+    width: 100%;
+    height: 0;
+    max-height: 0;
+
+    overflow: hidden;
+    vertical-align: top;
+    box-shadow: $box_shadow;
+
+    -webkit-transition: max-height .5s ease;
+    -moz-transition: max-height .5s ease;
+    transition: max-height .5s ease;
+
+  }
+  @include breakpoint( laptop ){
+    display: table-cell;
+  }
+
+}
+
+
+.site-header .row .main-navigation.toggled {
+  background-color: #fff;
+  z-index: 2;
+  height: auto;
+  max-height: 800px;
+
+  -webkit-transition: max-height .5s ease;
+  -moz-transition: max-height .5s ease;
+  transition: max-height .5s ease;
+
+}
+.row .main-navigation ul {
+
+  @include breakpoint( phone ) {
+
+    display: block;
+  }
+  @include breakpoint( laptop ) {
+
+    display: table;
+    table-layout: fixed;
+    padding-left: 10%;
+    width: 100%;
+  }
+  white-space: nowrap;
+  list-style-type: none;
+}
+
+.row .main-navigation ul.menu li.menu-item {
+  @include breakpoint( phone ) {
+    display: block;
+    padding: 0 1.4rem;
+    border-bottom: $border;
+  }
+  @include breakpoint( laptop ) {
+    display: table-cell;
+  }
+  position: relative;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.row .main-navigation.toggled ul li:last-child{
+  @include breakpoint( phone ){
+    border: none;
+  }
+}
+.row .main-navigation ul li a{
+
+  display: block;
+  @include breakpoint( phone ) {
+    @include plumber(
+      $grid-height: .7rem,
+      $baseline: $body_baseline,
+      $font-size: 2,
+      $line-height: 2,
+      $leading-top: 2,
+      $leading-bottom: 2);
+
+      margin-top: 0;
+      padding-top: 1.4rem;
+  }
+
+  @include breakpoint( laptop ) {
+
+    @include plumber(
+      $grid-height: .5rem,
+      $baseline: $body_baseline,
+      $font-size: 2,
+      $line-height: 3,
+      $leading-top: 3,
+      $leading-bottom: 3);
+  }
+
+  text-align: center;
+  font-family: $body_font;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  background-color: transparent;
+
+  -webkit-transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
+}
+
+.row .main-navigation ul li a::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+  @include breakpoint( phone ) {
+    margin-left: -1rem;
+    width: 2px;
+    height: 100%;
+  }
+  @include breakpoint( laptop ) {
+    margin-left: 0;
+  	width: 100%;
+  	height: 2px;
+  }
+	background: $accent_color;
+
+	-webkit-transform: scale3d(0, 5, 1);
+	transform: scale3d(0, 5, 1);
+
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+
+	-webkit-transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+	transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+}
+.row .main-navigation ul li a:hover,
+.row .main-navigation ul li a:focus {
+
+  color: $accent_color;
+
+}
+.row .main-navigation ul li.current-menu-item a { color: $accent_color; }
+.row .main-navigation ul li.current-menu-item a::before,
+.row .main-navigation ul li a:hover:before {
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);
+}
+.row .main-navigation ul.menu li.menu-item-has-children {
+  @include breakpoint( phone ) {
+    display: none;
+  }
+  @include breakpoint( laptop ) {
+    display: table-cell;
+  }
+}
+.row .main-navigation ul.menu li.menu-item.menu-item-has-children ul.sub-menu {
+  display: none;
+}
+.row .main-navigation ul.menu li.open.menu-item.menu-item-has-children ul.sub-menu {
+  display: block;
+  padding: 0;
+	position: absolute;
+	background: $accent_color;
+  z-index: 999;
+  li {
+    display: block;
+    a {
+      color: #fff;
+
+      img { display: none;}
+    }
+  }
+}
+.row .main-navigation ul li.menu-item-has-children.open ul.submenu::after {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: $accent_color;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+footer.site-footer {
+
+  margin-top: 2em;
+  padding: .5em;
+  border-top: $border;
+
+  .footer-menu  ul#menu-footer {
+
+    @include breakpoint( phone ) {
+      display: block;
+    }
+    @include breakpoint( laptop ) {
+      display: block;
+
+      li {
+        display: block;
+        width: 90%;
+        border-bottom: $border;
+        padding: 0 .75rem;
+
+        a{
+          @include breakpoint( phone ) {
+
+          }
+          @include breakpoint( laptop ) {
+
+            @include plumber(
+              $grid-height: 1rem,
+              $baseline: $headline_baseline,
+              $font-size: 1,
+              $line-height: 3,
+              $leading-top: 3,
+              $leading-bottom: 3);
+
+          }
+          text-align: left;
+          font-family: $headline_font;
+          border-bottom: none;
+        }
+      }
+      li:last-child { border-bottom: none; }
+    }
+    list-style-type: none;
+  }
+  .site-info p,
+  .site-info a {
+    @include plumber(
+      $grid-height: 1rem,
+      $baseline: $body_baseline,
+      $font-size: 1,
+      $line-height: 2,
+      $leading-top: 1,
+      $leading-bottom: 1);
+
+    @include breakpoint( phone ) {
+      text-align: center;
+    }
+    @include breakpoint( laptop ) {
+      text-align: right;
+    }
+  }
+}

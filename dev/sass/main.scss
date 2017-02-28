@@ -1,0 +1,87 @@
+/*
+Theme Name: Minimal-Artistic-Portfolio
+Theme URI: http://underscores.me/
+Author: Nicolas Lebrun
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Minimal-Artistic-Portfolio
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+$emBase: 16px; //default
+$accent_color: #0072ff;
+$base_color: rgba(240, 230, 245, 0.47);
+$box_shadow: 0 0 150px $base_color inset;
+$border:  1px solid #e7e3e3;
+
+
+// FUNCTION (em calculator)
+@function em-calc($pixelBasedNum){
+  @return $pixelBasedNum / $emBase * 1em
+}
+
+
+@mixin breakpoint($point) {
+  @if $point == phone {
+    @media ( min-width: em-calc( 420px ) ) and ( max-width: em-calc( 1024px ) ){ @content; }
+  }
+  @else if $point == tablet {
+    @media ( min-width: em-calc( 720px ) )  { @content; }
+  }
+  @else if $point == laptop {
+    @media ( min-width: em-calc( 1024px ) ) { @content; }
+  }
+  @else if $point == desktop {
+    @media ( min-width: em-calc( 1280px ) ) { @content; }
+  }
+}
+
+@import '1-typography';
+@import '2-grid';
+
+*, html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  //@include linear-gradient-b(280deg, #fefefe, #ccc);
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  background: url(../img/cream_dust.png);
+  color: #333;
+  font-size: 1em;
+}
+
+.site .wrapper {
+  display: block;
+
+  @include breakpoint( phone ) {
+    width: 86%;
+  }
+  @include breakpoint( tablet ) {
+    width: 600px;
+  }
+  @include breakpoint( laptop ) {
+    width: 1000px;
+  }
+  @include breakpoint( desktop ) {
+    width: 1280px;
+  }
+
+
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+@import '3-nav';
+@import '4-accessibility';
+@import '5-forms';
+@import '6-content';
+@import '7-media';

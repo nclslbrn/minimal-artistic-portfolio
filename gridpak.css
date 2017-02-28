@@ -1,0 +1,100 @@
+/*!
+ * Gridpak Beta CSS
+ *
+ * Generator - http://gridpak.com/
+ * Created by @simplygoodwork
+ */
+
+
+
+/* Reusable column setup */
+.col {
+    border:0px solid rgba(0,0,0,0);
+    float:left;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    -moz-background-clip:padding-box !important;
+    -webkit-background-clip:padding-box !important;
+    background-clip:padding-box !important;
+}
+
+
+
+    /* 1. 12 Column Grid 0px - Infinity
+    -----------------------------------------------------------------------------
+
+    Span 1:    8.33333333333%
+    Span 2:    16.6666666667%
+    Span 3:    25.0%
+    Span 4:    33.3333333333%
+    Span 5:    41.6666666667%
+    Span 6:    50.0%
+    Span 7:    58.3333333333%
+    Span 8:    66.6666666667%
+    Span 9:    75.0%
+    Span 10:    83.3333333333%
+    Span 11:    91.6666666667%
+    Span 12:    100%
+
+    ----------------------------------------------------------------------------- */
+
+    @media screen and (min-width: 0px) {
+
+        .column {
+          margin-left:0%;
+        	padding:0 10px;
+        }
+
+        .row .column:first-child {
+            margin-left:0;
+        }
+
+
+        /*
+        Add your semantic classnames in alongside their corresponding spans here. e.g.
+
+        .span_3,
+        .my_semantic_class_name {
+            ...
+        }
+        */
+
+        .col-1 {
+            width:8.33333333333%;
+        }
+        .col-2 {
+            width:16.6666666667%;
+        }
+        .col-3 {
+            width:25.0%;
+        }
+        .col-4 {
+            width:33.3333333333%;
+        }
+        .col-5 {
+            width:41.6666666667%;
+        }
+        .col-6 {
+            width:50.0%;
+        }
+        .col-7 {
+            width:58.3333333333%;
+        }
+        .col-8 {
+            width:66.6666666667%;
+        }
+        .col-9 {
+            width:75.0%;
+        }
+        .col-10 {
+            width:83.3333333333%;
+        }
+        .col-11 {
+            width:91.6666666667%;
+        }
+        .col-12 {
+            margin-left:0;
+            width:100%;
+        }
+    }

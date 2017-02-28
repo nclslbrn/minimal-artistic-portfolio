@@ -1,0 +1,71 @@
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+label {
+  display: inline-block;
+}
+textarea {
+  max-width: 100%;
+  width: 100%;
+}
+
+form {
+  font-family: $body_font;
+
+  textarea,
+  input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 95%;
+  width: calc( 100% - 2em);
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  }
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="search"]:focus {
+    outline: none;
+  }
+  textarea,
+  input[type="text"],
+  input[type="search"] {
+    margin: 1em;
+    padding: 10px;
+    border: none;
+    border-bottom: solid 3px #c9c9c9;
+    transition: border 0.3s;
+  }
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="text"].focus,
+  input[type="search"]:focus {
+    border-bottom: solid 3px $accent_color;
+    box-shadow: 0 0 2em transparentize($accent_color, .95);
+  }
+  label{
+    clear: both;
+    float: none;
+    display: block;
+  }
+  span.security-check {
+    display: table;
+    input, span {
+      display: table-cell;
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
+}
+form.search-form {
+  label, input {
+    display: inline-block;
+  }
+  input[type="submit"] {
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,38 @@
+$col_num: 12;
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.row { position: relative; @include clearfix; }
+
+@for $i from 1 through $col_num {
+
+  .col-#{$i}
+  {
+    @include breakpoint( phone ) {
+      width: percentage( 1);
+    }
+    @include breakpoint( tablet ) {
+      width: percentage( 1 );
+    }
+    @include breakpoint( laptop ) {
+      width: percentage( $i / $col_num );
+    }
+  }
+}
+[class*='col-']{
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+.column img {
+  max-width: 100%;
+  height: auto;
+
+}
