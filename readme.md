@@ -1,4 +1,5 @@
-# Minimal Artistic Portfolio thme
+# Minimal Artistic Portfolio theme https://img.shields.io/wordpress/v/akismet.svg https://img.shields.io/aur/license/yaourt.svg https://img.shields.io/pypi/status/Django.svg https://img.shields.io/versioneye/d/ruby/rails.svg
+
 
 A wordpress theme for artist (painter, sculptor, video-producer, ...)
 
