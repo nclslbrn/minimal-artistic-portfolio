@@ -18,12 +18,14 @@ get_header(); ?>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<h3 class="center">
+
+						<h1 class="legend"><small><?php _e( 'error', 'Minimal-Artistic-Portfolio' ); ?></small> 404</h1>
+					<h5 class="center">
 						<?php _e( 'Sorry, we couldn\'t find the page you were looking for!', 'Minimal-Artistic-Portfolio' ); ?>
-					</h3>
+					</h5>
 
 					<?php	get_search_form(); ?>
-					<h2 class="legend"><small><?php _e( 'error', 'Minimal-Artistic-Portfolio' ); ?></small> 404</h2>
+
 						<?php /*
 						the_widget( 'WP_Widget_Recent_Posts' );
 

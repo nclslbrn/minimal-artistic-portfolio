@@ -107,8 +107,8 @@ else {
           <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
         </header><!-- .entry-header -->
 
-				<div id="respond" class="row">
-					<div class="row contact-header">
+				<div id="respond">
+					<div class="contact-header">
 						<?php echo $response; ?>
 					</div>
 					<div class="col-12 column contact-body">

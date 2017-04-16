@@ -10,8 +10,10 @@
  */
 
 ?>
+</div><!-- .wrapper .row -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="wrapper row">
 
-	<footer id="colophon" class="site-footer row" role="contentinfo">
 		<div class="col-3 footer-menu">
 			<?php if ( has_nav_menu( 'footer-menu' ) ) {
 			  			wp_nav_menu( array( 'theme_location' => 'footer-menu') );
@@ -27,8 +29,10 @@
 				</a>
 			</p>
 		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- .wrapper .row -->
+
+	</div><!-- .wrapper -->
+</footer><!-- #colophon -->
+
 </div><!-- #content -->
 </div><!-- #page -->
 <?php wp_footer(); ?>

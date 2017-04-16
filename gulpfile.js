@@ -2,20 +2,20 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano'),
-    //jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
+    //livereload = require('gulp-livereload'),
     del = require('del'),
     watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
     ignore = require('gulp-ignore'),
     zip = require('gulp-zip'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload;
 
 gulp.task('styles', function() {
   return sass('dev/sass/**.scss', { style: 'expanded' })
@@ -26,20 +26,15 @@ gulp.task('styles', function() {
     .pipe(cssnano())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('prod/css'))
-    .pipe(livereload())
     .pipe(notify({ message: 'SASS processing minifying and complete' }));
 });
 
 gulp.task('scripts', function() {
   return gulp.src('dev/js/**/*.js')
-    //.pipe(jshint('.jshintrc'))
-    //.pipe(jshint.reporter('default'))
-    //.pipe(concat('main.js'))
     .pipe(gulp.dest('prod/js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('prod/js'))
-    .pipe(livereload())
     .pipe(notify({ message: 'Scripts task complete' }));
 });
 
@@ -47,11 +42,29 @@ gulp.task('images', function() {
   return gulp.src('dev/img/**/*')
     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest('prod/img'))
-    .pipe(livereload())
+    //.pipe(livereload())
     .pipe(notify({ message: 'Images task complete' }));
 });
+gulp.task('sync', function() {
+    //watch files
+    var files = [
+    'prod/css/**.css',
+    'prod/js/**.js',
+    'prod/img/*.{png,jpg,gif}',
+    '**/*.php'
+    ];
 
-gulp.task('watch', function () {
+    //initialize browsersync
+    browserSync.init(files, {
+    //browsersync with a php server
+    proxy: "project.dev",
+    //port: 8080,
+    notify: true,
+    injectChanges: true
+    });
+});
+
+gulp.task('watch', ['sync'], function () {
   gulp.watch('dev/sass/**/**.scss', ['styles']);
   gulp.watch('dev/js/*.js', ['scripts']);
   gulp.watch('dev/img/*.*', ['images']);

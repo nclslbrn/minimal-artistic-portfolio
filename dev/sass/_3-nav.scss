@@ -1,8 +1,10 @@
 header.site-header {
   position: relative;
+  border-bottom: $border;
 }
 
 header.site-header .row{
+
 
   @include breakpoint( phone ) {
     display: table;
@@ -11,8 +13,9 @@ header.site-header .row{
     display: table;
   }
   @include breakpoint( laptop ) {
-    display: block;
-    height: 4.5em;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
   }
 
 
@@ -58,7 +61,7 @@ header.site-header .row{
     }
   }
   .menu-toggle.open {
-    box-shadow: 0 0 150px $base_color inset;
+
   }
   .menu-toggle:hover,
   .menu-toggle:focus,
@@ -118,56 +121,58 @@ header.site-header .row{
   }
 }
 
-
-.site-header .row .main-navigation,
-.site-header .row .widget-area{
-
-  @include breakpoint( phone ) {
-    display: none;
-    float: none;
-  }
-  @include breakpoint( laptop ) {
-    display: table-cell;
-  }
-}
 .site-header .row .site-branding,
 .site-header .row .menu-toggle,
 {
-  display: table-cell;
-
 
   @include breakpoint( phone ) {
-    clear: both;
+    flex: 1;
     float: none;
   }
   @include breakpoint( laptop ) {
-    display: table-cell;
+
   }
   text-decoration: none;
+}
+.site-header .row .site-branding {
+
+  @include breakpoint( phone ) {
+    width: 85%;
+    width: calc( 100% - 68px );
+  }
+  @include breakpoint( laptop ) {
+    flex: 2;
+  }
+  h1 { display: inline-block; width: auto;}
 }
 .site-header .row .main-navigation{
   @include breakpoint( phone ) {
 
-    display: inline;
     position: absolute;
-    top: 64px;
+    display: block;
+    left: 0;
     right: 0;
-    padding: 0;
-    width: 100%;
-    height: 0;
-    max-height: 0;
+    margin: 0 -13%;
+    min-height: 100vh;
+    z-index: 99;
+    background: #fff;
+    border-right: $border;
+    background: #f1f1f1;
+    transform: translateX( -120%);
+    transition: transform .35s ease-in;
 
-    overflow: hidden;
-    vertical-align: top;
-    box-shadow: $box_shadow;
+    .menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
-    -webkit-transition: max-height .5s ease;
-    -moz-transition: max-height .5s ease;
-    transition: max-height .5s ease;
-
+      li {  flex: auto; }
+      li:first-child { border-top: 1px solid #ccc; }
+    }
   }
   @include breakpoint( laptop ){
-    display: table-cell;
+    flex: 3;
+    justify-content: flex-end;
   }
 
 }
@@ -176,13 +181,9 @@ header.site-header .row{
 .site-header .row .main-navigation.toggled {
   background-color: #fff;
   z-index: 2;
-  height: auto;
-  max-height: 800px;
 
-  -webkit-transition: max-height .5s ease;
-  -moz-transition: max-height .5s ease;
-  transition: max-height .5s ease;
-
+  transform: translateX( 0);
+  transition: transform .35s ease-in;
 }
 .row .main-navigation ul {
 
@@ -192,8 +193,7 @@ header.site-header .row{
   }
   @include breakpoint( laptop ) {
 
-    display: table;
-    table-layout: fixed;
+    display: flex;
     padding-left: 10%;
     width: 100%;
   }
@@ -208,13 +208,14 @@ header.site-header .row{
     border-bottom: $border;
   }
   @include breakpoint( laptop ) {
-    display: table-cell;
+
   }
   position: relative;
   margin-left: 1em;
   margin-right: 1em;
 }
 .row .main-navigation.toggled ul li:last-child{
+
   @include breakpoint( phone ){
     border: none;
   }
@@ -227,12 +228,13 @@ header.site-header .row{
       $grid-height: .7rem,
       $baseline: $body_baseline,
       $font-size: 2,
-      $line-height: 2,
+      $line-height: 6,
       $leading-top: 2,
       $leading-bottom: 2);
 
       margin-top: 0;
       padding-top: 1.4rem;
+      text-transform: capitalize;
   }
 
   @include breakpoint( laptop ) {
@@ -247,7 +249,7 @@ header.site-header .row{
   }
 
   text-align: center;
-  font-family: $body_font;
+  letter-spacing: .05em;
   text-transform: uppercase;
   text-decoration: none;
   border: 0;
@@ -303,22 +305,30 @@ header.site-header .row{
     display: none;
   }
   @include breakpoint( laptop ) {
-    display: table-cell;
   }
 }
 .row .main-navigation ul.menu li.menu-item.menu-item-has-children ul.sub-menu {
   display: none;
 }
 .row .main-navigation ul.menu li.open.menu-item.menu-item-has-children ul.sub-menu {
-  display: block;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
 	position: absolute;
-	background: $accent_color;
+  margin-top: .45em;
+  left: 0;
+  right: 0;
+  margin-left: -1em;
+  margin-right: -1em;
+  width: auto;
+	border-left: $border;
+  border-right: $border;
+  border-bottom: $border;
+  background: #fefefe;
   z-index: 999;
   li {
     display: block;
     a {
-      color: #fff;
+      color: #333;
 
       img { display: none;}
     }
@@ -338,47 +348,83 @@ header.site-header .row{
 	border-width: 10px;
 	margin-left: -10px;
 }
-
 footer.site-footer {
+  margin-top: 2em;
+  border-top: $border;
+}
+footer.site-footer .row{
+
+  @include breakpoint( phone ) {
+    display: block;
+  }
+  @include breakpoint( laptop ) {
+    display: flex;
+    flex-direction: row;
+  }
 
   margin-top: 2em;
   padding: .5em;
-  border-top: $border;
+
+
+  .footer-menu .menu{
+
+    display: flex;
+
+    @include breakpoint( phone ) {
+      flex-direction: row;
+      justify-content: center;
+    }
+    @include breakpoint( laptop ) {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+  }
+  .footer-menu,
+  .site-info {
+
+    @include breakpoint( phone ) {
+      flex: 1;
+    }
+    @include breakpoint( laptop ) {
+      flex-grow: 1;
+    }
+  }
+  .footer-menu,
+  .site-info{
+    width: auto;
+  }
+
+
 
   .footer-menu  ul#menu-footer {
 
     @include breakpoint( phone ) {
-      display: block;
+      display: flex;
+
+      li a { margin: 0 .5em; }
     }
     @include breakpoint( laptop ) {
-      display: block;
+      display: flex;
 
       li {
-        display: block;
-        width: 90%;
-        border-bottom: $border;
-        padding: 0 .75rem;
+        flex: 1;
+        width: auto;
 
         a{
-          @include breakpoint( phone ) {
-
-          }
-          @include breakpoint( laptop ) {
-
             @include plumber(
               $grid-height: 1rem,
               $baseline: $headline_baseline,
               $font-size: 1,
-              $line-height: 3,
-              $leading-top: 3,
-              $leading-bottom: 3);
+              $line-height: 2,
+              $leading-top: 1,
+              $leading-bottom: 1);
 
           }
           text-align: left;
-          font-family: $headline_font;
           border-bottom: none;
+          margin-left: 1em;
         }
-      }
       li:last-child { border-bottom: none; }
     }
     list-style-type: none;

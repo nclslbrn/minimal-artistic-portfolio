@@ -34,17 +34,17 @@ form {
   input[type="text"],
   input[type="search"] {
     margin: 1em;
-    padding: 10px;
+    padding: 1em;
     border: none;
-    border-bottom: solid 3px #c9c9c9;
+    border: $border;
     transition: border 0.3s;
   }
   textarea:focus,
   input[type="text"]:focus,
   input[type="text"].focus,
   input[type="search"]:focus {
-    border-bottom: solid 3px $accent_color;
-    box-shadow: 0 0 2em transparentize($accent_color, .95);
+    box-shadow: 0 0 .4em transparentize(invert($accent_color), .92);
+    border-color: #ccc;
   }
   label{
     clear: both;

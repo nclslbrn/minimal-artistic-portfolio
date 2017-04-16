@@ -52,11 +52,15 @@
 */
 
 //Open sans & Gentium basic baseline for plumber
-$headline_font: 'Oxygen', sans-serif;
+//$headline_font: 'Oxygen', sans-serif;
+$headline_font: 'Sintony', sans-serif;
+
 $headline_baseline: 0.104492;
 
-$body_font: 'Source Sans Pro', sans-serif;
-$italic_font: 'Source Sans Pro', sans-serif;
+//$body_font: 'Source Sans Pro', sans-serif;
+$body_font: 'Poppins', sans-serif;
+
+$italic_font: 'Poppins', sans-serif;
 $body_baseline: 0.144500;
 
 $headline_num: 6;
@@ -86,9 +90,10 @@ input[type="text"],
 .entry-content ul li a,
 .related-projects li a,
 .related-events li a{
-  line-height: 1 * $ratio;
+  line-height: 1.5 * $ratio;
   font-size: 1em * $ratio;
   font-family: $body_font;
+  letter-spacing: 0;
 }
 p,
 textarea,
@@ -97,7 +102,6 @@ input[type="text"],
   color: #333;
 }
 
-em,
 blockquote {
   color: #777;
 }
@@ -117,64 +121,70 @@ em, blockquote { font-style: italic; font-size: 1em; }
       $leading-bottom: $anti_i - 3	);
 
     font-family: $headline_font;
+    letter-spacing: .015em * $anti_i;
   }
 }
-
+h4 {
+  border-bottom: 1px solid #eee;
+  margin-bottom: .5em;
+}
 a.button,
 button.button,
-.search-form input[type="submit"]
+.search-form input[type="submit"],
 a {
   text-decoration: none;
-  color: #0072FF;
+  font-family: sans-serif;
+  color: $accent_color;
   border-bottom: 1px dotted #0072FF;
+  letter-spacing: .05em;
 	z-index: 1;
 }
 a.button,
 button.button,
 .search-form input[type="submit"] {
 	position: relative;
-	height: 2em;
-	line-height: 2em;
-	font-size: 1em;
+	height: 3em;
+	line-height: 1em;
+	font-size: 1.05em;
   padding: .6em 1em;
-  border: none;
-  box-shadow: 0 0 4px #e3e3e3;
+  border: $border;
   background-color: #fefefe;
-
-  transition: background-color .5s ease-in;
+  text-transform: uppercase;
+  transition: background-color .25s ease-out;
 }
 button.button,
 .search-form input[type="submit"] {
   font-family: $headline_font;
   vertical-align: top;
   line-height: 1em;
-  max-height: 2em;
-	background-color: transparent;
+  max-height: 2.4em;
+	background-color: #fefefe;
 	cursor:pointer;
   -webkit-appearance: none;
 	-moz-appearance: none;
 }
 
 a:link {
-  color: #0072FF;
-  border-color: #0072FF;
+  color: $accent_color;
+  border-color: $accent_color;
 }
 a:visited {
-  color: #4C9CFF;
-  border-color: #4C9CFF;
+  color: darken( $accent_color, 10%);
+  border-color: darken( $accent_color, 10%);
 }
 a:hover {
-  color: #264E7F;
-  border-color: #264E7F;
+  color: darken( $accent_color, 30%);
+  border-color: darken( $accent_color, 30%);
 }
 a:active {
-  color: #005BCC;
-  border-color: #005BCC;
+  color: darken( $accent_color, 30%);
+  border-color: darken( $accent_color, 30%);
 }
 header nav ul.menu li a,
 .language-chooser-item.active a,
 .site-branding .site-title a{
-	border-bottom: none; color: #444;
+	border-bottom: none;
+  color: #444;
 }
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus,
@@ -197,27 +207,23 @@ button.button::after,
 	display: block;
 	position: absolute;
 	content: '';
+  top: 0em;
+  left: 0;
 	bottom: 0;
-	left: 0;
-	background-color: desaturate( darken( $accent_color, .3) , .3);
-	height: .1em;
+  right: 0;
 	width: 0;
+  height: 100%;
 	z-index: -1;
-	-webkit-transition: width .35s ease-out;
-     -moz-transition: width .35s ease-out;
-       -o-transition: width .35s ease-out;
-          transition: width .35s ease-out;
+  background-color: desaturate( darken( $accent_color, .3) , .3);
+  transition: width .15s ease-out;
 }
-button.button::after,
-.search-form input[type="submit"]::after {
-	top: 0em;
-  height: 2em;
-}
+
 a.button:hover,
 button.button:hover,
 .search-form input[type="submit"]:hover {
 	color: #fff;
   background-color: lighten($accent_color, .5);
+  border: 1px solid lighten($accent_color, 1);
 }
 
 a.button:hover::after,

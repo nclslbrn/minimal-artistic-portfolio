@@ -9,27 +9,43 @@ $col_num: 12;
   }
 }
 
-.row { position: relative; @include clearfix; }
+.row {
+  position: relative;
+  
+  @include breakpoint( phone ) {
+    display: block;
+  }
+  @include breakpoint( tablet ) {
+    display: block;
+  }
+  @include breakpoint( laptop ) {
+    display: flex;
+    flex-direction: row;
+  }
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 
 @for $i from 1 through $col_num {
 
   .col-#{$i}
   {
     @include breakpoint( phone ) {
-      width: percentage( 1);
+      flex-basis: 100%;
     }
     @include breakpoint( tablet ) {
-      width: percentage( 1 );
+      flex-basis: 100%;
     }
     @include breakpoint( laptop ) {
-      width: percentage( $i / $col_num );
+      flex-basis: percentage( $i / $col_num );
     }
+    width: auto;
   }
 }
 [class*='col-']{
   position: relative;
-  display: inline-block;
-  float: left;
+
 }
 .column img {
   max-width: 100%;

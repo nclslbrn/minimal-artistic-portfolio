@@ -240,7 +240,7 @@ function list_custom_posts_by_date( $type, $limit ) {
       <div class="<?= $type ?>-year-section">
 
         <h3 class="year"><?= $year ?></h3>
-        <div class="yearEventsList row">
+        <div class="yearEventsList">
       <?php foreach ( $post as $p): ?>
           <div id="post<?= $p['id']?>" class="events-list--event row clearfix">
 
@@ -368,7 +368,7 @@ function query_event_by_date()
       <?php if ($count == 0) : ?>
 
         <header class="entry-header actual-event">
-          <h1 class="entry-title"><?php echo __('Coming soon / Now', 'Minimal-Artistic-Portfolio'); ?></h1>
+          <h1 class="entry-title">&rdsh; <?php echo __('Coming soon / Now', 'Minimal-Artistic-Portfolio'); ?></h1>
         </header>
 
       <?php endif; ?>

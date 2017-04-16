@@ -183,7 +183,6 @@ a {
   font-family: sans-serif;
   color: #34495e;
   border-bottom: 1px dotted #0072FF;
-  letter-spacing: .05em;
   z-index: 1;
 }
 
@@ -1355,16 +1354,7 @@ form.search-form input[type="submit"] {
 }
 
 .event-on-home {
-  padding-top: .87305rem;
   padding-bottom: .87305rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-}
-
-.actual-event .entry-title,
-.event-on-home,
-.event-on-home p {
-  color: #eae2da;
 }
 
 .actual-event .entry-title::before,
@@ -1378,11 +1368,7 @@ form.search-form input[type="submit"] {
   bottom: 0;
   margin: 0 -25%;
   z-index: -1;
-  background: #3f4953;
-}
-
-.event-on-home::before {
-  background: linear-gradient(to bottom, #3f4953, #38414a, #34495e, #2f4154);
+  background-image: url(../img/pattern.png);
 }
 
 @media (min-width: 26.25em) and (max-width: 64em) {
@@ -1446,15 +1432,11 @@ form.search-form input[type="submit"] {
   padding-right: 1em;
 }
 
-.event-menu {
-  text-align: right;
-}
 @media (min-width: 26.25em) and (max-width: 64em) {
   .event-menu {
     display: block;
     float: none;
     margin-top: 1em;
-    margin-bottom: 1em;
   }
 }
 @media (min-width: 64em) {
@@ -1462,52 +1444,28 @@ form.search-form input[type="submit"] {
     display: inline;
     float: right;
     margin-top: -7em;
-    margin-bottom: 1em;
   }
 }
 
-#events-list .ac-container .event-year-section h3.year {
-  position: relative;
-  line-height: auto;
-  text-indent: .3em;
-  margin: 0;
-  padding: 0;
-  height: 0;
+#events-list h3.year {
   width: 12%;
 }
-#events-list .ac-container .event-year-section h3.year::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: .3em;
-  height: .3em;
-  margin-top: -.75em;
-  margin-left: -.15em;
-  border: 1px solid #e4e4e4;
-  background-color: #fefefe;
-  border-radius: 50%;
-  z-index: 1;
-}
-#events-list .ac-container .event-year-section .yearEventsList {
+#events-list .yearEventsList {
   display: block;
   position: relative;
-  padding-top: 6em;
-  padding-left: 12%;
-  padding-bottom: 1em;
+  margin-left: 12%;
   width: 88%;
-  border-left: 1px solid #eee;
   list-style-type: none;
-  z-index: -1;
 }
 @media (min-width: 26.25em) and (max-width: 64em) {
-  #events-list .ac-container .event-year-section .yearEventsList .thumbnail img {
+  #events-list .yearEventsList .thumbnail img {
     display: block;
     width: inherit;
     margin: 0 auto;
   }
 }
 @media (min-width: 64em) {
-  #events-list .ac-container .event-year-section .yearEventsList .thumbnail img {
+  #events-list .yearEventsList .thumbnail img {
     display: inline;
     width: 100%;
     margin: 0;
