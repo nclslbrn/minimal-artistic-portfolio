@@ -76,7 +76,6 @@
 		      .bindPopup( locations[i].info )
 		      .addTo( map );
 		}
-
 		jQuery(document).ready(function(){
 	    jQuery("#toggle-map").click(function(){
 	        jQuery("#map").css("height", "650px");

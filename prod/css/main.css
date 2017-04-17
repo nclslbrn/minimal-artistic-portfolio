@@ -82,8 +82,8 @@ input[type="text"],
 .entry-content ul li a,
 .related-projects li a,
 .related-events li a {
-  line-height: 2.121;
-  font-size: 1.414em;
+  line-height: 1.6875;
+  font-size: 1.125em;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0;
 }
@@ -112,7 +112,7 @@ h1 {
   padding-bottom: 0.87305rem;
   margin-bottom: 2rem;
   font-family: "Sintony", sans-serif;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.006em;
 }
 
 h2 {
@@ -123,7 +123,7 @@ h2 {
   padding-bottom: 0.97754rem;
   margin-bottom: 1rem;
   font-family: "Sintony", sans-serif;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.005em;
 }
 
 h3 {
@@ -134,7 +134,7 @@ h3 {
   padding-bottom: 0.08203rem;
   margin-bottom: 1rem;
   font-family: "Sintony", sans-serif;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.004em;
 }
 
 h4 {
@@ -145,7 +145,7 @@ h4 {
   padding-bottom: 0.18652rem;
   margin-bottom: 0rem;
   font-family: "Sintony", sans-serif;
-  letter-spacing: 0.045em;
+  letter-spacing: 0.003em;
 }
 
 h5 {
@@ -156,7 +156,7 @@ h5 {
   padding-bottom: 0.29102rem;
   margin-bottom: -1rem;
   font-family: "Sintony", sans-serif;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.002em;
 }
 
 h6 {
@@ -167,7 +167,7 @@ h6 {
   padding-bottom: 0.39551rem;
   margin-bottom: -2rem;
   font-family: "Sintony", sans-serif;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.001em;
 }
 
 h4 {
@@ -824,7 +824,7 @@ header.site-header .row .menu-toggle.open .menu-icon::after {
 
 .site-header .row .main-navigation.toggled {
   background-color: #fff;
-  z-index: 2;
+  z-index: 1001;
   transform: translateX(0);
   transition: transform .35s ease-in;
 }
@@ -1417,7 +1417,7 @@ form.search-form input[type="submit"] {
 .project-summary .column.cartel .wrapper .description,
 .events-list--event .event-info.column .wrapper p.date,
 .event-on-home .event-info p.date {
-  padding-bottom: 1.414em;
+  padding-bottom: 1.125em;
 }
 
 .attachment-full {
@@ -1473,7 +1473,16 @@ form.search-form input[type="submit"] {
   margin: 0;
   padding: 0;
   height: 0;
-  width: 12%;
+}
+@media (min-width: 26.25em) and (max-width: 64em) {
+  #events-list .ac-container .event-year-section h3.year {
+    width: 5%;
+  }
+}
+@media (min-width: 64em) {
+  #events-list .ac-container .event-year-section h3.year {
+    width: 12%;
+  }
 }
 #events-list .ac-container .event-year-section h3.year::after {
   content: '';
@@ -1486,18 +1495,28 @@ form.search-form input[type="submit"] {
   border: 1px solid #e4e4e4;
   background-color: #fefefe;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 11;
 }
 #events-list .ac-container .event-year-section .yearEventsList {
   display: block;
   position: relative;
   padding-top: 6em;
-  padding-left: 12%;
   padding-bottom: 1em;
-  width: 88%;
   border-left: 1px solid #eee;
   list-style-type: none;
-  z-index: -1;
+  z-index: 10;
+}
+@media (min-width: 26.25em) and (max-width: 64em) {
+  #events-list .ac-container .event-year-section .yearEventsList {
+    padding-left: 5%;
+    width: 100%;
+  }
+}
+@media (min-width: 64em) {
+  #events-list .ac-container .event-year-section .yearEventsList {
+    padding-left: 12%;
+    width: 88%;
+  }
 }
 @media (min-width: 26.25em) and (max-width: 64em) {
   #events-list .ac-container .event-year-section .yearEventsList .thumbnail img {

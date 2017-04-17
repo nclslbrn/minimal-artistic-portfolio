@@ -223,7 +223,14 @@
     margin: 0;
     padding: 0;
     height: 0;
-    width: 12%;
+
+    @include breakpoint( phone ) {
+      width: 5%;
+    }
+    @include breakpoint( laptop ) {
+      width: 12%;
+    }
+
 
     &::after {
       content: '';
@@ -236,19 +243,26 @@
       border: 1px solid #e4e4e4;
       background-color: #fefefe;
       border-radius: 50%;
-      z-index: 1;
+      z-index: 11;
     }
   }
   .yearEventsList {
     display: block;
     position: relative;
     padding-top: 6em;
-    padding-left: 12%;
+    @include breakpoint( phone ) {
+      padding-left: 5%;
+      width: 100%;
+    }
+    @include breakpoint( laptop ) {
+      padding-left: 12%;
+      width: 88%;
+    }
     padding-bottom: 1em;
-    width: 88%;
+
     border-left: 1px solid #eee;
     list-style-type: none;
-    z-index: -1;
+    z-index: 10;
 
     .thumbnail img{
       @include breakpoint( phone ) {

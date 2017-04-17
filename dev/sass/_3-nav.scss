@@ -180,7 +180,7 @@ header.site-header .row{
 
 .site-header .row .main-navigation.toggled {
   background-color: #fff;
-  z-index: 2;
+  z-index: 1001;
 
   transform: translateX( 0);
   transition: transform .35s ease-in;

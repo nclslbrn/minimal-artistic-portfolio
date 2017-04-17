@@ -1,4 +1,4 @@
-# Minimal Artistic Portfolio theme 
+# Minimal Artistic Portfolio theme
 ![Wordpress](https://img.shields.io/wordpress/v/akismet.svg)
 ![GPL](https://img.shields.io/aur/license/yaourt.svg)
 ![Status](https://img.shields.io/pypi/status/Django.svg)
@@ -28,6 +28,9 @@ Note: Translation content function work with [qTranslateX](https://wordpress.org
 ### Changelog
 - Update grid with flexbox
 - Load google font in function.php
+- Fix z-index bug on events list page between year timeline bullet and events link
+- Fix z-index bug due to leafleft control and mobile navigation
+- Fix heading overflow (changing scale from golden ration to major second)
 
 ### Installation
 - install with `npm install`
