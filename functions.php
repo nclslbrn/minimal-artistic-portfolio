@@ -127,7 +127,7 @@ function minimal_artistic_portfolio_scripts() {
 	wp_enqueue_script("jquery", "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", false, "3.1.1");
 
 	//wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Oxygen:700|Source+Sans+Pro" );
-	wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Poppins|Sintony" );
+	wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Poppins:300|Sintony" );
 
 
 

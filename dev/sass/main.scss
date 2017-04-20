@@ -28,7 +28,7 @@ $border:  1px solid #eee;
 
 @mixin breakpoint($point) {
   @if $point == phone {
-    @media ( min-width: em-calc( 420px ) ) and ( max-width: em-calc( 1024px ) ){ @content; }
+    @media ( min-width: em-calc( 240px ) ) and ( max-width: em-calc( 1024px ) ){ @content; }
   }
   @else if $point == tablet {
     @media ( min-width: em-calc( 720px ) )  { @content; }
