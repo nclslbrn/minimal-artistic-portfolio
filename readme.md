@@ -5,7 +5,7 @@
 ![Dependencies](https://img.shields.io/versioneye/d/ruby/rails.svg)
 
 
-A wordpress theme for artist (painter, sculptor, video-producer, ...)
+A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS (CSS preprocessor) & Gulp (Javascript task runner)
 
 
 ![theme screenshot Nicolas Lebrun logo](https://raw.githubusercontent.com/nclslbrn/Minimal-artist-portfolio/master/screenshot.png)
@@ -27,10 +27,12 @@ Note: Translation content function work with [qTranslateX](https://wordpress.org
 
 ### Changelog
 - Update grid with flexbox
-- Load google font in function.php
+- Load google font in functions.php
 - Fix z-index bug on events list page between year timeline bullet and events link
 - Fix z-index bug due to leafleft control and mobile navigation
 - Fix heading overflow (changing scale from golden ration to major second)
+- Change the behaviour of event thumbnail processing (no crop just resize)
+- Add responsive rules on dev/sass/_1-typography.scss for headings
 
 ### Installation
 - install with `npm install`
