@@ -148,7 +148,7 @@ add_action( 'wp_enqueue_scripts', 'minimal_artistic_portfolio_scripts' );
  *
  */
 add_image_size ( 'cover', 640, 400, true );
-add_image_size ( 'carton', 400, 640, true );
+add_image_size ( 'carton', 400, 640, false );
 
 function map_stylesheet() {
 	if ( is_page_template( 'events.php' )  || is_singular( 'event' )  || ( is_front_page() ) || ( is_home() )) {
