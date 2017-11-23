@@ -13,3 +13,16 @@
 .map-overlay.active .map {
   pointer-events: auto;
 }
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.single-event .icon,
+.event-info .icon {
+  fill: lighten($accent_color, 55%);
+}

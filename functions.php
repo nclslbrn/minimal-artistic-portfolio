@@ -116,6 +116,16 @@ function minimal_artistic_portfolio_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+			'name' => __( 'Header Sidebar', 'Minimal-Artistic-Portfolio' ),
+			'id' => 'sidebar-2',
+			'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'Minimal-Artistic-Portfolio' ),
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</li>',
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => '</h2>',
+	) );
+
 }
 add_action( 'widgets_init', 'minimal_artistic_portfolio_widgets_init' );
 
@@ -127,9 +137,6 @@ function minimal_artistic_portfolio_scripts() {
 	wp_enqueue_script("jquery", "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", false, "3.1.1");
 
 	//wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Oxygen:700|Source+Sans+Pro" );
-	wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Poppins:300|Sintony" );
-
-
 
 	wp_enqueue_style( "Minimal-Artistic-Portfolio-style", get_template_directory_uri() . '/prod/css/main.css' );
 
@@ -156,7 +163,7 @@ function map_stylesheet() {
 		wp_register_script('leafletScript', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js', false, '2.1.9', false);
 		wp_enqueue_script('leafletScript');
 	}
-	if ( is_singular( 'event' ) ) {
+	if (is_page_template( 'events.php' )  || is_singular( 'event' ) ) {
 		wp_enqueue_script( 'Minimal-Artistic-Portfolio-event-map', get_template_directory_uri() . '/prod/js/event-map.js', array('jquery', 'leafletScript'), '20160410', true );
 	}
 	wp_enqueue_style('fluidBoxStyle', get_template_directory_uri() . '/prod/css/fluidbox.min.css');

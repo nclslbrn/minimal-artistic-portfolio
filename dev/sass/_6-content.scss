@@ -11,13 +11,11 @@
 }
 .project-summary,
 .events-list--event {
-
   position: relative;
   height: auto;
   line-height: 0;
   margin-bottom: 2em;
   background-color: #fff;
-  border: $border;
 }
 
 .project-summary .project-cover {
@@ -49,7 +47,6 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border: 0 solid rgba(255,255,255,.7);
   background-color: transparent;
   z-index: 99;
 
@@ -61,43 +58,15 @@
   transform: scale(1.1);
 }
 .project-summary .project-cover:hover::before {
-  border-width: 2px;
   background: transparentize( $accent_color, .75);
-  background: linear-gradient(to right, transparentize( $accent_color, .84) , transparentize( complement( $accent_color ), .84));
+  background: linear-gradient(to right, transparentize( $accent_color, .8) , transparentize( complement( $accent_color ), .8));
   -moz-transition: border-width .35s;
   -webkit-transition: border-width .35s;
   transition: border-width .35s;
-}
-.project-summary .project-cover::after {
-  position: absolute;
-  content: '';
-  font-size: 5em;
-  height: 1em;
-  line-height: 1em;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto 0;
-  font-weight: bolder;
-  text-align: center;
-  vertical-align: middle;
-  background-image: url(../img/expand.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 0;
-  z-index: 100;
-  opacity: 0;
 
-  transition: all .35s ease-out;
+  @include stripe_border(all);
 }
-.project-summary .project-cover:hover::after {
-  opacity: .6;
-  background-size: 1em;
 
-  transition: all .15s ease-out;
-
-}
 .project-summary,
 .events-list--event,
 .event-on-home {
@@ -109,48 +78,26 @@
   @include breakpoint( laptop ) {
     flex-direction: row;
   }
+  box-shadow: 0 2px 4px rgba(204, 204, 204, 0.05);
 }
+
 .event-on-home {
   position: relative;
   display: flex;
+  background: #F1F1F1;
   width: 100%;
-
+  padding: 2rem;
 }
-
-.actual-event .entry-title{
-  position: relative;
-  margin-top: 0;
-  padding-top: 4.12695rem;
-  margin-bottom: 0;
-  padding-bottom: 2.87305rem;
+.event-on-home .column {
+  padding: 0 1em;
+  margin: 1em 2em;
 }
+.project-summary,
+.event-info,
 .event-on-home {
-  padding-top: .87305rem;
-  padding-bottom: .87305rem;
-  align-self: flex-end;
-
-}
-.actual-event .entry-title,
-.event-on-home,
-.event-on-home p {
-  color: lighten( complement( $accent_color), 60%);
-}
-.actual-event .entry-title::before,
-.event-on-home::before {
-  content: '';
-  position: absolute;
-  display: block;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0 -25%;
-  z-index: -1;
-  background: desaturate( $accent_color, 15%);
-}
-.event-on-home::before {
-
-  background: linear-gradient(to bottom, desaturate( $accent_color, 15%), darken( desaturate( $accent_color, 15%), 3%), $accent_color, darken( $accent_color, 3%) );
+  .project-title, .event-title {
+    margin-bottom: 1rem;
+  }
 }
 .project-summary .column.cartel,
 .events-list--event .column.event-info,
@@ -164,19 +111,39 @@
   .wrapper {
     width: 80%;
     height: 60%;
-    margin: auto;
+    margin: auto 0 auto 10%;
   }
+}
+.project-summary .column.cartel .wrapper .description {
+  @include breakpoint( laptop ) {  max-width: 75%; }
+
 }
 .alignleft { float: left; margin-right: 1em; }
 .alignright { float: right; margin-left: 1em; }
-.project-title { font-style: italic; }
+.project-title { font-style: italic;
+}
+h4.project-title {
+  margin-bottom: 0;
+}
 
 .project-summary .column.cartel .wrapper .description,
 .events-list--event .event-info.column .wrapper p.date,
 .event-on-home .event-info p.date{
-  padding-bottom: 1em * $ratio;
+  display: block;
+  margin-bottom: 1em * $ratio;
 }
-.attachment-full { max-width: 100%; height: auto;}
+.attachment-full {
+  @include breakpoint( phone ) {
+    max-width: 110%;
+    margin: 0 -5%;
+  }
+  @include breakpoint( laptop ) {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  height: auto;
+}
 
 //Single project & single event
 .single-project,
@@ -185,16 +152,52 @@
   .attachment-full,
   .related-events,
   .related-projects {
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+    li {
+      margin-left: 1em;
+    }
   }
   .map-overlay {
     @include breakpoint( phone ) {
       padding-bottom: 2em;
     }
   }
-  .row .column .cartel,
-  .row .column .event-of-this-project {
-    padding-right: 1em;
+  .row {
+    align-items: flex-start;
+  }
+  @include breakpoint( laptop ) {
+    .event-text.filled .column .place,
+    .project-text.filled .column .cartel {
+      padding-top: 1.35em;
+      @include stripe_border(top);
+    }
+    .event-text.filled.no-project .column .date,
+    .project-text.filled.no-event .column .cartel {
+      padding-bottom: 1.35em;
+      @include stripe_border(bottom);
+    }
+    .event-text.filled .column .related-projects,
+    .project-text.filled .column .related-events {
+      padding-bottom: 1.35em;
+      @include stripe_border(bottom);
+    }
+  }
+  .project-text.filled .column:first-child ,
+  .event-text.filled .column:first-child {
+    @include breakpoint( phone ) {
+      padding: 0 0 1rem 0;
+      margin: 0 0 2em 0;
+      @include stripe_border(bottom);
+
+    }
+    @include breakpoint( laptop ) {
+      padding: 0 2rem 1rem 0;
+      margin: 0 0 2em 0;
+    }
+
+  }
+  .row .column:last-child {
+
   }
 }
 
@@ -204,6 +207,7 @@
     float: none;
     margin-top: 1em;
     margin-bottom: 1em;
+    padding-bottom: 2em;
   }
   @include breakpoint( laptop ) {
     display: inline;
@@ -239,8 +243,8 @@
       height: .3em;
       top: .5em;
       margin-left: -.15em;
-      border: 1px solid #e4e4e4;
-      background-color: #fefefe;
+      border: 1px solid darken($base_color, 15%);
+      background-color: $base_color;
       border-radius: 50%;
       z-index: 11;
     }
@@ -248,6 +252,7 @@
   .yearEventsList {
     display: block;
     position: relative;
+    margin-bottom: -1rem;
     padding-top: 6em;
     @include breakpoint( phone ) {
       padding-left: 5%;
@@ -255,11 +260,10 @@
     }
     @include breakpoint( laptop ) {
       padding-left: 12%;
-      width: 88%;
     }
-    padding-bottom: 1em;
+    padding-bottom: 2em;
 
-    border-left: 1px solid #eee;
+    border-left: 1px solid darken($base_color, 15%);
     list-style-type: none;
     z-index: 10;
 
@@ -291,7 +295,6 @@ main::after {
 .error-404 {
   margin-top: 3em;
   text-align: center;
-  border: $border;
 
   .center { padding-bottom: 3em; }
   .legend {

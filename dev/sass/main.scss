@@ -13,34 +13,16 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-$emBase: 16px; //default
-$accent_color: #34495e;
-$base_color: rgba(240, 230, 245, 0.47);
+$emBase: 15px; //default
+$accent_color: #4A5459; //#34495E; //#B5646A;
+$base_color: #fefefe;
 $box_shadow: 0 0 150px $base_color inset;
-$border:  1px solid #eee;
+$border_color: #333;
+$black_border: 2px solid #333;
+$accent_border: 2px solid lighten($accent_color, 55%);
 
 
-// FUNCTION (em calculator)
-@function em-calc($pixelBasedNum){
-  @return $pixelBasedNum / $emBase * 1em
-}
-
-
-@mixin breakpoint($point) {
-  @if $point == phone {
-    @media ( min-width: em-calc( 240px ) ) and ( max-width: em-calc( 1024px ) ){ @content; }
-  }
-  @else if $point == tablet {
-    @media ( min-width: em-calc( 720px ) )  { @content; }
-  }
-  @else if $point == laptop {
-    @media ( min-width: em-calc( 1024px ) ) { @content; }
-  }
-  @else if $point == desktop {
-    @media ( min-width: em-calc( 1280px ) ) { @content; }
-  }
-}
-
+@import '0-mixins';
 @import '1-typography';
 @import '2-grid';
 
@@ -50,11 +32,11 @@ $border:  1px solid #eee;
   padding: 0;
 }
 body{
-  //@include linear-gradient-b(280deg, #fefefe, #ccc);
   position: relative;
   height: 100%;
   min-height: 100vh;
-  background: #fefefe;
+  background: url(../img/handmadepaper.png);
+  //background: #fff;
   color: #333;
   font-size: 1em;
 }
@@ -65,10 +47,10 @@ body{
   display: block;
 
   @include breakpoint( phone ) {
-    width: 80%;
+    width: 90%;
   }
   @include breakpoint( tablet ) {
-    width: 80%;
+    width: 90%;
   }
   @include breakpoint( laptop ) {
     width: 1000px;

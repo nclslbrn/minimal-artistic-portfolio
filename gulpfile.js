@@ -1,14 +1,13 @@
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    cssnano = require('gulp-cssnano'),
+    cleanCSS = require('gulp-clean-css'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
-    //livereload = require('gulp-livereload'),
     del = require('del'),
     watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -17,14 +16,19 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload;
 
+var COMPATIBILITY = [
+      'last 2 versions',
+      'ie >= 9',
+      'Android >= 2.3'
+  ];
 gulp.task('styles', function() {
   return sass('dev/sass/**.scss', { style: 'expanded' })
-    .pipe(sourcemaps.init())
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('prod/css'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(cssnano())
-    .pipe(sourcemaps.write())
+    //.pipe(sourcemaps.init())
+    .pipe(cleanCSS({compatibility: 'ie9'}))
+    //.pipe(sourcemaps.write())
     .pipe(gulp.dest('prod/css'))
     .pipe(notify({ message: 'SASS processing minifying and complete' }));
 });
@@ -42,7 +46,6 @@ gulp.task('images', function() {
   return gulp.src('dev/img/**/*')
     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest('prod/img'))
-    //.pipe(livereload())
     .pipe(notify({ message: 'Images task complete' }));
 });
 gulp.task('sync', function() {
@@ -71,7 +74,6 @@ gulp.task('watch', ['sync'], function () {
   gulp.watch('**/.DS_Store', ['remove']);
   gulp.watch('**/**.php');
 
-  livereload.listen();
 });
 
 
@@ -93,3 +95,4 @@ gulp.task('build', function() {
   	.pipe(notify({ message: 'Zip task complete', onLast: true }));
 
 });
+gulp.task('default',['watch']);

@@ -1,7 +1,7 @@
 
 jQuery.noConflict();
 
-jQuery( document ).ready(function( $ ) {
+jQuery( window ).ready(function( $ ) {
 
   var mapHeight = $('.attachment-full').height();
   var mapWidth = $('.col-map').width();

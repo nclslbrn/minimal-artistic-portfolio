@@ -22,24 +22,33 @@
     </div>
 
   </div>
-  <div class="row">
+  <div class="row event-text
+  <?php if(get_the_content() !== '') echo ' filled'; ?>
+  <?php if(get_project(get_the_ID()) == false) echo ' no-project'; ?>">
 
-    <div class="col-3 column">
+    <div class="col-4 column">
 
-      <p class="place"><?php echo get_post_meta( get_the_ID(), 'PLACE', 'true'); ?></p><br />
+      <p class="place">
+        <svg class="icon icon-location">
+          <use xlink:href="#icon-location"></use>
+        </svg>
+        <?php echo get_post_meta( get_the_ID(), 'PLACE', 'true'); ?>
+      </p>
 
       <p class="date">
+        <svg class="icon icon-calendar">
+          <use xlink:href="#icon-calendar"></use>
+        </svg>
         <?php _e( 'From', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n('j F Y', strtotime(get_post_meta( get_the_ID(), 'BEGINDATE', 'true') ) ); ?>
         <?php _e( 'to', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n('j F Y', strtotime(get_post_meta( get_the_ID(), 'ENDDATE', 'true') ) ); ?>
       </p></br />
-
-      <p class="related-project">
-        <?php get_project(get_the_ID(), 'projet(s)/project(s)');?>
-      </p>
+      <?php if(get_project(get_the_ID()) !== false) : ?>
+        <?php echo get_project(get_the_ID());?>
+      <?php endif; ?>
     </div>
-    <div class="col-9 column">
+    <div class="col-8 column">
         <?php the_content(); ?>
     </div>
-
   </div>
+
 <?php  ?>

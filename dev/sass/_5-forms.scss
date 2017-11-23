@@ -14,16 +14,18 @@ textarea {
 
 form {
   font-family: $body_font;
-
+  textarea {
+   font-family: inherit;
+  }
   textarea,
   input[type="text"] {
-  display: block;
-  margin: 0;
-  width: 95%;
-  width: calc( 100% - 2em);
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
+    display: block;
+    margin: 0;
+    width: 95%;
+    width: calc( 100% - 2em);
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
   }
   textarea:focus,
   input[type="text"]:focus,
@@ -33,10 +35,10 @@ form {
   textarea,
   input[type="text"],
   input[type="search"] {
-    margin: 1em;
+    margin: 1em 0;
     padding: 1em;
     border: none;
-    border: $border;
+    border: 2px solid #EFEFEE;
     transition: border 0.3s;
   }
   textarea:focus,
@@ -44,7 +46,7 @@ form {
   input[type="text"].focus,
   input[type="search"]:focus {
     box-shadow: 0 0 .4em transparentize(invert($accent_color), .92);
-    border-color: #ccc;
+    border-color: $accent_color;
   }
   label{
     clear: both;
@@ -67,5 +69,37 @@ form.search-form {
   }
   input[type="submit"] {
     vertical-align: middle;
+  }
+}
+
+.top-bar .widget_search form {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  label input[type="search"],
+  input[type="submit"] {
+    font-size: .85em;
+    padding: 0 1rem;
+    line-height: 1rem;
+    height: 2.3rem;
+    border: 1px solid #EFEFEE;
+    transition: all .15s ease-out;
+    color: inherit;
+    &:hover,
+    &:focus {
+      border: 1px solid $accent_color;
+    }
+  }
+  label {
+    input[type="search"] {
+      margin-right: 0;
+      border-right: none;
+    }
+  }
+  input[type="submit"] {
+    margin: 1em 1em 1em 0;
+    line-height: .2rem;
+
+    &:hover { color: #fff; }
   }
 }

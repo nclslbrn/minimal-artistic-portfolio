@@ -21,6 +21,7 @@
 		</div>
 		<div class="col-9 site-info">
 			<p>
+				
 				<?php echo get_site_url() . ' '; ?><?php _e( 'All right reserved', 'Minimal-Artistic-Portfolio' ); ?>
 
 				<span class="sep"> | </span>

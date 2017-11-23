@@ -1,0 +1,109 @@
+// =============================================================================
+// Responsive breakpoint
+// =============================================================================
+
+@mixin breakpoint($point) {
+  @if $point == phone {
+    @media ( min-width: em-calc( 240px ) ) and ( max-width: em-calc( 1024px ) ){ @content; }
+  }
+  @else if $point == tablet {
+    @media ( min-width: em-calc( 720px ) )  { @content; }
+  }
+  @else if $point == laptop {
+    @media ( min-width: em-calc( 1024px ) ) { @content; }
+  }
+  @else if $point == desktop {
+    @media ( min-width: em-calc( 1280px ) ) { @content; }
+  }
+}
+// =============================================================================
+// EM CALCULATOR
+// =============================================================================
+
+@function em-calc($pixelBasedNum) {
+  @return $pixelBasedNum / $emBase * 1em;
+}
+
+// =============================================================================
+// CLEARFIX
+// =============================================================================
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+// =============================================================================
+// BORDER IMAGE
+// =============================================================================
+
+@mixin stripe_border($position) {
+  @if $position == top {
+    border-top: 6px solid;
+  }
+  @else if $position == bottom {
+    border-bottom: 6px solid;
+  }
+  @else if $position == left {
+    border-left: 6px solid;
+  }
+  @else if $position == right {
+    border-right: 6px solid;
+  }
+  @else if $position == all {
+    border: 6px solid;
+  }
+  border-image: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0),
+    rgba(0,0,0,0) 3px,
+    lighten($accent_color, 60%) 3px,
+    lighten($accent_color, 60%) 6px
+  ) 6;
+}
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}

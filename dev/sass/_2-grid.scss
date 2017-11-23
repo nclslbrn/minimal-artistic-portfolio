@@ -1,17 +1,14 @@
+// =============================================================================
+// GRID PROPERTIES
+// =============================================================================
+
+$ratio: 1.618;
 $col_num: 12;
-
-
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
+$col_ratio: 1;
 
 .row {
   position: relative;
-  
+
   @include breakpoint( phone ) {
     display: block;
   }
@@ -29,8 +26,7 @@ $col_num: 12;
 
 @for $i from 1 through $col_num {
 
-  .col-#{$i}
-  {
+  .col-#{$i}{
     @include breakpoint( phone ) {
       flex-basis: 100%;
     }
@@ -38,17 +34,28 @@ $col_num: 12;
       flex-basis: 100%;
     }
     @include breakpoint( laptop ) {
-      flex-basis: percentage( $i / $col_num );
+
+      $width: ((100% / $ratio) / $col_num ) * $i;
+      // regular column width
+      // $width: ( 100% / $col_num ) * $i;
+
+      flex: #{$i};
+      flex-basis: $width;
+      width: $width;
     }
     width: auto;
   }
 }
 [class*='col-']{
   position: relative;
-
 }
+
+
 .column img {
   max-width: 100%;
   height: auto;
+}
 
+.clearfix {
+  @include clearfix;
 }

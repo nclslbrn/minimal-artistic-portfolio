@@ -116,55 +116,81 @@ function list_custom_posts( $type, $limit)
   //wp_reset_postdata();
 
 }
-function get_event($message)
+function get_event( $post_id )
 {
     global $wp_query;
-    $events = get_post_custom($wp_query->post->ID);
-    if(!empty($events['event'][0])){
-        ?>
-        <p class="event-of-this-project"><?php _e('Events', 'Minimal-Artistic-Portfolio'); ?>:</p><ul class="related-events">
-        <?php $eventQuery = explode(',', $events['event'][0] ); ?>
-        <?php foreach ($eventQuery as $event)
-        {
+    $events = get_post_meta($post_id, 'event', true);
+    $event_module = '';
+    $event_module_result = '';
+
+    if( !empty($events[0]) ){
+
+        $event_module .= '<p class="event-of-this-project">'. __('Events', 'Minimal-Artistic-Portfolio') .': </p>';
+        $event_module .= '<ul class="related-events">';
+
+        foreach ((array) $events as $event) {
+
           $title = get_the_title( $event );
           $url = get_permalink( $event );
-            ?>
-            <li><a href="<?= $url ?>"><?= $title ?></a></li>
-            <?php
+
+          $event_module_result .= '<li><a href="'.$url.'">'. $title .'</a></li>';
+
         }
-        ?></ul><?php
+    }
+    if( empty( $event_module_result) ) {
+
+        return false;
+
+    } else {
+
+      $event_module .= $event_module_result . '</ul>';
+
+      return $event_module;
+
     }
 }
-function get_project($eventId, $message)
-{
+function get_project( $eventId ) {
 
-  global $wpdb;
-  $projectQuery = $wpdb->get_results("SELECT post_id, meta_value
-                                      FROM $wpdb->postmeta
-                                      WHERE meta_key = 'event'", ARRAY_A );
-    if(!empty($projectQuery))
-    {
-      ?><p class="list-title"><?php _e('Projects', 'Minimal-Artistic-Portfolio'); ?>:</p><ul class="related-projects"><?php
-      $returnedProject = array();
-      foreach($projectQuery as $project)
-      {
-        $returnedProject['id'] = $project['post_id'];
-        $returnedProject['savedEvent'] = explode(',', $project['meta_value']);
+  $project_module = '';
+  $project_query = new WP_Query(
+    array(
+      'post_type' => 'project',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+      'meta_query'=> array(
+        array(
+          'key'     => 'event',
+          'value'   =>  $eventId,
+          'compare' => 'IN'
+        )
+      )
+    ) );
 
-        if(in_array($eventId, $returnedProject['savedEvent']))
-        {
-          $title = get_the_title($returnedProject['id']);
-          $url = get_permalink($returnedProject['id']);
-          ?>
-          <li><a href="<?= $url ?>"><?= $title ?></a></li>
-          <?php
-        }else{
-          ?>
-          <?php
-        }
+    $event_projects = $project_query->posts;
+
+    if( $project_query->have_posts() ) {
+
+      $project_module = '<p class="list-title">'. __('Projects', 'Minimal-Artistic-Portfolio') .':</p>';
+      $project_module .= '<ul class="related-projects">';
+
+      foreach($event_projects as $project ) {
+
+        $url = get_permalink( $project->ID );
+        $project_module .= '<li><a href="'. $url .'">'. $project->post_title .'</a></li>';
+
       }
+
+
+      $project_module .= '</ul>';
+
+      return $project_module;
+
+    } else {
+
+      return false;
+
     }
-    wp_reset_postdata();
+
 }
 function list_custom_posts_by_date( $type, $limit ) {
 
@@ -245,19 +271,27 @@ function list_custom_posts_by_date( $type, $limit ) {
           <div id="post<?= $p['id']?>" class="events-list--event row clearfix">
 
             <?php if(!empty($p['thumbnail'])): ?>
-              <div class="thumbnail col-4 column">
+              <div class="thumbnail col-5 column">
                 <?= $p['thumbnail']; ?>
               </div>
             <?php endif; ?>
 
-              <div class="event-info <?php echo (!empty($p['thumbnail'])? "col-8": "col-12"); ?> column">
+              <div class="event-info <?php echo (!empty($p['thumbnail'])? "col-7": "col-12"); ?> column">
 
                 <div class="wrapper">
 
-                  <h4><?= $p['title'] ?></h4>
+                  <h4 class="event-title"><?= $p['title'] ?></h4>
 
-                  <p class="place"><?= $p['place'] ?></p>
+                  <p class="place">
+                    <svg class="icon icon-location">
+                      <use xlink:href="#icon-location"></use>
+                    </svg>
+                    <?= $p['place'] ?>
+                  </p>
                   <p class="date">
+                    <svg class="icon icon-calendar">
+                      <use xlink:href="#icon-calendar"></use>
+                    </svg>
                     <?php _e( 'From', 'Minimal-Artistic-Portfolio' ); ?>
                     <?php echo ' ' . $p['beginDate']; ?>
                     <?php _e( 'to', 'Minimal-Artistic-Portfolio' ); ?>
@@ -368,7 +402,7 @@ function query_event_by_date()
       <?php if ($count == 0) : ?>
 
         <header class="entry-header actual-event">
-          <h1 class="entry-title">&rdsh; <?php echo __('Coming soon / Now', 'Minimal-Artistic-Portfolio'); ?></h1>
+          <h2 class="entry-title"><?php echo __('Coming soon / Now', 'Minimal-Artistic-Portfolio'); ?></h2>
         </header>
 
       <?php endif; ?>

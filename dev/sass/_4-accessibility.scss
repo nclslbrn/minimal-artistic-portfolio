@@ -31,3 +31,59 @@
 #content[tabindex="-1"]:focus {
 	outline: 0;
 }
+body {
+	#loader	{ display: none; }
+}
+body.no-scroll {
+	display: block;
+	max-height: 100vh;
+	pointer-events: none;
+	overflow: hidden;
+
+	#loader {
+		display: block;
+
+		div.overlay {
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			z-index: 888;
+		}
+		svg.spinner {
+		  position: absolute;
+		  top: 50vh;
+		  left: 50%;
+		  margin-left: -32px;
+		  margin-top: -32px;
+		  width: 64px;
+		  height: 64px;
+		  animation: cw-rotate .5s linear infinite;
+			z-index: 999;
+
+			.path {
+			  fill: none;
+			  stroke: #333;
+			  stroke-width: 12px;
+			  stroke-miterlimit: 10;
+			  stroke-dasharray: 1500;
+			  stroke-dashoffset: 1500;
+			  stroke-linecap: square;
+			  stroke-linejoin: bevel;
+			  animation: dash .5s linear infinite;
+			}
+		}
+	}
+}
+@keyframes dash {
+  from { stroke-dashoffset: 1500; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes cw-rotate {
+  to { transform: rotate( 360deg); }
+}
