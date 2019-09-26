@@ -131,6 +131,15 @@ const frontConfig = {
                     presets: ['@babel/preset-env']
                 }
             }
+        }, {
+            test: require.resolve('jquery'),
+            use: [{
+                loader: 'expose-loader',
+                options: 'jQuery'
+            }, {
+                loader: 'expose-loader',
+                options: '$'
+            }]
         }, { // Apply rule for .sass, .scss or .css files
             test: /\.(sa|sc|c)ss$/,
 

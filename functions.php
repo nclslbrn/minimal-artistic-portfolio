@@ -137,14 +137,12 @@ function minimal_artistic_portfolio_scripts() {
 	wp_enqueue_script("jquery", "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", false, "3.1.1");
 
 	//wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Oxygen:700|Source+Sans+Pro" );
+	wp_enqueue_style('leafletStyle', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css');
 
-	wp_enqueue_style( "Minimal-Artistic-Portfolio-style", get_template_directory_uri() . '/build/css/main.css' );
+	wp_enqueue_style( "Minimal-Artistic-Portfolio-style", get_template_directory_uri() . '/style.css' );
+	wp_enqueue_script('leafletScript', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js', false, '2.1.9', false );
 
-	wp_enqueue_script( "Minimal-Artistic-Portfolio-navigation", get_template_directory_uri() . "/build/js/navigation.js", array(), "20151215", true );
-
-	wp_enqueue_script( "Minimal-Artistic-Portfolio-mode", get_template_directory_uri() . "/build/js/mode-chooser.js", array(), "1.0.0", true );
-
-	wp_enqueue_script( "Minimal-Artistic-Portfolio-skip-link-focus-fix", get_template_directory_uri() . "/build/js/skip-link-focus-fix.js", array(), "20151215", true );
+	wp_enqueue_script( "Minimal-Artistic-Portfolio-script", get_template_directory_uri() . "/build/js/front-bundle.js", array('leafletScript'), "20151215", true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -159,23 +157,7 @@ add_action( 'wp_enqueue_scripts', 'minimal_artistic_portfolio_scripts' );
 add_image_size ( 'cover', 640, 400, true );
 add_image_size ( 'carton', 400, 640, false );
 
-function map_stylesheet() {
-
-	if ( is_page_template( 'events.php' )  || is_singular( 'event' )  || ( is_front_page() ) || ( is_home() )) {
-		wp_enqueue_style('leafletStyle', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css');
-		wp_register_script('leafletScript', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js', false, '2.1.9', false);
-		wp_enqueue_script('leafletScript');
-	}
-	if (is_page_template( 'events.php' )  || is_singular( 'event' ) ) {
-		wp_enqueue_script( 'Minimal-Artistic-Portfolio-event-map', get_template_directory_uri() . '/build/js/event-map.js', array('jquery', 'leafletScript'), '20160410', true );
-	}
-	wp_enqueue_style('fluidBoxStyle', get_template_directory_uri() . '/build/css/fluidbox.min.css');
-	wp_enqueue_script('fluidBoxScript', get_template_directory_uri() . '/build/js/jquery.fluidbox.min.js');
-	wp_enqueue_script('project-fluidBoxScript', get_template_directory_uri() . '/build/js/project-fluidBox.js');
-	//wp_enqueue_script('fluidBoxScript', get_template_directory_uri() . '/build/js/jquery.ba-throttle-debounce.min.js');
-}
-add_action( 'wp_enqueue_scripts', 'map_stylesheet' );
-
+/*
 function enqueue_metabox_gutemberg_assets() {
 	wp_enqueue_script( 
 		'metabox-gutenberg-sidebar',
@@ -185,7 +167,7 @@ function enqueue_metabox_gutemberg_assets() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'enqueue_metabox_gutemberg_assets' );
-
+*/
 /**
  * Implement the Custom Header feature.
  */

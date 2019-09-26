@@ -1,11 +1,11 @@
 // Font family and properties
 
-@include font-face("Inter-UI--bold", "../fonts/Inter-UI-Bold", null, normal, woff2 woff);
+@include font-face("Inter-UI--bold", "build/fonts/Inter-UI-Bold", null, normal, woff2 woff);
 // @include font-face('Inter-UI--regular', 'fonts/Inter-UI-Regular', null, normal, woff2 woff);
 
 //@include font-face('cousine--regular', '../fonts/cousine-regular-webfont', null, normal, woff2 woff);
 
-@include font-face("FiraMono-regular", "../fonts/FiraMono-Regular", null, normal, woff2 woff);
+@include font-face("FiraMono-regular", "build/fonts/FiraMono-Regular", null, normal, woff2 woff);
 
 // @import url('https://rsms.me/inter/inter-ui.css');
 
