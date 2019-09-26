@@ -39,7 +39,6 @@ header.site-header .row {
       line-height: 3rem;
     }
     @include breakpoint(laptop) {
-      padding: 0.65em 0 0.65rem 0;
       font-size: 2.8rem;
       text-indent: 0;
       box-shadow: none;
@@ -173,6 +172,9 @@ header.site-header .row {
     &.widget-laptop {
       display: none;
     }
+    li.mode-switcher {
+      display: block;
+    }
     ul.top-bar li ul.language-chooser {
       display: block;
       width: 50%;
@@ -184,6 +186,7 @@ header.site-header .row {
         a {
           display: block;
         }
+
         &:nth-child(odd) a span {
           float: right;
         }
@@ -208,9 +211,8 @@ header.site-header .row {
   }
   ul.top-bar {
     list-style-type: none;
-    li {
-      display: inline-block;
-    }
+    text-align: center;
+
     li a::before,
     li a::after {
       content: none;

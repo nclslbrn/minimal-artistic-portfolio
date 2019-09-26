@@ -47,7 +47,6 @@ form.contact {
   input[type="text"].focus,
   input[type="search"]:focus,
   .tnp-field.tnp-field-email input[type="email"].tnp-email:focus {
-    border: none;
     border-bottom: 2px solid $accent-color;
   }
   label {
@@ -61,6 +60,7 @@ form.contact {
     input,
     span {
       display: table-cell;
+      padding-left: 1em;
     }
     span {
       vertical-align: middle;

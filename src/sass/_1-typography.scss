@@ -5,7 +5,7 @@
 
 //@include font-face('cousine--regular', '../fonts/cousine-regular-webfont', null, normal, woff2 woff);
 
-@include font-face("FiraMono-regular", "build/fonts/FiraMono-Regular", null, normal, woff2 woff);
+@include font-face("FiraCode-Regular", "build/fonts/FiraCode-Regular", null, normal, woff2 woff);
 
 // @import url('https://rsms.me/inter/inter-ui.css');
 
@@ -13,7 +13,7 @@ $headline_font: "Inter-UI--bold", sans-serif;
 
 $headline_baseline: 0.1415;
 //$body_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$body_font: "FiraMono-regular", monospace;
+$body_font: "FiraCode-Regular", monospace;
 $body_baseline: 0.233;
 
 $headline_num: 6;
@@ -152,7 +152,11 @@ hr {
 h4 {
   margin-bottom: 0.5em;
 }
-
+body.page .entry-title::before {
+  content: "-> ";
+  font-family: $body_font;
+  font-variant-ligatures: common-ligatures;
+}
 .language-chooser a,
 a.button,
 button.button,
@@ -205,10 +209,16 @@ button.button,
   border-bottom: none;
 }
 header nav ul.menu li a,
-ul.language-chooser li.language-chooser-item a,
 .site-branding .site-title a {
   border-bottom: none;
   border-width: 1px;
+}
+ul.language-chooser li.language-chooser-item a {
+  border: none;
+}
+ul.language-chooser li:first-child::after {
+  content: "/";
+  margin: 0.5em -1em 0 0;
 }
 
 .site-branding .site-title a:hover,
@@ -231,8 +241,8 @@ ul.language-chooser li.language-chooser-item a,
 @include breakpoint(laptop) {
   a.button::before,
   button.button::before {
-    font-family: $headline_font;
-    content: "→ ";
+    font-family: $body_font;
+    content: "-> ";
     font-size: 0.8em;
     margin: 0.1em 0.3em 0 0;
     padding: 0 0 0.4em 0;

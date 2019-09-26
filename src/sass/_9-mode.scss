@@ -1,4 +1,4 @@
-body.light {
+body {
   &,
   & #loader div.overlay {
     color: $dark_base;
@@ -80,15 +80,12 @@ body.light {
     border-color: #333;
     color: #444;
   }
-  header.site-header .wrapper {
+  header.site-header .wrapper,
+  &.page .entry-header {
     border-bottom: $black_border;
   }
   footer.site-footer .wrapper {
     border-top: $black_border;
-  }
-  .event-on-home {
-    background: $base_color;
-    border: $black_border;
   }
   .project-summary,
   .events-list--event {
@@ -224,16 +221,14 @@ body.dark {
     border-color: #fefefe;
     color: #f1f1f1;
   }
-  header.site-header .wrapper {
+  header.site-header .wrapper,
+  &.page .entry-header {
     border-bottom: $white_border;
   }
   footer.site-footer .wrapper {
     border-top: $white_border;
   }
-  .event-on-home {
-    background: $dark_base;
-    border: $white_border;
-  }
+
   .project-summary,
   .events-list--event {
     background-color: $dark_base;
