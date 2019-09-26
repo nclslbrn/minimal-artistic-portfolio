@@ -1,26 +1,24 @@
-jQuery( document ).ready(function( $ ) {
+jQuery(document).ready(function($) {
 
-  var mapHeight = $('.map-overlay').height();
-  var mapWidth = $('.map-overlay').width();
+    if ($('.map-overlay').length && $('#map')) {
 
-  if( mapHeight == 0 || mapWidth == 0 ){
-    mapHeight = 500;
-    mapWidth = $('.map-overlay').width();
-  }
+        let mapHeight = $('.map-overlay').height();
+        let mapWidth = $('.map-overlay').width();
 
-  $('#map').height( mapHeight );
-  $('#map').width( mapWidth );
+        if (mapHeight == 0 || mapWidth == 0) {
+            mapHeight = 500;
+            mapWidth = $('.map-overlay').width();
+        }
 
-  L.Util.requestAnimFrame(map.invalidateSize,map,!1,map._container);
-  //map.resize();
-  //  console.log( "ready!" );
-  //map.invalidateSize();​
-});
+        $('#map').height(mapHeight);
+        $('#map').width(mapWidth);
 
-//setTimeout(function(){ map.invalidateSize()}, 400);
+        L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
 
-jQuery( ".map-overlay" ).click(function() {
-	jQuery(this).addClass('active');
-  jQuery(this).unbind('click');
-  //console.log( "map active !" );
+        jQuery(".map-overlay").click(function() {
+            jQuery(this).addClass('active');
+            jQuery(this).unbind('click');
+        });
+    }
+
 });
