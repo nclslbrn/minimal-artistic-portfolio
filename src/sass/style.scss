@@ -14,7 +14,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 $emBase: 15px; //default
-$accent_color: #FF6132; //#3F65AD; //#4A5459; //#B5646A;  //  #0984e3; //
+$accent_color: #3f65ad; //#4A5459; //#B5646A;  //  #0984e3; //  #FF6132
 $base_color: #f3f3f3;
 $dark_base: #3e3e3e;
 $box_shadow: 0 0 150px $base_color inset;
@@ -24,16 +24,17 @@ $white: #322f2f;
 $black_border: 2px solid $black;
 $white_border: 2px solid $white;
 
-@import '0-mixins';
-@import '1-typography';
-@import '2-grid';
+@import "0-mixins";
+@import "1-typography";
+@import "2-grid";
 
-*, html {
+*,
+html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-body{
+body {
   position: relative;
   height: 100%;
   min-height: 100vh;
@@ -43,8 +44,8 @@ body{
 }
 
 body.fixed {
-	max-height: 100%;
-	overflow-y: hidden;
+  max-height: 100%;
+  overflow-y: hidden;
 }
 .site {
   overflow-x: hidden;
@@ -52,28 +53,27 @@ body.fixed {
 .site .wrapper {
   display: block;
 
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     width: 90%;
   }
-  @include breakpoint( tablet ) {
+  @include breakpoint(tablet) {
     width: 90%;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     width: 1000px;
   }
-  @include breakpoint( desktop ) {
+  @include breakpoint(desktop) {
     width: 1280px;
   }
-
 
   margin: 0 auto;
   min-height: 100%;
 }
 
-@import '3-nav';
-@import '4-accessibility';
-@import '5-forms';
-@import '6-content';
-@import '7-media';
-@import '8-switch';
-@import '9-mode';
+@import "3-nav";
+@import "4-accessibility";
+@import "5-forms";
+@import "6-content";
+@import "7-media";
+@import "8-switch";
+@import "9-mode";

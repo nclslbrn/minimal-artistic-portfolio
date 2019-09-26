@@ -1,19 +1,19 @@
 // Font family and properties
 
-@include font-face('Inter-UI--bold', '../fonts/Inter-UI-Bold', null, normal, woff2 woff);
+@include font-face("Inter-UI--bold", "../fonts/Inter-UI-Bold", null, normal, woff2 woff);
 // @include font-face('Inter-UI--regular', 'fonts/Inter-UI-Regular', null, normal, woff2 woff);
 
 //@include font-face('cousine--regular', '../fonts/cousine-regular-webfont', null, normal, woff2 woff);
 
-@include font-face('FiraMono-regular', '../fonts/FiraMono-Regular', null, normal, woff2 woff);
+@include font-face("FiraMono-regular", "../fonts/FiraMono-Regular", null, normal, woff2 woff);
 
 // @import url('https://rsms.me/inter/inter-ui.css');
 
-$headline_font: 'Inter-UI--bold', sans-serif;
+$headline_font: "Inter-UI--bold", sans-serif;
 
-$headline_baseline: 0.141500;
+$headline_baseline: 0.1415;
 //$body_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$body_font: 'FiraMono-regular', monospace;
+$body_font: "FiraMono-regular", monospace;
 $body_baseline: 0.233;
 
 $headline_num: 6;
@@ -22,8 +22,7 @@ $body_font_size: 1em;
 $ratio: 1.125;
 $grid-height: 1rem;
 
-@import "../../../node_modules/plumber-sass/plumber";
-
+@import "../../node_modules/plumber-sass/plumber";
 
 body {
   line-height: 1;
@@ -43,16 +42,16 @@ input[type="text"],
 .event-info a,
 .entry-content ul li a,
 .related-projects li a,
-.related-events li a{
-  @include breakpoint( phone ){
+.related-events li a {
+  @include breakpoint(phone) {
     line-height: 1.6 * $ratio;
     font-size: 1em * $ratio;
   }
-  @include breakpoint( tablet ){
+  @include breakpoint(tablet) {
     line-height: 1.4 * $ratio;
     font-size: 1.1em * $ratio;
   }
-  @include breakpoint( laptop ){
+  @include breakpoint(laptop) {
     line-height: 1.5 * $ratio;
     font-size: 1.1em * $ratio;
   }
@@ -63,26 +62,27 @@ a:link {
   border-color: $border_color;
 }
 a:visited {
-  color: darken( $accent_color, 10%);
- border-color: $accent_color;
+  color: darken($accent_color, 10%);
+  border-color: $accent_color;
 }
 a:hover {
-  color: darken( $accent_color, 30%);
+  color: darken($accent_color, 30%);
   border-color: $accent_color;
 }
 a:active {
-  color: darken( $accent_color, 30%);
+  color: darken($accent_color, 30%);
   border-color: $accent_color;
 }
 
 blockquote {
   margin: 1em 0;
-  padding: .5em 2em .5em 2em;
+  padding: 0.5em 2em 0.5em 2em;
   border-style: solid;
   border-left-width: 4px;
 }
 
-em, blockquote {
+em,
+blockquote {
   font-style: italic;
   font-size: 1em;
 }
@@ -93,65 +93,64 @@ hr {
   border-top-width: 1px;
 
   &::after {
-    content: '§';
+    content: "§";
     position: absolute;
     display: block;
     top: 50%;
     left: 50%;
-    margin-top: -.5em;
+    margin-top: -0.5em;
     color: inherit;
     font-size: 1em;
   }
 }
 @for $i from 1 through $headline_num {
-
-  $anti_i: ( $headline_num + 1 ) - $i;
+  $anti_i: ($headline_num + 1) - $i;
 
   h#{$i} {
-    @include breakpoint( phone ){
+    @include breakpoint(phone) {
       @include plumber(
         $grid-height: 1rem,
         $baseline: $headline_baseline,
         $font-size: $anti_i / 2,
         $line-height: $anti_i,
         $leading-top: $anti_i - 2,
-        $leading-bottom: $anti_i - 2 );
-        margin: .35em 0;
-        line-height: 1;
+        $leading-bottom: $anti_i - 2
+      );
+      margin: 0.35em 0;
+      line-height: 1;
     }
-    @include breakpoint( tablet ){
+    @include breakpoint(tablet) {
       @include plumber(
         $grid-height: 1rem,
         $baseline: $headline_baseline,
         $font-size: $anti_i / 1.07,
         $line-height: $anti_i + 1,
         $leading-top: $anti_i - 2,
-        $leading-bottom: $anti_i - 3	);
+        $leading-bottom: $anti_i - 3
+      );
 
-          line-height: $anti_i / 4;
+      line-height: $anti_i / 4;
     }
 
-    @include breakpoint( laptop ){
+    @include breakpoint(laptop) {
       @include plumber(
         $grid-height: 1rem,
         $baseline: $headline_baseline,
         $font-size: $anti_i,
         $line-height: $anti_i + 1,
         $leading-top: $anti_i - 2,
-        $leading-bottom: $anti_i - 3	);
-
+        $leading-bottom: $anti_i - 3
+      );
     }
     position: relative;
     display: inline-block;
     font-family: $headline_font;
     z-index: 1;
-
   }
 }
 h4 {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
-
 
 .language-chooser a,
 a.button,
@@ -161,24 +160,24 @@ button.button,
   text-decoration: none;
   font-family: sans-serif;
   color: $accent_color;
-  letter-spacing: .05em;
-	z-index: 1;
+  letter-spacing: 0.05em;
+  z-index: 1;
 }
 .tnp-widget .tnp-field-button input.tnp-submit,
 .language-chooser a,
 input.search-submit,
 a.button,
 button.button {
-	position: relative;
-	font-size: .85em;
-	line-height: 1em;
-	padding: .8em 1em .6em 1em;
-	background-color: transparent;
-	text-transform: uppercase;
-	transition: background-color .25s ease-out;
+  position: relative;
+  font-size: 0.85em;
+  line-height: 1em;
+  padding: 0.8em 1em 0.6em 1em;
+  background-color: transparent;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease-out;
 
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
     clear: both;
     float: none;
@@ -190,36 +189,36 @@ button.button,
   font-family: $headline_font;
   vertical-align: top;
   line-height: 1em;
-	background-color: transparent;
+  background-color: transparent;
 
-	cursor: pointer;
+  cursor: pointer;
   -webkit-appearance: none;
-	-moz-appearance: none;
+  -moz-appearance: none;
 }
 
 .language-chooser {
-	clear: both;
-	float: none;
-	display: block;
-	padding-left: 4px;
-	border-width: 1px;
-	border-bottom: none;
+  clear: both;
+  float: none;
+  display: block;
+  padding-left: 4px;
+  border-width: 1px;
+  border-bottom: none;
 }
 header nav ul.menu li a,
 ul.language-chooser li.language-chooser-item a,
-.site-branding .site-title a{
-	border-bottom: none;
-	border-width: 1px;
+.site-branding .site-title a {
+  border-bottom: none;
+  border-width: 1px;
 }
 
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus,
-.language-chooser-item.active a:hover{
-	color: #555;
+.language-chooser-item.active a:hover {
+  color: #555;
 }
 
 .site-branding .site-title span {
-  margin-left: .5em;
+  margin-left: 0.5em;
   letter-spacing: 1px;
   font-weight: bold;
 }
@@ -233,14 +232,14 @@ ul.language-chooser li.language-chooser-item a,
   a.button::before,
   button.button::before,
   .search-form input[type="submit"]::before {
-  	font-family: $headline_font;
-  	content: '⟩⟩ ';
-    font-size: .8em;
-    margin: .1em .3em 0 0;
-    padding: 0 0 .4em 0;
+    font-family: $headline_font;
+    content: "⟩⟩ ";
+    font-size: 0.8em;
+    margin: 0.1em 0.3em 0 0;
+    padding: 0 0 0.4em 0;
     line-height: inherit;
-  	z-index: inherit;
-  	color: inherit;
+    z-index: inherit;
+    color: inherit;
     font-weight: bold;
     vertical-align: middle;
   }
@@ -250,18 +249,18 @@ ul.language-chooser li.language-chooser-item a,
 a.button::after,
 button.button::after,
 .search-form input[type="submit"]::after {
-	display: block;
-	position: absolute;
-	content: '';
+  display: block;
+  position: absolute;
+  content: "";
   top: 0em;
   left: 0;
-	bottom: 0;
+  bottom: 0;
   right: 0;
-	width: 0;
+  width: 0;
   height: 100%;
-	z-index: -1;
-  background-color: desaturate( darken( $accent_color, .3) , .3);
-  transition: width .15s ease-out;
+  z-index: -1;
+  background-color: desaturate(darken($accent_color, 0.3), 0.3);
+  transition: width 0.15s ease-out;
 }
 
 .language-chooser a:hover,
@@ -278,18 +277,18 @@ button.button.active,
 .search-form input[type="submit"]:active,
 .search-form input[type="submit"]:focus,
 .search-form input[type="submit"]:hover {
-	color: #fff;
-  background-color: lighten($accent_color, .5);
+  color: #fff;
+  background-color: lighten($accent_color, 0.5);
   //border: 2px solid lighten($accent_color, 1%);
 }
 .language-chooser-item a:hover {
-	border-width: 1px;
+  border-width: 1px;
 }
 .language-chooser a:hover::after,
 a.button:hover::after,
 button.button:hover::after,
 .search-form input[type="submit"]::after {
-	width: 97%;
+  width: 97%;
 }
 button.button.active::after,
 button.button:focus::after,
@@ -310,26 +309,26 @@ button.button:hover::after,
 }
 .event-menu button {
   &::before {
-    content:'';
+    content: "";
   }
   float: right;
   margin: 0;
   max-height: 2.9em;
-  padding-bottom: .8em;
+  padding-bottom: 0.8em;
   &:last-child {
     border-right: none;
   }
 }
-.single .entry-header,
-.page .entry-header {
-}
+
 .entry-content {
   padding: 2em 0;
-  ul { padding-left: 1em; }
+  ul {
+    padding-left: 1em;
+  }
 }
 .entry-content .event-info,
 .entry-content .cartel {
-	padding: 0 0 1.68em 0;
+  padding: 0 0 1.68em 0;
 }
 @include breakpoint(phone) {
   .entry-content .project-text .column a.button,
