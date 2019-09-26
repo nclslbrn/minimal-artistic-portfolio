@@ -18,20 +18,21 @@ function create_post_type() {
         'not_found'          => __( 'No projects found.', 'Minimal-Artistic-Portfolio' ),
         'not_found_in_trash' => __( 'No projects found in Trash.', 'Minimal-Artistic-Portfolio' )
       ),
-      'can_export' => TRUE,
-      'public' => TRUE,
+      'can_export'          => TRUE,
+      'public'              => TRUE,
       'exclude_from_search' => FALSE,
-      'query_var' => true,
-      'publicly_queryable' => TRUE,
-      '_builtin' => false,
-      'capability_type' => 'post',
-      'rewrite' => array('slug' => 'project','with_front' => FALSE),
-      'has_archive' => TRUE,
-      'hierarchical' => FALSE,
-      'menu_position' => 5,
-      'menu_icon' => 'dashicons-lightbulb',
-      'show_in_menu' => TRUE,
-      'show_in_nav_menus' => TRUE,
+      'query_var'           => true,
+      'publicly_queryable'  => TRUE,
+      '_builtin'            => false,
+      'capability_type'     => 'post',
+      'rewrite'             => array('slug' => 'project','with_front' => FALSE),
+      'has_archive'         => TRUE,
+      'hierarchical'        => FALSE,
+      'menu_position'       => 5,
+      'menu_icon'           => 'dashicons-lightbulb',
+      'show_in_menu'        => TRUE,
+      'show_in_nav_menus'   => TRUE,
+      'show_in_rest'        => TRUE,
       'supports' => array('title', 'editor', 'revisions', 'thumbnail' ),
       'taxonomies' => array( 'category','post_tag')
     )
@@ -54,22 +55,23 @@ function create_post_type() {
         'not_found'          => __( 'No events found.', 'Minimal-Artistic-Portfolio' ),
         'not_found_in_trash' => __( 'No events found in Trash.', 'Minimal-Artistic-Portfolio' )
       ),
-      'can_export' => TRUE,
-      'public' => TRUE,
+      'can_export'          => TRUE,
+      'public'              => TRUE,
       'exclude_from_search' => FALSE,
-      'query_var' => true,
-      'publicly_queryable' => TRUE,
-      '_builtin' => false,
-      'capability_type' => 'post',
-      'rewrite' => array('slug' => 'event','with_front' => FALSE),
-      'has_archive' => TRUE,
-      'hierarchical' => FALSE,
-      'menu_position' => 5,
-      'menu_icon' => 'dashicons-calendar',
-      'show_in_menu' => TRUE,
-      'show_in_nav_menus' => TRUE,
-      'supports' => array('title', 'editor', 'revisions', 'thumbnail' ),
-      'taxonomies' => array( 'category','post_tag')
+      'query_var'           => true,
+      'publicly_queryable'  => TRUE,
+      '_builtin'            => false,
+      'capability_type'     => 'post',
+      'rewrite'             => array('slug' => 'event','with_front' => FALSE),
+      'has_archive'         => TRUE,
+      'hierarchical'        => FALSE,
+      'menu_position'       => 5,
+      'menu_icon'           => 'dashicons-calendar',
+      'show_in_menu'        => TRUE,
+      'show_in_nav_menus'   => TRUE,
+      'show_in_rest'        => TRUE,
+      'supports'            => array('title', 'editor', 'revisions', 'thumbnail' ),
+      'taxonomies'          => array( 'category','post_tag')
     )
   );
 register_taxonomy( __('category', 'Minimal-Artistic-Portfolio'), array('post', 'page', 'project', 'event'), array( 'hierarchical' => true, 'label' => 'Category', 'query_var' => true, 'rewrite' => true ) );
@@ -119,7 +121,7 @@ function list_custom_posts( $type, $limit)
 function get_event( $post_id )
 {
     global $wp_query;
-    $events = get_post_meta($post_id, 'event', true);
+    $events = get_post_meta($post_id, 'event');
     $event_module = '';
     $event_module_result = '';
 
@@ -128,22 +130,22 @@ function get_event( $post_id )
         $event_module .= '<p class="event-of-this-project">'. __('Events', 'Minimal-Artistic-Portfolio') .': </p>';
         $event_module .= '<ul class="related-events">';
 
-        foreach ((array) $events as $event) {
+        foreach ( (array) $events[0] as $event) {
 
           $title = get_the_title( $event );
           $url = get_permalink( $event );
 
-          $event_module_result .= '<li><a href="'.$url.'">'. $title .'</a></li>';
+
+          $event_module_result .= '<li><a href="' . $url . '">'. $title .'</a></li>';
 
         }
+        $event_module = $event_module . $event_module_result . '</ul>';
     }
-    if( empty( $event_module_result) ) {
+    if( empty($events[0] ) ) {
 
-        return false;
+      return false;
 
-    } else {
-
-      $event_module .= $event_module_result . '</ul>';
+    } elseif( !empty( $event_module_result) ) {
 
       return $event_module;
 
@@ -151,6 +153,7 @@ function get_event( $post_id )
 }
 function get_project( $eventId ) {
 
+  $projects = '';
   $project_module = '';
   $project_query = new WP_Query(
     array(
@@ -160,29 +163,29 @@ function get_project( $eventId ) {
       'meta_query'=> array(
         array(
           'key'     => 'event',
-          'value'   =>  $eventId,
-          'compare' => 'IN'
+          'value'   =>  '"' . $eventId . '"',
+          'compare' => 'LIKE'
         )
       )
     ) );
 
-    $event_projects = $project_query->posts;
+    if( !empty($project_query->posts) ) {
 
-    if( $project_query->have_posts() ) {
-
-      $project_module = '<p class="list-title">'. __('Projects', 'Minimal-Artistic-Portfolio') .':</p>';
+      $project_module .= '<p class="list-title">'. __('Projects', 'Minimal-Artistic-Portfolio') .':</p>';
       $project_module .= '<ul class="related-projects">';
 
-      foreach($event_projects as $project ) {
+      foreach ( (array) $project_query->posts as $project ) {
 
         $url = get_permalink( $project->ID );
-        $project_module .= '<li><a href="'. $url .'">'. $project->post_title .'</a></li>';
+        $projects .= '<li><a href="'. $url .'">'. $project->post_title .'</a></li>';
 
       }
 
 
-      $project_module .= '</ul>';
+    }
+    if( !empty( $projects ) ) {
 
+      $project_module = $project_module . $projects . '<ul>';
       return $project_module;
 
     } else {
@@ -190,6 +193,7 @@ function get_project( $eventId ) {
       return false;
 
     }
+
 
 }
 function list_custom_posts_by_date( $type, $limit ) {
@@ -419,8 +423,16 @@ function query_event_by_date()
           </div>
 
           <div class="col-6 column event-info">
-            <h2><?php echo $actualEvents[$eventId]['place']; ?></h2>
+            <p>
+              <svg class="icon icon-location">
+                <use xlink:href="#icon-location"></use>
+              </svg>
+              <?php echo $actualEvents[$eventId]['place']; ?>
+            </p>
             <p class="date">
+              <svg class="icon icon-calendar">
+                <use xlink:href="#icon-calendar"></use>
+              </svg>
               <?php _e( 'From', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n('j F Y', strtotime(get_post_meta( get_the_ID(), 'BEGINDATE', 'true') ) ); ?>
               <?php _e( 'to', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n('j F Y', strtotime( $endDate ) ); ?>
             </p>
@@ -613,4 +625,48 @@ function aap_post_thumbnail_feeds($content) {
 }
 add_filter('the_excerpt_rss', 'aap_post_thumbnail_feeds');
 add_filter('the_content_feed', 'aap_post_thumbnail_feeds');
+
+function social_module($title, $url, $class) {
+  ?>
+  <div class="social-sharing-module <?php echo $class; ?>">
+    <p><?php _e('Share', 'Minimal-Artistic-Portfolio'); ?></p>
+
+    <a href="https://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target="_blank">
+      <svg class="icon icon-facebook">
+        <use xlink:href="#icon-facebook"></use>
+      </svg>
+      <span class="screen-reader-text">
+        <?php _e('Share on Facebook', 'Minimal-Artistic-Portfolio'); ?>
+      </span>
+    </a>
+
+    <a href="https://twitter.com/home?status=<?php echo $url; ?>" target="_blank">
+      <svg class="icon icon-twitter">
+        <use xlink:href="#icon-twitter"></use>
+      </svg>
+      <span class="screen-reader-text">
+        <?php _e('Share on Twitter', 'Minimal-Artistic-Portfolio'); ?>
+      </span>
+    </a>
+
+    <a href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank">
+      <svg class="icon icon-google-plus">
+        <use xlink:href="#icon-google-plus"></use>
+      </svg>
+      <span class="screen-reader-text">
+        <?php _e('Share on Google+', 'Minimal-Artistic-Portfolio'); ?>
+      </span>
+    </a>
+
+    <a href="mailto:?&body=<?php echo $url; ?>" target="_blank">
+      <svg class="icon icon-mail">
+        <use xlink:href="#icon-mail"></use>
+      </svg>
+      <span class="screen-reader-text">
+        <?php _e('Send Email', 'Minimal-Artistic-Portfolio'); ?>
+      </span>
+    </a>
+  </div>
+  <?php
+}
 ?>

@@ -23,8 +23,9 @@
 
   </div>
   <div class="row event-text
-  <?php if(get_the_content() !== '') echo ' filled'; ?>
-  <?php if(get_project(get_the_ID()) == false) echo ' no-project'; ?>">
+  <?php if( get_the_content() !== '') echo ' filled'; ?>
+  <?php if( get_project( get_the_ID() ) == false) echo ' no-project'; ?>
+  ">
 
     <div class="col-4 column">
 
@@ -42,12 +43,21 @@
         <?php _e( 'From', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n('j F Y', strtotime(get_post_meta( get_the_ID(), 'BEGINDATE', 'true') ) ); ?>
         <?php _e( 'to', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n('j F Y', strtotime(get_post_meta( get_the_ID(), 'ENDDATE', 'true') ) ); ?>
       </p></br />
-      <?php if(get_project(get_the_ID()) !== false) : ?>
-        <?php echo get_project(get_the_ID());?>
-      <?php endif; ?>
+      <?php if(get_project(get_the_ID()) !== false) echo get_project(get_the_ID());?>
+      <?php social_module(
+        get_the_title(),
+        get_the_permalink( get_the_ID()),
+		  'laptop'
+      ); ?>
+
     </div>
     <div class="col-8 column">
         <?php the_content(); ?>
+        <?php social_module(
+          get_the_title(),
+          get_the_permalink( get_the_ID() ),
+			 'mobile'
+        ); ?>
     </div>
   </div>
 

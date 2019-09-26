@@ -1,0 +1,30 @@
+{
+  "name": "gutemberg-metabox",
+  "version": "1.0.0",
+  "description": "![Wordpress](https://img.shields.io/wordpress/v/akismet.svg) ![GPL](https://img.shields.io/aur/license/yaourt.svg) ![Status](https://img.shields.io/pypi/status/Django.svg) ![Dependencies](https://img.shields.io/versioneye/d/ruby/rails.svg)",
+  "main": "gutemberg/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nclslbrn/Minimal-artist-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nclslbrn/Minimal-artist-portfolio/issues"
+  },
+  "homepage": "https://github.com/nclslbrn/Minimal-artist-portfolio#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^3.3.0"
+  },
+  "dependencies": {
+    "@wordpress/components": "^8.0.0",
+    "@wordpress/data": "^4.6.0",
+    "@wordpress/edit-post": "^3.5.0",
+    "@wordpress/i18n": "^3.5.0",
+    "@wordpress/plugins": "^2.4.0"
+  }
+}

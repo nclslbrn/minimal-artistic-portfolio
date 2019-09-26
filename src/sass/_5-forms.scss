@@ -12,12 +12,13 @@ textarea {
   width: 100%;
 }
 
-form {
+form.contact {
   font-family: $body_font;
   textarea {
    font-family: inherit;
   }
   textarea,
+  input[type="submit"],
   input[type="text"] {
     display: block;
     margin: 0;
@@ -29,24 +30,26 @@ form {
   }
   textarea:focus,
   input[type="text"]:focus,
-  input[type="search"]:focus {
+  input[type="search"]:focus,
+  .tnp-field.tnp-field-email input[type="email"].tnp-email:focus {
     outline: none;
   }
   textarea,
   input[type="text"],
-  input[type="search"] {
+  input[type="search"],
+  .tnp-field.tnp-field-email input[type="email"].tnp-email{
     margin: 1em 0;
     padding: 1em;
     border: none;
-    border: 2px solid #EFEFEE;
     transition: border 0.3s;
   }
   textarea:focus,
   input[type="text"]:focus,
   input[type="text"].focus,
-  input[type="search"]:focus {
-    box-shadow: 0 0 .4em transparentize(invert($accent_color), .92);
-    border-color: $accent_color;
+  input[type="search"]:focus,
+  .tnp-field.tnp-field-email input[type="email"].tnp-email:focus{
+	 border: none;
+	 border-bottom: 2px solid $accent-color;
   }
   label{
     clear: both;
@@ -63,26 +66,59 @@ form {
     }
   }
 }
-form.search-form {
-  label, input {
+
+.widget_newsletterwidget {
+  padding-top: 1.5rem;
+  border-top: $black_border;
+  border-width: 1px;
+
+  @include breakpoint( laptop ) {
+    padding: 2rem;
+    border: $black_border;
+  }
+
+}
+form.search-form,
+.widget_newsletterwidget .tnp-widget form {
+  .tnp-field, label, input {
     display: inline-block;
   }
   input[type="submit"] {
     vertical-align: middle;
   }
+  .tnp-field label { height: 1em; margin: .5em 0; }
+  .tnp-field.tnp-field-email input[type="email"].tnp-email {
+    background-image:none;
+    background: $base_color;
+  }
+  .tnp-field.tnp-field-button input[type="submit"].tnp-submit{
+    margin: 3.1em 0;
+    padding: 1.47rem 1rem;
+    line-height: .15;
+  }
+}
+.widget_newsletterwidget {
+  display: block;
+  margin: 2rem 0;
+  font-weight: bold;
+  .tnp.tnp-widget form {
+    font-weight: normal;
+  }
 }
 
-.top-bar .widget_search form {
+.top-bar .widget_search form,
+.widget_newsletterwidget .tnp-widget form {
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
+
   label input[type="search"],
   input[type="submit"] {
     font-size: .85em;
     padding: 0 1rem;
     line-height: 1rem;
     height: 2.3rem;
-    border: 1px solid #EFEFEE;
+    border-width: 1px;
     transition: all .15s ease-out;
     color: inherit;
     &:hover,
@@ -93,13 +129,21 @@ form.search-form {
   label {
     input[type="search"] {
       margin-right: 0;
-      border-right: none;
+
+      &, &:hover, &:focus {
+      	border-right: none;
+		  }
     }
   }
   input[type="submit"] {
-    margin: 1em 1em 1em 0;
-    line-height: .2rem;
+    margin: 0;
+    line-height: 1;
 
     &:hover { color: #fff; }
+  }
+  .tnp-field {
+    label, input { display: inline-block;}
+    &.tnp-field-email { flex: 4; }
+    &.tnp-field-button { flex: 1; }
   }
 }

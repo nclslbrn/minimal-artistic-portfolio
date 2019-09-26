@@ -6,7 +6,7 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
-
+$sections = get_post_meta($post->ID, 'page_section', true);
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -15,6 +15,19 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		
+		<?php if(!empty($sections)): ?>
+			<?php foreach( (array) $sections as $part): ?>
+				<div class="row page-section">
+					<div class="col-4 column">
+						<h5><?php _e( unserialize( base64_decode( $part['title'] ) ) ); ?><h5>
+					</div>
+					<div class="col-6 column">
+						<p><?php _e( unserialize( base64_decode( $part['text'] ) ) ); ?></p>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		<?php endif; ?>
 		<?php
 			the_content();
 

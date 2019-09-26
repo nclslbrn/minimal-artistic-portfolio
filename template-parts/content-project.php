@@ -15,7 +15,8 @@
         </h4>
 
         <p class="description">
-          <?php echo get_post_meta( get_the_ID(), 'CARTEL', true); ?>,
+          <?php $cartel =  get_post_meta( get_the_ID(), 'CARTEL', true); ?>
+          <?php echo $cartel; ?>,
           <span class="date">
             <?php echo mysql2date("Y.", $post->post_date_gmt); ?>
           </span>
@@ -42,14 +43,19 @@
     <?php if( get_event(get_the_ID()) == false) echo ' no-event'; ?>">
       <div class="col-4 column">
         <p class="cartel">
-          <?php echo get_post_meta( get_the_ID(), 'CARTEL', true); ?>,
+          <?php
+            $cartel =  get_post_meta( get_the_ID(), 'CARTEL', true);
+            echo $cartel;
+            ?>,
           <span class="date"><?php echo mysql2date("Y", $post->post_date_gmt); ?></span>.
         </p>
-        <?php echo get_event(get_the_ID()); ?>
+        <?php if( get_event(get_the_ID()) !== false ) echo get_event( get_the_ID() ); ?>
+        <?php social_module( get_the_title(), get_the_permalink( get_the_ID() ), 'laptop' ); ?>
       </div>
       <div class="col-8 column">
         <?php the_content(); ?>
       </div>
+		<?php social_module( get_the_title(), get_the_permalink( get_the_ID() ), 'mobile' ); ?>
     </div>
   </div>
 <?php } ?>

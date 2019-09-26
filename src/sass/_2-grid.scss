@@ -24,6 +24,7 @@ $col_ratio: 1;
   width: 100%;
 }
 
+
 @for $i from 1 through $col_num {
 
   .col-#{$i}{

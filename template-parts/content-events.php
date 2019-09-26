@@ -1,15 +1,15 @@
 <?php /* template for displaying all events on events.php page template */ ?>
 
 <div class="entry-content">
-  <div class="event-menu">
+  <div id="change-event-display-mode" class="event-menu">
 
-    <button id="toggle-map" class="button">
+    <button data-toggle="map" class="button">
       <svg class="icon icon-location">
         <use xlink:href="#icon-location"></use>
       </svg>
       <?php _e( 'Map', 'Minimal-Artistic-Portfolio'); ?>
     </button>
-    <button id="toggle-projects-list" class="button">
+    <button data-toggle="events-list" class="button active">
       <svg class="icon icon-calendar">
         <use xlink:href="#icon-calendar"></use>
       </svg>

@@ -1,17 +1,20 @@
 // Font family and properties
 
-// @include font-face('Inter-UI--bold', 'fonts/Inter-UI-Bold', null, normal, woff2 woff);
-
+@include font-face('Inter-UI--bold', '../fonts/Inter-UI-Bold', null, normal, woff2 woff);
 // @include font-face('Inter-UI--regular', 'fonts/Inter-UI-Regular', null, normal, woff2 woff);
 
-@import url('https://rsms.me/inter/inter-ui.css');
+//@include font-face('cousine--regular', '../fonts/cousine-regular-webfont', null, normal, woff2 woff);
 
-$headline_font: 'Inter UI', sans-serif;
+@include font-face('FiraMono-regular', '../fonts/FiraMono-Regular', null, normal, woff2 woff);
+
+// @import url('https://rsms.me/inter/inter-ui.css');
+
+$headline_font: 'Inter-UI--bold', sans-serif;
 
 $headline_baseline: 0.141500;
-$body_font: 'Inter UI', sans-serif;
-
-$body_baseline: 0.154541;
+//$body_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$body_font: 'FiraMono-regular', monospace;
+$body_baseline: 0.233;
 
 $headline_num: 6;
 $body_font_size: 1em;
@@ -19,14 +22,13 @@ $body_font_size: 1em;
 $ratio: 1.125;
 $grid-height: 1rem;
 
-@import "../../node_modules/plumber-sass/plumber";
+@import "../../../node_modules/plumber-sass/plumber";
 
 
 body {
   line-height: 1;
   font-size: $body_font_size * $ratio;
   font-family: $body_font;
-  color: #333;
   font-weight: 400;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -39,7 +41,6 @@ textarea,
 input[type="text"],
 .project-summary a,
 .event-info a,
-.entry-content ul li p,
 .entry-content ul li a,
 .related-projects li a,
 .related-events li a{
@@ -73,27 +74,34 @@ a:active {
   color: darken( $accent_color, 30%);
   border-color: $accent_color;
 }
-p,
-textarea,
-input[type="text"],
-.entry-content ul li p {
-  color: #333;
-}
 
 blockquote {
   margin: 1em 0;
   padding: .5em 2em .5em 2em;
-  border-left: 4px solid #f8f8f8;
-  color: #777;
+  border-style: solid;
+  border-left-width: 4px;
 }
+
 em, blockquote {
   font-style: italic;
   font-size: 1em;
 }
 hr {
+  position: relative;
   margin: 2em 0;
-  @include stripe_border(bottom);
+  border-style: solid;
+  border-top-width: 1px;
 
+  &::after {
+    content: '§';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-top: -.5em;
+    color: inherit;
+    font-size: 1em;
+  }
 }
 @for $i from 1 through $headline_num {
 
@@ -141,32 +149,34 @@ hr {
   }
 }
 h4 {
-  //border-bottom: $border;
   margin-bottom: .5em;
 }
+
+
 .language-chooser a,
 a.button,
 button.button,
-.search-form input[type="submit"] {
+.search-form input[type="submit"],
+.tnp-widget .tnp-field-button input.tnp-submit {
   text-decoration: none;
   font-family: sans-serif;
   color: $accent_color;
-  border-bottom: 1px dotted #0072FF;
   letter-spacing: .05em;
 	z-index: 1;
 }
+.tnp-widget .tnp-field-button input.tnp-submit,
 .language-chooser a,
 input.search-submit,
 a.button,
 button.button {
 	position: relative;
 	font-size: .85em;
-  padding: .6em 1em .6em 1em;
-  @include breakpoint(desktop) { padding: .8em 1em .6em 1em; }
-  border: $accent_border;
-  background-color: $base_color;
-  text-transform: uppercase;
-  transition: background-color .25s ease-out;
+	line-height: 1em;
+	padding: .8em 1em .6em 1em;
+	background-color: transparent;
+	text-transform: uppercase;
+	transition: background-color .25s ease-out;
+
   &::before {
     content: '';
     display: inline-block;
@@ -174,39 +184,51 @@ button.button {
     float: none;
   }
 }
-
 button.button,
-.search-form input[type="submit"] {
+.search-form input[type="submit"],
+.tnp-widget .tnp-field-button input.tnp-submit {
   font-family: $headline_font;
   vertical-align: top;
   line-height: 1em;
-	background-color: #fefefe;
+	background-color: transparent;
 
 	cursor: pointer;
   -webkit-appearance: none;
 	-moz-appearance: none;
 }
 
+.language-chooser {
+	clear: both;
+	float: none;
+	display: block;
+	padding-left: 4px;
+	border-width: 1px;
+	border-bottom: none;
+}
 header nav ul.menu li a,
-.language-chooser-item.active a,
+ul.language-chooser li.language-chooser-item a,
 .site-branding .site-title a{
 	border-bottom: none;
-  color: #444;
+	border-width: 1px;
 }
+
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus,
 .language-chooser-item.active a:hover{
 	color: #555;
 }
+
 .site-branding .site-title span {
   margin-left: .5em;
   letter-spacing: 1px;
   font-weight: bold;
 }
+
 .site-branding .site-title span:first-child {
   margin-left: 0;
   font-weight: 400;
 }
+
 @include breakpoint(laptop) {
   a.button::before,
   button.button::before,
@@ -214,7 +236,7 @@ header nav ul.menu li a,
   	font-family: $headline_font;
   	content: '⟩⟩ ';
     font-size: .8em;
-    margin: 0 .3em .1em 0;
+    margin: .1em .3em 0 0;
     padding: 0 0 .4em 0;
     line-height: inherit;
   	z-index: inherit;
@@ -241,13 +263,27 @@ button.button::after,
   background-color: desaturate( darken( $accent_color, .3) , .3);
   transition: width .15s ease-out;
 }
+
 .language-chooser a:hover,
 a.button:hover,
+a.button:focus,
+a.button:active,
+button.button:focus,
+button.button:active,
 button.button:hover,
+button.button.active,
+.tnp-widget .tnp-field-button input.tnp-submit:active,
+.tnp-widget .tnp-field-button input.tnp-submit:focus,
+.tnp-widget .tnp-field-button input.tnp-submit:hover,
+.search-form input[type="submit"]:active,
+.search-form input[type="submit"]:focus,
 .search-form input[type="submit"]:hover {
 	color: #fff;
   background-color: lighten($accent_color, .5);
-  border: 1px solid lighten($accent_color, 1%);
+  //border: 2px solid lighten($accent_color, 1%);
+}
+.language-chooser-item a:hover {
+	border-width: 1px;
 }
 .language-chooser a:hover::after,
 a.button:hover::after,
@@ -255,6 +291,9 @@ button.button:hover::after,
 .search-form input[type="submit"]::after {
 	width: 97%;
 }
+button.button.active::after,
+button.button:focus::after,
+button.button:active::after,
 button.button:hover::after,
 .search-form input[type="submit"]::after {
   width: 100%;
@@ -286,6 +325,7 @@ button.button:hover::after,
 }
 .entry-content {
   padding: 2em 0;
+  ul { padding-left: 1em; }
 }
 .entry-content .event-info,
 .entry-content .cartel {
@@ -300,4 +340,8 @@ button.button:hover::after,
     margin-right: auto;
     text-align: center;
   }
+}
+.project-text .column p .button {
+  margin: 1em 0;
+  line-height: 4em;
 }

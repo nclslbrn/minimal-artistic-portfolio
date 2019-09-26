@@ -1,0 +1,76 @@
+.map-overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,.05);
+}
+.map-overlay.active {
+  background: none;
+}
+.map-overlay .map {
+  pointer-events: none;
+}
+.map-overlay.active .map {
+  pointer-events: auto;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.single-project .icon,
+.single-event .icon,
+.event-info .icon {
+  fill: darken($accent_color, 8%);
+}
+
+.social-sharing-module {
+  display: block;
+  @include breakpoint(phone) {
+    position: relative;
+    clear: both;
+    float: none;
+    @include clearfix;
+
+    p{ display: inline; float: left;}
+    a{ padding: 0 .75rem 0 .75rem;
+      svg.icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  @include breakpoint(laptop) {
+    position: absolute;
+    bottom: 0;
+
+    p {
+      display: block;
+      padding-bottom: 1rem;
+    }
+    a {
+      position: relative;
+      padding: 0 2rem 0 0;
+      float: left;
+
+      svg.icon {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  a .icon {
+    fill: darken( $accent_color, 10%);
+  }
+  a:hover .icon{
+    fill: darken( $accent_color, 30%);
+  }
+}

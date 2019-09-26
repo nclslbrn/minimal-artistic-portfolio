@@ -24,6 +24,9 @@ function minimal_artistic_portfolio_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if( !empty($_COOKIE['mode'])) {
+		$classes[] = $_COOKIE['mode'];
+	}
 	return $classes;
 }
 add_filter( 'body_class', 'minimal_artistic_portfolio_body_classes' );
@@ -38,5 +41,22 @@ function fluidbox_capable($html, $id, $alt, $title, $align, $url, $size ) {
     else
         $html = preg_replace('/(<a.*?)>/', '$1 class="' . $classes_to_add . '">', $html);
     return $html;
+}
+
+function mode_chooser_button() {
+	?>
+	<li class="mode-switcher">
+		<?php // if( !empty($_COOKIE['mode']) ) echo '<span>' . $_COOKIE['mode'] . '</span>'; ?>
+		<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>
+
+		<label class="switch">
+		  <input type="checkbox" name="mode-switcher" <?php if( $_COOKIE['mode'] == 'dark') echo 'checked'; ?>>
+		  <span class="slider"></span>
+		</label>
+
+		<?php // _e('Dark', 'minimal_artistic_portfolio'); ?>
+		<svg class="icon icon-moon"><use xlink:href="#icon-moon"></use></svg>
+	</li>
+	<?php
 }
 ?>
