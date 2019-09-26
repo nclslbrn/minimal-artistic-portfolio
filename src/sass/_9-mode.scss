@@ -31,8 +31,8 @@ body.light {
     border-color: $black;
   }
   .tnp-widget .tnp-field-button input.tnp-submit,
-  .language-chooser a,
-  input.search-submit,
+  .language-chooser-item a,
+  button.search-submit,
   a.button,
   button.button {
     color: #333;
@@ -75,7 +75,7 @@ body.light {
     }
   }
   header nav ul.menu li a,
-  .language-chooser-item a,
+  .language-chooser-item-item a,
   .site-branding .site-title a {
     border-color: #333;
     color: #444;
@@ -181,8 +181,8 @@ body.dark {
     border-color: $white;
   }
   .tnp-widget .tnp-field-button input.tnp-submit,
-  .language-chooser a,
-  input.search-submit,
+  .language-chooser-item a,
+  button.search-submit,
   a.button,
   button.button {
     color: #fff;
@@ -220,7 +220,7 @@ body.dark {
     }
   }
   header nav ul.menu li a,
-  .language-chooser-item a,
+  .language-chooser-item-item a,
   .site-branding .site-title a {
     border-color: #fefefe;
     color: #f1f1f1;
@@ -293,8 +293,8 @@ body.dark {
 body.light,
 body.dark {
   .tnp-widget .tnp-field-button input.tnp-submit:hover,
-  .language-chooser a:hover,
-  input.search-submit:hover,
+  .language-chooser-item a:hover,
+  button.search-submit:hover,
   a.button:hover,
   button.button:hover,
   button.button.active,

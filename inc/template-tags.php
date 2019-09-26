@@ -120,3 +120,29 @@ function minimal_artistic_portfolio_category_transient_flusher() {
 }
 add_action( 'edit_category', 'minimal_artistic_portfolio_category_transient_flusher' );
 add_action( 'save_post',     'minimal_artistic_portfolio_category_transient_flusher' );
+
+/**
+ * Replace Search text
+ */
+add_filter('get_search_form', 'minimal_artistic_portfolio_search_form_text');
+ 
+function minimal_artistic_portfolio_search_form_text($text) {
+
+		$form = '<form action="' . esc_url( home_url( '/' ) ) . '" method="get" class="search-form">
+								<input type="search" 
+											 name="s" 
+											 id="s" 
+											 class="search-field" 
+											 placeholder="'. esc_attr_x( 'Search', 'submit button' ) .'..." 
+											 value="' . esc_attr( get_search_query() ) . '" 
+								required>
+								<button type="submit" class="search-submit">
+									<svg class="icon icon-search">
+										<use xlink:href="#icon-search"></use>
+									</svg>
+									<span class="screen-reader-text">' . esc_attr_x( 'Search', 'submit button' ) . '</span>
+								</button>
+						</form>';
+
+    return $form;
+}
