@@ -416,13 +416,14 @@ function query_event_by_date()
         ?>
 
         <div id="event-<?php echo $eventId; ?>" class="row event-on-home">
-          <h3><?php echo get_the_title( $eventId ); ?></h3>
+          
 
           <div class="col-6 column ">
             <?php the_post_thumbnail( 'full' ); ?>
           </div>
 
           <div class="col-6 column event-info">
+            <h3><?php echo get_the_title( $eventId ); ?></h3>
             <p>
               <svg class="icon icon-location">
                 <use xlink:href="#icon-location"></use>
@@ -610,7 +611,7 @@ function custom_wp_dashboard_site_activity() {
 /*---------ADD-CPT-PICTO-TO-WIDGET-------------*/
 function add_admin_styles() {
 
-    echo '<link href="'. get_template_directory_uri() .'/prod/css/admin-css-hack.css"  rel="stylesheet">';
+    echo '<link href="'. get_template_directory_uri() .'/admin-css-hack.css"  rel="stylesheet">';
 }
 
 add_action('admin_head', 'add_admin_styles');
@@ -640,21 +641,12 @@ function social_module($title, $url, $class) {
       </span>
     </a>
 
-    <a href="https://twitter.com/home?status=<?php echo $url; ?>" target="_blank">
+    <a href="https://twitter.com/intent/tweet?text=<?php echo $url; ?> via @Nicolas_Lebrun_" target="_blank">
       <svg class="icon icon-twitter">
         <use xlink:href="#icon-twitter"></use>
       </svg>
       <span class="screen-reader-text">
         <?php _e('Share on Twitter', 'Minimal-Artistic-Portfolio'); ?>
-      </span>
-    </a>
-
-    <a href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank">
-      <svg class="icon icon-google-plus">
-        <use xlink:href="#icon-google-plus"></use>
-      </svg>
-      <span class="screen-reader-text">
-        <?php _e('Share on Google+', 'Minimal-Artistic-Portfolio'); ?>
       </span>
     </a>
 

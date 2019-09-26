@@ -15,7 +15,6 @@
   height: auto;
   margin-bottom: 3em;
   line-height: 0;
-
 }
 
 .project-summary .project-cover {
@@ -35,13 +34,11 @@
     max-width: 100%;
     width: 100%;
     height: auto;
-    -moz-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
 }
 .project-summary .project-cover:before {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 100%;
@@ -50,16 +47,18 @@
   background-color: transparent;
   z-index: 99;
 
-  transition: background-color .15s ease-in, border-width .5s ease-out;
+  transition: background-color 0.15s ease-in, border-width 0.5s ease-out;
 }
 .project-summary .project-cover:hover img {
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 .project-summary .project-cover:hover::before {
-  background: transparentize( $accent_color, .75);
-  background: linear-gradient(to right, transparentize( $accent_color, .75) , transparentize( complement( $accent_color ), .75));
+  background: transparentize($accent_color, 0.75);
+  background: linear-gradient(
+    to right,
+    transparentize($accent_color, 0.75),
+    transparentize(complement($accent_color), 0.75)
+  );
 }
 
 .project-summary,
@@ -67,10 +66,10 @@
 .event-on-home {
   align-items: center;
 
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     flex-direction: column;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     flex-direction: row;
   }
   box-shadow: 0 2px 4px rgba(204, 204, 204, 0.05);
@@ -84,24 +83,22 @@
   padding: 2rem;
 }
 
-
 .event-on-home .column {
   padding: 0 1em;
 }
 .project-summary,
 .event-info,
 .event-on-home {
-  .project-title, .event-title {
+  .project-title,
+  .event-title {
     margin-bottom: 1rem;
   }
 }
 .project-summary .column.cartel,
 .events-list--event .column.event-info,
 .event-on-home .column.col-map {
-
-  @include breakpoint( phone ) {
-
-    padding-top: .5em;
+  @include breakpoint(phone) {
+    padding-top: 0.5em;
   }
 
   .wrapper {
@@ -110,38 +107,47 @@
     margin: auto 0 auto 10%;
   }
 }
-.column.col-map { position: relative; }
+.column.col-map {
+  position: relative;
+}
 .page-template-events-php .map-overlay .map {
-	max-width: 100;
+  max-width: 100%;
 }
 @include breakpoint(phone) {
-	.col-map .map-overlay {
-		display: block;
-		width: 100%;
-		height: 350px;
-	}
+  .col-map .map-overlay {
+    display: block;
+    width: 100%;
+    height: 350px;
+  }
 }
 @include breakpoint(phone) {
-	.col-map .map-overlay {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-	}
+  .col-map .map-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 .map {
-	min-height: 100%;
+  min-height: 100%;
 }
 /*
 .project-summary .column.cartel .wrapper .description {
   @include breakpoint( laptop ) {  max-width: 75%; }
 }
 */
-.alignleft { float: left; margin-right: 1em; }
-.alignright { float: right; margin-left: 1em; }
-.project-title { font-style: italic;
+.alignleft {
+  float: left;
+  margin-right: 1em;
+}
+.alignright {
+  float: right;
+  margin-left: 1em;
+}
+.project-title {
+  font-style: italic;
 }
 h4.project-title {
   margin-bottom: 0;
@@ -149,16 +155,16 @@ h4.project-title {
 
 .project-summary .column.cartel .wrapper .description,
 .events-list--event .event-info.column .wrapper p.date,
-.event-on-home .event-info p.date{
+.event-on-home .event-info p.date {
   display: block;
   margin-bottom: 1em * $ratio;
 }
 .column img.attachment-full {
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     max-width: 110%;
     margin: 0 -5%;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     max-width: 100%;
     margin: 0;
   }
@@ -169,28 +175,31 @@ h4.project-title {
 //Single project & single event
 .single-project #main .entry-content > .attachment-full,
 .single-event #main .event div.row {
-		padding-bottom: 2em;
-		max-width: 100%;
-		height: auto;
+  padding-bottom: 2em;
+  max-width: 100%;
+  height: auto;
 }
 
-.single-project, .single-event {
+.single-project,
+.single-event {
   .map-overlay {
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       padding-bottom: 2em;
     }
   }
   .row {
     align-items: flex-start;
   }
-  @include breakpoint( phone ) {
-  	.social-sharing-module.laptop { display: none; }
-	.social-sharing-module.mobile {
-		margin-top: 1rem;
-		padding-top: 2rem;
-	 }
+  @include breakpoint(phone) {
+    .social-sharing-module.laptop {
+      display: none;
+    }
+    .social-sharing-module.mobile {
+      margin-top: 1rem;
+      padding-top: 2rem;
+    }
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     .row {
       align-items: stretch;
     }
@@ -207,20 +216,23 @@ h4.project-title {
     .project-text.filled .column .related-events {
       padding-bottom: 1.55em;
     }
-	 .social-sharing-module.mobile { display: none; }
-	 .social-sharing-module.laptop { display: block; }
+    .social-sharing-module.mobile {
+      display: none;
+    }
+    .social-sharing-module.laptop {
+      display: block;
+    }
   }
-  .project-text.filled .column:first-child ,
+  .project-text.filled .column:first-child,
   .event-text.filled .column:first-child {
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       padding: 0 0 1rem 0;
       margin: 0 0 2em 0;
     }
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       padding: 0 2rem 1rem 0;
       margin: 0 0 2em 0;
     }
-
   }
   .row .column:last-child {
     min-height: 20rem;
@@ -228,14 +240,14 @@ h4.project-title {
 }
 
 .event-menu {
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     display: block;
     float: none;
     margin-top: 1em;
     margin-bottom: 1em;
     padding-bottom: 2em;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     display: inline;
     float: right;
     margin-top: -7em;
@@ -245,30 +257,29 @@ h4.project-title {
 }
 
 #events-list .ac-container .event-year-section {
-
   h3.year {
     position: relative;
-    line-height: auto;
-    text-indent: .3em;
+    line-height: 1;
+    text-indent: 0.3em;
     margin: 0;
     padding: 0;
     height: 0;
 
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       width: 5%;
     }
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       width: 12%;
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
-      width: .3em;
-      height: .3em;
-      top: .4em;
-      margin-left: -.15em;
+      width: 0.3em;
+      height: 0.3em;
+      top: 0.4em;
+      margin-left: -0.15em;
       border-radius: 50%;
       z-index: 11;
     }
@@ -276,13 +287,13 @@ h4.project-title {
   .yearEventsList {
     display: block;
     position: relative;
-    margin-bottom: -.5rem;
+    margin-bottom: -0.5rem;
     padding-top: 6em;
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       padding-left: 5%;
       width: 100%;
     }
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       padding-left: 12%;
     }
     padding-bottom: 2em;
@@ -291,13 +302,13 @@ h4.project-title {
     list-style-type: none;
     z-index: 10;
 
-    .thumbnail img{
-      @include breakpoint( phone ) {
+    .thumbnail img {
+      @include breakpoint(phone) {
         display: block;
         width: inherit;
         margin: 0 auto;
       }
-      @include breakpoint( laptop ) {
+      @include breakpoint(laptop) {
         display: inline;
         width: 100%;
         margin: 0;
@@ -306,21 +317,25 @@ h4.project-title {
   }
 }
 .event-year-section,
-section.ac-container{ clear: both; float: none; padding-bottom: 2em;}
-.events-list--event {
-
+section.ac-container {
+  clear: both;
+  float: none;
+  padding-bottom: 2em;
 }
+
 main::before,
 main::after {
   clear: both;
   display: table;
-  content: '';
+  content: "";
 }
 .error-404 {
   margin-top: 3em;
   text-align: center;
 
-  .center { padding-bottom: 3em; }
+  .center {
+    padding-bottom: 3em;
+  }
   .legend {
     text-transform: capitalize;
     animation: shake 1s infinite;
@@ -336,27 +351,26 @@ main::after {
   }
 }
 .entry-content .row.page-section {
-	margin-bottom: 2rem;
+  margin-bottom: 2rem;
+  > div.column:first-child {
+    border-width: 0;
+    margin: 0 0 1rem 0;
+  }
+  > div.column:last-child {
+    padding: 1.4rem 0 0 0;
+  }
+  @include breakpoint(laptop) {
     > div.column:first-child {
-      border-width: 0;
-      margin: 0 0 1rem 0;
+      padding-right: 2rem;
+      margin: 0 1rem 0 0;
+      border-width: 2px;
     }
     > div.column:last-child {
-			padding: 1.4rem 0 0 0;
-		}
-	@include breakpoint( laptop ) {
-		> div.column:first-child {
-			padding-right: 2rem;
-			margin: 0 1rem 0 0;
-      border-width: 2px;
-		}
-		> div.column:last-child {
       margin: 0 0 0 1rem;
       border-width: 2px;
-		}
-		div.column {
-			padding-top: 1.5rem;
-		}
-	}
-
+    }
+    div.column {
+      padding-top: 1.5rem;
+    }
+  }
 }

@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2018-03-16 20:45+0000\n"
-"PO-Revision-Date: 2018-03-16 20:57+0000\n"
+"PO-Revision-Date: 2019-09-26 12:19+0000\n"
 "Last-Translator: Nicolas <nclslbrn@gmail.com>\n"
-"Language-Team: French (France)\n"
+"Language-Team: Français\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,8 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SearchPath-0: ..\n"
-"X-Loco-Target-Locale: fr_FR"
+"X-Loco-Target-Locale: fr_FR\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
 
 #: footer.php:25
 msgid "All right reserved"
@@ -377,7 +378,7 @@ msgstr "En savoir +"
 
 #: inc/custom-post.php:407
 msgid "Coming soon / Now"
-msgstr "A venir / en cours"
+msgstr "À venir / en cours"
 
 #: inc/custom-post.php:630
 msgid "Share"

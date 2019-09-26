@@ -1,6 +1,6 @@
 // Font family and properties
 
-@include font-face("Inter-UI--bold", "build/fonts/Inter-UI-Bold", null, normal, woff2 woff);
+@include font-face("Inter-Bold", "build/fonts/Inter-UI-Bold", null, normal, woff2 woff);
 // @include font-face('Inter-UI--regular', 'fonts/Inter-UI-Regular', null, normal, woff2 woff);
 
 //@include font-face('cousine--regular', '../fonts/cousine-regular-webfont', null, normal, woff2 woff);
@@ -45,15 +45,15 @@ input[type="text"],
 .related-events li a {
   @include breakpoint(phone) {
     line-height: 1.6 * $ratio;
-    font-size: 1em * $ratio;
+    font-size: 1em;
   }
   @include breakpoint(tablet) {
     line-height: 1.4 * $ratio;
-    font-size: 1.1em * $ratio;
+    font-size: 1.1em;
   }
   @include breakpoint(laptop) {
     line-height: 1.5 * $ratio;
-    font-size: 1.1em * $ratio;
+    font-size: 1.1em;
   }
 }
 
@@ -75,9 +75,10 @@ a:active {
 }
 
 blockquote {
-  margin: 1em 0;
-  padding: 0.5em 2em 0.5em 2em;
+  margin: 1.5em 0 2em 0;
+  padding: 0 2em;
   border-style: solid;
+  border-width: 0;
   border-left-width: 4px;
 }
 
@@ -155,7 +156,7 @@ h4 {
 .language-chooser a,
 a.button,
 button.button,
-.search-form input[type="submit"],
+.search-form button.search-submit,
 .tnp-widget .tnp-field-button input.tnp-submit {
   text-decoration: none;
   font-family: sans-serif;
@@ -165,7 +166,7 @@ button.button,
 }
 .tnp-widget .tnp-field-button input.tnp-submit,
 .language-chooser a,
-input.search-submit,
+button.search-submit,
 a.button,
 button.button {
   position: relative;
@@ -184,7 +185,7 @@ button.button {
   }
 }
 button.button,
-.search-form input[type="submit"],
+.search-form button.search-submit,
 .tnp-widget .tnp-field-button input.tnp-submit {
   font-family: $headline_font;
   vertical-align: top;
@@ -192,8 +193,7 @@ button.button,
   background-color: transparent;
 
   cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  appearance: none;
 }
 
 .language-chooser {
@@ -230,10 +230,9 @@ ul.language-chooser li.language-chooser-item a,
 
 @include breakpoint(laptop) {
   a.button::before,
-  button.button::before,
-  .search-form input[type="submit"]::before {
+  button.button::before {
     font-family: $headline_font;
-    content: "⟩⟩ ";
+    content: "→ ";
     font-size: 0.8em;
     margin: 0.1em 0.3em 0 0;
     padding: 0 0 0.4em 0;
@@ -247,8 +246,7 @@ ul.language-chooser li.language-chooser-item a,
 
 .language-chooser a::after,
 a.button::after,
-button.button::after,
-.search-form input[type="submit"]::after {
+button.button::after {
   display: block;
   position: absolute;
   content: "";
@@ -274,9 +272,9 @@ button.button.active,
 .tnp-widget .tnp-field-button input.tnp-submit:active,
 .tnp-widget .tnp-field-button input.tnp-submit:focus,
 .tnp-widget .tnp-field-button input.tnp-submit:hover,
-.search-form input[type="submit"]:active,
-.search-form input[type="submit"]:focus,
-.search-form input[type="submit"]:hover {
+.search-form button.search-submit:active,
+.search-form button.search-submit:focus,
+.search-form button.search-submit:hover {
   color: #fff;
   background-color: lighten($accent_color, 0.5);
   //border: 2px solid lighten($accent_color, 1%);
@@ -287,14 +285,14 @@ button.button.active,
 .language-chooser a:hover::after,
 a.button:hover::after,
 button.button:hover::after,
-.search-form input[type="submit"]::after {
+.search-form button.search-submit::after {
   width: 97%;
 }
 button.button.active::after,
 button.button:focus::after,
 button.button:active::after,
 button.button:hover::after,
-.search-form input[type="submit"]::after {
+.search-form button.search-submit::after {
   width: 100%;
 }
 .event-menu {

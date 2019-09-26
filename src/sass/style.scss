@@ -13,8 +13,9 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-$emBase: 15px; //default
-$accent_color: #3f65ad; //#4A5459; //#B5646A;  //  #0984e3; //  #FF6132
+
+$emBase: 16px; //default
+$accent_color: #0984e3; //  #FF6132
 $base_color: #f3f3f3;
 $dark_base: #3e3e3e;
 
@@ -77,6 +78,7 @@ body.fixed {
 @import "4-accessibility";
 @import "5-forms";
 @import "6-content";
+@import "fluidbox";
 @import "7-media";
 @import "8-switch";
 @import "9-mode";

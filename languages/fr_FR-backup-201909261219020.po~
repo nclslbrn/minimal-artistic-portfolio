@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2018-03-16 20:45+0000\n"
-"PO-Revision-Date: 2018-03-16 20:50+0000\n"
+"PO-Revision-Date: 2018-03-16 20:57+0000\n"
 "Last-Translator: Nicolas <nclslbrn@gmail.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr_FR\n"
@@ -373,7 +373,7 @@ msgstr "au"
 #: inc/custom-post.php:303 inc/custom-post.php:437
 #: template-parts/content-project.php:26
 msgid "Read more"
-msgstr "Lire plus"
+msgstr "En savoir +"
 
 #: inc/custom-post.php:407
 msgid "Coming soon / Now"

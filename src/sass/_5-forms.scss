@@ -21,7 +21,7 @@ form.contact {
     width: calc(100% - 2em);
     appearance: none;
     box-shadow: none;
-    border-radius: none;
+    border-radius: 0;
     outline: none;
   }
   button,
@@ -150,7 +150,7 @@ form.search-form,
   .tnp-field {
     label,
     input {
-       display: inline-block;
+      display: inline-block;
     }
     &.tnp-field-email {
       flex: 4;

@@ -25,11 +25,11 @@ body.light {
   .menu-toggle .menu-icon::before {
     background: #333;
   }
-  hr,
-  blockquote {
-    color: $black;
+  blockquote,
+  hr {
     border-color: $black;
   }
+
   .tnp-widget .tnp-field-button input.tnp-submit,
   .language-chooser-item a,
   button.search-submit,
@@ -175,9 +175,8 @@ body.dark {
       }
     }
   }
-  hr,
-  blockquote {
-    color: $white;
+  blockquote,
+  hr {
     border-color: $white;
   }
   .tnp-widget .tnp-field-button input.tnp-submit,

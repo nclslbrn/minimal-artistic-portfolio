@@ -1,18 +1,16 @@
-
 header.site-header .wrapper {
   position: relative;
 }
 
-header.site-header .row{
-
-  @include breakpoint( phone ) {
+header.site-header .row {
+  @include breakpoint(phone) {
     display: table;
     width: 100%;
   }
-  @include breakpoint( tablet ) {
+  @include breakpoint(tablet) {
     display: table;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     display: block;
   }
 
@@ -23,58 +21,59 @@ header.site-header .row{
       $font-size: 2,
       $line-height: 3,
       $leading-top: 1,
-      $leading-bottom: 1);
+      $leading-bottom: 1
+    );
 
-      text-align: left;
-      color: #9aa7bc;
-      font-weight: bold;
-      text-align: justify;
-      letter-spacing: .109em;
+    text-align: left;
+    color: #9aa7bc;
+    font-weight: bold;
+    text-align: justify;
+    letter-spacing: 0.109em;
 
-      @include breakpoint( phone ) {
-        font-size: 1em * $ratio;
-        line-height: 2rem
-      }
-      @include breakpoint( tablet ) {
-        font-size: 1.3em * $ratio;
-        line-height: 3rem;
-      }
-      @include breakpoint( laptop ) {
-        padding: .65em 0 .65rem 0;
-        font-size: 2.8rem;
-        text-indent: none;
-        box-shadow: none;
-        border: none;
-      }
-      a { text-transform: uppercase; text-decoration: none;}
+    @include breakpoint(phone) {
+      font-size: 1em * $ratio;
+      line-height: 2rem;
+    }
+    @include breakpoint(tablet) {
+      font-size: 1.3em * $ratio;
+      line-height: 3rem;
+    }
+    @include breakpoint(laptop) {
+      padding: 0.65em 0 0.65rem 0;
+      font-size: 2.8rem;
+      text-indent: 0;
+      box-shadow: none;
+      border: none;
+    }
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+    }
   }
   .menu-toggle {
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       display: block;
       position: absolute;
       top: 4px;
       left: 0;
       padding: 2rem;
-      margin:0;
+      margin: 0;
       width: 64px;
       height: 64px;
       border: none;
       border-bottom: none;
-  		background: none;
+      background: none;
       vertical-align: middle;
     }
 
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       display: none;
     }
   }
-  .menu-toggle.open {
 
-  }
   .menu-toggle:hover,
   .menu-toggle:focus,
-  .menu-toggle:active
-  {
+  .menu-toggle:active {
     outline: none;
     -webkit-appearance: button;
     cursor: pointer;
@@ -84,17 +83,14 @@ header.site-header .row{
   .menu-toggle .menu-icon::after {
     position: absolute;
     top: 0;
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       width: 24px;
       height: 2px;
     }
-    @include breakpoint( tablet ) {
+    @include breakpoint(tablet) {
       width: 32px;
       height: 4px;
     }
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
   .menu-toggle .menu-icon {
@@ -133,51 +129,46 @@ header.site-header .row{
   }
   .menu-toggle.open .menu-icon::before {
     margin-top: 0px;
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
   .menu-toggle.open .menu-icon::after {
     margin-top: 0px;
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
   }
 }
 
 .site-header .row .site-branding,
 .site-header .row .menu-toggle {
-
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     flex: 1;
     float: none;
   }
-  @include breakpoint( laptop ) {
-
+  @include breakpoint(laptop) {
   }
   text-decoration: none;
 }
 .site-header .row .site-branding {
-
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     width: 85%;
-    width: calc( 100% - 80px );
+    width: calc(100% - 80px);
     margin-left: 60px;
   }
-  @include breakpoint( tablet ) {
+  @include breakpoint(tablet) {
     margin-left: 80px;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     display: inline-block;
     margin-left: 0;
   }
-  h1 { display: inline-block; width: auto;}
+  h1 {
+    display: inline-block;
+    width: auto;
+  }
 }
 .site-header .row .widget-area {
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     display: block;
+
     &.widget-mobile .top-bar .widget_search,
     &.widget-laptop {
       display: none;
@@ -186,17 +177,23 @@ header.site-header .row{
       display: block;
       width: 50%;
       margin: 0 auto;
-		  border: none;
-        li {
+      border: none;
+      li {
         display: inline-block;
         width: 50%;
-        a { display: block; }
-        &:nth-child(odd) a span { float: right;}
-        &:nth-child(even) a span { float: left;}
+        a {
+          display: block;
+        }
+        &:nth-child(odd) a span {
+          float: right;
+        }
+        &:nth-child(even) a span {
+          float: left;
+        }
       }
     }
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     display: inline-block;
     float: right;
     padding: 1em 0 0 0;
@@ -205,23 +202,23 @@ header.site-header .row{
       display: none;
     }
 
-    ul.top-bar  li {
+    ul.top-bar li {
       display: inline-flex;
     }
-
   }
   ul.top-bar {
     list-style-type: none;
-    li { display: inline-block;}
+    li {
+      display: inline-block;
+    }
     li a::before,
     li a::after {
       content: none;
     }
   }
 }
-.site-header .row .main-navigation{
-  @include breakpoint( phone ) {
-
+.site-header .row .main-navigation {
+  @include breakpoint(phone) {
     position: absolute;
     display: block;
     left: 0;
@@ -229,9 +226,9 @@ header.site-header .row{
     min-height: 100vh;
     z-index: 99;
     background: #fff;
-	 background: linear-gradient(to left, #f6f6f6, #fff 75%);
-    transform: translateX( -120%);
-    transition: transform .35s ease-in;
+    background: linear-gradient(to left, #f6f6f6, #fff 75%);
+    transform: translateX(-120%);
+    transition: transform 0.35s ease-in;
 
     .menu {
       display: flex;
@@ -244,95 +241,94 @@ header.site-header .row{
         border-top-width: 1px;
         border-style: solid;
       }
-      li:last-child { border-bottom-width: 1px; }
+      li:last-child {
+        border-bottom-width: 1px;
+      }
     }
     .qtranxs_widget ul.qtranxs_language_chooser {
       padding-left: 0;
       li.language-chooser-item {
         margin: 0;
-        &:last-child { margin-left: -4px; }
+        &:last-child {
+          margin-left: -4px;
+        }
       }
     }
   }
 }
 
-
 .site-header .row .main-navigation.toggled {
   z-index: 1001;
 
-  transform: translateX( 0);
+  transform: translateX(0);
   max-width: 100%;
-  transition: transform .35s ease-in;
+  transition: transform 0.35s ease-in;
 }
 .row .main-navigation ul {
-
-  @include breakpoint( phone ) {
-
+  @include breakpoint(phone) {
     display: block;
   }
-  @include breakpoint( laptop ) {
-
+  @include breakpoint(laptop) {
     display: flex;
     width: 100%;
   }
   justify-content: flex-start;
   white-space: nowrap;
   list-style-type: none;
-
 }
 
 .row .main-navigation ul.menu li.menu-item {
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     display: block;
     padding: 0 1.4rem;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     margin: -4px 4rem 0 0;
   }
   position: relative;
 }
-@include breakpoint( phone ){
-  .row .main-navigation.toggled ul li{
+@include breakpoint(phone) {
+  .row .main-navigation.toggled ul li {
     text-align: center;
   }
 }
-.row .main-navigation ul li a{
-
+.row .main-navigation ul li a {
   display: block;
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     @include plumber(
-      $grid-height: .7rem,
+      $grid-height: 0.7rem,
       $baseline: $headline_baseline,
       $font-size: 2,
       $line-height: 2,
       $leading-top: 2,
-      $leading-bottom: 2);
+      $leading-bottom: 2
+    );
 
-      text-transform: capitalize;
+    text-transform: capitalize;
 
-		&::after {
-			position: absolute;
-			content: '›';
-			right: 1.5rem;
-			font-weight: bolder;
-		}
+    &::after {
+      position: absolute;
+      content: "›";
+      right: 1.5rem;
+      font-weight: bolder;
+    }
   }
 
-  @include breakpoint( laptop ) {
-
+  @include breakpoint(laptop) {
     @include plumber(
-      $grid-height: .4rem,
+      $grid-height: 0.4rem,
       $baseline: $headline_baseline,
       $font-size: 3,
       $line-height: 3,
       $leading-top: 3,
-      $leading-bottom: 3);
-	font-weight: bold;
+      $leading-bottom: 3
+    );
+    font-weight: bold;
   }
 
   font-family: $headline_font;
   text-align: center;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   border: 0;
@@ -343,28 +339,28 @@ header.site-header .row{
 }
 
 .row .main-navigation ul li a::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-  @include breakpoint( phone ) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include breakpoint(phone) {
     margin-left: -1rem;
     width: 2px;
     height: 100%;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     margin-left: 0;
-  	width: 30px;
-	  margin-bottom: -2px;
-  	height: 4px;
+    width: 30px;
+    margin-bottom: -2px;
+    height: 4px;
   }
   background-color: $accent_color;
 
-	transform: scale3d(0, 1, 1);
+  transform: scale3d(0, 1, 1);
   transform-origin: 0 50%;
-	transition: transform 0.3s;
+  transition: transform 0.3s;
 
-	transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+  transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
 }
 .row .main-navigation ul li a:hover,
 .row .main-navigation ul li a:focus {
@@ -375,14 +371,14 @@ header.site-header .row{
 }
 .row .main-navigation ul li.current-menu-item a::before,
 .row .main-navigation ul li a:hover:before {
-	-webkit-transform: scale3d(1, 1, 1);
-	transform: scale3d(1, 1, 1);
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
 }
 .row .main-navigation ul.menu li.menu-item-has-children {
-  @include breakpoint( phone ) {
+  @include breakpoint(phone) {
     display: none;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
   }
 }
 .row .main-navigation ul.menu li.menu-item.menu-item-has-children ul.sub-menu {
@@ -391,14 +387,14 @@ header.site-header .row{
 .row .main-navigation ul.menu li.open.menu-item.menu-item-has-children ul.sub-menu {
   display: flex;
   flex-direction: column;
-	position: absolute;
-  margin-top: .45em;
+  position: absolute;
+  margin-top: 0.45em;
   left: 0;
   right: 0;
   margin-left: -1em;
   margin-right: -1em;
   width: auto;
-	border-left: $black_border;
+  border-left: $black_border;
   border-right: $black_border;
   border-bottom: $black_border;
   background: #fefefe;
@@ -408,98 +404,97 @@ header.site-header .row{
     a {
       color: #333;
 
-      img { display: none;}
+      img {
+        display: none;
+      }
     }
   }
 }
 .row .main-navigation ul li.menu-item-has-children.open ul.submenu::after {
-	bottom: 100%;
-	left: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(136, 183, 213, 0);
-	border-bottom-color: $accent_color;
-	border-width: 10px;
-	margin-left: -10px;
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: $accent_color;
+  border-width: 10px;
+  margin-left: -10px;
 }
 footer.site-footer {
   margin-top: 1em;
   padding-bottom: 2em;
 }
-footer.site-footer .row{
-
-  @include breakpoint( phone ) {
+footer.site-footer .row {
+  @include breakpoint(phone) {
     display: block;
   }
-  @include breakpoint( laptop ) {
+  @include breakpoint(laptop) {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
   margin-top: 1em;
-  padding: .5em;
+  padding: 0.5em;
 
-  .footer-menu .menu{
-
+  .footer-menu .menu {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-	 line-height: 1.5em;
-
+    line-height: 1.5em;
   }
   .footer-menu,
   .site-info {
-
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       flex: 1;
     }
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       flex-grow: 1;
     }
   }
   .footer-menu,
-  .site-info{
+  .site-info {
     width: auto;
   }
 
-
-
-  .footer-menu  ul#menu-footer {
+  .footer-menu ul#menu-footer {
     padding-top: 2em;
 
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       display: flex;
 
-      li a { margin: 0 .5em; }
-
+      li a {
+        margin: 0 0.5em;
+      }
     }
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       display: flex;
 
       li {
         flex: 1;
         width: auto;
 
-        a{
-            @include plumber(
-              $grid-height: 1rem,
-              $baseline: $headline_baseline,
-              $font-size: 1,
-              $line-height: 2,
-              $leading-top: 1,
-              $leading-bottom: 1);
-
-          }
-          text-align: left;
-          border-bottom: none;
-          margin-left: 1em;
+        a {
+          @include plumber(
+            $grid-height: 1rem,
+            $baseline: $headline_baseline,
+            $font-size: 1,
+            $line-height: 2,
+            $leading-top: 1,
+            $leading-bottom: 1
+          );
         }
-      li:last-child { border-bottom: none; }
+        text-align: left;
+        border-bottom: none;
+        margin-left: 1em;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
     }
     list-style-type: none;
   }
@@ -511,12 +506,13 @@ footer.site-footer .row{
       $font-size: 1,
       $line-height: 2,
       $leading-top: 1,
-      $leading-bottom: 1);
+      $leading-bottom: 1
+    );
 
-    @include breakpoint( phone ) {
+    @include breakpoint(phone) {
       text-align: center;
     }
-    @include breakpoint( laptop ) {
+    @include breakpoint(laptop) {
       text-align: right;
     }
   }
