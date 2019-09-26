@@ -216,11 +216,12 @@ header nav ul.menu li a,
 ul.language-chooser li.language-chooser-item a {
   border: none;
 }
-ul.language-chooser li:first-child::after {
-  content: "/";
-  margin: 0.5em -1em 0 0;
+@include breakpoint(laptop) {
+  ul.language-chooser li:first-child::after {
+    content: "/";
+    margin: 0.5em -1em 0 0;
+  }
 }
-
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus,
 .language-chooser-item.active a:hover {

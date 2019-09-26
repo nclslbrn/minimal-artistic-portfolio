@@ -5,6 +5,10 @@ textarea {
   max-width: 100%;
   width: 100%;
 }
+input,
+button {
+  outline: none;
+}
 
 form.contact {
   font-family: $body_font;
@@ -22,7 +26,6 @@ form.contact {
     appearance: none;
     box-shadow: none;
     border-radius: 0;
-    outline: none;
   }
   button,
   textarea:focus,
@@ -135,11 +138,17 @@ form.search-form,
 
   input[type="search"] {
     margin-right: 0;
+    -webkit-appearance: textfield;
   }
   button.search-submit {
     margin: 0;
+    padding: 0 0.5em;
     line-height: 1;
     border-left: none;
+    &::before {
+      content: none;
+    }
+
     & svg {
       font-size: 1.5em;
     }

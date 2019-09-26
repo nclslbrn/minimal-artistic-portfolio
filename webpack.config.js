@@ -9,13 +9,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-const backConfig = {
+
+const backConfig = (mode) = {
     entry: './src/js/back.js',
     output: {
         path: path.resolve(__dirname, 'build/'),
         filename: 'js/back-bundle.js'
     },
-    mode: 'development',
+    // -> add it contextually to env  mode: 'development',
     module: {
         rules: [{
             test: /\.js$/,
@@ -92,13 +93,13 @@ const backConfig = {
     ]
 };
 
-const editorConfig = {
+const editorConfig = (mode) = {
     entry: './src/js/editor.js',
     output: {
         path: path.resolve(__dirname, 'build/'),
         filename: 'js/editor.js'
     },
-    mode: 'development',
+    // -> add it contextually to env  mode: 'development',
     module: {
         rules: [{
             test: /\.js$/,
@@ -113,7 +114,7 @@ const editorConfig = {
     }
 };
 
-const frontConfig = {
+const frontConfig = (mode) = {
 
     entry: './src/js/front.js',
     output: {
@@ -121,7 +122,7 @@ const frontConfig = {
         filename: 'js/front-bundle.js'
     },
     mode: 'development',
-    devtool: "source-map",
+    // -> add it contextually to env devtool: "source-map",
     module: {
         rules: [{
             test: /\.js$/,
@@ -212,4 +213,15 @@ const frontConfig = {
 
 };
 
-module.exports = [frontConfig, backConfig, editorConfig]
+module.exports = (env, argv) => {
+
+    console.log('MODE ' + argv.mode.toUpperCase())
+
+    if (argv.mode === 'development') {
+        frontConfig.devtool = 'source-map'
+        backConfig.devtool = 'source-map'
+        editorConfig.devtool = 'source-map'
+    }
+    return [frontConfig, backConfig, editorConfig]
+
+}

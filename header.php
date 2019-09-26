@@ -88,7 +88,7 @@ $homepage = is_front_page();
 		
     <div id="loader">
         <div class="overlay"></div><!-- .overlay -->
-        <svg class="spinner" version="1.1" width="512" height="512" viewBox="0 0 512 512" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="spinner" version="1.1" width="512" height="512" viewBox="0 0 512 512" fill="none" stroke-linecap="round" stroke-miterlimit="10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <title>L-n</title>
             <g>
                 <polyline class="path" points="27.35 176 27.35 27.35 484.65 27.35 484.65 484.65 191.7 484.65" />
