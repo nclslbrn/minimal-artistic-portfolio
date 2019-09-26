@@ -52,7 +52,7 @@ const backConfig = {
                     options: {
                         ident: 'postcss',
                         plugins: (loader) => [
-                            require('autoprefixer'),
+                            //require('autoprefixer'),
                             require('cssnano')
                         ]
                     }
@@ -71,13 +71,14 @@ const backConfig = {
     plugins: [
 
         new MiniCssExtractPlugin({
-            filename: "../editor-preview.css"
+            filename: "../admin-css-hack.css"
         }),
         new CopyWebpackPlugin([{
             from: 'src/img',
-            to: 'images',
+            to: 'img',
             force: true
         }]),
+
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i
         }),
@@ -189,7 +190,12 @@ const frontConfig = {
         }),
         new CopyWebpackPlugin([{
             from: 'src/img',
-            to: 'images',
+            to: 'img',
+            force: true
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'src/fonts',
+            to: 'fonts',
             force: true
         }]),
         new ImageminPlugin({
