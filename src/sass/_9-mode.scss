@@ -2,9 +2,9 @@ body.light {
   &,
   & #loader div.overlay {
     color: $dark_base;
-    background: url(../img/handmadepaper.png);
+    background: url(build/img/handmadepaper.png);
     background: linear-gradient(to bottom, rgba(230, 230, 230, 0.1), rgba(180, 180, 180, 0.1) 75%),
-      url(../img/handmadepaper.png);
+      url(build/img/handmadepaper.png);
     svg.spinner g path {
       stroke: #333;
     }
@@ -151,8 +151,8 @@ body.dark {
   & #loader div.overlay {
     color: #fefefe;
     background: #222;
-    background: url(../img/handmadepaper.png);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.1) 75%), url(../img/zwartevilt.png);
+    background: url(build/img/handmadepaper.png);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.1) 75%), url(build/img/zwartevilt.png);
 
     svg.spinner g path {
       stroke: #fff;
