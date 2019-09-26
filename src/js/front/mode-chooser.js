@@ -12,28 +12,31 @@ function getCookie(key) {
 
 jQuery(function($) {
 
-    if (getCookie('mode')) {
+    if ($('input[name="mode-switcher"]:checkbox').length) {
 
-        $('body').addClass(getCookie('mode'));
+        if (getCookie('mode')) {
 
-    } else {
-
-        $('body').addClass('light');
-
-    }
-
-
-    $('input[name="mode-switcher"]:checkbox').change(function() {
-
-        $('body').toggleClass('light dark');
-
-        if ($(this).is(":checked")) {
-
-            setCookie('mode', 'dark');
+            $('body').addClass(getCookie('mode'));
 
         } else {
 
-            setCookie('mode', 'light');
+            $('body').addClass('light');
+
         }
-    });
+
+
+        $('input[name="mode-switcher"]:checkbox').change(function() {
+
+            $('body').toggleClass('light dark');
+
+            if ($(this).is(":checked")) {
+
+                setCookie('mode', 'dark');
+
+            } else {
+
+                setCookie('mode', 'light');
+            }
+        });
+    }
 })
