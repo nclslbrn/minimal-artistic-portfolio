@@ -368,9 +368,13 @@ header.site-header .row {
 .row .main-navigation ul li a:focus {
   color: $accent_color;
 }
+.single-project .row .main-navigation ul li.projects a,
+.single-event .row .main-navigation ul li.events a,
 .row .main-navigation ul li.current-menu-item a {
   color: $accent_color;
 }
+.single-project .row .main-navigation ul li.projects a::before,
+.single-event .row .main-navigation ul li.events a::before,
 .row .main-navigation ul li.current-menu-item a::before,
 .row .main-navigation ul li a:hover:before {
   -webkit-transform: scale3d(1, 1, 1);
