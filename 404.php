@@ -24,7 +24,7 @@ get_header(); ?>
 						<?php _e( 'Sorry, we couldn\'t find the page you were looking for!', 'Minimal-Artistic-Portfolio' ); ?>
 					</h5>
 
-					<?php	get_search_form(); ?>
+					<?php	//get_search_form(); ?>
 
 						<?php /*
 						the_widget( 'WP_Widget_Recent_Posts' );
