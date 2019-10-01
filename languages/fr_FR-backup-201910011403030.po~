@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2018-03-16 20:45+0000\n"
-"PO-Revision-Date: 2018-03-16 20:57+0000\n"
+"POT-Creation-Date: 2019-10-01 14:00+0000\n"
+"PO-Revision-Date: 2019-10-01 14:02+0000\n"
 "Last-Translator: Nicolas <nclslbrn@gmail.com>\n"
-"Language-Team: French (France)\n"
+"Language-Team: Français\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,8 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SearchPath-0: ..\n"
-"X-Loco-Target-Locale: fr_FR"
-
-#: footer.php:25
-msgid "All right reserved"
-msgstr "Tous droits réservés"
-
-#: footer.php:29
-msgid "Designed by Nicolas Lebrun"
-msgstr "Design : Nicolas Lebrun"
+"X-Loco-Target-Locale: fr_FR\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
 
 #: functions.php:55
 msgid "Primary"
@@ -48,20 +41,11 @@ msgstr "Ajouter des widgets ici."
 
 #: functions.php:120
 msgid "Header Sidebar"
-msgstr ""
+msgstr "En-tête de la colonne latérale"
 
 #: functions.php:122 inc/custom-post-widget.php:117
 msgid "Widgets in this area will be shown on all posts and pages."
 msgstr "Les widgets seront visibles sur toutes les pages"
-
-#: inc/custom-post.php:44 inc/custom-post.php:128
-msgid "Events"
-msgstr "Évènements"
-
-#: events.php:34 inc/home-project-layout.php:27 template-parts/content.php:38
-#: template-parts/content-page.php:35
-msgid "Pages:"
-msgstr "Pages:"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -98,6 +82,15 @@ msgstr "Commentaires plus récents"
 #: comments.php:78
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés"
+
+#: inc/custom-post.php:45 inc/custom-post.php:130
+msgid "Events"
+msgstr "Évènements"
+
+#: events.php:34 inc/home-project-layout.php:27
+#: template-parts/content-page.php:35 template-parts/content.php:38
+msgid "Pages:"
+msgstr "Pages:"
 
 #: search.php:19
 #, php-format
@@ -156,101 +149,21 @@ msgstr "* : champs requis"
 msgid "send"
 msgstr "envoyer"
 
-#. Name of the template
-msgid "Homepage"
-msgstr "Accueil"
-
-#: header.php:110
+#: header.php:103
 msgid "Skip to content"
 msgstr "Aller au contenu"
 
-#: inc/template-tags.php:28
-#, php-format
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr "Ecrit dans %1$s"
+#: footer.php:25
+msgid "All right reserved"
+msgstr "Tous droits réservés"
 
-#: inc/template-tags.php:33
-#, php-format
-msgctxt "post author"
-msgid "by %s"
-msgstr "par %s"
+#: footer.php:29
+msgid "Designed by Nicolas Lebrun"
+msgstr "Design : Nicolas Lebrun"
 
-#: inc/template-tags.php:50 inc/template-tags.php:56
-msgid ", "
-msgstr ", "
-
-#: inc/template-tags.php:52
-#, php-format
-msgid "Posted in %1$s"
-msgstr "Ecrit dans %1$s"
-
-#: inc/template-tags.php:58
-#, php-format
-msgid "Tagged %1$s"
-msgstr "Tag %1$s"
-
-#: inc/template-tags.php:65
-#, php-format
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
-
-#: inc/template-tags.php:72 template-parts/content-page.php:46
-#, php-format
-msgid "Edit %s"
-msgstr "Editer %s"
-
-#: inc/meta-box.php:7 inc/custom-post.php:45
-msgid "Event"
-msgstr "Évènement"
-
-#: inc/meta-box.php:74 inc/meta-box.php:258
-msgid "Place"
-msgstr "Lieu"
-
-#: inc/meta-box.php:110 inc/meta-box.php:147
-msgid "Section title"
-msgstr ""
-
-#: inc/meta-box.php:117 inc/meta-box.php:149
-msgid "Section text"
-msgstr ""
-
-#: inc/meta-box.php:123
-msgid "Remove section"
-msgstr ""
-
-#: inc/meta-box.php:131
-msgid "Add section"
-msgstr ""
-
-#: inc/meta-box.php:257
-msgid "Date"
-msgstr "Date"
-
-#: inc/home-project-layout.php:15
-msgid "Edit"
-msgstr "Editer"
-
-#: inc/home-project-layout.php:31
-msgid "Page"
-msgstr "Page"
-
-#: inc/custom-post-widget.php:72
-msgid "Widget Title"
-msgstr "Titre du Widget"
-
-#: inc/custom-post-widget.php:77
-msgid "Custom post:<br>"
-msgstr "Type d’Article Personnalisé:<br>"
-
-#: inc/custom-post-widget.php:92
-msgid "Number:<br>"
-msgstr "Nombre:<br>"
-
-#: inc/custom-post-widget.php:115
-msgid "Menu Sidebar"
-msgstr "Menu latéral"
+#. Name of the template
+msgid "Homepage"
+msgstr "Accueil"
 
 #: inc/custom-post.php:6
 msgctxt "post type general name"
@@ -262,7 +175,7 @@ msgctxt "post type singular name"
 msgid "Project"
 msgstr "Projet"
 
-#: inc/custom-post.php:8 inc/custom-post.php:172
+#: inc/custom-post.php:8 inc/custom-post.php:174
 msgid "Projects"
 msgstr "Projets"
 
@@ -270,7 +183,7 @@ msgstr "Projets"
 msgid "Project"
 msgstr "Projet"
 
-#: inc/custom-post.php:10 inc/custom-post.php:46
+#: inc/custom-post.php:10 inc/custom-post.php:47
 msgid "Add New"
 msgstr "Ajouter nouveau"
 
@@ -310,107 +223,194 @@ msgstr "Pas de projet trouvé."
 msgid "No projects found in Trash."
 msgstr "Pas de projet trouvé dans la corbeille."
 
-#: inc/custom-post.php:42
+#: inc/custom-post.php:43
 msgctxt "post type general name"
 msgid "Events"
 msgstr "Évènements"
 
-#: inc/custom-post.php:43
+#: inc/custom-post.php:44
 msgctxt "post type singular name"
 msgid "Event"
 msgstr "Évènement"
 
-#: inc/custom-post.php:47
+#: inc/custom-post.php:46 inc/meta-box.php:70
+msgid "Event"
+msgstr "Évènement"
+
+#: inc/custom-post.php:48
 msgid "Add New Event"
 msgstr "Ajouter un nouvel évènement"
 
-#: inc/custom-post.php:48
+#: inc/custom-post.php:49
 msgid "New Event"
 msgstr "Nouvel évènement"
 
-#: inc/custom-post.php:49
+#: inc/custom-post.php:50
 msgid "Edit Event"
 msgstr "Editer l’évènement"
 
-#: inc/custom-post.php:50
+#: inc/custom-post.php:51
 msgid "View Event"
 msgstr "Voir l’évènement"
 
-#: inc/custom-post.php:51
+#: inc/custom-post.php:52
 msgid "All Events"
 msgstr "Tous les évènements"
 
-#: inc/custom-post.php:52
+#: inc/custom-post.php:53
 msgid "Search Events"
 msgstr "Chercher un évènement"
 
-#: inc/custom-post.php:53
+#: inc/custom-post.php:54
 msgid "Parent Events:"
 msgstr "Avènement parent:"
 
-#: inc/custom-post.php:54
+#: inc/custom-post.php:55
 msgid "No events found."
 msgstr "Pas d’évènement trouvé."
 
-#: inc/custom-post.php:55
+#: inc/custom-post.php:56
 msgid "No events found in Trash."
 msgstr "Pas d’évènement trouvé dans la corbeille."
 
-#: inc/custom-post.php:75
+#: inc/custom-post.php:77
 msgid "category"
 msgstr "catégorie"
 
-#: inc/custom-post.php:297 inc/custom-post.php:434
+#: inc/custom-post.php:299 inc/custom-post.php:437
 #: template-parts/content-event.php:43
 msgid "From"
 msgstr "Du"
 
-#: inc/custom-post.php:299 inc/custom-post.php:435
+#: inc/custom-post.php:301 inc/custom-post.php:438
 #: template-parts/content-event.php:44
 msgid "to"
 msgstr "au"
 
-#: inc/custom-post.php:303 inc/custom-post.php:437
+#: inc/custom-post.php:305 inc/custom-post.php:440
 #: template-parts/content-project.php:26
 msgid "Read more"
-msgstr "En savoir +"
+msgstr ""
 
-#: inc/custom-post.php:407
+#: inc/custom-post.php:409
 msgid "Coming soon / Now"
-msgstr "A venir / en cours"
+msgstr "À venir / en cours"
 
-#: inc/custom-post.php:630
+#: inc/custom-post.php:633
 msgid "Share"
 msgstr "Diffuser"
 
-#: inc/custom-post.php:637
+#: inc/custom-post.php:640
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Diffuser sur Facebook"
 
-#: inc/custom-post.php:646
+#: inc/custom-post.php:649
 msgid "Share on Twitter"
-msgstr ""
+msgstr "Diffuser sur Twitter"
 
-#: inc/custom-post.php:655
-msgid "Share on Google+"
-msgstr ""
-
-#: inc/custom-post.php:664
+#: inc/custom-post.php:658
 msgid "Send Email"
-msgstr ""
+msgstr "Envoyer par Email"
 
-#: template-parts/content-events.php:10
-msgid "Map"
-msgstr "Carte"
+#: inc/meta-box.php:82
+msgid "Cover option"
+msgstr "Option de couverture"
 
-#: template-parts/content-events.php:16
-msgid "List"
-msgstr "Liste"
+#: inc/meta-box.php:166 inc/meta-box.php:375
+msgid "Place"
+msgstr "Lieu"
 
-#: template-parts/content.php:33
+#: inc/meta-box.php:181
+msgid "Cover is an image or a video ?"
+msgstr "La couverture est une image ou une vidéo ?"
+
+#: inc/meta-box.php:183
+msgid "Image"
+msgstr "Image"
+
+#: inc/meta-box.php:185
+msgid "Video"
+msgstr "Vidéo"
+
+#: inc/meta-box.php:187
+msgid "Video ID"
+msgstr "ID de la vidéo"
+
+#: inc/meta-box.php:190
+msgid "Video provider"
+msgstr "Source de la vidéo"
+
+#: inc/meta-box.php:192
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: inc/meta-box.php:194
+msgid "YouTube"
+msgstr "Youtube"
+
+#: inc/meta-box.php:374
+msgid "Date"
+msgstr "Date"
+
+#: inc/home-project-layout.php:15
+msgid "Edit"
+msgstr "Editer"
+
+#: inc/home-project-layout.php:31
+msgid "Page"
+msgstr "Page"
+
+#: inc/template-tags.php:28
 #, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Lire plus sur  %s <span class=« meta-nav »>&rarr;</span>"
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Ecrit dans %1$s"
+
+#: inc/template-tags.php:33
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "par %s"
+
+#: inc/template-tags.php:50 inc/template-tags.php:56
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:52
+#, php-format
+msgid "Posted in %1$s"
+msgstr "Ecrit dans %1$s"
+
+#: inc/template-tags.php:58
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Tag %1$s"
+
+#: inc/template-tags.php:65
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
+
+#: inc/template-tags.php:72 template-parts/content-page.php:46
+#, php-format
+msgid "Edit %s"
+msgstr "Editer %s"
+
+#: inc/custom-post-widget.php:72
+msgid "Widget Title"
+msgstr "Titre du Widget"
+
+#: inc/custom-post-widget.php:77
+msgid "Custom post:<br>"
+msgstr "Type d’Article Personnalisé:<br>"
+
+#: inc/custom-post-widget.php:92
+msgid "Number:<br>"
+msgstr "Nombre:<br>"
+
+#: inc/custom-post-widget.php:115
+msgid "Menu Sidebar"
+msgstr "Menu latéral"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
@@ -439,18 +439,19 @@ msgstr ""
 "Il semblerait que nous ne pouvons trouvé ce que vous cherchez. Essayer de "
 "chercher."
 
-#. Name of the theme
-msgid "Minimal-Artistic-Portfolio"
-msgstr "Minimal-Artistic-Portfolio"
+#: template-parts/content.php:33
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Lire plus sur  %s <span class=« meta-nav »>&rarr;</span>"
 
-#. Description of the theme
-msgid "Description"
-msgstr "Description"
+#: template-parts/content-events.php:10
+msgid "Map"
+msgstr "Carte"
 
-#. Theme URI of the theme
-msgid "http://underscores.me/"
-msgstr "http://underscores.me/"
+#: template-parts/content-events.php:16
+msgid "List"
+msgstr "Liste"
 
 #. Author of the theme
-msgid "Nicolas Lebrun"
-msgstr "Nicolas Lebrun"
+msgid "Anonyme"
+msgstr "Anonyme"

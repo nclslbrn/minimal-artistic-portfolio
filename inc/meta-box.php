@@ -29,14 +29,7 @@ add_action( 'add_meta_boxes', 'adding_new_metabox' );
 
 function adding_new_metabox( ) {
 
-  add_meta_box(
-    'cartel_section',
-    'Cartel',
-    'cartel_function',
-    'project',
-    'normal',
-    'high'
-  );
+  // event
 
   add_meta_box(
     'date_section',
@@ -44,18 +37,6 @@ function adding_new_metabox( ) {
     'date_function',
     'event',
     'normal',
-    'high',
-    array(
-      '__back_compat_meta_box' => true
-    )
-  );
-
-  add_meta_box(
-    'event',
-    __('Event', 'Minimal-Artistic-Portfolio'),
-    'event_link',
-    'project',
-    'side',
     'high',
     array(
       '__back_compat_meta_box' => true
@@ -73,7 +54,43 @@ function adding_new_metabox( ) {
       '__back_compat_meta_box' => true
     )
   );
+
+  // projects
+   add_meta_box(
+    'cartel_section',
+    'Cartel',
+    'cartel_function',
+    'project',
+    'normal',
+    'high'
+  );
+
+  add_meta_box(
+    'event',
+    __('Event', 'Minimal-Artistic-Portfolio'),
+    'event_link',
+    'project',
+    'side',
+    'high',
+    array(
+      '__back_compat_meta_box' => true
+    )
+  );
+
+  add_meta_box(
+    'cover_options',
+    __('Cover option', 'Minimal-Artistic-Portfolio'),
+    'cover_options',
+    'project',
+    'side',
+    'high',
+    array(
+      '__back_compat_meta_box' => true
+    )
+  );
+
   /*
+  // pages
   add_meta_box(
     'page-section',
     'Page Section',
@@ -153,6 +170,30 @@ function map_iframe( $post ) {
     <label>Longitude</label>
     <input type="text" name="InputLong" id="long" value="<?= $long ?>"/>
     <?php
+}
+
+function cover_options( $post ) {
+  $is_video = get_post_meta( $post->ID, 'IS_VIDEO', true); // o = image 1 = video
+  $video_id = get_post_meta( $post->ID, 'VIDEO_ID', true);
+  $video_provider = get_post_meta( $post->ID, 'VIDEO_PROVIDER', true);
+
+  ?>
+  <label><?php _e('Cover is an image or a video ?', 'Minimal-Artistic-Portfolio'); ?></label><br/>
+  <input id="not_a_video" type="radio" name="is_video" value="0" <?php echo $is_video == '0' ? ' checked' : ''; ?>/>
+  <label for="not_a_video"><?php _e('Image', 'Minimal-Artistic-Portfolio'); ?></label> <br/>
+  <input id="its_a_video" type="radio" name="is_video" value="1" <?php echo $is_video == '1' ? ' checked' : ''; ?>/>
+  <label><?php _e('Video', 'Minimal-Artistic-Portfolio'); ?></label><br/>
+
+  <label><?php _e('Video ID', 'Minimal-Artistic-Portfolio'); ?></label><br/>
+  <input type="text" name="video_id" value="<?php echo $video_id; ?>" /><br/>
+
+  <label><?php _e('Video provider', 'Minimal-Artistic-Portfolio'); ?></label><br/>
+  <input id="provider_vimeo" type="radio" name="video_provider" value="vimeo" <?php echo $video_provider == 'vimeo' ? ' checked' : ''; ?>/>
+  <label for="provider_vimeo"><?php _e('Vimeo', 'Minimal-Artistic-Portfolio'); ?></label><br/>
+  <input id="provider_youtube" type="radio" name="video_provider" value="youtube" <?php echo $video_provider == 'youtube' ? ' checked' : ''; ?>/>
+  <label for="provider_youtube"><?php _e('YouTube', 'Minimal-Artistic-Portfolio'); ?></label><br/>
+
+  <?php
 }
 /*
 function page_section( $post ) {
@@ -274,6 +315,7 @@ function save_my_postdata( $post_id ) {
 add_action( 'save_post_event', 'save_my_postdata' );
 
 function save_project( $post_id ) {
+
   if (!empty($_POST['Cartel']))  {
     $cartel = htmlspecialchars($_POST['Cartel']);
     update_post_meta($post_id, 'CARTEL', $cartel );
@@ -284,6 +326,24 @@ function save_project( $post_id ) {
     update_post_meta( $post_id, "event", $events_id);
 
     //wp_die( var_dump( $_POST["event"] )  );
+  }
+  if( !empty( $_POST["is_video"] && is_numeric( $_POST["is_video"] ) ) ) {
+    $is_video = htmlspecialchars($_POST['is_video']);
+    update_post_meta( $post_id, 'IS_VIDEO', $is_video);
+  }
+  
+  if( !empty( $_POST["video_id"]) ) {
+    $video_id = htmlspecialchars($_POST['video_id']);
+    update_post_meta( $post_id, "VIDEO_ID", $video_id );
+  }
+  
+  if( 
+    !empty( $_POST["video_provider"] ) 
+    && in_array( $_POST["video_provider"], array( 'vimeo', 'youtube') ) 
+  ) {
+    
+    $video_provider = htmlspecialchars( $_POST["video_provider"] );
+    update_post_meta( $post_id, "VIDEO_PROVIDER", $video_provider );
   }
 }
 

@@ -4,13 +4,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2016-04-13 18:16+0100\n"
+"POT-Creation-Date: 2019-10-01 14:00+0000\n"
 "POT-Revision-Date: Sat Apr 23 2016 11:31:18 GMT+0100 (CET)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Nicolas Lebrun <nclslbrn@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,22 +21,46 @@ msgstr ""
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Generator: Loco - https://localise.biz/\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SearchPath-0: .."
 
-#: ../404.php:17
+#: functions.php:55
+msgid "Primary"
+msgstr ""
+
+#: functions.php:56
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:111
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:113
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:120
+msgid "Header Sidebar"
+msgstr ""
+
+#: functions.php:122 inc/custom-post-widget.php:117
+msgid "Widgets in this area will be shown on all posts and pages."
+msgstr ""
+
+#: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: ../404.php:22
-msgid "Sorry, we couldn't find the page you were looking for!"
-msgstr ""
-
-#: ../404.php:26
+#: 404.php:22
 msgid "error"
 msgstr ""
 
-#: ../comments.php:31
+#: 404.php:24
+msgid "Sorry, we couldn't find the page you were looking for!"
+msgstr ""
+
+#: comments.php:31
 #, php-format
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
@@ -44,398 +68,386 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../comments.php:40 ../comments.php:61
+#: comments.php:40 comments.php:61
 msgid "Comment navigation"
 msgstr ""
 
-#: ../comments.php:43 ../comments.php:64
+#: comments.php:43 comments.php:64
 msgid "Older Comments"
 msgstr ""
 
-#: ../comments.php:44 ../comments.php:65
+#: comments.php:44 comments.php:65
 msgid "Newer Comments"
 msgstr ""
 
-#: ../comments.php:78
+#: comments.php:78
 msgid "Comments are closed."
+msgstr ""
+
+#: inc/custom-post.php:45 inc/custom-post.php:130
+msgid "Events"
+msgstr ""
+
+#: events.php:34 inc/home-project-layout.php:27
+#: template-parts/content-page.php:35 template-parts/content.php:38
+msgid "Pages:"
+msgstr ""
+
+#: search.php:19
+#, php-format
+msgid "Search Results for: %s"
 msgstr ""
 
 #. Name of the template
 msgid "Contact"
 msgstr ""
 
-#: ../contact.php:38
+#: contact.php:38
 msgid "Human verification incorrect."
 msgstr ""
 
-#: ../contact.php:39
+#: contact.php:39
 msgid "Please supply all information."
 msgstr ""
 
-#: ../contact.php:40
+#: contact.php:40
 msgid "Email Address Invalid."
 msgstr ""
 
-#: ../contact.php:41
+#: contact.php:41
 msgid "Message was not sent. Try Again."
 msgstr ""
 
-#: ../contact.php:42
+#: contact.php:42
 msgid "Thanks! Your message has been sent."
 msgstr ""
 
-#: ../contact.php:62
+#: contact.php:62
 msgid "Someone sent a message from "
 msgstr ""
 
-#: ../contact.php:120
+#: contact.php:120
 msgid "Name *"
 msgstr ""
 
-#: ../contact.php:127
+#: contact.php:127
 msgid "Email *"
 msgstr ""
 
-#: ../contact.php:132
+#: contact.php:132
 msgid "Message *"
 msgstr ""
 
-#: ../contact.php:137
+#: contact.php:136
 msgid "Human Verification *"
 msgstr ""
 
-#: ../contact.php:146
+#: contact.php:146
 msgid "* : require field"
 msgstr ""
 
-#: ../contact.php:150
+#: contact.php:150
 msgid "send"
 msgstr ""
 
-msgid "Events"
+#: header.php:103
+msgid "Skip to content"
 msgstr ""
 
-#: ../events.php:31 ../inc/home-project-layout.php:27 ../template-parts/content-
-#: page.php:22 ../template-parts/content.php:38
-msgid "Pages:"
-msgstr ""
-
-#: ../footer.php:21
+#: footer.php:25
 msgid "All right reserved"
 msgstr ""
 
-#: ../footer.php:23
+#: footer.php:29
 msgid "Designed by Nicolas Lebrun"
-msgstr ""
-
-#: ../functions.php:55
-msgid "Primary"
-msgstr ""
-
-#: ../functions.php:56
-msgid "Footer Menu"
-msgstr ""
-
-#: ../functions.php:111
-msgid "Sidebar"
-msgstr ""
-
-#: ../functions.php:113
-msgid "Add widgets here."
-msgstr ""
-
-#: ../header.php:43
-msgid "Skip to content"
 msgstr ""
 
 #. Name of the template
 msgid "Homepage"
 msgstr ""
 
-#: ../search.php:19
-#, php-format
-msgid "Search Results for: %s"
-msgstr ""
-
-#: ../inc/custom-post-widget.php:7
-msgid "Custom Post list Widget"
-msgstr ""
-
-#: ../inc/custom-post-widget.php:72
-msgid "Widget Title"
-msgstr ""
-
-#: ../inc/custom-post-widget.php:77
-msgid "Custom post:<br>"
-msgstr ""
-
-#: ../inc/custom-post-widget.php:92
-msgid "Number:<br>"
-msgstr ""
-
-#: ../inc/custom-post-widget.php:115
-msgid "Menu Sidebar"
-msgstr ""
-
-#: ../inc/custom-post-widget.php:117
-msgid "Widgets in this area will be shown on all posts and pages."
-msgstr ""
-
-#: ../inc/custom-post.php:6
+#: inc/custom-post.php:6
 msgctxt "post type general name"
 msgid "Projects"
 msgstr ""
 
-#: ../inc/custom-post.php:7
+#: inc/custom-post.php:7
 msgctxt "post type singular name"
 msgid "Project"
 msgstr ""
 
-#: ../inc/custom-post.php:8 ../inc/custom-post.php:147 ../inc/custom-post.php:199
+#: inc/custom-post.php:8 inc/custom-post.php:174
 msgid "Projects"
 msgstr ""
 
-#: ../inc/custom-post.php:9
+#: inc/custom-post.php:9
 msgid "Project"
 msgstr ""
 
-#: ../inc/custom-post.php:10 ../inc/custom-post.php:46
+#: inc/custom-post.php:10 inc/custom-post.php:47
 msgid "Add New"
 msgstr ""
 
-#: ../inc/custom-post.php:11
+#: inc/custom-post.php:11
 msgid "Add New Project"
 msgstr ""
 
-#: ../inc/custom-post.php:12
+#: inc/custom-post.php:12
 msgid "New Project"
 msgstr ""
 
-#: ../inc/custom-post.php:13
+#: inc/custom-post.php:13
 msgid "Edit Project"
 msgstr ""
 
-#: ../inc/custom-post.php:14
+#: inc/custom-post.php:14
 msgid "View Project"
 msgstr ""
 
-#: ../inc/custom-post.php:15
+#: inc/custom-post.php:15
 msgid "All Projects"
 msgstr ""
 
-#: ../inc/custom-post.php:16
+#: inc/custom-post.php:16
 msgid "Search Projects"
 msgstr ""
 
-#: ../inc/custom-post.php:17
+#: inc/custom-post.php:17
 msgid "Parent Projects:"
 msgstr ""
 
-#: ../inc/custom-post.php:18
+#: inc/custom-post.php:18
 msgid "No projects found."
 msgstr ""
 
-#: ../inc/custom-post.php:19
+#: inc/custom-post.php:19
 msgid "No projects found in Trash."
 msgstr ""
 
-#: ../inc/custom-post.php:42
+#: inc/custom-post.php:43
 msgctxt "post type general name"
 msgid "Events"
 msgstr ""
 
-#: ../inc/custom-post.php:43
+#: inc/custom-post.php:44
 msgctxt "post type singular name"
 msgid "Event"
 msgstr ""
 
-#: ../inc/custom-post.php:45 ../inc/meta-box.php:6
+#: inc/custom-post.php:46 inc/meta-box.php:70
 msgid "Event"
 msgstr ""
 
-#: ../inc/custom-post.php:47
+#: inc/custom-post.php:48
 msgid "Add New Event"
 msgstr ""
 
-#: ../inc/custom-post.php:48
+#: inc/custom-post.php:49
 msgid "New Event"
 msgstr ""
 
-#: ../inc/custom-post.php:49
+#: inc/custom-post.php:50
 msgid "Edit Event"
 msgstr ""
 
-#: ../inc/custom-post.php:50
+#: inc/custom-post.php:51
 msgid "View Event"
 msgstr ""
 
-#: ../inc/custom-post.php:51
+#: inc/custom-post.php:52
 msgid "All Events"
 msgstr ""
 
-#: ../inc/custom-post.php:52
+#: inc/custom-post.php:53
 msgid "Search Events"
 msgstr ""
 
-#: ../inc/custom-post.php:53
+#: inc/custom-post.php:54
 msgid "Parent Events:"
 msgstr ""
 
-#: ../inc/custom-post.php:54
+#: inc/custom-post.php:55
 msgid "No events found."
 msgstr ""
 
-#: ../inc/custom-post.php:55
+#: inc/custom-post.php:56
 msgid "No events found in Trash."
 msgstr ""
 
-#: ../inc/custom-post.php:75
+#: inc/custom-post.php:77
 msgid "category"
 msgstr ""
 
-#: ../inc/custom-post.php:322 ../template-parts/content-event.php:32
+#: inc/custom-post.php:299 inc/custom-post.php:437
+#: template-parts/content-event.php:43
 msgid "From"
 msgstr ""
 
-#: ../inc/custom-post.php:324 ../template-parts/content-event.php:33
+#: inc/custom-post.php:301 inc/custom-post.php:438
+#: template-parts/content-event.php:44
 msgid "to"
 msgstr ""
 
-#: ../inc/custom-post.php:436
+#: inc/custom-post.php:305 inc/custom-post.php:440
+#: template-parts/content-project.php:26
+msgid "Read more"
+msgstr ""
+
+#: inc/custom-post.php:409
 msgid "Coming soon / Now"
 msgstr ""
 
-#: ../inc/custom-post.php:447
-msgid "learn more"
+#: inc/custom-post.php:633
+msgid "Share"
 msgstr ""
 
-#: ../inc/custom-post.php:550
-msgid "Today"
+#: inc/custom-post.php:640
+msgid "Share on Facebook"
 msgstr ""
 
-#: ../inc/custom-post.php:552
-msgid "Tomorrow"
+#: inc/custom-post.php:649
+msgid "Share on Twitter"
 msgstr ""
 
-#: ../inc/custom-post.php:555
-msgid "M jS"
+#: inc/custom-post.php:658
+msgid "Send Email"
 msgstr ""
 
-#: ../inc/custom-post.php:560
-#, php-format
-msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
+#: inc/meta-box.php:82
+msgid "Cover option"
 msgstr ""
 
-#: ../inc/custom-post.php:595
-msgid "Publishing Soon"
-msgstr ""
-
-#: ../inc/custom-post.php:605
-msgid "Recently Published"
-msgstr ""
-
-#: ../inc/custom-post.php:614
-msgid "No activity yet!"
-msgstr ""
-
-#: ../inc/home-project-layout.php:15
-msgid "Edit"
-msgstr ""
-
-#: ../inc/home-project-layout.php:31
-msgid "Page"
-msgstr ""
-
-#: ../inc/meta-box.php:73 ../inc/meta-box.php:136
+#: inc/meta-box.php:166 inc/meta-box.php:375
 msgid "Place"
 msgstr ""
 
-#: ../inc/meta-box.php:135
+#: inc/meta-box.php:181
+msgid "Cover is an image or a video ?"
+msgstr ""
+
+#: inc/meta-box.php:183
+msgid "Image"
+msgstr ""
+
+#: inc/meta-box.php:185
+msgid "Video"
+msgstr ""
+
+#: inc/meta-box.php:187
+msgid "Video ID"
+msgstr ""
+
+#: inc/meta-box.php:190
+msgid "Video provider"
+msgstr ""
+
+#: inc/meta-box.php:192
+msgid "Vimeo"
+msgstr ""
+
+#: inc/meta-box.php:194
+msgid "YouTube"
+msgstr ""
+
+#: inc/meta-box.php:374
 msgid "Date"
 msgstr ""
 
-#: ../inc/template-tags.php:28
+#: inc/home-project-layout.php:15
+msgid "Edit"
+msgstr ""
+
+#: inc/home-project-layout.php:31
+msgid "Page"
+msgstr ""
+
+#: inc/template-tags.php:28
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: ../inc/template-tags.php:33
+#: inc/template-tags.php:33
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: ../inc/template-tags.php:50 ../inc/template-tags.php:56
+#: inc/template-tags.php:50 inc/template-tags.php:56
 msgid ", "
 msgstr ""
 
-#: ../inc/template-tags.php:52
+#: inc/template-tags.php:52
 #, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: ../inc/template-tags.php:58
+#: inc/template-tags.php:58
 #, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
-#: ../inc/template-tags.php:65
+#: inc/template-tags.php:65
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: ../inc/template-tags.php:72 ../template-parts/content-page.php:33
+#: inc/template-tags.php:72 template-parts/content-page.php:46
 #, php-format
 msgid "Edit %s"
 msgstr ""
 
-#: ../template-parts/content-events.php:5
-msgid "Map"
+#: inc/custom-post-widget.php:72
+msgid "Widget Title"
 msgstr ""
 
-#: ../template-parts/content-events.php:8
-msgid "List"
+#: inc/custom-post-widget.php:77
+msgid "Custom post:<br>"
 msgstr ""
 
-#: ../template-parts/content-none.php:14
+#: inc/custom-post-widget.php:92
+msgid "Number:<br>"
+msgstr ""
+
+#: inc/custom-post-widget.php:115
+msgid "Menu Sidebar"
+msgstr ""
+
+#: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#: ../template-parts/content-none.php:21
+#: template-parts/content-none.php:21
 #, php-format
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: ../template-parts/content-none.php:25
+#: template-parts/content-none.php:25
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: ../template-parts/content-none.php:31
+#: template-parts/content-none.php:31
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: ../template-parts/content.php:33
+#: template-parts/content.php:33
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#. Name of the theme
-msgid "Minimal-Artistic-Portfolio"
+#: template-parts/content-events.php:10
+msgid "Map"
 msgstr ""
 
-#. Theme URI of the theme
-msgid "http://underscores.me/"
-msgstr ""
-
-#. Description of the theme
-msgid "Description"
+#: template-parts/content-events.php:16
+msgid "List"
 msgstr ""
 
 #. Author of the theme
-msgid "Nicolas Lebrun"
+msgid "Anonyme"
 msgstr ""

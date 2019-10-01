@@ -32,12 +32,35 @@
 
   </div>
 
-<?php } if( is_single() ) { ?>
+<?php } if( is_single() ) { 
+  
+  $is_video = get_post_meta( $post->ID, 'IS_VIDEO', true); // o = image 1 = video
+  $video_id = get_post_meta( $post->ID, 'VIDEO_ID', true);
+  $video_provider = get_post_meta( $post->ID, 'VIDEO_PROVIDER', true);
+  
+  ?>
   <header class="entry-header">
     <h1 class="project-title"><?php echo get_the_title(); ?></h1>
   </header>
+
+
   <div class="entry-content">
-    <?php echo get_the_post_thumbnail( get_the_ID(), 'full'); ?>
+  <?php if( 
+      $is_video == '1' 
+      && !empty( $video_id) 
+      && in_array( $video_provider, array( 'vimeo', 'youtube') ) ) {
+        
+        echo '<div class="player" 
+                   data-plyr-provider="'.$video_provider.'" 
+                   data-plyr-embed-id="'.$video_id.'">
+              </div>';
+
+      } else  {
+        echo get_the_post_thumbnail( get_the_ID(), 'full');
+      }
+
+  ?>
+
     <div class="row project-text
     <?php if( get_the_content() !== '') echo ' filled'; ?>
     <?php if( get_event(get_the_ID()) == false) echo ' no-event'; ?>">

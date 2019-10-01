@@ -19,7 +19,8 @@
   "homepage": "https://github.com/nclslbrn/Minimal-artist-portfolio#readme",
   "devDependencies": {
     "@wordpress/scripts": "^5.0.0",
-    "expose-loader": "^0.7.5"
+    "expose-loader": "^0.7.5",
+    "plyr": "^3.5.6"
   },
   "dependencies": {
     "@wordpress/components": "^8.0.0",
