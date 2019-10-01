@@ -73,6 +73,7 @@ function adding_new_metabox( ) {
       '__back_compat_meta_box' => true
     )
   );
+  /*
   add_meta_box(
     'page-section',
     'Page Section',
@@ -81,6 +82,7 @@ function adding_new_metabox( ) {
     'normal',
     'high'
   );
+  */
 }
 
 function cartel_function( $post ) {
@@ -152,7 +154,7 @@ function map_iframe( $post ) {
     <input type="text" name="InputLong" id="long" value="<?= $long ?>"/>
     <?php
 }
-
+/*
 function page_section( $post ) {
 
     $sections_data = get_post_meta($post->ID, 'page_section', true);
@@ -241,6 +243,7 @@ function page_section( $post ) {
 	 </script>
   <?php
 }
+*/
 function save_my_postdata( $post_id ) {
 
    if ( (!empty($_POST['InputBeginDate'])) && (!empty($_POST['InputEndDate'])) )  {
@@ -285,7 +288,7 @@ function save_project( $post_id ) {
 }
 
 add_action( 'save_post_project', 'save_project' );
-
+/*
 function save_page_section( $post_id ) {
 
   if ( !isset( $_POST['section_data_nonce'] ) ) return;
@@ -322,7 +325,7 @@ function save_page_section( $post_id ) {
 
 }
 add_action( 'save_post', 'save_page_section');
-
+*/
 
 function event_table_head( $defaults ) {
   unset($defaults['categories']);

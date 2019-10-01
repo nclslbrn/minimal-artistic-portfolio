@@ -34,38 +34,38 @@ const backConfig = (mode) = {
             // Loaders are applying from right to left(!)
             // The first loader will be applied after others
             use: [{
-                    // After all CSS loaders we use plugin to do his work.
-                    // It gets all transformed CSS and extracts it into separate
-                    // single bundled file
-                    loader: MiniCssExtractPlugin.loader
-                },
-                {
-                    // This loader resolves url() and @imports inside CSS
-                    loader: "css-loader",
-                    options: {
-                        url: false,
-                        sourceMap: true
-                    }
-                },
-                {
-                    // Then we apply postCSS fixes like autoprefixer and minifying
-                    loader: "postcss-loader",
-                    options: {
-                        ident: 'postcss',
-                        plugins: (loader) => [
-                            //require('autoprefixer'),
-                            require('cssnano')
-                        ]
-                    }
-                },
-                {
-                    // First we transform SASS to standard CSS
-                    loader: "sass-loader",
-                    options: {
-                        implementation: require("sass"),
-                        sourceMap: true
-                    }
+                // After all CSS loaders we use plugin to do his work.
+                // It gets all transformed CSS and extracts it into separate
+                // single bundled file
+                loader: MiniCssExtractPlugin.loader
+            },
+            {
+                // This loader resolves url() and @imports inside CSS
+                loader: "css-loader",
+                options: {
+                    url: false,
+                    sourceMap: true
                 }
+            },
+            {
+                // Then we apply postCSS fixes like autoprefixer and minifying
+                loader: "postcss-loader",
+                options: {
+                    ident: 'postcss',
+                    plugins: (loader) => [
+                        //require('autoprefixer'),
+                        require('cssnano')
+                    ]
+                }
+            },
+            {
+                // First we transform SASS to standard CSS
+                loader: "sass-loader",
+                options: {
+                    implementation: require("sass"),
+                    sourceMap: true
+                }
+            }
             ]
         }]
     },
@@ -149,38 +149,38 @@ const frontConfig = (mode) = {
             // Loaders are applying from right to left(!)
             // The first loader will be applied after others
             use: [{
-                    // After all CSS loaders we use plugin to do his work.
-                    // It gets all transformed CSS and extracts it into separate
-                    // single bundled file
-                    loader: MiniCssExtractPlugin.loader
-                },
-                {
-                    // This loader resolves url() and @imports inside CSS
-                    loader: "css-loader",
-                    options: {
-                        url: false,
-                        sourceMap: true
-                    }
-                },
-                {
-                    // Then we apply postCSS fixes like autoprefixer and minifying
-                    loader: "postcss-loader",
-                    options: {
-                        ident: 'postcss',
-                        plugins: (loader) => [
-                            require('autoprefixer'),
-                            require('cssnano')
-                        ]
-                    }
-                },
-                {
-                    // First we transform SASS to standard CSS
-                    loader: "sass-loader",
-                    options: {
-                        implementation: require("sass"),
-                        sourceMap: true
-                    }
+                // After all CSS loaders we use plugin to do his work.
+                // It gets all transformed CSS and extracts it into separate
+                // single bundled file
+                loader: MiniCssExtractPlugin.loader
+            },
+            {
+                // This loader resolves url() and @imports inside CSS
+                loader: "css-loader",
+                options: {
+                    url: false,
+                    sourceMap: true
                 }
+            },
+            {
+                // Then we apply postCSS fixes like autoprefixer and minifying
+                loader: "postcss-loader",
+                options: {
+                    ident: 'postcss',
+                    plugins: (loader) => [
+                        require('autoprefixer'),
+                        require('cssnano')
+                    ]
+                }
+            },
+            {
+                // First we transform SASS to standard CSS
+                loader: "sass-loader",
+                options: {
+                    implementation: require("sass"),
+                    sourceMap: true
+                }
+            }
             ]
         }]
     },
@@ -220,7 +220,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'development') {
         frontConfig.devtool = 'source-map'
         backConfig.devtool = 'source-map'
-        editorConfig.devtool = 'source-map'
+        //editorConfig.devtool = 'source-map'
     }
     return [frontConfig, backConfig, editorConfig]
 
