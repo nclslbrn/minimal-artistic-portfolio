@@ -327,7 +327,7 @@ function save_project( $post_id ) {
 
     //wp_die( var_dump( $_POST["event"] )  );
   }
-  if( !empty( $_POST["is_video"] && is_numeric( $_POST["is_video"] ) ) ) {
+  if( isset( $_POST["is_video"]) && is_numeric( $_POST["is_video"] ) ) {
     $is_video = htmlspecialchars($_POST['is_video']);
     update_post_meta( $post_id, 'IS_VIDEO', $is_video);
   }
