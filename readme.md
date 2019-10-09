@@ -16,7 +16,7 @@ Note: Translation content function work with [qTranslateX](https://wordpress.org
 - They can have a cartel (technical information of the artwork)
 - They can be linked to an event post
 - They can have featured image and a video (currently Plyr library is used to display a player of a Vimeo or YouTube vimeo)
-- Change searchbar submit text button by a magnifying glass icon (for regular user/non screen-reader)
+
 
 
 ### Events post
@@ -35,9 +35,11 @@ Note: Translation content function work with [qTranslateX](https://wordpress.org
 ## Changelog
 
 ### Ver.1.0.2
+- Update workflow from [Gulp](https://gulpjs.com/) to [Webpack](https://webpack.js.org/)
 - Update Inter UI font 
 - Change paragraph font from Inconsolata to [Fira Code](https://github.com/tonsky/FiraCode)
 - Add video metabox on project post and [Plyr](https://github.com/sampotts/plyr) player on frontend
+- Change searchbar submit text button by a magnifying glass icon (for regular user/non screen-reader)
 
 ### Ver.1.0.1
 - Change Google font Oxygen and Source sans mono to [Inter Ui](https://rsms.me/inter/) and [Inconsolata](https://fonts.google.com/specimen/Inconsolata0)
