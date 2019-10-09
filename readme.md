@@ -4,7 +4,6 @@
 
 A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel, 
 Webpack and more.
-![theme screenshot Nicolas Lebrun logo](https://raw.githubusercontent.com/nclslbrn/Minimal-artist-portfolio/master/screenshot.png)
 
 
 [Demo here](https://nicolas-lebrun.fr/) (It's not demo content but my own artistic works)
