@@ -1,16 +1,15 @@
 // Webpack uses this to work with directories
-const path = require('path');
+const path = require('path')
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
-
-const backConfig = (mode) = {
+const backConfig = (mode = {
     entry: './src/js/back.js',
     output: {
         path: path.resolve(__dirname, 'build/'),
@@ -18,187 +17,167 @@ const backConfig = (mode) = {
     },
     // -> add it contextually to env  mode: 'development',
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false,
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: (loader) => [
+                                //require('autoprefixer'),
+                                require('cssnano')
+                            ]
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                            sourceMap: true
+                        }
+                    }
+                ]
             }
-        }, { // Apply rule for .sass, .scss or .css files
-            test: /\.(sa|sc|c)ss$/,
-
-            // Set loaders to transform files.
-            // Loaders are applying from right to left(!)
-            // The first loader will be applied after others
-            use: [{
-                    // After all CSS loaders we use plugin to do his work.
-                    // It gets all transformed CSS and extracts it into separate
-                    // single bundled file
-                    loader: MiniCssExtractPlugin.loader
-                },
-                {
-                    // This loader resolves url() and @imports inside CSS
-                    loader: "css-loader",
-                    options: {
-                        url: false,
-                        sourceMap: true
-                    }
-                },
-                {
-                    // Then we apply postCSS fixes like autoprefixer and minifying
-                    loader: "postcss-loader",
-                    options: {
-                        ident: 'postcss',
-                        plugins: (loader) => [
-                            //require('autoprefixer'),
-                            require('cssnano')
-                        ]
-                    }
-                },
-                {
-                    // First we transform SASS to standard CSS
-                    loader: "sass-loader",
-                    options: {
-                        implementation: require("sass"),
-                        sourceMap: true
-                    }
-                }
-            ]
-        }]
+        ]
     },
     plugins: [
-
         new MiniCssExtractPlugin({
-            filename: "../admin-css-hack.css"
+            filename: '../admin-css-hack.css'
         })
     ]
-};
+})
 
-const editorConfig = (mode) = {
+const editorConfig = (mode = {
     entry: './src/js/editor.js',
     output: {
         path: path.resolve(__dirname, 'build/'),
         filename: 'js/editor.js'
     },
-    // -> add it contextually to env  mode: 'development',
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader'
                 }
             }
-        }]
+        ]
     }
-};
+})
 
-const frontConfig = (mode) = {
-
+const frontConfig = (mode = {
     entry: './src/js/front.js',
     output: {
         path: path.resolve(__dirname, 'build/'),
         filename: 'js/front-bundle.js'
     },
     mode: 'development',
-    // -> add it contextually to env devtool: "source-map",
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader'
                 }
+            },
+            {
+                test: require.resolve('jquery'),
+                use: [
+                    {
+                        loader: 'expose-loader',
+                        options: 'jQuery'
+                    },
+                    {
+                        loader: 'expose-loader',
+                        options: '$'
+                    }
+                ]
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false,
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: (loader) => [
+                                require('autoprefixer'),
+                                require('cssnano')
+                            ]
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                            sourceMap: true
+                        }
+                    }
+                ]
             }
-        }, {
-            test: require.resolve('jquery'),
-            use: [{
-                loader: 'expose-loader',
-                options: 'jQuery'
-            }, {
-                loader: 'expose-loader',
-                options: '$'
-            }]
-        }, { // Apply rule for .sass, .scss or .css files
-            test: /\.(sa|sc|c)ss$/,
-
-            // Set loaders to transform files.
-            // Loaders are applying from right to left(!)
-            // The first loader will be applied after others
-            use: [{
-                    // After all CSS loaders we use plugin to do his work.
-                    // It gets all transformed CSS and extracts it into separate
-                    // single bundled file
-                    loader: MiniCssExtractPlugin.loader
-                },
-                {
-                    // This loader resolves url() and @imports inside CSS
-                    loader: "css-loader",
-                    options: {
-                        url: false,
-                        sourceMap: true
-                    }
-                },
-                {
-                    // Then we apply postCSS fixes like autoprefixer and minifying
-                    loader: "postcss-loader",
-                    options: {
-                        ident: 'postcss',
-                        plugins: (loader) => [
-                            require('autoprefixer'),
-                            require('cssnano')
-                        ]
-                    }
-                },
-                {
-                    // First we transform SASS to standard CSS
-                    loader: "sass-loader",
-                    options: {
-                        implementation: require("sass"),
-                        sourceMap: true
-                    }
-                }
-            ]
-        }]
+        ]
     },
     plugins: [
-
         new MiniCssExtractPlugin({
-            filename: "../style.css"
+            filename: '../style.css'
         }),
-        new CopyWebpackPlugin([{
-            from: 'src/img',
-            to: 'img',
-            force: true
-        }]),
-        new CopyWebpackPlugin([{
-            from: 'src/fonts',
-            to: 'fonts',
-            force: true
-        }]),
+        new CopyWebpackPlugin([
+            {
+                from: 'src/img',
+                to: 'img',
+                force: true
+            }
+        ]),
+        new CopyWebpackPlugin([
+            {
+                from: 'src/fonts',
+                to: 'fonts',
+                force: true
+            }
+        ]),
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i
         }),
         new BrowserSyncPlugin({
-            // browse to http://localhost:3000/ during development,
-            // ./public directory is being served
             host: 'localhost',
             port: 3030,
             proxy: 'nicolas-lebrun.test'
         })
     ]
-
-};
+})
 
 module.exports = (env, argv) => {
-
     console.log('MODE ' + argv.mode.toUpperCase())
 
     if (argv.mode === 'development') {
@@ -207,5 +186,4 @@ module.exports = (env, argv) => {
         //editorConfig.devtool = 'source-map'
     }
     return [frontConfig, backConfig, editorConfig]
-
 }
