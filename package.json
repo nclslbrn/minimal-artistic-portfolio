@@ -20,9 +20,11 @@
   "devDependencies": {
     "@wordpress/scripts": "^10.0.0",
     "expose-loader": "^0.7.5",
+    "fluidbox": "^2.0.5",
     "plyr": "^3.6.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "@wordpress/components": "^8.5.0",
     "@wordpress/data": "^4.19.0",
     "@wordpress/edit-post": "^3.18.0",
@@ -35,6 +37,7 @@
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
     "copy-webpack-plugin": "^5.1.1",
+    "core-js": "^3.6.5",
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",
     "image-webpack-loader": "^6.0.0",
