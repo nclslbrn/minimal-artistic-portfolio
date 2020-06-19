@@ -74,6 +74,43 @@ function create_post_type() {
       'taxonomies'          => array( 'category','post_tag')
     )
   );
+  register_post_type( 'gif',
+  array(
+    'labels' => array(
+      'name'               => _x( 'Gif', 'post type general name', 'Minimal-Artistic-Portfolio' ),
+      'singular_name'      => _x( 'Gif', 'post type singular name', 'Minimal-Artistic-Portfolio' ),
+      'menu_name'          => __( 'Gifs', 'Minimal-Artistic-Portfolio' ),
+      'name_admin_bar'     => __( 'Gif', 'Minimal-Artistic-Portfolio' ),
+      'add_new'            => __( 'Add New', 'Minimal-Artistic-Portfolio' ),
+      'add_new_item'       => __( 'Add New Gif', 'Minimal-Artistic-Portfolio' ),
+      'new_item'           => __( 'New Gif', 'Minimal-Artistic-Portfolio' ),
+      'edit_item'          => __( 'Edit Gif', 'Minimal-Artistic-Portfolio' ),
+      'view_item'          => __( 'View Gif', 'Minimal-Artistic-Portfolio' ),
+      'all_items'          => __( 'All Gifs', 'Minimal-Artistic-Portfolio' ),
+      'search_items'       => __( 'Search Gifs', 'Minimal-Artistic-Portfolio' ),
+      'parent_item_colon'  => __( 'Parent Gifs:', 'Minimal-Artistic-Portfolio' ),
+      'not_found'          => __( 'No gifs found.', 'Minimal-Artistic-Portfolio' ),
+      'not_found_in_trash' => __( 'No gifs found in Trash.', 'Minimal-Artistic-Portfolio' )
+    ),
+    'can_export'          => TRUE,
+    'public'              => TRUE,
+    'exclude_from_search' => FALSE,
+    'query_var'           => true,
+    'publicly_queryable'  => TRUE,
+    '_builtin'            => false,
+    'capability_type'     => 'post',
+    'rewrite'             => array('slug' => 'gif','with_front' => FALSE),
+    'has_archive'         => TRUE,
+    'hierarchical'        => FALSE,
+    'menu_position'       => 5,
+    'menu_icon'           => 'dashicons-images-alt2',
+    'show_in_menu'        => TRUE,
+    'show_in_nav_menus'   => TRUE,
+    'show_in_rest'        => TRUE,
+    'supports'            => array('title', 'thumbnail' ),
+    'taxonomies'          => array()
+  )
+);
 register_taxonomy( __('category', 'Minimal-Artistic-Portfolio'), array('post', 'page', 'project', 'event'), array( 'hierarchical' => true, 'label' => 'Category', 'query_var' => true, 'rewrite' => true ) );
 register_taxonomy('post_tag', array('post', 'page', 'project', 'event') );
 
