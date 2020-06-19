@@ -50,7 +50,10 @@ function mode_chooser_button() {
 		<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>
 
 		<label class="switch">
-		  <input type="checkbox" name="mode-switcher" <?php if( $_COOKIE['mode'] == 'dark') echo 'checked'; ?>>
+		  <input 
+		  	type="checkbox" 
+			  name="mode-switcher" 
+			  <?php if( isset($_COOKIE['mode']) && $_COOKIE['mode'] == 'dark') echo 'checked'; ?>>
 		  <span class="slider"></span>
 		</label>
 
