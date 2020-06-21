@@ -1,19 +1,28 @@
 // Font family and properties
 
-@include font-face("Inter-Bold", "build/fonts/Inter-UI-Bold", null, normal, woff2 woff);
-// @include font-face('Inter-UI--regular', 'fonts/Inter-UI-Regular', null, normal, woff2 woff);
+@include font-face(
+    'Inter-Bold',
+    'build/fonts/Inter-UI-Bold',
+    null,
+    normal,
+    woff2 woff
+);
 
-//@include font-face('cousine--regular', '../fonts/cousine-regular-webfont', null, normal, woff2 woff);
-
-@include font-face("FiraCode-Regular", "build/fonts/FiraCode-Regular", null, normal, woff2 woff);
+@include font-face(
+    'FiraCode-Regular',
+    'build/fonts/FiraCode-Regular',
+    null,
+    normal,
+    woff2 woff
+);
 
 // @import url('https://rsms.me/inter/inter-ui.css');
 
-$headline_font: "Inter-UI--bold", sans-serif;
+$headline_font: 'Inter-UI--bold', sans-serif;
 
 $headline_baseline: 0.1415;
 //$body_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$body_font: "FiraCode-Regular", monospace;
+$body_font: 'FiraCode-Regular', monospace;
 $body_baseline: 0.233;
 
 $headline_num: 6;
@@ -22,258 +31,262 @@ $body_font_size: 1em;
 $ratio: 1.125;
 $grid-height: 1rem;
 
-@import "../../node_modules/plumber-sass/plumber";
+@import '../../node_modules/plumber-sass/plumber';
 
 body {
-  line-height: 1;
-  font-size: $body_font_size * $ratio;
-  font-family: $body_font;
-  font-weight: 400;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
+    line-height: 1;
+    font-size: $body_font_size * $ratio;
+    font-family: $body_font;
+    font-weight: 400;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 p,
 em,
 blockquote,
 textarea,
-input[type="text"],
+input[type='text'],
 .project-summary a,
 .event-info a,
 .entry-content ul li a,
 .related-projects li a,
 .related-events li a {
-  @include breakpoint(phone) {
-    line-height: 1.6 * $ratio;
-    font-size: 1em;
-  }
-  @include breakpoint(tablet) {
-    line-height: 1.4 * $ratio;
-    font-size: 1.1em;
-  }
-  @include breakpoint(laptop) {
-    line-height: 1.5 * $ratio;
-    font-size: 1.1em;
-  }
+    @include breakpoint(phone) {
+        line-height: 1.6 * $ratio;
+        font-size: 1em;
+    }
+    @include breakpoint(tablet) {
+        line-height: 1.4 * $ratio;
+        font-size: 1.1em;
+    }
+    @include breakpoint(laptop) {
+        line-height: 1.5 * $ratio;
+        font-size: 1.1em;
+    }
 }
 
 a:link {
-  color: $accent_color;
-  border-color: $border_color;
+    color: $accent_color;
+    border-color: $border_color;
 }
 a:visited {
-  color: darken($accent_color, 10%);
-  border-color: $accent_color;
+    color: darken($accent_color, 10%);
+    border-color: $accent_color;
 }
 a:hover {
-  color: darken($accent_color, 30%);
-  border-color: $accent_color;
+    color: darken($accent_color, 30%);
+    border-color: $accent_color;
 }
 a:active {
-  color: darken($accent_color, 30%);
-  border-color: $accent_color;
+    color: darken($accent_color, 30%);
+    border-color: $accent_color;
 }
 
 blockquote {
-  margin: 1.5em 0 2em 0;
-  padding: 0 2em;
-  border-style: solid;
-  border-width: 0;
-  border-left-width: 4px;
+    margin: 1.5em 0 2em 0;
+    padding: 0 2em;
+    border-style: solid;
+    border-width: 0;
+    border-left-width: 4px;
 }
 
 em,
 blockquote {
-  font-style: italic;
-  font-size: 1em;
+    font-style: italic;
+    font-size: 1em;
 }
 hr {
-  position: relative;
-  margin: 2em 0;
-  border-style: solid;
-  border-top-width: 1px;
+    position: relative;
+    margin: 2em 0;
+    border-style: solid;
+    border-top-width: 1px;
 
-  &::after {
-    content: "§";
-    position: absolute;
-    display: block;
-    top: 50%;
-    left: 50%;
-    margin-top: -0.5em;
-    color: inherit;
-    font-size: 1em;
-  }
+    &::after {
+        content: '§';
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin-top: -0.5em;
+        color: inherit;
+        font-size: 1em;
+    }
 }
 @for $i from 1 through $headline_num {
-  $anti_i: ($headline_num + 1) - $i;
+    $anti_i: ($headline_num + 1) - $i;
 
-  h#{$i} {
-    @include breakpoint(phone) {
-      @include plumber(
-        $grid-height: 1rem,
-        $baseline: $headline_baseline,
-        $font-size: $anti_i / 2,
-        $line-height: $anti_i,
-        $leading-top: $anti_i - 2,
-        $leading-bottom: $anti_i - 2
-      );
-      margin: 0.35em 0;
-      line-height: 1;
-    }
-    @include breakpoint(tablet) {
-      @include plumber(
-        $grid-height: 1rem,
-        $baseline: $headline_baseline,
-        $font-size: $anti_i / 1.07,
-        $line-height: $anti_i + 1,
-        $leading-top: $anti_i - 2,
-        $leading-bottom: $anti_i - 3
-      );
+    h#{$i} {
+        @include breakpoint(phone) {
+            @include plumber(
+                $grid-height: 1rem,
+                $baseline: $headline_baseline,
+                $font-size: $anti_i / 2,
+                $line-height: $anti_i,
+                $leading-top: $anti_i - 2,
+                $leading-bottom: $anti_i - 2
+            );
+            margin: 0.35em 0;
+            line-height: 1;
+        }
+        @include breakpoint(tablet) {
+            @include plumber(
+                $grid-height: 1rem,
+                $baseline: $headline_baseline,
+                $font-size: $anti_i / 1.07,
+                $line-height: $anti_i + 1,
+                $leading-top: $anti_i - 2,
+                $leading-bottom: $anti_i - 3
+            );
 
-      line-height: $anti_i / 4;
-    }
+            line-height: $anti_i / 4;
+        }
 
-    @include breakpoint(laptop) {
-      @include plumber(
-        $grid-height: 1rem,
-        $baseline: $headline_baseline,
-        $font-size: $anti_i,
-        $line-height: $anti_i + 1,
-        $leading-top: $anti_i - 2,
-        $leading-bottom: $anti_i - 3
-      );
+        @include breakpoint(laptop) {
+            @include plumber(
+                $grid-height: 1rem,
+                $baseline: $headline_baseline,
+                $font-size: $anti_i,
+                $line-height: $anti_i + 1,
+                $leading-top: $anti_i - 2,
+                $leading-bottom: $anti_i - 3
+            );
+        }
+        position: relative;
+        display: inline-block;
+        font-family: $headline_font;
+        z-index: 1;
     }
-    position: relative;
-    display: inline-block;
-    font-family: $headline_font;
-    z-index: 1;
-  }
 }
 h4 {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 body.page .entry-title::before {
-  content: "-> ";
-  font-family: $body_font;
-  font-variant-ligatures: common-ligatures;
+    content: '-> ';
+    font-family: $body_font;
+    font-variant-ligatures: common-ligatures;
 }
 .language-chooser a,
 a.button,
+.page-numbers,
 button.button,
 .search-form button.search-submit,
 .tnp-widget .tnp-field-button input.tnp-submit {
-  text-decoration: none;
-  font-family: sans-serif;
-  color: $accent_color;
-  letter-spacing: 0.05em;
-  z-index: 1;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: $accent_color;
+    letter-spacing: 0.05em;
+    z-index: 1;
 }
 .tnp-widget .tnp-field-button input.tnp-submit,
 .language-chooser a,
 button.search-submit,
 a.button,
-button.button {
-  position: relative;
-  font-size: 0.85em;
-  line-height: 1em;
-  padding: 0.8em 1em 0.6em 1em;
-  background-color: transparent;
-  text-transform: uppercase;
-  transition: background-color 0.25s ease-out;
+button.button,
+.page-numbers {
+    position: relative;
+    font-size: 0.85em;
+    line-height: 1em;
+    padding: 0.8em 1em 0.6em 1em;
+    background-color: transparent;
+    text-transform: uppercase;
+    transition: background-color 0.25s ease-out;
 
-  &::before {
-    content: "";
-    display: inline-block;
-    clear: both;
-    float: none;
-  }
+    &::before {
+        content: '';
+        display: inline-block;
+        clear: both;
+        float: none;
+    }
 }
 button.button,
 .search-form button.search-submit,
 .tnp-widget .tnp-field-button input.tnp-submit {
-  font-family: $headline_font;
-  vertical-align: top;
-  line-height: 1em;
-  background-color: transparent;
+    font-family: $headline_font;
+    vertical-align: top;
+    line-height: 1em;
+    background-color: transparent;
 
-  cursor: pointer;
-  appearance: none;
+    cursor: pointer;
+    appearance: none;
 }
 
 .language-chooser {
-  clear: both;
-  float: none;
-  display: block;
-  padding-left: 4px;
-  border-width: 1px;
-  border-bottom: none;
+    clear: both;
+    float: none;
+    display: block;
+    padding-left: 4px;
+    border-width: 1px;
+    border-bottom: none;
 }
 header nav ul.menu li a,
 .site-branding .site-title a {
-  border-bottom: none;
-  border-width: 1px;
+    border-bottom: none;
+    border-width: 1px;
 }
 ul.language-chooser li.language-chooser-item a {
-  border: none;
+    border: none;
 }
 @include breakpoint(laptop) {
-  ul.language-chooser li:first-child::after {
-    content: "/";
-    margin: 0.5em -1em 0 0;
-  }
+    ul.language-chooser li:first-child::after {
+        content: '/';
+        margin: 0.5em -1em 0 0;
+    }
 }
-header.site-header .site-branding .site-title a:hover{
-  color: $accent_color;
+header.site-header .site-branding .site-title a:hover {
+    color: $accent_color;
 }
 
 .site-branding .site-title span {
-  margin-left: 0.5em;
-  letter-spacing: 1px;
-  font-weight: bold;
+    margin-left: 0.5em;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .site-branding .site-title span:first-child {
-  margin-left: 0;
-  font-weight: 400;
+    margin-left: 0;
+    font-weight: 400;
 }
 
 @include breakpoint(laptop) {
-  a.button::before,
-  button.button::before {
-    font-family: $body_font;
-    content: "-> ";
-    font-size: 0.8em;
-    margin: 0.1em 0.3em 0 0;
-    padding: 0 0 0.4em 0;
-    line-height: inherit;
-    z-index: inherit;
-    color: inherit;
-    font-weight: bold;
-    vertical-align: middle;
-  }
+    a.button::before,
+    button.button::before {
+        font-family: $body_font;
+        content: '-> ';
+        font-size: 0.8em;
+        margin: 0.1em 0.3em 0 0;
+        padding: 0 0 0.4em 0;
+        line-height: inherit;
+        z-index: inherit;
+        color: inherit;
+        font-weight: bold;
+        vertical-align: middle;
+    }
 }
 
 .language-chooser a::after,
 a.button::after,
 button.button::after {
-  display: block;
-  position: absolute;
-  content: "";
-  top: 0em;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 100%;
-  z-index: -1;
-  background-color: desaturate(darken($accent_color, 0.3), 0.3);
-  transition: width 0.15s ease-out;
+    display: block;
+    position: absolute;
+    content: '';
+    top: 0em;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    background-color: desaturate(darken($accent_color, 0.3), 0.3);
+    transition: width 0.15s ease-out;
 }
 
 .language-chooser a:hover,
 a.button:hover,
 a.button:focus,
 a.button:active,
+.page-numbers:hover,
+.page-numbers.current,
 button.button:focus,
 button.button:active,
 button.button:hover,
@@ -284,70 +297,70 @@ button.button.active,
 .search-form button.search-submit:active,
 .search-form button.search-submit:focus,
 .search-form button.search-submit:hover {
-  color: #fff;
-  background-color: lighten($accent_color, 0.5);
-  //border: 2px solid lighten($accent_color, 1%);
+    color: #fff;
+    background-color: lighten($accent_color, 0.5);
+    //border: 2px solid lighten($accent_color, 1%);
 }
 .language-chooser-item a:hover {
-  border-width: 1px;
+    border-width: 1px;
 }
 .language-chooser a:hover::after,
 a.button:hover::after,
 button.button:hover::after,
 .search-form button.search-submit::after {
-  width: 97%;
+    width: 97%;
 }
 button.button.active::after,
 button.button:focus::after,
 button.button:active::after,
 button.button:hover::after,
 .search-form button.search-submit::after {
-  width: 100%;
+    width: 100%;
 }
 .event-menu {
-  clear: both;
-  float: none;
-  @include breakpoint(tablet) {
-    padding-bottom: 1em;
-  }
-  @include breakpoint(phone) {
-    padding-bottom: 1em;
-  }
+    clear: both;
+    float: none;
+    @include breakpoint(tablet) {
+        padding-bottom: 1em;
+    }
+    @include breakpoint(phone) {
+        padding-bottom: 1em;
+    }
 }
 .event-menu button {
-  &::before {
-    content: "";
-  }
-  float: right;
-  margin: 0;
-  max-height: 2.9em;
-  padding-bottom: 0.8em;
-  &:last-child {
-    border-right: none;
-  }
+    &::before {
+        content: '';
+    }
+    float: right;
+    margin: 0;
+    max-height: 2.9em;
+    padding-bottom: 0.8em;
+    &:last-child {
+        border-right: none;
+    }
 }
 
 .entry-content {
-  padding: 2em 0;
-  ul {
-    padding-left: 1em;
-  }
+    padding: 2em 0;
+    ul {
+        padding-left: 1em;
+    }
 }
 .entry-content .event-info,
 .entry-content .cartel {
-  padding: 0 0 1.68em 0;
+    padding: 0 0 1.68em 0;
 }
 @include breakpoint(phone) {
-  .entry-content .project-text .column a.button,
-  .entry-content .event-text .column a.button {
-    display: block;
-    width: 220px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
+    .entry-content .project-text .column a.button,
+    .entry-content .event-text .column a.button {
+        display: block;
+        width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 }
 .project-text .column p .button {
-  margin: 1em 0;
-  line-height: 4em;
+    margin: 1em 0;
+    line-height: 4em;
 }

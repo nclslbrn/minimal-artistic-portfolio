@@ -1,171 +1,171 @@
 label {
-  display: inline-block;
+    display: inline-block;
 }
 textarea {
-  max-width: 100%;
-  width: 100%;
+    max-width: 100%;
+    width: 100%;
 }
 input,
 button {
-  outline: none;
+    outline: none;
 }
 
 form.contact {
-  font-family: $body_font;
-  textarea {
-    font-family: inherit;
-  }
-  button,
-  textarea,
-  input[type="submit"],
-  input[type="text"] {
-    display: block;
-    margin: 0;
-    width: 95%;
-    width: calc(100% - 2em);
-    appearance: none;
-    box-shadow: none;
-    border-radius: 0;
-  }
-  button,
-  textarea:focus,
-  input[type="text"]:focus,
-  input[type="search"]:focus,
-  .tnp-field.tnp-field-email input[type="email"].tnp-email:focus {
-    outline: none;
-  }
-  button,
-  textarea,
-  input[type="text"],
-  input[type="search"],
-  .tnp-field.tnp-field-email input[type="email"].tnp-email {
-    margin: 1em 0;
-    padding: 1em;
-    border: none;
-    transition: border 0.3s;
-  }
-  button:focus,
-  textarea:focus,
-  input[type="text"]:focus,
-  input[type="text"].focus,
-  input[type="search"]:focus,
-  .tnp-field.tnp-field-email input[type="email"].tnp-email:focus {
-    border-bottom: 2px solid $accent-color;
-  }
-  label {
-    display: block;
-    clear: both;
-    float: none;
-    width: 240px;
-  }
-  span.security-check {
-    display: table;
-    input,
-    span {
-      display: table-cell;
-      padding-left: 1em;
+    font-family: $body_font;
+    textarea {
+        font-family: inherit;
     }
-    span {
-      vertical-align: middle;
+    button,
+    textarea,
+    input[type='submit'],
+    input[type='text'] {
+        display: block;
+        margin: 0;
+        width: 95%;
+        width: calc(100% - 2em);
+        appearance: none;
+        box-shadow: none;
+        border-radius: 0;
     }
-  }
+    button,
+    textarea:focus,
+    input[type='text']:focus,
+    input[type='search']:focus,
+    .tnp-field.tnp-field-email input[type='email'].tnp-email:focus {
+        outline: none;
+    }
+    button,
+    textarea,
+    input[type='text'],
+    input[type='search'],
+    .tnp-field.tnp-field-email input[type='email'].tnp-email {
+        margin: 1em 0;
+        padding: 1em;
+        border: none;
+        transition: border 0.3s;
+    }
+    button:focus,
+    textarea:focus,
+    input[type='text']:focus,
+    input[type='text'].focus,
+    input[type='search']:focus,
+    .tnp-field.tnp-field-email input[type='email'].tnp-email:focus {
+        border-bottom: 2px solid $accent-color;
+    }
+    label {
+        display: block;
+        clear: both;
+        float: none;
+        width: 240px;
+    }
+    span.security-check {
+        display: table;
+        input,
+        span {
+            display: table-cell;
+            padding-left: 1em;
+        }
+        span {
+            vertical-align: middle;
+        }
+    }
 }
 
 .widget_newsletterwidget {
-  padding-top: 1.5rem;
-  border-top: $black_border;
-  border-width: 1px;
+    padding-top: 1.5rem;
+    border-top: $black_border;
+    border-width: 1px;
 
-  @include breakpoint(laptop) {
-    padding: 2rem;
-    border: $black_border;
-  }
+    @include breakpoint(laptop) {
+        padding: 2rem;
+        border: $black_border;
+    }
 }
 form.search-form,
 .widget_newsletterwidget .tnp-widget form {
-  .tnp-field,
-  label,
-  button,
-  input {
-    display: inline-block;
-  }
-  button.search-submit {
-    vertical-align: middle;
-  }
-  .tnp-field label {
-    height: 1em;
-    margin: 0.5em 0;
-  }
-  .tnp-field.tnp-field-email input[type="email"].tnp-email {
-    background-image: none;
-    background: $base_color;
-  }
-  .tnp-field.tnp-field-button input[type="submit"].tnp-submit {
-    margin: 3.1em 0;
-    padding: 1.47rem 1rem;
-    line-height: 0.15;
-  }
+    .tnp-field,
+    label,
+    button,
+    input {
+        display: inline-block;
+    }
+    button.search-submit {
+        vertical-align: middle;
+    }
+    .tnp-field label {
+        height: 1em;
+        margin: 0.5em 0;
+    }
+    .tnp-field.tnp-field-email input[type='email'].tnp-email {
+        background-image: none;
+        background: $base_color;
+    }
+    .tnp-field.tnp-field-button input[type='submit'].tnp-submit {
+        margin: 3.1em 0;
+        padding: 1.47rem 1rem;
+        line-height: 0.15;
+    }
 }
 .widget_newsletterwidget {
-  display: block;
-  margin: 2rem 0;
-  font-weight: bold;
-  .tnp.tnp-widget form {
-    font-weight: normal;
-  }
+    display: block;
+    margin: 2rem 0;
+    font-weight: bold;
+    .tnp.tnp-widget form {
+        font-weight: normal;
+    }
 }
 
 .top-bar .widget_search form,
 .widget_newsletterwidget .tnp-widget form {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
 
-  input[type="search"],
-  button.search-submit {
-    font-size: 0.85em;
-    padding: 0 1rem;
-    line-height: 1rem;
-    height: 2.3rem;
-    border-width: 1px;
-    transition: all 0.15s ease-out;
-    color: inherit;
-    &:hover,
-    &:focus {
-      border: 1px solid $accent_color;
-    }
-  }
-
-  input[type="search"] {
-    margin-right: 0;
-    -webkit-appearance: textfield;
-  }
-  button.search-submit {
-    margin: 0;
-    padding: 0 0.5em;
-    line-height: 1;
-    border-left: none;
-    &::before {
-      content: none;
+    input[type='search'],
+    button.search-submit {
+        font-size: 0.85em;
+        padding: 0 1rem;
+        line-height: 1rem;
+        height: 2.3rem;
+        border-width: 1px;
+        transition: all 0.15s ease-out;
+        color: inherit;
+        &:hover,
+        &:focus {
+            border: 1px solid $accent_color;
+        }
     }
 
-    & svg {
-      font-size: 1.5em;
+    input[type='search'] {
+        margin-right: 0;
+        -webkit-appearance: textfield;
     }
-    &:hover {
-      color: #fff;
+    button.search-submit {
+        margin: 0;
+        padding: 0 0.5em;
+        line-height: 1;
+        border-left: none;
+        &::before {
+            content: none;
+        }
+
+        & svg {
+            font-size: 1.5em;
+        }
+        &:hover {
+            color: #fff;
+        }
     }
-  }
-  .tnp-field {
-    label,
-    input {
-      display: inline-block;
+    .tnp-field {
+        label,
+        input {
+            display: inline-block;
+        }
+        &.tnp-field-email {
+            flex: 4;
+        }
+        &.tnp-field-button {
+            flex: 1;
+        }
     }
-    &.tnp-field-email {
-      flex: 4;
-    }
-    &.tnp-field-button {
-      flex: 1;
-    }
-  }
 }
