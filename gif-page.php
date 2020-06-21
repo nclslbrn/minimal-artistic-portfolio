@@ -12,10 +12,11 @@ Template Name: Gif-page
  */
 $gifQueryArgs = array(
     'post_type'      => 'gif',
-    'posts_per_page' => 4,
+    'posts_per_page' => 8,
     'post_status'    => 'publish',
     'paged'          => get_query_var('paged')
 );
+$post_content = '';
 get_header(); ?>
 
 
@@ -27,6 +28,7 @@ get_header(); ?>
                     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
                 </header><!-- .entry-header -->
             </article>
+            <?php $post_content = $post->post_content; ?>
         <?php endwhile; // End of the loop. ?>
 
         <?php $gifQuery = new WP_Query($gifQueryArgs); ?>
@@ -64,6 +66,12 @@ get_header(); ?>
                     $wp_query = $orig_query; // fix for pagination to work
                     ?>
             <?php endif; ?>
+            <div class="row">
+                <div class="col-2 column"><large>-></large></div>
+                <div class="col-8 column">
+                    <p><?php echo $post_content; ?></p>
+                </div>
+            </div>
         <?php endif; ?>
     </main><!-- #main -->
 </div><!-- #primary -->
