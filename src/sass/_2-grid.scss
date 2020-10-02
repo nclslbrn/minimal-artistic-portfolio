@@ -7,56 +7,59 @@ $col_num: 12;
 $col_ratio: 1;
 
 .row {
-  position: relative;
+    position: relative;
 
-  @include breakpoint( phone ) {
-    display: block;
-  }
-  @include breakpoint( tablet ) {
-    display: block;
-  }
-  @include breakpoint( laptop ) {
+    @include breakpoint(phone) {
+        display: block;
+    }
+    @include breakpoint(tablet) {
+        display: block;
+    }
+    @include breakpoint(laptop) {
+        display: flex;
+        flex-direction: row;
+    }
     display: flex;
     flex-direction: row;
-  }
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
+    width: 100%;
 
+    &::before,
+    &::after {
+        content: '';
+        clear: both;
+        float: none;
+    }
+}
 
 @for $i from 1 through $col_num {
+    .col-#{$i} {
+        @include breakpoint(phone) {
+            flex-basis: 100%;
+        }
+        @include breakpoint(tablet) {
+            flex-basis: 100%;
+        }
+        @include breakpoint(laptop) {
+            $width: ((100% / $ratio) / $col_num) * $i;
+            // regular column width
+            // $width: ( 100% / $col_num ) * $i;
 
-  .col-#{$i}{
-    @include breakpoint( phone ) {
-      flex-basis: 100%;
+            flex: #{$i};
+            flex-basis: $width;
+            width: $width;
+        }
+        width: auto;
     }
-    @include breakpoint( tablet ) {
-      flex-basis: 100%;
-    }
-    @include breakpoint( laptop ) {
-
-      $width: ((100% / $ratio) / $col_num ) * $i;
-      // regular column width
-      // $width: ( 100% / $col_num ) * $i;
-
-      flex: #{$i};
-      flex-basis: $width;
-      width: $width;
-    }
-    width: auto;
-  }
 }
-[class*='col-']{
-  position: relative;
+[class*='col-'] {
+    position: relative;
 }
-
 
 .column img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .clearfix {
-  @include clearfix;
+    @include clearfix;
 }

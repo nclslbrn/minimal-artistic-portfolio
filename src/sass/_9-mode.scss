@@ -2,13 +2,15 @@ body {
     &,
     & #loader div.overlay {
         color: $dark_base;
-        background: url(build/img/handmadepaper.png);
+        background: url(build/img/cream_dust.png);
+        /*
         background: linear-gradient(
                 to bottom,
-                rgba(230, 230, 230, 0.1),
+                rgba(180, 180, 180, 0.2),
                 rgba(180, 180, 180, 0.1) 75%
             ),
-            url(build/img/handmadepaper.png);
+            url(build/img/cream_dust.png);
+        */
         svg.spinner g .path {
             stroke: #333;
         }

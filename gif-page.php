@@ -12,7 +12,7 @@ Template Name: Gif-page
  */
 $gifQueryArgs = array(
     'post_type'      => 'gif',
-    'posts_per_page' => 8,
+    'posts_per_page' => 12,
     'post_status'    => 'publish',
     'paged'          => get_query_var('paged')
 );
@@ -57,14 +57,16 @@ get_header(); ?>
             </div><!-- .row -->
 
             <?php if( $gifQuery->max_num_pages > 0 ) : ?>
-                <?php
-                    $orig_query = $wp_query; // fix for pagination to work
-                    $wp_query = $gifQuery;
-                    echo paginate_links(
-                        array("prev_next" => false)
-                    );
-                    $wp_query = $orig_query; // fix for pagination to work
-                    ?>
+                <nav class="page-nav">
+                    <?php
+                        $orig_query = $wp_query; // fix for pagination to work
+                        $wp_query = $gifQuery;
+                        echo paginate_links(
+                            array("prev_next" => false)
+                        );
+                        $wp_query = $orig_query; // fix for pagination to work
+                        ?>
+                </nav>
             <?php endif; ?>
             <div class="row">
                 <div class="col-2 column"><large>-></large></div>

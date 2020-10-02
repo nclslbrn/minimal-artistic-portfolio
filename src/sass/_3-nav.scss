@@ -231,6 +231,7 @@ header.site-header .row {
         background: linear-gradient(to left, #f6f6f6, #fff 75%);
         transform: translateX(-120%);
         transition: transform 0.35s ease-in;
+        z-index: 1001;
 
         .menu {
             display: flex;
@@ -260,10 +261,8 @@ header.site-header .row {
 }
 
 .site-header .row .main-navigation.toggled {
-    z-index: 1001;
-
     transform: translateX(0);
-    max-width: 100%;
+    max-width: 70%;
     transition: transform 0.35s ease-in;
 }
 .row .main-navigation ul {
@@ -302,8 +301,8 @@ header.site-header .row {
             $baseline: $headline_baseline,
             $font-size: 2,
             $line-height: 2,
-            $leading-top: 2,
-            $leading-bottom: 2
+            $leading-top: 1,
+            $leading-bottom: 1
         );
 
         text-transform: capitalize;
@@ -434,7 +433,11 @@ header.site-header .row {
     border-width: 10px;
     margin-left: -10px;
 }
-
+nav.page-nav {
+    display: block;
+    margin-bottom: 3em;
+    text-align: center;
+}
 footer.site-footer {
     margin-top: 1em;
     padding-bottom: 2em;

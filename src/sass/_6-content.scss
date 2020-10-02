@@ -383,7 +383,9 @@ body.page-template-gif-page main#main .row {
 body.page-template-gif-page main#main .row article {
     position: relative;
     padding: 1em;
+    width: fit-content;
     text-align: center;
+    margin: 0 auto;
 }
 
 body.page-template-gif-page main#main .row article a {
