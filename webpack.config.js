@@ -19,10 +19,13 @@ const backConfig = (mode = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.m?js$/,
                 exclude: /(node_modules)/,
                 use: {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
                 }
             },
             {
@@ -41,11 +44,13 @@ const backConfig = (mode = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            ident: 'postcss',
-                            plugins: (loader) => [
-                                //require('autoprefixer'),
-                                require('cssnano')
-                            ]
+                            postcssOptions: {
+                                ident: 'postcss',
+                                plugins: (loader) => [
+                                    require('autoprefixer'),
+                                    require('cssnano')
+                                ]
+                            }
                         }
                     },
                     {
@@ -130,11 +135,13 @@ const frontConfig = (mode = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            ident: 'postcss',
-                            plugins: (loader) => [
-                                require('autoprefixer'),
-                                require('cssnano')
-                            ]
+                            postcssOptions: {
+                                ident: 'postcss',
+                                plugins: (loader) => [
+                                    require('autoprefixer'),
+                                    require('cssnano')
+                                ]
+                            }
                         }
                     },
                     {
@@ -152,20 +159,20 @@ const frontConfig = (mode = {
         new MiniCssExtractPlugin({
             filename: '../style.css'
         }),
-        new CopyWebpackPlugin([
-            {
-                from: 'src/img',
-                to: 'img',
-                force: true
-            }
-        ]),
-        new CopyWebpackPlugin([
-            {
-                from: 'src/fonts',
-                to: 'fonts',
-                force: true
-            }
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/fonts',
+                    to: 'fonts',
+                    force: true
+                },
+                {
+                    from: 'src/img',
+                    to: 'img',
+                    force: true
+                }
+            ]
+        }),
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i
         }),
