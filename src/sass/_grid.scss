@@ -17,10 +17,10 @@ $col_ratio: 1;
     }
     @include breakpoint(laptop) {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
     }
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     width: 100%;
 
     &::before,

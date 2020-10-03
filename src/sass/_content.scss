@@ -192,6 +192,16 @@ h4.project-title {
     .row {
         align-items: flex-start;
     }
+
+    .project-text .fluidbox {
+        display: inline-block;
+        float: left;
+        margin: 0.5em 0;
+
+        &:hover .fluidbox__ghost {
+            background-color: transparentize($accent_color, 0.65);
+        }
+    }
     @include breakpoint(phone) {
         .social-sharing-module.laptop {
             display: none;
@@ -385,7 +395,6 @@ body.page-template-gif-page main#main .row article {
     padding: 1em;
     width: fit-content;
     text-align: center;
-    margin: 0 auto;
 }
 
 body.page-template-gif-page main#main .row article a {
