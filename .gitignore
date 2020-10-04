@@ -2,3 +2,5 @@
 node_modules/*
 .sass-cache/**
 build/
+src/fonts/*.woff
+src/fonts/*.woff2
