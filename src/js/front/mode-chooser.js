@@ -1,42 +1,53 @@
-function setCookie(key, value) {
-    var expires = new Date();
-    expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
-    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
-}
+/**
+ * Detect and change color theme
+ * https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting#answer-56550819
+ */
 
-function getCookie(key) {
-    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-    return keyValue ? keyValue[2] : null;
-}
+//determines if the user has a set theme
+function detectColorScheme() {
+    var theme = 'light' //default to light
 
-
-jQuery(function($) {
-
-    if ($('input[name="mode-switcher"]:checkbox').length) {
-
-        if (getCookie('mode')) {
-
-            $('body').addClass(getCookie('mode'));
-
+    //local storage is used to override OS theme settings
+    if (localStorage.getItem('theme')) {
+        if (localStorage.getItem('theme') == 'dark') {
+            var theme = 'dark'
         } else {
-
-            $('body').addClass('light');
-
+            var theme = 'light'
         }
-
-
-        $('input[name="mode-switcher"]:checkbox').change(function() {
-
-            $('body').toggleClass('light dark');
-
-            if ($(this).is(":checked")) {
-
-                setCookie('mode', 'dark');
-
-            } else {
-
-                setCookie('mode', 'light');
-            }
-        });
+    } else if (!window.matchMedia) {
+        //matchMedia method not supported
+        return false
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //OS theme setting detected as dark
+        var theme = 'dark'
     }
-})
+
+    //dark theme preferred, set document with a `data-theme` attribute
+    if (theme == 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark')
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light')
+    }
+}
+detectColorScheme()
+
+const modeSwitch = document.querySelector('input[name="mode-switcher"]')
+
+const switchTheme = (e) => {
+    if (e.target.checked) {
+        localStorage.setItem('theme', 'dark')
+        document.documentElement.setAttribute('data-theme', 'dark')
+        modeSwitch.checked = true
+    } else {
+        localStorage.setItem('theme', 'light')
+        document.documentElement.setAttribute('data-theme', 'light')
+        modeSwitch.checked = false
+    }
+}
+
+if (modeSwitch) {
+    modeSwitch.addEventListener('change', switchTheme, false)
+    if (document.documentElement.getAttribute('data-theme') == 'dark') {
+        modeSwitch.checked = true
+    }
+}

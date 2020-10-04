@@ -24,9 +24,6 @@ function minimal_artistic_portfolio_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	if( !empty($_COOKIE['mode'])) {
-		$classes[] = $_COOKIE['mode'];
-	}
 	return $classes;
 }
 add_filter( 'body_class', 'minimal_artistic_portfolio_body_classes' );
