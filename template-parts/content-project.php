@@ -11,7 +11,9 @@
       <div class="wrapper">
 
         <h4 class="project-title">
-          <?php echo get_the_title(); ?>
+          <a href="<?php echo get_permalink(); ?>">
+            <?php echo get_the_title(); ?>
+          </a>
         </h4>
 
         <p class="description">

@@ -160,6 +160,11 @@ hr {
 }
 h4 {
     margin-bottom: 0.5em;
+    &.project-title a {
+        text-decoration: none;
+        line-height: 0.75em;
+        color: inherit;
+    }
 }
 body.page .entry-title::before {
     content: '-> ';
@@ -313,7 +318,7 @@ button.button.active,
 a.button:hover::after,
 button.button:hover::after,
 .search-form button.search-submit::after {
-    width: 97%;
+    width: 96%;
 }
 button.button.active::after,
 button.button:focus::after,
