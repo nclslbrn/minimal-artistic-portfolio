@@ -179,7 +179,8 @@ const frontConfig = (mode = {
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3030,
-            proxy: 'nicolas-lebrun.test'
+            proxy: 'nicolas-lebrun.test',
+            browser: 'firefox -start-debugger-server'
         })
     ]
 })
