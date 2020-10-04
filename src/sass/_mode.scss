@@ -1,6 +1,7 @@
 html[data-theme='light'] {
     body,
-    body #loader div.overlay {
+    body #loader div.overlay,
+    .site-header .row .main-navigation.toggled {
         color: $black_text;
         background-image: linear-gradient(
                 to bottom,
@@ -8,14 +9,11 @@ html[data-theme='light'] {
                 rgba(255, 238, 238, 0.75)
             ),
             url(build/img/dust.png);
+    }
+    body #loader div.overlay svg.spinner g .path {
+        stroke: $black_text;
+    }
 
-        svg.spinner g .path {
-            stroke: $black_text;
-        }
-    }
-    .site-header .row .main-navigation.toggled {
-        background: #fff;
-    }
     @include breakpoint(phone) {
         .site-header .row .main-navigation ul.menu li {
             border-color: lighten($dark_base, 65%);
@@ -86,11 +84,16 @@ html[data-theme='light'] {
         border-color: $black_text;
         color: $black_text;
     }
-    header.site-header .wrapper,
-    article > .entry-header,
-    #main > .entry-header {
+    header.site-header .wrapper {
         border-bottom: $black_border;
     }
+    @include breakpoint(laptop) {
+        article > .entry-header,
+        #main > .entry-header {
+            border-bottom: $black_border;
+        }
+    }
+
     footer.site-footer .wrapper {
         border-top: $black_border;
     }
@@ -150,10 +153,10 @@ html[data-theme='light'] {
         box-shadow: inset 0 0 1px 1px $black_text;
     }
 }
-
 html[data-theme='dark'] {
     body,
-    body #loader div.overlay {
+    body #loader div.overlay,
+    .site-header .row .main-navigation.toggled {
         color: $white_text;
         background-image: linear-gradient(
                 to bottom,
@@ -161,10 +164,9 @@ html[data-theme='dark'] {
                 rgba(0, 0, 150, 0.25)
             ),
             url(build/img/darkdenim3.png);
-
-        svg.spinner g .path {
-            stroke: $white_text;
-        }
+    }
+    .site-header .row .main-navigation.toggled svg.spinner g .path {
+        stroke: $white_text;
     }
     .fluidbox__overlay {
         background: #111;
@@ -176,7 +178,7 @@ html[data-theme='dark'] {
     .menu-toggle .menu-icon,
     .menu-toggle .menu-icon::after,
     .menu-toggle .menu-icon::before {
-        background: #fff;
+        background: $white_text;
     }
     @include breakpoint(phone) {
         .site-header .row .main-navigation ul.menu li {
@@ -237,10 +239,14 @@ html[data-theme='dark'] {
         border-color: #fefefe;
         color: $white_text;
     }
-    header.site-header .wrapper,
-    article > .entry-header,
-    #main > .entry-header {
+    header.site-header .wrapper {
         border-bottom: $white_border;
+    }
+    @include breakpoint(laptop) {
+        article > .entry-header,
+        #main > .entry-header {
+            border-bottom: $white_border;
+        }
     }
     footer.site-footer .wrapper {
         border-top: $white_border;

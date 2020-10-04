@@ -8,17 +8,6 @@ $col_ratio: 1;
 
 .row {
     position: relative;
-
-    @include breakpoint(phone) {
-        display: block;
-    }
-    @include breakpoint(tablet) {
-        display: block;
-    }
-    @include breakpoint(laptop) {
-        display: flex;
-        flex-flow: row wrap;
-    }
     display: flex;
     flex-flow: row wrap;
     width: 100%;

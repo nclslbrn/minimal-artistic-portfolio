@@ -243,10 +243,13 @@ header.site-header .site-branding .site-title a:hover {
 }
 
 .site-branding .site-title span {
-    @include breakpoint(tablet) {
+    @include breakpoint(phone) {
         margin-left: 0.5em;
     }
     @include breakpoint(tablet) {
+        margin-left: 0.5em;
+    }
+    @include breakpoint(laptop) {
         margin-left: 0;
     }
     letter-spacing: 1px;
