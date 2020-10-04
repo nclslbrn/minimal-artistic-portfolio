@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with firefox",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "url": "http://localhost:3030/",
+            "pathMappings": [
+                {
+                    "url": "http://localhost",
+                    "path": "${workspaceFolder}"
+                }
+            ]
+        }
+    ]
+}
