@@ -3,9 +3,9 @@
         [
             "@babel/preset-env",
             {
-                "debug": true,
-                "useBuiltIns": "entry",
-                "modules": false
+                "debug": false,
+                "useBuiltIns": false,
+                "modules": "commonjs"
             }
         ]
     ]

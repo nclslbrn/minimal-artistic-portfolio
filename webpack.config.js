@@ -10,7 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 const backConfig = (mode = {
-    entry: './src/js/back.js',
+    entry: ['@babel/polyfill', './src/js/back.js'],
     output: {
         path: path.resolve(__dirname, 'build/'),
         filename: 'js/back-bundle.js'
@@ -72,7 +72,7 @@ const backConfig = (mode = {
 })
 
 const editorConfig = (mode = {
-    entry: './src/js/editor.js',
+    entry: ['@babel/polyfill', './src/js/editor.js'],
     output: {
         path: path.resolve(__dirname, 'build/'),
         filename: 'js/editor.js'
