@@ -4,3 +4,4 @@ node_modules/*
 build/
 src/fonts/*.woff
 src/fonts/*.woff2
+*.css.map

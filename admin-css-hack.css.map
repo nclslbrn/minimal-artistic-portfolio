@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///src/sass/admin-css-hack.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE;AAEF;;AAAA;EACE;AAGF,C","file":"../admin-css-hack.css","sourcesContent":["#dashboard_right_now .inside .main .project-count a:before {\n  content: \"\\f339\";\n}\n#dashboard_right_now .inside .main .event-count a:before {\n  content: \"\\f145\";\n}\n"],"sourceRoot":""}
