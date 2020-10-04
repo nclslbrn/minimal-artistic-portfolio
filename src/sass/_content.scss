@@ -265,6 +265,12 @@ h4.project-title {
         margin-top: -7em;
         margin-bottom: 1em;
     }
+    button:first-child {
+        border-left-width: 1px;
+    }
+    button:last-child {
+        border-right-width: 1px;
+    }
     text-align: right;
 }
 

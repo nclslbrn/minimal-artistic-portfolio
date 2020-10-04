@@ -9,6 +9,12 @@ input,
 button {
     outline: none;
 }
+button,
+input[type='submit'],
+.button {
+    border-width: 2px;
+    border-style: solid;
+}
 
 form.contact {
     font-family: $body_font;
