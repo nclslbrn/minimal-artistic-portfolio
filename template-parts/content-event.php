@@ -15,7 +15,11 @@
     <div class="col-6 column col-map">
       <?php if( !empty($GLOBALS['latt'] ) && !empty($GLOBALS['long'] ) ): ?>
         <div class="map-overlay">
-          <div id='map' class='map'>
+          <div id='map' 
+               class='map single-marker' 
+               data-latitude="<?php echo $GLOBALS['latt']; ?>"
+               data-longitude="<?php echo $GLOBALS['long'];?>"
+          >
           </div>
         </div>
       <?php endif; ?>

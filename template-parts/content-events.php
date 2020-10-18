@@ -1,6 +1,6 @@
 <?php /* template for displaying all events on events.php page template */ ?>
 
-<div class="entry-content">
+<!-- <div class="entry-content"> -->
   <div id="change-event-display-mode" class="event-menu">
 
     <button data-toggle="map" class="button">
@@ -20,15 +20,18 @@
   <div class="clearfix"></div>
 
   <div id="events-list">
-    <?php $GLOBALS['encodeMapData'] = list_custom_posts_by_date( "event", -1 );?>
+    <?php list_custom_posts_by_date( "event", -1 );?>
+
     <section class="ac-container">
       <div class="event-year-section">
         <?php get_metabox(get_the_ID(), 'school', true);?>
+        <?php get_metabox(get_the_ID(), 'experience', true);?>
       </div>
     </section>
   </div>
-  <div class="map-overlay">
-    <div id="map" class="map" style="height: 0; overflow: hidden;"></div>
-  </div>
 
-</div><!-- .entry-content -->
+  <!-- <div class="map-overlay" style="height: 0; overflow: hidden;"> -->
+    <div id="map" class="map multiple-marker"></div>
+  <!-- </div> .map-overlay -->
+
+<!-- </div> .entry-content -->

@@ -137,10 +137,10 @@ function minimal_artistic_portfolio_scripts() {
 	wp_enqueue_script("jquery", "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js", false, "3.1.1");
 
 	//wp_enqueue_style( "Minimal-Artistic-Portfolio-fonts", "https://fonts.googleapis.com/css?family=Oxygen:700|Source+Sans+Pro" );
-	wp_enqueue_style('leafletStyle', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css');
+	wp_enqueue_style('leafletStyle', '//unpkg.com/leaflet@1.7.1/dist/leaflet.css');
 
 	wp_enqueue_style( "Minimal-Artistic-Portfolio-style", get_template_directory_uri() . '/style.css' );
-	wp_enqueue_script('leafletScript', '//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js', false, '2.1.9', false );
+	wp_enqueue_script('leafletScript', '//unpkg.com/leaflet@1.7.1/dist/leaflet.js', false, '2.1.9', false );
 
 	wp_enqueue_script( "Minimal-Artistic-Portfolio-script", get_template_directory_uri() . "/build/js/front-bundle.js", array('leafletScript'), "20151215", true );
 

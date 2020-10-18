@@ -131,6 +131,9 @@
 }
 .map {
     min-height: 100%;
+    img {
+        max-height: none;
+    }
 }
 /*
 .project-summary .column.cartel .wrapper .description {
@@ -166,6 +169,7 @@ h4.project-title {
     @include breakpoint(laptop) {
         max-width: 100%;
         margin: 0;
+        float: left;
     }
 
     height: auto;
@@ -195,7 +199,7 @@ h4.project-title {
 
     .project-text .fluidbox {
         display: inline-block;
-        float: left;
+        //float: left;
         margin: 0.5em 0;
 
         &:hover .fluidbox__ghost {

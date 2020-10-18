@@ -278,10 +278,12 @@ function list_custom_posts_by_date( $type, $limit ) {
                                   );
 
 
-      $mapData[$counter] = array (  'info' => '<a href="'.get_permalink( $cptId ).'">'.get_the_title( $cptId ).'</a>',
-                                    'latt' => get_post_meta( $cptId, 'LATT', true),
-                                    'long' => get_post_meta( $cptId, 'LONG', true)
-                                  );
+      $mapData[$counter] = array (
+        'link'  => get_permalink( $cptId ),
+        'title' => get_the_title( $cptId ),
+        'latt'  => get_post_meta( $cptId, 'LATT', true),
+        'long'  => get_post_meta( $cptId, 'LONG', true)
+      );
       $counter++;
     endwhile;
     wp_reset_postdata();
@@ -349,7 +351,10 @@ function list_custom_posts_by_date( $type, $limit ) {
         <?php endforeach; ?>
         </div><!-- .(posts/events)year-section -->
       </section><!-- .ac-container -->
-      <?php $encodeMapData = json_encode($mapData); return $encodeMapData;
+      <script>
+        window.eventsMapData = <?php echo json_encode($mapData);?>;
+      </script>
+      <?php
     }
   } else {
     return null;

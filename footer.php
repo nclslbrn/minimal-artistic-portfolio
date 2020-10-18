@@ -42,7 +42,7 @@
 <?php global $long; ?>
 <?php global $actualEvents; ?>
 <?php //global $encodeMapData; ?>
-<?php if( !empty( $GLOBALS['latt'] ) && !empty( $GLOBALS['long'] && empty( $actualEvents )) ): ?>
+<?php /* if( !empty( $GLOBALS['latt'] ) && !empty( $GLOBALS['long'] && empty( $actualEvents )) ): ?>
 
 	<script>
 	window.addEventListener("load", function(event) {
@@ -61,10 +61,10 @@
 	});
 	</script>
 
-<?php endif; ?>
+<?php endif; */ ?>
 <?php wp_reset_query(); ?>
 
-<?php if ( is_page_template( 'events.php' ) && isset( $GLOBALS['encodeMapData'] ) ): ?>
+<?php if ( is_page_template( 'events.php' ) && isset( $GLOBALS['encodeMapData'] ) ): /* ?>
 	<script>
 	<?php echo "var locations = ". $GLOBALS['encodeMapData']  . ";\n"; ?>
 		var map = L.map('map').setView([46.481170, 2.440409], 6);
@@ -104,7 +104,7 @@
 			});
 		});
 	</script>
-<?php endif; ?>
+	<?php */ endif; ?>
 
 </body>
 </html>
