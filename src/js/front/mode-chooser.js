@@ -28,10 +28,6 @@ const detectColorScheme = () => {
     } else {
         document.documentElement.setAttribute('data-theme', 'light')
     }
-    console.log(
-        'init theme',
-        document.documentElement.getAttribute('data-theme')
-    )
 }
 
 detectColorScheme()
