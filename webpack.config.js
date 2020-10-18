@@ -42,24 +42,13 @@ const backConfig = (mode = {
                         }
                     },
                     {
-                        loader: 'postcss-loader',
-                        options: {
-                            postcssOptions: {
-                                ident: 'postcss',
-                                plugins: (loader) => [
-                                    require('autoprefixer'),
-                                    require('cssnano')
-                                ]
-                            }
-                        }
-                    },
-                    {
                         loader: 'sass-loader',
                         options: {
                             implementation: require('sass'),
                             sourceMap: true
                         }
-                    }
+                    },
+                    'postcss-loader'
                 ]
             }
         ]

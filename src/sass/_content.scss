@@ -248,6 +248,7 @@ h4.project-title {
         @include breakpoint(laptop) {
             padding: 0 2rem 1rem 0;
             margin: 0 0 2em 0;
+            min-height: 386px;
         }
     }
     .row .column:last-child {

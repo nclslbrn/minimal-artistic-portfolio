@@ -29,7 +29,7 @@ html[data-theme='light'] {
     }
     blockquote,
     hr {
-        border-color: $black;
+        border-color: $black_text;
     }
 
     .tnp-widget .tnp-field-button input.tnp-submit,
@@ -135,7 +135,8 @@ html[data-theme='light'] {
     }
     #events-list .ac-container .event-year-section h3.year::after {
         border: $black_border;
-        background-color: $base_color;
+        //background-color: $base_color;
+        background-color: transparent;
     }
     #events-list .ac-container .event-year-section .yearEventsList {
         border-left: $black_border;
@@ -190,7 +191,7 @@ html[data-theme='dark'] {
     }
     blockquote,
     hr {
-        border-color: $white;
+        border-color: $white_text;
     }
     .tnp-widget .tnp-field-button input.tnp-submit,
     .language-chooser-item a,
@@ -289,7 +290,7 @@ html[data-theme='dark'] {
     }
     #events-list .ac-container .event-year-section h3.year::after {
         border: $white_border;
-        background-color: darken($dark_base, 15%);
+        background-color: transparent;
     }
     #events-list .ac-container .event-year-section .yearEventsList {
         border-left: $white_border;
