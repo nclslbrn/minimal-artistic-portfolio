@@ -98,3 +98,10 @@ body.single-event .site-content .icon,
         fill: darken($accent_color, 30%);
     }
 }
+
+.player video {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+}
