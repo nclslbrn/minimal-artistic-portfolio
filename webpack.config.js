@@ -97,16 +97,13 @@ const frontConfig = (mode = {
             },
             {
                 test: require.resolve('jquery'),
-                use: [
-                    {
-                        loader: 'expose-loader',
-                        options: 'jQuery'
-                    },
-                    {
-                        loader: 'expose-loader',
-                        options: '$'
+                loader: 'expose-loader',
+                options: {
+                    exposes: {
+                        globalName: '$',
+                        override: true
                     }
-                ]
+                }
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -169,9 +166,11 @@ const frontConfig = (mode = {
             host: 'localhost',
             port: 3030,
             proxy: 'nicolas-lebrun.test',
-            browser: 'firefox -start-debugger-server'
+            browser: 'firefox -start-debugger-server',
+            open: true
         })
-    ]
+    ],
+    stats: 'minimal'
 })
 
 module.exports = (env, argv) => {
@@ -180,6 +179,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'development') {
         frontConfig.devtool = 'source-map'
         backConfig.devtool = 'source-map'
+
         //editorConfig.devtool = 'source-map'
     }
     return [frontConfig, backConfig, editorConfig]
