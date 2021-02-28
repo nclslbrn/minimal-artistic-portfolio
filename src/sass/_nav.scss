@@ -182,7 +182,9 @@ header.site-header .row {
         }
         ul.top-bar li ul.language-chooser {
             display: block;
-            width: 50%;
+            @include breakpoint(laptop) {
+                width: 50%;
+            }
             margin: 0 auto;
             border: none;
             li {
@@ -201,6 +203,7 @@ header.site-header .row {
             }
         }
     }
+
     @include breakpoint(laptop) {
         display: inline-block;
         float: right;
@@ -213,10 +216,17 @@ header.site-header .row {
         ul.top-bar li {
             display: inline-flex;
         }
+        &.widget-laptop .top-bar .widget_search {
+            display: block;
+        }
     }
+
     ul.top-bar {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
+        @include breakpoint(laptop) {
+            flex-flow: row wrap;
+        }
         align-items: center;
         list-style-type: none;
         text-align: center;
@@ -261,9 +271,12 @@ header.site-header .row {
 .site-header .row ul.top-bar .qtranxs_widget ul {
     padding: 0.25em 0 0 0;
 }
-.site-header .row ul.top-bar .qtranxs_widget ul li {
-    margin: 0 1em 0 0 !important;
+@include breakpoint(laptop) {
+    .site-header .row ul.top-bar .qtranxs_widget ul li {
+        margin: 0 0.5em 0 0 !important;
+    }
 }
+
 .site-header .row .main-navigation.toggled {
     transform: translateX(0);
     max-width: 70%;
@@ -275,6 +288,7 @@ header.site-header .row {
     }
     @include breakpoint(laptop) {
         display: flex;
+        flex-flow: row wrap;
         width: 100%;
     }
     justify-content: flex-start;

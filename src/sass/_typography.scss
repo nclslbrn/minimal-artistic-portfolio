@@ -226,7 +226,7 @@ ul.language-chooser li.language-chooser-item a {
 @include breakpoint(laptop) {
     ul.language-chooser li:first-child::after {
         content: '/';
-        margin: 0.5em -1em 0 0;
+        margin: 0.25em -1em 0 0;
     }
 }
 header.site-header .site-branding .site-title a:hover {
