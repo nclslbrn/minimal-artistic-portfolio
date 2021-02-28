@@ -15,10 +15,10 @@ $homepage = is_front_page();
 <html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-60x60.png">
@@ -37,7 +37,6 @@ $homepage = is_front_page();
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?php echo get_template_directory(); ?>/build/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
     <?php wp_head(); ?>
 </head>
 
@@ -100,46 +99,46 @@ $homepage = is_front_page();
 		
 
     <div id="page" class="site">
-        <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
+        <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Skip to content', 'Minimal-Artistic-Portfolio'); ?></a>
 
         <header id="masthead" class="site-header" role="banner">
             <div class="wrapper row">
                 <div class="site-branding col-8">
                     <h1 class="site-title">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
 							<?php // SPLIT SITE NAME
-									$name = get_bloginfo( 'name' );
-									$words = explode(' ', $name);
-									foreach ( (array) $words as $word) :
-										echo '<span>' . $word . '</span>';
-									endforeach;
-							?>
+                                    $name = get_bloginfo('name');
+                                    $words = explode(' ', $name);
+                                    foreach ((array) $words as $word) :
+                                        echo '<span>' . $word . '</span>';
+                                    endforeach;
+                            ?>
                         </a>
                     </h1>
                 </div><!-- .site-branding -->
 
-                <?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+                <?php if (is_active_sidebar('sidebar-2')) : ?>
                 <div id="widget-area" class="widget-area  widget-laptop" role="complementary">
                     <ul class="top-bar">
-                        <?php dynamic_sidebar( 'sidebar-2' ); ?>
+                        <?php dynamic_sidebar('sidebar-2'); ?>
                         <?php mode_chooser_button(); ?>
                     </ul>
                 </div><!-- .widget-area -->
                 <?php endif; ?>
 
-                <button class="menu-toggle col-3" aria-controls="primary-menu" aria-expanded="false">
+                <button class="menu-toggle col-3" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
                     <span class="menu-icon"></span>
                 </button>
                 <nav id="site-navigation" class="main-navigation" role="navigation">
 
-										<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+										<?php wp_nav_menu(array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' )); ?>
 										
-										<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+										<?php if (is_active_sidebar('sidebar-2')) : ?>
 										
 										<!-- only for mobile -->
 										<div id="widget-area" class="widget-area widget-mobile" role="complementary">
                         <ul class="top-bar">
-                            <?php dynamic_sidebar( 'sidebar-2' ); ?>
+                            <?php dynamic_sidebar('sidebar-2'); ?>
                             <?php mode_chooser_button(); ?>
                         </ul>
 										</div><!-- .widget-area -->
