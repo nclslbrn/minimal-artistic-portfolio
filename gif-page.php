@@ -22,21 +22,21 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <?php while ( have_posts() ) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <header class="entry-header">
-                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                    <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
                 </header><!-- .entry-header -->
             </article>
             <?php $post_content = $post->post_content; ?>
-        <?php endwhile; // End of the loop. ?>
+        <?php endwhile; // End of the loop.?>
 
         <?php $gifQuery = new WP_Query($gifQueryArgs); ?>
-        <?php if( $gifQuery->have_posts()): ?>
+        <?php if ($gifQuery->have_posts()): ?>
             <div class="row">
-                <?php while( $gifQuery->have_posts() ) : $gifQuery->the_post(); ?>
+                <?php while ($gifQuery->have_posts()) : $gifQuery->the_post(); ?>
 
-                    <?php if( get_the_post_thumbnail_url($post, 'full') ): ?>
+                    <?php if (get_the_post_thumbnail_url($post, 'full')): ?>
                         <article id="post-<?php echo $post->ID;?>" class="animated-gif">
                             <a  class="fluidbox" 
                                 href="<?php echo get_the_post_thumbnail_url($post, 'full');?>" 
@@ -56,7 +56,7 @@ get_header(); ?>
                 <?php endwhile; ?>
             </div><!-- .row -->
 
-            <?php if( $gifQuery->max_num_pages > 0 ) : ?>
+            <?php if ($gifQuery->max_num_pages > 0) : ?>
                 <nav class="page-nav">
                     <?php
                         $orig_query = $wp_query; // fix for pagination to work
@@ -69,7 +69,7 @@ get_header(); ?>
                 </nav>
             <?php endif; ?>
             <div class="row">
-                <div class="col-2 column"><large>-></large></div>
+                <div class="col-2 column"></div>
                 <div class="col-8 column">
                     <p><?php echo $post_content; ?></p>
                 </div>

@@ -45,6 +45,7 @@ html[data-theme='light'] {
         &:focus,
         &.active {
             color: $base_color;
+            border-color: $base_color;
         }
     }
     form {
@@ -201,6 +202,11 @@ html[data-theme='dark'] {
     button.button {
         color: $white_text;
         border-color: $white_text;
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: $accent-color;
+        }
     }
 
     form {

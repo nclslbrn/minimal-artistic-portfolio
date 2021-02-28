@@ -9,25 +9,26 @@
 );
 
 @include font-face(
-    'FiraCode-Regular',
-    './build/fonts/FiraCode-Regular',
+    'ibmplex',
+    './build/fonts/ibmplex-sanscondensed-regular',
     null,
     normal,
     woff2 woff
 );
 
-//@import url('https://rsms.me/inter/inter-ui.css');
-
 $headline_font: 'Inter-UI--bold', sans-serif;
 
 $headline_baseline: 0.1415;
-//$body_font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$body_font: 'FiraCode-Regular', monospace;
+$body_font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+//$body_font: 'ibmplex', monospace; //'FiraCode-Regular', monospace;
 $body_baseline: 0.233;
 
-$headline_num: 6;
-$body_font_size: 1em;
+$alt_font: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter,
+    monospace;
 
+$headline_num: 6;
+$body_font_size: 20px;
 $ratio: 1.125;
 $grid-height: 1rem;
 
@@ -37,7 +38,7 @@ body {
     line-height: 1;
     font-size: $body_font_size * $ratio;
     font-family: $body_font;
-    font-weight: 400;
+    font-weight: 500;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
@@ -54,15 +55,15 @@ input[type='text'],
 .related-events li a {
     @include breakpoint(phone) {
         line-height: 1.6 * $ratio;
-        font-size: 1em;
+        //font-size: 1em;
     }
     @include breakpoint(tablet) {
         line-height: 1.4 * $ratio;
-        font-size: 1.1em;
+        //font-size: 1.1em;
     }
     @include breakpoint(laptop) {
         line-height: 1.5 * $ratio;
-        font-size: 1.1em;
+        //font-size: 1.1em;
     }
 }
 
@@ -159,11 +160,13 @@ h4 {
         color: inherit;
     }
 }
+/*
 body.page .entry-title::before {
     content: '-> ';
     font-family: $body_font;
     font-variant-ligatures: common-ligatures;
 }
+*/
 .language-chooser a,
 a.button,
 .page-numbers,
@@ -183,26 +186,21 @@ a.button,
 button.button,
 .page-numbers {
     position: relative;
+    font-family: $alt_font;
     font-size: 0.85em;
     line-height: 1em;
-    padding: 0.8em 1em 0.6em 1em;
+    padding: 0.6em 1em 0.6em 1em;
     background-color: transparent;
     text-transform: uppercase;
+    overflow-x: hidden;
     transition: background-color 0.25s ease-out;
-
-    &::before {
-        content: '';
-        display: inline-block;
-        clear: both;
-        float: none;
-    }
 }
 button.button,
 .search-form button.search-submit,
 .tnp-widget .tnp-field-button input.tnp-submit {
     font-family: $headline_font;
     vertical-align: top;
-    line-height: 1em;
+    line-height: 2em;
     background-color: transparent;
 
     cursor: pointer;
@@ -254,22 +252,6 @@ header.site-header .site-branding .site-title a:hover {
     font-weight: 400;
 }
 
-@include breakpoint(laptop) {
-    a.button::before,
-    button.button::before {
-        font-family: $body_font;
-        content: '-> ';
-        font-size: 0.8em;
-        margin: 0.1em 0.3em 0 0;
-        padding: 0 0 0.4em 0;
-        line-height: inherit;
-        z-index: inherit;
-        color: inherit;
-        font-weight: bold;
-        vertical-align: middle;
-    }
-}
-
 .language-chooser a::after,
 a.button::after,
 button.button::after {
@@ -314,7 +296,7 @@ button.button.active,
 a.button:hover::after,
 button.button:hover::after,
 .search-form button.search-submit::after {
-    width: 96%;
+    width: 93%;
 }
 button.button.active::after,
 button.button:focus::after,
@@ -339,7 +321,7 @@ button.button:hover::after,
     }
     float: right;
     margin: 0;
-    max-height: 2.9em;
+    max-height: 3.9em;
     padding-bottom: 0.8em;
     &:last-child {
         border-right: none;

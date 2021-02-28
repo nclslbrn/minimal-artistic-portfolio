@@ -39,8 +39,9 @@ header.site-header .row {
             line-height: 3rem;
         }
         @include breakpoint(laptop) {
-            font-size: 2.8rem;
+            font-size: 1.6em * $ratio;
             text-indent: 0;
+            line-height: 4rem;
             box-shadow: none;
             border: none;
         }
@@ -203,7 +204,7 @@ header.site-header .row {
     @include breakpoint(laptop) {
         display: inline-block;
         float: right;
-        padding: 1em 0 0 0;
+        padding: 0.5em 0 0 0;
 
         &.widget-mobile {
             display: none;
@@ -214,6 +215,9 @@ header.site-header .row {
         }
     }
     ul.top-bar {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
         list-style-type: none;
         text-align: center;
 
@@ -252,18 +256,14 @@ header.site-header .row {
                 border-bottom-width: 1px;
             }
         }
-        .qtranxs_widget ul.qtranxs_language_chooser {
-            padding-left: 0;
-            li.language-chooser-item {
-                margin: 0;
-                &:last-child {
-                    margin-left: -4px;
-                }
-            }
-        }
     }
 }
-
+.site-header .row ul.top-bar .qtranxs_widget ul {
+    padding: 0.25em 0 0 0;
+}
+.site-header .row ul.top-bar .qtranxs_widget ul li {
+    margin: 0 1em 0 0 !important;
+}
 .site-header .row .main-navigation.toggled {
     transform: translateX(0);
     max-width: 70%;
@@ -299,6 +299,7 @@ header.site-header .row {
 }
 .row .main-navigation ul li a {
     display: block;
+
     @include breakpoint(phone) {
         @include plumber(
             $grid-height: 0.7rem,
@@ -323,15 +324,16 @@ header.site-header .row {
         @include plumber(
             $grid-height: 0.4rem,
             $baseline: $headline_baseline,
-            $font-size: 3,
-            $line-height: 3,
-            $leading-top: 3,
-            $leading-bottom: 3
+            $font-size: 4,
+            $line-height: 4,
+            $leading-top: 4,
+            $leading-bottom: 4
         );
         font-weight: bold;
     }
 
-    font-family: $headline_font;
+    //font-family: $headline_font;
+    font-family: $alt_font;
     text-align: center;
     letter-spacing: 0.08em;
     text-transform: uppercase;
