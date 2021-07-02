@@ -1,5 +1,6 @@
-// Font family and properties
+@use "sass:math";
 
+// Font family and properties
 @include font-face(
     'Inter-Bold',
     './build/fonts/Inter-UI-Bold',
@@ -115,7 +116,7 @@ hr {
             @include plumber(
                 $grid-height: 1rem,
                 $baseline: $headline_baseline,
-                $font-size: $anti_i / 2,
+                $font-size: math.div($anti_i, 2),
                 $line-height: $anti_i,
                 $leading-top: $anti_i - 2,
                 $leading-bottom: $anti_i - 2
@@ -127,13 +128,13 @@ hr {
             @include plumber(
                 $grid-height: 1rem,
                 $baseline: $headline_baseline,
-                $font-size: $anti_i / 1.07,
+                $font-size: math.div($anti_i, 1.07),
                 $line-height: $anti_i + 1,
                 $leading-top: $anti_i - 2,
                 $leading-bottom: $anti_i - 3
             );
 
-            line-height: $anti_i / 4;
+            line-height: math.div($anti_i, 4);
         }
 
         @include breakpoint(laptop) {

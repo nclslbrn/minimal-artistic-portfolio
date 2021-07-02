@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // =============================================================================
 // GRID PROPERTIES
 // =============================================================================
@@ -29,10 +31,7 @@ $col_ratio: 1;
             flex-basis: 100%;
         }
         @include breakpoint(laptop) {
-            $width: ((100% / $ratio) / $col_num) * $i;
-            // regular column width
-            // $width: ( 100% / $col_num ) * $i;
-
+            $width: math.div(math.div(100%, $ratio), $col_num) * $i;
             flex: #{$i};
             flex-basis: $width;
             width: $width;

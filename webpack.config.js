@@ -1,13 +1,10 @@
 // Webpack uses this to work with directories
 const path = require('path')
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
-const ImageminPlugin = require('imagemin-webpack-plugin').default
-
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const { extendDefaultPlugins } = require('svgo')
 
 const backConfig = (mode = {
     entry: ['@babel/polyfill', './src/js/back.js'],
@@ -138,6 +135,19 @@ const frontConfig = (mode = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true, // webpack@1.x
+                            disable: true // webpack@2.x and newer
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -158,9 +168,6 @@ const frontConfig = (mode = {
                     force: true
                 }
             ]
-        }),
-        new ImageminPlugin({
-            test: /\.(jpe?g|png|gif|svg)$/i
         }),
         new BrowserSyncPlugin({
             host: 'localhost',
