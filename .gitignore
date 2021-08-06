@@ -6,3 +6,4 @@ src/fonts/*.woff
 src/fonts/*.woff2
 *.css.map
 vendor/*
+bin/*

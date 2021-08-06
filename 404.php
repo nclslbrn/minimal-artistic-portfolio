@@ -24,17 +24,18 @@ get_header(); ?>
 						<?php _e( 'Sorry, we couldn\'t find the page you were looking for!', 'Minimal-Artistic-Portfolio' ); ?>
 					</h5>
 
-					<?php	//get_search_form(); ?>
+					<?php	// get_search_form(); ?>
 
-						<?php /*
+						<?php 
+						/*
 						the_widget( 'WP_Widget_Recent_Posts' );
 
 						// Only show the widget if site has multiple categories.
 
-						if ( minimal_artistic_portfolio_categorized_blog() ) :
-					?>
+						if ( mapcategorized_blog() ) :
+						?>
 
-					<div class="widget widget_categories">
+						<div class="widget widget_categories">
 						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'Minimal-Artistic-Portfolio' ); ?></h2>
 						<ul>
 						<?php
@@ -47,9 +48,9 @@ get_header(); ?>
 							) );
 						?>
 						</ul>
-					</div><!-- .widget -->
+						</div><!-- .widget -->
 
-					<?php
+						<?php
 						endif;
 
 						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'Minimal-Artistic-Portfolio' ), convert_smilies( ':)' ) ) . '</p>';
@@ -57,7 +58,7 @@ get_header(); ?>
 
 						the_widget( 'WP_Widget_Tag_Cloud' );
 						*/
-					?>
+						?>
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
