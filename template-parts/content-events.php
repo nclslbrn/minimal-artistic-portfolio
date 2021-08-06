@@ -20,7 +20,7 @@
   <div class="clearfix"></div>
 
   <div id="events-list">
-    <?php list_custom_posts_by_date( "event", -1 );?>
+    <?php map_list_post_by_year( "event", -1 );?>
 
     <section class="ac-container">
       <div class="event-year-section">

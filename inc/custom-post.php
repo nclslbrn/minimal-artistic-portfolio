@@ -1,5 +1,11 @@
 <?php
-function create_post_type() {
+/**
+ * Add project, event & gif custom post
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_create_post_types() {
 	register_post_type(
 		'project',
 		array(
@@ -135,50 +141,103 @@ function create_post_type() {
 	);
 	register_taxonomy( 'post_tag', array( 'post', 'page', 'project', 'event' ) );
 }
-add_filter( 'pre_get_posts', 'show_custom_posts' );
+add_action( 'init', 'map_create_post_types' );
 
-/*--------------CUSTOM-POST-ON-HOME--------------*/
-function show_custom_posts( $query ) {
-	if ( ( is_home() && $query->is_main_query() ) || is_feed() ) {
-		$query->set( 'post_type', array( 'post', 'page', 'project', 'event' ) );
-	}
-	return $query;
-}
-
-add_action( 'init', 'create_post_type' );
-
-/*--------------CUSTOM-POST-MENU--------------*/
-
-function list_content_type() {
+/**
+ * List custom post types name
+ * 
+ * @return array the list of every public post type name
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_list_content_type_name() {
 	$post_type = get_post_types( array( 'public' => true ) );
 	return $post_type;
 }
 
-function list_custom_posts( $type, $limit ) {
-	$project_query = new WP_Query(
-		array(
-			'post_type'      => $type,
-			'post_status'    => 'publish',
-			'posts_per_page' => $limit,
-		) 
-	);
+/**
+ * Add custom post to main & tax query
+ *
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_add_post_types_to_queries( $query ) {
+	$post_types = map_list_content_type_name();
 
-
-	if ( $project_query->have_posts() ) :
-
-		while ( $project_query->have_posts() ) :
-
-			global $post;
-			$project_query->the_post();
-
-			get_template_part( 'template-parts/content', 'project' );
-
-	endwhile;
-
-	endif;
-	// wp_reset_postdata();
+	if ( ( is_home() && $query->is_main_query() ) || is_feed() ) {
+		$query->set( 'post_type', $post_types );
+	}
+	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+		$query->set( 'post_type', $post_types );
+		return $query;
+	}
+	return $query;
 }
-function get_event( $post_id ) {
+add_filter( 'pre_get_posts', 'map_add_post_types_to_queries' );
+
+/**
+ * Query post type loop
+ * 
+ * @param string $type the custom post type name to query
+ * @param int $limit how many post we want per pages
+ *  
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_list_custom_posts($type, $limit) {    
+    $project_query_args = [
+      'post_type'      => $type,
+      'post_status'    => 'publish',
+    ];
+
+	if($limit !== -1 ) {
+		if (get_query_var('paged')) {
+			$paged = get_query_var('paged');
+		} elseif (get_query_var('page')) {
+			$paged = get_query_var('page');
+		} else {
+			$paged = 1;
+		}
+		$project_query_args['paged'] = $paged;
+		$project_query_args['posts_per_page'] = $limit;
+	}
+	$project_query = new WP_Query($project_query_args);
+
+    if ($project_query->have_posts()) {
+        while ($project_query->have_posts()) {
+
+            global $post;
+            $project_query->the_post();
+
+            get_template_part('template-parts/content', 'project');
+        }
+        if ($project_query->max_num_pages > 1 && $limit !== -1) {
+            $current_page = max(1, get_query_var('paged'));
+    
+            echo paginate_links([
+              'prev_next'    => false,
+              // 'base'      => get_pagenum_link(1) . '%_%',
+              // 'format'    => '/page/%#%',
+              'current'   => $paged,
+              'total'     => $project_query->max_num_pages,
+              // 'prev_text' => __('«', 'Minimal-Artistic-Portfolio'),
+              // 'next_text' => __('»', 'Minimal-Artistic-Portfolio'),
+              // 'add_args'  => array()
+            ]);
+        }
+    }
+}
+/**
+ * List every events related to a project
+ * 
+ * @param int $post_id the ID of the project
+ * @return string|boolean HTML list of events links or false if no event found
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_get_event( $post_id ) {
 	global $wp_query;
 	$events              = get_post_meta( $post_id, 'event' );
 	$event_module        = '';
@@ -192,7 +251,6 @@ function get_event( $post_id ) {
 			$title = get_the_title( $event );
 			$url   = get_permalink( $event );
 
-
 			$event_module_result .= '<li><a href="' . $url . '">' . $title . '</a></li>';
 		}
 		$event_module = $event_module . $event_module_result . '</ul>';
@@ -203,7 +261,17 @@ function get_event( $post_id ) {
 		return $event_module;
 	}
 }
-function get_project( $eventId ) {
+
+/**
+ * Query all project related to an event
+ * 
+ * @param int $post_id the ID of the event
+ * @return string|boolean HTML list of projects links or false if no event found
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_get_project( $post_id ) {
 	$projects       = '';
 	$project_module = '';
 	$project_query  = new WP_Query(
@@ -214,7 +282,7 @@ function get_project( $eventId ) {
 			'meta_query'     => array(
 				array(
 					'key'     => 'event',
-					'value'   => '"' . $eventId . '"',
+					'value'   => '"' . $post_id . '"',
 					'compare' => 'LIKE',
 				),
 			),
@@ -237,7 +305,17 @@ function get_project( $eventId ) {
 		return false;
 	}
 }
-function list_custom_posts_by_date( $type, $limit ) {
+
+/**
+ * List posts by date/year (from newer to older)
+ * 
+ * @param string $type post type name
+ * @return string|boolean HTML list of events links or false if no event found
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_list_post_by_year( $type, $limit ) {
 	$postYear      = '';
 	$currentPostID = get_the_ID();
 	$postYear      = date_i18n( 'Y', strtotime( get_post_meta( $currentPostID, 'BEGINDATE', true ) ) );
@@ -300,7 +378,9 @@ function list_custom_posts_by_date( $type, $limit ) {
 				$lastYear = $postYear;
 			}
 
-			krsort( $postsByYear ); ?>
+			krsort( $postsByYear ); 
+			// TODO move markup in a template parts
+			?>
 	 <section class="ac-container">
 			<?php foreach ( $postsByYear as $year => $post ) : ?>
 	  <div class="<?php echo $type; ?>-year-section">
@@ -354,18 +434,27 @@ function list_custom_posts_by_date( $type, $limit ) {
 			<?php
 		}
 	} else {
-		return null;
+		return false;
 	}
 }
 
-function minartport_get_media( $postID ) {
+/**
+ * Add single image or gallery related to a post
+ * 
+ * @param int $post_id the post which we will query attachement 
+ * @return int the attachement count
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_get_media( $post_id ) {
 	$attachments = get_posts(
 		array(
 			'order_by'       => 'menu_order',
 			'order'          => 'ASC',
 			'post_type'      => 'attachment',
 			'posts_per_page' => -1,
-			'post_parent'    => $postID,
+			'post_parent'    => $$post_id,
 		)
 	);
 
@@ -375,11 +464,11 @@ function minartport_get_media( $postID ) {
 		if ( $count == 1 ) {
 			$class    = 'post-attachment mime-' . sanitize_title( $attachments[0]->post_mime_type );
 			$thumbimg = wp_get_attachment_image( $attachments[0]->ID, 'thumbnail-size' );
-			echo '<div class="' . $class . ' minartport-single-image">' . $thumbimg . '</div>';
+			echo '<div class="' . $class . 'single-image">' . $thumbimg . '</div>';
 			return $count;
 		}
 		if ( $count > 1 ) {
-			echo '<div class="minartport-gallery">';
+			echo '<div class="gallery">';
 			foreach ( $attachments as $attachment ) {
 				$class    = 'post-attachment mime-' . sanitize_title( $attachment->post_mime_type );
 				$thumbimg = wp_get_attachment_image( $attachment->ID, 'full' );
@@ -390,6 +479,15 @@ function minartport_get_media( $postID ) {
 		}
 	}
 }
+/**
+ * Remove gallery and html tag from content
+ 
+ * @param string $content the post_content to clean
+ * @return string $content the post_content cleaned
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
 function strip_shortcode_gallery( $content ) {
 	preg_match_all( '/' . get_shortcode_regex() . '/s', $content, $matches, PREG_SET_ORDER );
 	if ( ! empty( $matches ) ) {
@@ -404,18 +502,15 @@ function strip_shortcode_gallery( $content ) {
 	}
 	return $content;
 }
-function namespace_add_custom_types( $query ) {
-	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-		list_content_type();
 
-		$query->set( 'post_type', $post_type );
-		return $query;
-	}
-}
-add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
-
-/*---------------IF NEW EVENT-SHOW-IT-ON-ON-HOME------------*/
-function query_event_by_date() {
+/**
+ * Add future or actual event on home
+ * 
+ * 
+ * @package Minimal-Artistic-Portfolio
+ * @version 1.0.0
+ */
+function map_contextully_load_last_event() {
 	global $post;
 	$today = date( 'Y-m-d' );
 
@@ -442,7 +537,9 @@ function query_event_by_date() {
 				$actual_events[ $eventId ]['place']   = get_post_meta( $eventId, 'PLACE', 'true' );
 				$actual_events[ $eventId ]['latt']    = get_post_meta( $eventId, 'LATT', true );
 				$actual_events[ $eventId ]['long']    = get_post_meta( $eventId, 'LONG', true ); 
-				?>
+				
+				
+				// TODO move markup in a template parts ?>
 				<?php if ( $count == 0 ) : ?>
 
 		<header class="entry-header actual-event">
@@ -491,9 +588,9 @@ function query_event_by_date() {
 	wp_reset_query();
 }
 /*------SHOW-CUSTOM-POST-TYPES-IN-DASHBOARD-AT-A-GLANCE-WIDGET-------------*/
-add_action( 'dashboard_glance_items', 'cpad_at_glance_content_table_end' );
+add_action( 'dashboard_glance_items', 'map_at_glance_content_table_end' );
 
-function cpad_at_glance_content_table_end() {
+function map_at_glance_content_table_end() {
 	$args     = array(
 		'public'   => true,
 		'_builtin' => false,
@@ -517,16 +614,16 @@ function cpad_at_glance_content_table_end() {
 
 
 // unregister the default activity widget
-add_action( 'wp_dashboard_setup', 'remove_dashboard_widgets' );
-function remove_dashboard_widgets() {
+add_action( 'wp_dashboard_setup', 'map_remove_dashboard_widgets' );
+function map_remove_dashboard_widgets() {
 	global $wp_meta_boxes;
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );
 }
 
 // register your custom activity widget
-add_action( 'wp_dashboard_setup', 'add_custom_dashboard_activity' );
-function add_custom_dashboard_activity() {
-	wp_add_dashboard_widget( 'custom_dashboard_activity', 'Activities', 'custom_wp_dashboard_site_activity' );
+add_action( 'wp_dashboard_setup', 'map_add_custom_dashboard_activity' );
+function map_add_custom_dashboard_activity() {
+	wp_add_dashboard_widget( 'custom_dashboard_activity', 'Activities', 'map_dashboard_site_activity' );
 }
 
 // the new function based on wp_dashboard_recent_posts (in wp-admin/includes/dashboard.php)
@@ -543,7 +640,7 @@ function wp_dashboard_recent_post_types( $args ) {
 
 		/* to here */
 
-			'post_status' => $args['status'],
+		'post_status' => $args['status'],
 		'orderby'         => 'date',
 		'order'           => $args['order'],
 		'posts_per_page'  => intval( $args['max'] ),
@@ -606,7 +703,7 @@ function wp_dashboard_recent_post_types( $args ) {
 }
 
 // The replacement widget
-function custom_wp_dashboard_site_activity() {
+function map_dashboard_site_activity() {
 	echo '<div id="activity-widget">';
 
 	$future_posts = wp_dashboard_recent_post_types(
@@ -645,24 +742,24 @@ function custom_wp_dashboard_site_activity() {
 	echo '</div>';
 }
 /*---------ADD-CPT-PICTO-TO-WIDGET-------------*/
-function add_admin_styles() {
+function map_add_admin_styles() {
 	echo '<link href="' . get_template_directory_uri() . '/admin-css-hack.css"  rel="stylesheet">';
 }
 
-add_action( 'admin_head', 'add_admin_styles' );
+add_action( 'admin_head', 'map_add_admin_styles' );
 
 /*---------SHOW-POSTS-THUMBNAILS-IN-FEED-------------*/
-function aap_post_thumbnail_feeds( $content ) {
+function map_post_thumbnail_feeds( $content ) {
 	global $post;
 	if ( has_post_thumbnail( $post->ID ) ) {
 		$content = '<div>' . get_the_post_thumbnail( $post->ID ) . '</div>' . $content;
 	}
 	return $content;
 }
-add_filter( 'the_excerpt_rss', 'aap_post_thumbnail_feeds' );
-add_filter( 'the_content_feed', 'aap_post_thumbnail_feeds' );
+add_filter( 'the_excerpt_rss', 'map_post_thumbnail_feeds' );
+add_filter( 'the_content_feed', 'map_post_thumbnail_feeds' );
 
-function social_module( $title, $url, $class ) {
+function map_social_module( $title, $url, $class ) {
 	?>
   <div class="social-sharing-module <?php echo $class; ?>">
 	<p><?php _e( 'Share', 'Minimal-Artistic-Portfolio' ); ?></p>

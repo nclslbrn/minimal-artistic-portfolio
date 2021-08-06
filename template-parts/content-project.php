@@ -80,7 +80,7 @@
     <?php if (get_the_content() !== '') {
         echo ' filled';
     } ?>
-    <?php if (get_event(get_the_ID()) == false) {
+    <?php if (map_get_event(get_the_ID()) == false) {
         echo ' no-event';
     } ?>">
       <div class="col-4 column">
@@ -90,15 +90,15 @@
     echo $cartel; ?>,
           <span class="date"><?php echo mysql2date("Y", $post->post_date_gmt); ?></span>.
         </p>
-        <?php if (get_event(get_the_ID()) !== false) {
-        echo get_event(get_the_ID());
+        <?php if (map_get_event(get_the_ID()) !== false) {
+        echo map_get_event(get_the_ID());
     } ?>
-        <?php social_module(get_the_title(), get_the_permalink(get_the_ID()), 'laptop'); ?>
+        <?php map_social_module(get_the_title(), get_the_permalink(get_the_ID()), 'laptop'); ?>
       </div>
       <div class="col-8 column">
         <?php the_content(); ?>
       </div>
-		<?php social_module(get_the_title(), get_the_permalink(get_the_ID()), 'mobile'); ?>
+		<?php map_social_module(get_the_title(), get_the_permalink(get_the_ID()), 'mobile'); ?>
     </div>
   </div>
 <?php

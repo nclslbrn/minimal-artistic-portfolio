@@ -1,4 +1,5 @@
  <?php 
+ // TODO Move this as a template parts 
   $gallery = get_post_gallery();
   $content = strip_shortcode_gallery( get_the_content(get_the_ID()) );
   $content = str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $content ) );
@@ -10,7 +11,7 @@
     <?php the_title( '<h3 class="project-title">', '</h3>' ); ?>
     <?php get_metabox( get_the_ID(), 'CARTEL', false); ?>
     <?php echo '<date>' . mysql2date("Y", $post->post_date_gmt). '</date>'; ?>
-    <?php echo get_event("exposition/exhibition:"); ?>
+    <?php echo map_get_event("exposition/exhibition:"); ?>
     <?php //aap_entry_meta(); ?>
     <?php edit_post_link( __( 'Edit', 'Minimal-Artistic-Portfolio' ), '<span class="edit-link">', '</span>' ); ?>
   </div>

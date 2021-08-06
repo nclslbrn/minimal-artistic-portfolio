@@ -30,7 +30,7 @@ class CPT_list_widget extends WP_Widget
         if( $type )
         {
 
-            list_custom_posts_by_date( $type, $number );
+            map_list_post_by_year( $type, $number );
         }
 
         echo '</div>';

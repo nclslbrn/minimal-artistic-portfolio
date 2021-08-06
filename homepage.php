@@ -1,18 +1,8 @@
 <?php
-/*
-Template Name: Homepage
-*/
-
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * Template Name: Homepage
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package Minimal-Artistic-Portfolio
  */
 
@@ -25,7 +15,7 @@ get_header(); ?>
 			<?php $pageTitle = get_the_title( get_the_ID() ); ?>
 
 			<!-- Show future event, if event(s) is after today() -->
-			<?php $actual_events = query_event_by_date(); ?>
+			<?php $actual_events = map_contextully_load_last_event(); ?>
 			<?php wp_reset_postdata(); ?>
 
 			<header class="entry-header">
@@ -34,7 +24,7 @@ get_header(); ?>
 
 			<div class="entry-content">
 				<!-- List projects -->
-				<?php list_custom_posts( 'project', -1 ); ?>
+				<?php map_list_custom_posts( 'project', 10 ); ?>
 				<div class="clearfix"></div>
 			</div>
 
