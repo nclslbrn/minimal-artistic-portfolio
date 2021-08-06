@@ -11,12 +11,12 @@ const { extendDefaultPlugins } = require('svgo')
 module.exports = (env, argv) => {
     const mode = argv.mode
     const backConfig = {
-        entry: ['@babel/polyfill', './src/js/back.js'],
+        entry: './src/js/back.js',
         output: {
-            path: path.resolve(__dirname, 'build/'),
+            path: path.resolve(__dirname, 'build'),
             filename: 'js/back-bundle.js'
         },
-        // -> add it contextually to env  mode: 'development',
+        mode: argv.mode,
         module: {
             rules: [
                 {
@@ -57,7 +57,7 @@ module.exports = (env, argv) => {
         plugins: [
             new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
-                filename: '../admin-css-hack.css'
+                filename: '../../admin-css-hack.css'
             }),
             new WebpackBar()
         ]
@@ -66,7 +66,7 @@ module.exports = (env, argv) => {
     const frontConfig = {
         entry: './src/js/front.js',
         output: {
-            path: path.resolve(__dirname, 'build/'),
+            path: path.resolve(__dirname, 'build'),
             filename: 'js/front-bundle.js'
         },
         mode: mode,
@@ -179,7 +179,7 @@ module.exports = (env, argv) => {
         plugins: [
             new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
-                filename: '../style.css'
+                filename: '../../style.css'
             }),
             new CopyWebpackPlugin({
                 patterns: [
@@ -211,8 +211,6 @@ module.exports = (env, argv) => {
         }
         //stats: 'minimal'
     }
-
-    console.log('MODE ' + mode)
 
     if (mode === 'development') {
         frontConfig.devtool = 'source-map'

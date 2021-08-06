@@ -1,6 +1,7 @@
+/* 
 import '../fonts/Inter-Bold.woff'
 import '../fonts/Inter-Bold.woff2'
-
+ */
 import '../sass/style.scss'
 
 import './front/event-map'
