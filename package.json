@@ -20,25 +20,29 @@
     "devDependencies": {
         "@babel/core": "^7.13.8",
         "@babel/preset-env": "^7.13.8",
+        "@wordpress/scripts": "^14.1.1",
         "autoprefixer": "^10.2.4",
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
         "cssnano": "^5.0.6",
+        "dir-archiver": "^1.2.0",
         "expose-loader": "^2.0.0",
         "fluidbox": "^2.0.5",
         "image-minimizer-webpack-plugin": "^2.2.0",
         "image-webpack-loader": "^7.0.1",
-        "imagemin-gifsicle": "^5.2.0",
+        "imagemin-gifsicle": "^7.0.0",
         "imagemin-jpegtran": "^7.0.0",
-        "imagemin-mozjpeg": "^7.0.0",
-        "imagemin-optipng": "^5.2.1",
-        "imagemin-pngquant": "^5.1.0",
-        "imagemin-svgo": "^5.2.4",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-optipng": "^8.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "imagemin-svgo": "^9.0.0",
         "plyr": "^3.6.4",
         "postcss": "^8.2.10",
         "postcss-loader": "^5.0.0",
         "postcss-preset-env": "^6.7.0",
+        "rtlcss": "^3.3.0",
         "style-loader": "^2.0.0",
         "webpack-dev-middleware": "^3.7.3",
-        "webpack-dev-server": "^3.11.2",
+        "webpack-dev-server": "^1.16.5",
         "webpack-hot-middleware": "^2.25.0"
     },
     "dependencies": {
@@ -62,5 +66,18 @@
         "webpack": "^5.24.2",
         "webpack-cli": "^4.5.0",
         "webpackbar": "^5.0.0-3"
+    },
+    "rtlcssConfig": {
+        "options": {
+            "autoRename": false,
+            "autoRenameStrict": false,
+            "blacklist": {},
+            "clean": true,
+            "greedy": false,
+            "processUrls": false,
+            "stringMap": []
+        },
+        "plugins": [],
+        "map": false
     }
 }
