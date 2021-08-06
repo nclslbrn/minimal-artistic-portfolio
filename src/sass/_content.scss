@@ -66,10 +66,10 @@
 .event-on-home {
     align-items: center;
 
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         flex-direction: column;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         flex-direction: row;
     }
 }
@@ -96,7 +96,7 @@
 .project-summary .column.cartel,
 .events-list--event .column.event-info,
 .event-on-home .column.col-map {
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         padding-top: 0.5em;
     }
 
@@ -112,14 +112,14 @@
 .page-template-events-php .map-overlay .map {
     max-width: 100%;
 }
-@include breakpoint(phone) {
+@include breakpoint(xs) {
     .col-map .map-overlay {
         display: block;
         width: 100%;
         height: 350px;
     }
 }
-@include breakpoint(phone) {
+@include breakpoint(xs) {
     .col-map .map-overlay {
         display: block;
         position: absolute;
@@ -135,11 +135,6 @@
         max-height: none;
     }
 }
-/*
-.project-summary .column.cartel .wrapper .description {
-  @include breakpoint( laptop ) {  max-width: 75%; }
-}
-*/
 .alignleft {
     float: left;
     margin-right: 1em;
@@ -162,11 +157,11 @@ h4.project-title {
     margin-bottom: 1em * $ratio;
 }
 .column img.attachment-full {
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         max-width: 110%;
         margin: 0 -5%;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         max-width: 100%;
         margin: 0;
         float: left;
@@ -189,7 +184,7 @@ h4.project-title {
 .single-project,
 .single-event {
     .map-overlay {
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             padding-bottom: 2em;
         }
     }
@@ -206,7 +201,7 @@ h4.project-title {
             background-color: transparentize($accent_color, 0.65);
         }
     }
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         .social-sharing-module.laptop {
             display: none;
         }
@@ -215,7 +210,7 @@ h4.project-title {
             padding-top: 2rem;
         }
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         .row {
             align-items: stretch;
         }
@@ -241,11 +236,11 @@ h4.project-title {
     }
     .project-text.filled .column:first-child,
     .event-text.filled .column:first-child {
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             padding: 0 0 1rem 0;
             margin: 0 0 2em 0;
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             padding: 0 2rem 1rem 0;
             margin: 0 0 2em 0;
             min-height: 386px;
@@ -257,14 +252,14 @@ h4.project-title {
 }
 
 .event-menu {
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         display: block;
         float: none;
         margin-top: 1em;
         margin-bottom: 1em;
         padding-bottom: 2em;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         display: inline;
         float: right;
         margin-top: -7em;
@@ -288,10 +283,10 @@ h4.project-title {
         padding: 0;
         height: 0;
 
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             width: 5%;
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             width: 12%;
         }
 
@@ -312,11 +307,11 @@ h4.project-title {
         position: relative;
         margin-bottom: -0.5rem;
         padding-top: 6em;
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             padding-left: 5%;
             width: 100%;
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             padding-left: 12%;
         }
         padding-bottom: 2em;
@@ -326,12 +321,12 @@ h4.project-title {
         z-index: 10;
 
         .thumbnail img {
-            @include breakpoint(phone) {
+            @include breakpoint(xs) {
                 display: block;
                 width: inherit;
                 margin: 0 auto;
             }
-            @include breakpoint(laptop) {
+            @include breakpoint(md) {
                 display: inline;
                 width: 100%;
                 margin: 0;
@@ -382,7 +377,7 @@ main::after {
     > div.column:last-child {
         padding: 1.4rem 0 0 0;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         > div.column:first-child {
             padding-right: 2rem;
             margin: 0 1rem 0 0;

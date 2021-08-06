@@ -24,13 +24,13 @@ $col_ratio: 1;
 
 @for $i from 1 through $col_num {
     .col-#{$i} {
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             flex-basis: 100%;
         }
-        @include breakpoint(tablet) {
+        @include breakpoint(sm) {
             flex-basis: 100%;
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             $width: math.div(math.div(100%, $ratio), $col_num) * $i;
             flex: #{$i};
             flex-basis: $width;
@@ -41,6 +41,7 @@ $col_ratio: 1;
 }
 [class*='col-'] {
     position: relative;
+    display: flex;
 }
 
 .column img {

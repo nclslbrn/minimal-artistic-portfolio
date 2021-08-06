@@ -82,7 +82,7 @@ form.contact {
     border-top: $black_border;
     border-width: 1px;
 
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         padding: 2rem;
         border: $black_border;
     }

@@ -3,18 +3,13 @@ html[data-theme='light'] {
     body #loader div.overlay,
     .site-header .row .main-navigation.toggled {
         color: $black_text;
-        background-image: linear-gradient(
-                to bottom,
-                rgba(255, 238, 238, 0.5),
-                rgba(255, 238, 238, 0.75)
-            ),
-            url(build/img/dust.png);
+        background-image: url(build/img/dust.png);
     }
     body #loader div.overlay svg.spinner g .path {
         stroke: $black_text;
     }
 
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         .site-header .row .main-navigation ul.menu li {
             border-color: lighten($dark_base, 65%);
             a::after {
@@ -66,7 +61,7 @@ html[data-theme='light'] {
                 transparentize(darken($base_color, 4%), 0.8);
             background-color: darken($base_color, 1%);
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             .widget_newsletterwidget {
                 border: $black_border;
             }
@@ -85,19 +80,7 @@ html[data-theme='light'] {
         border-color: $black_text;
         color: $black_text;
     }
-    header.site-header .wrapper {
-        border-bottom: $black_border;
-    }
-    @include breakpoint(laptop) {
-        article > .entry-header,
-        #main > .entry-header {
-            border-bottom: $black_border;
-        }
-    }
 
-    footer.site-footer .wrapper {
-        border-top: $black_border;
-    }
     .project-title a:hover {
         border-bottom: 1px dotted $black_text;
     }
@@ -108,7 +91,7 @@ html[data-theme='light'] {
     }
     body.single-project,
     body.single-event {
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             .social-sharing-module.laptop {
                 display: none;
             }
@@ -120,7 +103,7 @@ html[data-theme='light'] {
                 border-bottom: $black_border;
             }
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             .social-sharing-module,
             .event-text.filled .column .place,
             .project-text.filled .column .cartel {
@@ -160,12 +143,7 @@ html[data-theme='dark'] {
     body #loader div.overlay,
     .site-header .row .main-navigation.toggled {
         color: $white_text;
-        background-image: linear-gradient(
-                to bottom,
-                rgba(0, 0, 150, 0.15),
-                rgba(0, 0, 150, 0.25)
-            ),
-            url(build/img/darkdenim3.png);
+        background-image: url(build/img/noisy_net.png);
     }
     .site-header .row .main-navigation.toggled svg.spinner g .path {
         stroke: $white_text;
@@ -182,7 +160,7 @@ html[data-theme='dark'] {
     .menu-toggle .menu-icon::before {
         background: $white_text;
     }
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         .site-header .row .main-navigation ul.menu li {
             border-color: darken($base_color, 65%);
             a::after {
@@ -227,7 +205,7 @@ html[data-theme='dark'] {
                 transparentize(darken($dark_base, 4%), 0.8);
             background-color: darken($dark_base, 5%);
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             .widget_newsletterwidget {
                 border: $white_border;
             }
@@ -246,29 +224,17 @@ html[data-theme='dark'] {
         border-color: #fefefe;
         color: $white_text;
     }
-    header.site-header .wrapper {
-        border-bottom: $white_border;
-    }
-    @include breakpoint(laptop) {
-        article > .entry-header,
-        #main > .entry-header {
-            border-bottom: $white_border;
-        }
-    }
-    footer.site-footer .wrapper {
-        border-top: $white_border;
-    }
+
     .project-title a:hover {
         border-bottom: 1px dotted $white_text;
     }
     .project-summary,
     .events-list--event {
-        background-color: $dark_base;
         transition: background-color 0.15s ease-out;
     }
     body.single-project,
     body.single-event {
-        @include breakpoint(phone) {
+        @include breakpoint(xs) {
             .social-sharing-module.laptop {
                 display: none;
             }
@@ -280,7 +246,7 @@ html[data-theme='dark'] {
                 border-bottom: $white_border;
             }
         }
-        @include breakpoint(laptop) {
+        @include breakpoint(md) {
             .social-sharing-module,
             .event-text.filled .column .place,
             .project-text.filled .column .cartel {

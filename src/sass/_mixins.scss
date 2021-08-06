@@ -4,21 +4,14 @@
 // Responsive breakpoint
 // =============================================================================
 
-@mixin breakpoint($point) {
-    @if $point == phone {
-        @media (min-width: em-calc( 240px )) and (max-width: em-calc( 1024px )) {
+// responsive breakpoints
+@mixin breakpoint($breakpoint: md, $key: min, $orientation: false) {
+    @if ($orientation) {
+        @media (#{$key}-width: map-get($breakpoints, $breakpoint)) and (orientation : $orientation) {
             @content;
         }
-    } @else if $point == tablet {
-        @media (min-width: em-calc( 720px )) {
-            @content;
-        }
-    } @else if $point == laptop {
-        @media (min-width: em-calc( 1024px )) {
-            @content;
-        }
-    } @else if $point == desktop {
-        @media (min-width: em-calc( 1280px )) {
+    } @else {
+        @media (#{$key}-width: map-get($breakpoints, $breakpoint)) {
             @content;
         }
     }

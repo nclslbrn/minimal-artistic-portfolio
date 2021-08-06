@@ -22,16 +22,16 @@ body.fixed {
 .site .wrapper {
     display: block;
 
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         width: 90%;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(sm) {
         width: 90%;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         width: 1000px;
     }
-    @include breakpoint(desktop) {
+    @include breakpoint(lg) {
         width: 1280px;
     }
 

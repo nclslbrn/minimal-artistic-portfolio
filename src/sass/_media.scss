@@ -50,7 +50,7 @@ body.single-event .site-content .icon,
 
 .social-sharing-module {
     display: block;
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         position: relative;
         clear: both;
         float: none;
@@ -68,7 +68,7 @@ body.single-event .site-content .icon,
             }
         }
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         position: absolute;
         bottom: 0;
 

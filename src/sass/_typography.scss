@@ -1,23 +1,16 @@
 @use "sass:math";
 
 // Font family and properties
+
 @include font-face(
     'Inter-Bold',
-    './build/fonts/Inter-UI-Bold',
+    './build/fonts/Inter-Bold',
     null,
     normal,
     woff2 woff
 );
 
-@include font-face(
-    'ibmplex',
-    './build/fonts/ibmplex-sanscondensed-regular',
-    null,
-    normal,
-    woff2 woff
-);
-
-$headline_font: 'Inter-UI--bold', sans-serif;
+$headline_font: 'Inter-Bold', sans-serif;
 
 $headline_baseline: 0.1415;
 $body_font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
@@ -33,10 +26,10 @@ $body_font_size: 20px;
 $ratio: 1.125;
 $grid-height: 1rem;
 
-@import '../../node_modules/plumber-sass/plumber';
+//@import '../../node_modules/plumber-sass/plumber';
 
 body {
-    line-height: 1;
+    //line-height: 1;
     font-size: $body_font_size * $ratio;
     font-family: $body_font;
     font-weight: 500;
@@ -54,15 +47,15 @@ input[type='text'],
 .entry-content ul li a,
 .related-projects li a,
 .related-events li a {
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         line-height: 1.6 * $ratio;
         //font-size: 1em;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(sm) {
         line-height: 1.4 * $ratio;
         //font-size: 1.1em;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         line-height: 1.5 * $ratio;
         //font-size: 1.1em;
     }
@@ -112,40 +105,40 @@ hr {
     $anti_i: ($headline_num + 1) - $i;
 
     h#{$i} {
-        @include breakpoint(phone) {
-            @include plumber(
+        @include breakpoint(xs) {
+            /* @include plumber(
                 $grid-height: 1rem,
                 $baseline: $headline_baseline,
                 $font-size: math.div($anti_i, 2),
                 $line-height: $anti_i,
                 $leading-top: $anti_i - 2,
                 $leading-bottom: $anti_i - 2
-            );
+            ); */
             margin: 0.35em 0;
             line-height: 1;
         }
-        @include breakpoint(tablet) {
-            @include plumber(
+        @include breakpoint(sm) {
+            /*  @include plumber(
                 $grid-height: 1rem,
                 $baseline: $headline_baseline,
                 $font-size: math.div($anti_i, 1.07),
                 $line-height: $anti_i + 1,
                 $leading-top: $anti_i - 2,
                 $leading-bottom: $anti_i - 3
-            );
+            ); */
 
             line-height: math.div($anti_i, 4);
         }
 
-        @include breakpoint(laptop) {
-            @include plumber(
+        @include breakpoint(md) {
+            /* @include plumber(
                 $grid-height: 1rem,
                 $baseline: $headline_baseline,
                 $font-size: $anti_i,
                 $line-height: $anti_i + 1,
                 $leading-top: $anti_i - 2,
                 $leading-bottom: $anti_i - 3
-            );
+            ); */
         }
         position: relative;
         display: inline-block;
@@ -187,7 +180,7 @@ a.button,
 button.button,
 .page-numbers {
     position: relative;
-    font-family: $alt_font;
+    //font-family: $alt_font;
     font-size: 0.85em;
     line-height: 1em;
     padding: 0.6em 1em 0.6em 1em;
@@ -224,7 +217,7 @@ header nav ul.menu li a,
 ul.language-chooser li.language-chooser-item a {
     border: none;
 }
-@include breakpoint(laptop) {
+@include breakpoint(md) {
     ul.language-chooser li:first-child::after {
         content: '/';
         margin: 0.25em -1em 0 0;
@@ -235,13 +228,13 @@ header.site-header .site-branding .site-title a:hover {
 }
 
 .site-branding .site-title span {
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         margin-left: 0.5em;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(sm) {
         margin-left: 0.5em;
     }
-    @include breakpoint(laptop) {
+    @include breakpoint(md) {
         margin-left: 0;
     }
     letter-spacing: 1px;
@@ -309,10 +302,10 @@ button.button:hover::after,
 .event-menu {
     clear: both;
     float: none;
-    @include breakpoint(tablet) {
+    @include breakpoint(sm) {
         padding-bottom: 1em;
     }
-    @include breakpoint(phone) {
+    @include breakpoint(xs) {
         padding-bottom: 1em;
     }
 }
@@ -339,7 +332,7 @@ button.button:hover::after,
 .entry-content .cartel {
     padding: 0 0 1.68em 0;
 }
-@include breakpoint(phone) {
+@include breakpoint(xs) {
     .entry-content .project-text .column a.button,
     .entry-content .event-text .column a.button {
         display: block;
