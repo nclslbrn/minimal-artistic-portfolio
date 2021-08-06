@@ -26,12 +26,23 @@ function map_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'mapbody_classes' );
+add_filter( 'body_class', 'map_body_classes' );
 
 
-add_filter( 'image_send_to_editor', 'fluidbox_capable', 10, 7 );
+add_filter( 'image_send_to_editor', 'map_fluidbox_capable', 10, 7 );
 
-function fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
+/**
+ * Add fluidbox CSS class to inside post_content images
+ *
+ * @param string $html <img> outer_text
+ * @param int    $id media ID
+ * @param string $alt alt description text
+ * @param string $title media title
+ * @param string $url url of media
+ * @param string $size name of thumbnail size
+ * @return string $html the text insterted in post_content 
+ */
+function map_fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
 	$classes_to_add = 'fluidbox';
 	if ( preg_match( '/<a.? class=".?">/', $html ) ) {
 		$html = preg_replace( '/(<a.? class=".?)(".\?>)/', '$1 ' . $classes_to_add . '$2', $html );
@@ -41,21 +52,16 @@ function fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
 	return $html;
 }
 
-function mode_chooser_button() {
+/**
+ * Add light/dark theme chooser
+ */
+function map_mode_chooser_button() {
 	?>
 	<li class="mode-switcher">
-		<?php // if( !empty($_COOKIE['mode']) ) echo '<span>' . $_COOKIE['mode'] . '</span>'; ?>
 		<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>
-
 		<label class="switch">
-		  <input 
-			  type="checkbox" 
-			  name="mode-switcher" 
-			  <?php 
-				if ( isset( $_COOKIE['mode'] ) && $_COOKIE['mode'] == 'dark' ) {
-					echo 'checked';} 
-				?>
-				>
+		  <input type="checkbox" name="mode-switcher" 
+			  <?php echo ( isset( $_COOKIE['mode'] ) && $_COOKIE['mode'] === 'dark' ) ? 'checked' : ''; ?>>
 		  <span class="slider"></span>
 		</label>
 

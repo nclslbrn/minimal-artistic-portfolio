@@ -127,7 +127,7 @@ add_action( 'save_post', 'mapcategory_transient_flusher' );
 /**
  * Replace Search text
  */
-add_filter( 'get_search_form', 'mapsearch_form_text' );
+add_filter( 'get_search_form', 'map_search_form_text' );
  
 function map_search_form_text( $text ) {
 

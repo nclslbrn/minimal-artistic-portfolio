@@ -25,7 +25,7 @@ get_header(); ?>
 			<?php $pageTitle = get_the_title( get_the_ID() ); ?>
 
 			<!-- Show future event, if event(s) is after today() -->
-			<?php $actualEvents = query_event_by_date(); ?>
+			<?php $actual_events = query_event_by_date(); ?>
 			<?php wp_reset_postdata(); ?>
 
 			<header class="entry-header">
@@ -34,7 +34,7 @@ get_header(); ?>
 
 			<div class="entry-content">
 				<!-- List projects -->
-				<?php list_custom_posts( 'project', -1); ?>
+				<?php list_custom_posts( 'project', -1 ); ?>
 				<div class="clearfix"></div>
 			</div>
 
