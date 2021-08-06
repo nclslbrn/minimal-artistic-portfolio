@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const { extendDefaultPlugins } = require('svgo')
 module.exports = (env, argv) => {
@@ -54,30 +55,12 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
+            new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
                 filename: '../admin-css-hack.css'
             }),
             new WebpackBar()
         ]
-    }
-
-    const editorConfig = {
-        entry: ['@babel/polyfill', './src/js/editor.js'],
-        output: {
-            path: path.resolve(__dirname, 'build/'),
-            filename: 'js/editor.js'
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    exclude: /(node_modules)/,
-                    use: {
-                        loader: 'babel-loader'
-                    }
-                }
-            ]
-        }
     }
 
     const frontConfig = {
@@ -131,7 +114,7 @@ module.exports = (env, argv) => {
                                 sourceMap: true
                             }
                         },
-                        {
+                        /* {
                             loader: 'postcss-loader',
                             options: {
                                 postcssOptions: {
@@ -145,7 +128,7 @@ module.exports = (env, argv) => {
                                     ]
                                 }
                             }
-                        },
+                        }, */
                         {
                             // First we transform SASS to standard CSS
                             loader: 'sass-loader',
@@ -194,6 +177,7 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
+            new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
                 filename: '../style.css'
             }),
@@ -201,11 +185,13 @@ module.exports = (env, argv) => {
                 patterns: [
                     {
                         from: path.resolve('./src/fonts'),
-                        to: path.resolve('./build/fonts')
+                        to: path.resolve('./build/fonts'),
+                        force: true
                     },
                     {
                         from: path.resolve('./src/img'),
-                        to: path.resolve('./build/img')
+                        to: path.resolve('./build/img'),
+                        force: true
                     }
                 ]
             }),
@@ -220,8 +206,8 @@ module.exports = (env, argv) => {
 
         devServer: {
             writeToDisk: true,
-            contentBase: './build',
-            hot: true
+            contentBase: './build'
+            //hot: true
         }
         //stats: 'minimal'
     }
@@ -231,8 +217,6 @@ module.exports = (env, argv) => {
     if (mode === 'development') {
         frontConfig.devtool = 'source-map'
         backConfig.devtool = 'source-map'
-
-        //editorConfig.devtool = 'source-map'
     }
-    return [frontConfig, backConfig, editorConfig]
+    return [frontConfig, backConfig]
 }
