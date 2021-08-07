@@ -114,10 +114,20 @@ module.exports = (env, argv) => {
                                 sourceMap: true
                             }
                         },
-                        /* {
+
+                        {
+                            // First we transform SASS to standard CSS
+                            loader: 'sass-loader',
+                            options: {
+                                implementation: require('sass'),
+                                sourceMap: true
+                            }
+                        },
+                        {
                             loader: 'postcss-loader',
                             options: {
                                 postcssOptions: {
+                                    sourceMap: true,
                                     plugins: [
                                         [
                                             'postcss-preset-env',
@@ -127,14 +137,6 @@ module.exports = (env, argv) => {
                                         ]
                                     ]
                                 }
-                            }
-                        }, */
-                        {
-                            // First we transform SASS to standard CSS
-                            loader: 'sass-loader',
-                            options: {
-                                implementation: require('sass'),
-                                sourceMap: true
                             }
                         }
                     ]
@@ -195,26 +197,37 @@ module.exports = (env, argv) => {
                     }
                 ]
             }),
-            new BrowserSyncPlugin({
-                host: 'localhost',
-                port: 3030,
-                proxy: 'nicolas-lebrun.localhost',
-                open: true
-            }),
+            new BrowserSyncPlugin(
+                {
+                    host: 'localhost',
+                    port: 3030,
+                    proxy: 'nicolas-lebrun.test',
+                    open: true,
+                    files: [
+                        {
+                            match: ['**/*.php', '**/*.js', '**/*.css']
+                        }
+                    ],
+                    notify: false
+                },
+                {
+                    reload: true
+                }
+            ),
             new WebpackBar()
         ],
 
         devServer: {
-            writeToDisk: true,
-            contentBase: './build',
-            hot: true
+            writeToDisk: true
+            //contentBase: './build'
+            //hot: true
         }
         //stats: 'minimal'
     }
-
-    if (mode === 'development') {
-        frontConfig.devtool = 'source-map'
-        backConfig.devtool = 'source-map'
+    console.log('mode', mode)
+    if (mode == 'development') {
+        frontConfig.devtool = 'inline-source-map'
+        backConfig.devtool = 'inline-source-map'
     }
     return [frontConfig, backConfig]
 }

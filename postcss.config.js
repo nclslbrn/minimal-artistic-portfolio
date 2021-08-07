@@ -4,5 +4,6 @@ module.exports = {
         require('cssnano')({
             preset: 'default'
         })
-    ]
+    ],
+    sourceMap: true
 }
