@@ -23,7 +23,7 @@
 		</div>
 		<div class="col-9 site-info">
 			<p>
-				<?php echo esc_url( get_site_url() ) . ' '; ?><?php esc_html_e( 'All right reserved', 'Minimal-Artistic-Portfolio' ); ?>
+				<?php echo esc_url( get_site_url() ) . ' '; ?> © <?php esc_html_e( 'All right reserved', 'Minimal-Artistic-Portfolio' ); ?>
 
 				<span class="sep"> | </span>
 				<a href="https://studio.nicolas-lebrun.fr">

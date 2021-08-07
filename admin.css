@@ -1,1 +1,13 @@
-#dashboard_right_now .inside .main .project-count a:before{content:""}#dashboard_right_now .inside .main .event-count a:before{content:""}
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/sass/admin.scss ***!
+  \****************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+#dashboard_right_now .inside .main .project-count a:before {
+  content: "";
+}
+
+#dashboard_right_now .inside .main .event-count a:before {
+  content: "";
+}
+
+/*# sourceMappingURL=admin.css.map*/

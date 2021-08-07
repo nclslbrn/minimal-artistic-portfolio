@@ -103,8 +103,8 @@ function map_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'mapcategories' );
 }
-add_action( 'edit_category', 'mapcategory_transient_flusher' );
-add_action( 'save_post', 'mapcategory_transient_flusher' );
+add_action( 'edit_category', 'map_category_transient_flusher' );
+add_action( 'save_post', 'map_category_transient_flusher' );
 /**
  * Add share butttons
  *
@@ -218,7 +218,10 @@ function map_form_process_mail() {
 
 	if ( isset( $_POST['map_form_process_mail_nonce'] ) && 
 		wp_verify_nonce( sanitize_user( wp_unslash( $_POST['map_form_process_mail_nonce'] ) ), 'map_form_process_mail' ) &&
-		isset( $_POST['submit'] ) 
+		isset( $_POST['submit'] ) &&
+		empty( $_POST['name'] ) &&
+		empty( $_POST['email'] ) &&
+		empty( $_POST['website'] )
 	) {
 
 		if ( ! filter_var( $data['email'], FILTER_VALIDATE_EMAIL ) ) {
@@ -245,7 +248,7 @@ function map_form_process_mail() {
 				}            
 			}
 		}   
-	} elseif ( $data['submitted'] && isset( $_POST['submit'] ) ) {
+	} elseif ( isset( $_POST['submit'] ) ) {
 
 		$response .= map_form_generate_response( 'error', 'missing_content' );
 	}
@@ -271,7 +274,18 @@ function map_get_form_markup( $url ) {
 	?>
 	<form action="<?php echo esc_url( $url ); ?>" method="post"  class="contact">
 
-		<?php wp_nonce_field( 'map_form_process_mail', 'map_form_process_mail_nonce', true, true ); ?>		
+		<?php wp_nonce_field( 'map_form_process_mail', 'map_form_process_mail_nonce', true, true ); ?>
+
+		<?php /** Honey pot field  */ ?>
+		<label class="pot" for="name">Name (please leave this field empty)</label>
+		<input class="pot" id="name" type="text" name="name"	autocomplete="off" value="" placeholder="Your name here">
+
+		<label class="pot" for="email">Name (please leave this field empty)</label>
+		<input class="pot" id="email" type="email" name="email" autocomplete="off" value="" placeholder="Your email here">
+
+		<label class="pot" for="website">Name (please leave this field empty)</label>
+		<input class="pot" id="website" type="url" name="website" autocomplete="off" value="" placeholder="Your website here">
+
 		<span class="input col-6 column">
 			<input 
 				type="text" class="input__field"
