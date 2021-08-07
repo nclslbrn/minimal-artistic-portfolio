@@ -42,8 +42,8 @@
 /**
  * Register js script for map with unique marker on event page */ 
 ?>
-<?php global $latt; ?>
-<?php global $long; ?>
+<?php global $map_latt; ?>
+<?php global $map_long; ?>
 <?php global $actual_events; ?>
 
 

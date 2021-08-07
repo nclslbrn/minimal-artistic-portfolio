@@ -6,7 +6,7 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
-$sections = get_post_meta($post->ID, 'page_section', true);
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -15,27 +15,16 @@ $sections = get_post_meta($post->ID, 'page_section', true);
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		
-		<?php if(!empty($sections)): ?>
-			<?php foreach( (array) $sections as $part): ?>
-				<div class="row page-section">
-					<div class="col-4 column">
-						<h5><?php _e( unserialize( base64_decode( $part['title'] ) ) ); ?><h5>
-					</div>
-					<div class="col-6 column">
-						<p><?php _e( unserialize( base64_decode( $part['text'] ) ) ); ?></p>
-					</div>
-				</div>
-			<?php endforeach; ?>
-		<?php endif; ?>
 		<?php
 			the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'Minimal-Artistic-Portfolio' ),
-				'after'  => '</div>',
-			) );
-		?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'Minimal-Artistic-Portfolio' ),
+					'after'  => '</div>',
+				) 
+			);
+			?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
@@ -49,6 +38,6 @@ $sections = get_post_meta($post->ID, 'page_section', true);
 				'<span class="edit-link">',
 				'</span>'
 			);
-		?>
+			?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

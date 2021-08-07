@@ -7,23 +7,21 @@
  * @package Minimal-Artistic-Portfolio
  */
 
-
 get_header(); ?>
 
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-        <?php while ( have_posts() ) : the_post();
-                $GLOBALS['latt']= get_post_meta( get_the_ID(), 'LATT', true );
-                $GLOBALS['long']= get_post_meta( get_the_ID(), 'LONG', true );
-        ?>
+		<?php 
+		while ( have_posts() ) :
+			the_post();
+			get_template_part( 'template-parts/content', 'event' );
 
-          <?php get_template_part( 'template-parts/content', 'event' ); ?>
+		endwhile; 
+		?>
 
-        <?php endwhile; ?>
-
-        </main><!-- .site-main -->
-    </div><!-- .content-area -->
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
 <?php
 get_sidebar();
 get_footer();

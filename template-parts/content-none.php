@@ -16,22 +16,38 @@
 
 	<div class="page-content">
 		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+		if ( is_home() && current_user_can( 'publish_posts' ) ) : 
+			?>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'Minimal-Artistic-Portfolio' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<p>
+			<?php 
+			printf( 
+				wp_kses( 
+					/* translators: 1: first post edit link  */
+					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'Minimal-Artistic-Portfolio' ), 
+					array( 
+						'a' => array( 'href' => array() ),
+					) 
+				), 
+				esc_url( admin_url( 'post-new.php' ) ) 
+			); 
+			?>
+				</p>
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p class="center"><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'Minimal-Artistic-Portfolio' ); ?></p>
+			<p class="center"><?php echo esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'Minimal-Artistic-Portfolio' ); ?></p>
 			<?php
 				get_search_form();
 
-		else : ?>
+		else : 
+			?>
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'Minimal-Artistic-Portfolio' ); ?></p>
+			<p><?php esc_hmlt__( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'Minimal-Artistic-Portfolio' ); ?></p>
 			<?php
 				get_search_form();
 
-		endif; ?>
+		endif; 
+		?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->

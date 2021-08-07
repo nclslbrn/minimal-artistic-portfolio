@@ -10,7 +10,7 @@
     float: none;
 }
 .project-summary,
-.events-list--event {
+.event-year-section--list {
     position: relative;
     height: auto;
     margin-bottom: 3em;
@@ -62,7 +62,7 @@
 }
 
 .project-summary,
-.events-list--event,
+.event-year-section--list,
 .event-on-home {
     align-items: center;
 
@@ -94,7 +94,7 @@
     }
 }
 .project-summary .column.cartel,
-.events-list--event .column.event-info,
+.event-year-section--list .column.event-info,
 .event-on-home .column.col-map {
     @include breakpoint(xs) {
         padding-top: 0.5em;
@@ -151,7 +151,7 @@ h4.project-title {
 }
 
 .project-summary .column.cartel .wrapper .description,
-.events-list--event .event-info.column .wrapper p.date,
+.event-year-section--list .event-info.column .wrapper p.date,
 .event-on-home .event-info p.date {
     display: block;
     margin-bottom: 1em * $ratio;

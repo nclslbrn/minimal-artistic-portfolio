@@ -85,7 +85,7 @@ html[data-theme='light'] {
         border-bottom: 1px dotted $black_text;
     }
     .project-summary,
-    .events-list--event {
+    .event-year-section--list {
         background-color: $base_color;
         transition: background-color 0.15s ease-out;
     }
@@ -229,7 +229,7 @@ html[data-theme='dark'] {
         border-bottom: 1px dotted $white_text;
     }
     .project-summary,
-    .events-list--event {
+    .event-year-section--list {
         transition: background-color 0.15s ease-out;
     }
     body.single-project,

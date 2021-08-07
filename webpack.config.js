@@ -57,7 +57,7 @@ module.exports = (env, argv) => {
         plugins: [
             new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
-                filename: '../../admin-css-hack.css'
+                filename: '../admin.css'
             }),
             new WebpackBar()
         ]
@@ -179,7 +179,7 @@ module.exports = (env, argv) => {
         plugins: [
             new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
-                filename: '../../style.css'
+                filename: '../style.css'
             }),
             new CopyWebpackPlugin({
                 patterns: [

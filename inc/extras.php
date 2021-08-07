@@ -34,13 +34,14 @@ add_filter( 'image_send_to_editor', 'map_fluidbox_capable', 10, 7 );
 /**
  * Add fluidbox CSS class to inside post_content images
  *
- * @param string $html <img> outer_text
- * @param int    $id media ID
- * @param string $alt alt description text
- * @param string $title media title
- * @param string $url url of media
- * @param string $size name of thumbnail size
- * @return string $html the text insterted in post_content 
+ * @param string $html <img> outer_text.
+ * @param int    $id media ID.
+ * @param string $alt alt description text.
+ * @param string $title media title.
+ * @param string $align media alignment property.
+ * @param string $url url of media.
+ * @param string $size name of thumbnail size.
+ * @return string $html the text insterted in post_content.
  */
 function map_fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
 	$classes_to_add = 'fluidbox';
@@ -61,7 +62,7 @@ function map_mode_chooser_button() {
 		<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>
 		<label class="switch">
 		  <input type="checkbox" name="mode-switcher" 
-			  <?php echo ( isset( $_COOKIE['mode'] ) && $_COOKIE['mode'] === 'dark' ) ? 'checked' : ''; ?>>
+			  <?php echo ( isset( $_COOKIE['mode'] ) && 'dark' === $_COOKIE['mode'] ) ? 'checked' : ''; ?>>
 		  <span class="slider"></span>
 		</label>
 

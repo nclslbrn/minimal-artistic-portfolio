@@ -1,11 +1,18 @@
 <?php
 /**
- * Add project, event & gif custom post
+ * Main post type functions
  * 
+ * Create, orders, query allow three new post types (project, event & Gif)
+ *
  * @package Minimal-Artistic-Portfolio
  * @version 1.0.0
  */
+
+/**
+ * Add project, event & gif custom post
+ */
 function map_create_post_types() {
+	// phpcs:ignore
 	register_post_type(
 		'project',
 		array(
@@ -47,6 +54,7 @@ function map_create_post_types() {
 			'taxonomies'          => array( 'category', 'post_tag' ),
 		)
 	);
+	// phpcs:ignore
 	register_post_type(
 		'event',
 		array(
@@ -88,6 +96,7 @@ function map_create_post_types() {
 			'taxonomies'          => array( 'category', 'post_tag' ),
 		)
 	);
+	// phpcs:ignore
 	register_post_type(
 		'gif',
 		array(
@@ -129,6 +138,7 @@ function map_create_post_types() {
 			'taxonomies'          => array(),
 		)
 	);
+	// phpcs:ignore
 	register_taxonomy(
 		__( 'category', 'Minimal-Artistic-Portfolio' ),
 		array( 'post', 'page', 'project', 'event' ),
@@ -139,6 +149,7 @@ function map_create_post_types() {
 			'rewrite'      => true,
 		) 
 	);
+	// phpcs:ignore
 	register_taxonomy( 'post_tag', array( 'post', 'page', 'project', 'event' ) );
 }
 add_action( 'init', 'map_create_post_types' );
@@ -147,9 +158,6 @@ add_action( 'init', 'map_create_post_types' );
  * List custom post types name
  * 
  * @return array the list of every public post type name
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
  */
 function map_list_content_type_name() {
 	$post_type = get_post_types( array( 'public' => true ) );
@@ -159,14 +167,14 @@ function map_list_content_type_name() {
 /**
  * Add custom post to main & tax query
  *
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ * @param object $query global WP_Query.
  */
 function map_add_post_types_to_queries( $query ) {
 	$post_types = map_list_content_type_name();
 
 	if ( ( is_home() && $query->is_main_query() ) || is_feed() ) {
 		$query->set( 'post_type', $post_types );
+		return $query;
 	}
 	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
 		$query->set( 'post_type', $post_types );
@@ -179,63 +187,56 @@ add_filter( 'pre_get_posts', 'map_add_post_types_to_queries' );
 /**
  * Query post type loop
  * 
- * @param string $type the custom post type name to query
- * @param int $limit how many post we want per pages
- *  
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ * @param string $type the custom post type name to query.
+ * @param int    $limit how many post we want per pages.
  */
-function map_list_custom_posts($type, $limit) {    
-    $project_query_args = [
-      'post_type'      => $type,
-      'post_status'    => 'publish',
-    ];
+function map_list_custom_posts( $type, $limit ) {    
+	$project_query_args = array(
+		'post_type'      => $type,
+		'post_status'    => 'publish',
+	);
 
-	if($limit !== -1 ) {
-		if (get_query_var('paged')) {
-			$paged = get_query_var('paged');
-		} elseif (get_query_var('page')) {
-			$paged = get_query_var('page');
+	if ( -1 !== $limit ) {
+		if ( get_query_var( 'paged' ) ) {
+			$paged = get_query_var( 'paged' );
+		} elseif ( get_query_var( 'page' ) ) {
+			$paged = get_query_var( 'page' );
 		} else {
 			$paged = 1;
 		}
-		$project_query_args['paged'] = $paged;
+		$project_query_args['paged']          = $paged;
 		$project_query_args['posts_per_page'] = $limit;
 	}
-	$project_query = new WP_Query($project_query_args);
+	$project_query = new WP_Query( $project_query_args );
 
-    if ($project_query->have_posts()) {
-        while ($project_query->have_posts()) {
+	if ( $project_query->have_posts() ) {
+		while ( $project_query->have_posts() ) {
 
-            global $post;
-            $project_query->the_post();
+			global $post;
+			$project_query->the_post();
 
-            get_template_part('template-parts/content', 'project');
-        }
-        if ($project_query->max_num_pages > 1 && $limit !== -1) {
-            $current_page = max(1, get_query_var('paged'));
-    
-            echo paginate_links([
-              'prev_next'    => false,
-              // 'base'      => get_pagenum_link(1) . '%_%',
-              // 'format'    => '/page/%#%',
-              'current'   => $paged,
-              'total'     => $project_query->max_num_pages,
-              // 'prev_text' => __('«', 'Minimal-Artistic-Portfolio'),
-              // 'next_text' => __('»', 'Minimal-Artistic-Portfolio'),
-              // 'add_args'  => array()
-            ]);
-        }
-    }
+			get_template_part( 'template-parts/content', 'project' );
+		}
+		if ( $project_query->max_num_pages > 1 && -1 !== $limit ) {
+			$current_page = max( 1, get_query_var( 'paged' ) );
+	
+			echo esc_html(
+				paginate_links(
+					array(
+						'prev_next' => false,
+						'current'   => $paged,
+						'total'     => $project_query->max_num_pages,
+					)
+				)
+			);
+		}
+	}
 }
 /**
  * List every events related to a project
- * 
- * @param int $post_id the ID of the project
- * @return string|boolean HTML list of events links or false if no event found
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ *
+ * @param int $post_id the ID of the project.
+ * @return string|boolean HTML list of events links or false if no event found.
  */
 function map_get_event( $post_id ) {
 	global $wp_query;
@@ -265,11 +266,8 @@ function map_get_event( $post_id ) {
 /**
  * Query all project related to an event
  * 
- * @param int $post_id the ID of the event
- * @return string|boolean HTML list of projects links or false if no event found
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ * @param int $post_id the ID of the event.
+ * @return string|boolean HTML list of projects links or false if no event found.
  */
 function map_get_project( $post_id ) {
 	$projects       = '';
@@ -278,11 +276,11 @@ function map_get_project( $post_id ) {
 		array(
 			'post_type'      => 'project',
 			'post_status'    => 'publish',
-			'posts_per_page' => -1,
-			'meta_query'     => array(
+			'posts_per_page' => -1, //phpcs:ignore WPThemeReview.CoreFunctionality.PostsPerPage.posts_per_page_posts_per_page
+			'meta_query'     => array( //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 				array(
 					'key'     => 'event',
-					'value'   => '"' . $post_id . '"',
+					'value'   => $post_id,
 					'compare' => 'LIKE',
 				),
 			),
@@ -309,26 +307,24 @@ function map_get_project( $post_id ) {
 /**
  * List posts by date/year (from newer to older)
  * 
- * @param string $type post type name
- * @return string|boolean HTML list of events links or false if no event found
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ * @param string $type post type name.
+ * @param int    $limit how many post query.
+ * @return string|boolean HTML list of events links or false if no event found.
  */
-function map_list_post_by_year( $type, $limit ) {
-	$postYear      = '';
-	$currentPostID = get_the_ID();
-	$postYear      = date_i18n( 'Y', strtotime( get_post_meta( $currentPostID, 'BEGINDATE', true ) ) );
+function map_list_posts_by_years( $type, $limit ) {
+	$post_year       = '';
+	$current_post_id = get_the_ID();
+	$post_year       = date_i18n( 'Y', strtotime( get_post_meta( $current_post_id, 'BEGINDATE', true ) ) );
 
 	wp_reset_postdata();
 
 	$args  = array(
 		'post_type'      => $type,
 		'posts_per_page' => $limit,
-		'meta_key'       => 'BEGINDATE',
+		'meta_key'       => 'BEGINDATE', //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 		'orderby'        => 'meta_value',
 		'order'          => 'DESC',
-		'meta_query'     => array(
+		'meta_query'     => array( //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 			array(
 				'key'     => 'BEGINDATE',
 				'compare' => 'LIKE',
@@ -338,99 +334,71 @@ function map_list_post_by_year( $type, $limit ) {
 	$posts = new WP_Query( $args );
 
 	if ( $posts->have_posts() ) {
-		$postsByYear = array();
-		$mapData     = array();
-		$counter     = 0;
+		$post_by_year = array();
+		$map_data     = array();
 		while ( $posts->have_posts() ) :
+
+			global $post;
 			$posts->the_post();
+			$year = date_i18n( 'Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ) );
 
-			$cptId = get_the_ID();
-
-			$year = date_i18n( 'Y', strtotime( get_post_meta( $cptId, 'BEGINDATE', true ) ) );
-
-			$postsByYear[ $year ][ $cptId ] = array(
-				'id'        => $cptId,
-				'title'     => get_the_title( $cptId ),
-				'link'      => get_permalink( $cptId ),
-				'place'     => get_post_meta( $cptId, 'PLACE', true ),
+			$post_by_year[ $year ][ $post->ID ] = array(
+				'id'        => $post->ID,
+				'title'     => get_the_title( $post->ID ),
+				'link'      => get_permalink( $post->ID ),
+				'place'     => get_post_meta( $post->ID, 'PLACE', true ),
 				'content'   => get_the_content(),
-				'beginDate' => date_i18n( 'j F  Y', strtotime( get_post_meta( $cptId, 'BEGINDATE', 'true' ) ) ),
-				'endDate'   => date_i18n( 'j F Y', strtotime( get_post_meta( $cptId, 'ENDDATE', 'true' ) ) ),
-				'thumbnail' => get_the_post_thumbnail( $cptId, 'carton' ),
+				'beginDate' => date_i18n( 'j F  Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', 'true' ) ) ),
+				'endDate'   => date_i18n( 'j F Y', strtotime( get_post_meta( $post->ID, 'ENDDATE', 'true' ) ) ),
+				'thumbnail' => get_the_post_thumbnail( $post->ID, 'carton' ),
+				'post_type' => $post->post_type,
 			);
 
 
-			$mapData[ $counter ] = array(
-				'link'  => get_permalink( $cptId ),
-				'title' => get_the_title( $cptId ),
-				'latt'  => get_post_meta( $cptId, 'LATT', true ),
-				'long'  => get_post_meta( $cptId, 'LONG', true ),
+			$map_data[] = array(
+				'link'     => get_permalink( $post->ID ),
+				'title'    => get_the_title( $post->ID ),
+				'latt'     => get_post_meta( $post->ID, 'LATT', true ),
+				'long'     => get_post_meta( $post->ID, 'LONG', true ),
 			);
-			$counter++;
 		endwhile;
 		wp_reset_postdata();
 
-		if ( ! empty( $postsByYear ) ) {
-			if ( empty( $postYear ) ) {
-				$array_key = array_keys( $postsByYear );
-				$lastYear  = array_shift( $array_key );
-			} elseif ( ! empty( $postYear ) ) {
-				$lastYear = $postYear;
+		if ( ! empty( $post_by_year ) ) {
+			if ( empty( $post_year ) ) {
+				$array_key = array_keys( $post_by_year );
+				$last_year = array_shift( $array_key );
+			} elseif ( ! empty( $post_year ) ) {
+				$last_year = $post_year;
 			}
 
-			krsort( $postsByYear ); 
-			// TODO move markup in a template parts
+			krsort( $post_by_year ); 
+			// TODO move markup in a template parts.
 			?>
-	 <section class="ac-container">
-			<?php foreach ( $postsByYear as $year => $post ) : ?>
-	  <div class="<?php echo $type; ?>-year-section">
+		<section class="ac-container">
 
-		<h3 class="year"><?php echo $year; ?></h3>
-		<div class="yearEventsList">
-				<?php foreach ( $post as $p ) : ?>
-		  <div id="post<?php echo $p['id']; ?>" class="events-list--event row clearfix">
+			<?php foreach ( $post_by_year as $year => $posts ) : ?>
+			
+			<div class="<?php echo esc_attr( $type ); ?>-year-section">
 
-					<?php if ( ! empty( $p['thumbnail'] ) ) : ?>
-			  <div class="thumbnail col-5 column">
-						<?php echo $p['thumbnail']; ?>
-			  </div>
-			<?php endif; ?>
+				<h3 class="year"><?php echo esc_attr( $year ); ?></h3>
 
-			  <div class="event-info <?php echo( ! empty( $p['thumbnail'] ) ? 'col-7' : 'col-12' ); ?> column">
+				<div class="yearEventsList">
+					<?php 
+					foreach ( $posts as $post_by_year ) {
+						$args = $post_by_year;
+						get_template_part( 'template-parts/events', 'byyear', $args );
+					} 
+					?>
+				</div><!-- .year(Posts/Events)List-->
+				
+			<?php endforeach; ?>
 
-				<div class="wrapper">
-
-				  <h4 class="event-title"><?php echo $p['title']; ?></h4>
-
-				  <p class="place">
-					<svg class="icon icon-location">
-					  <use xlink:href="#icon-location"></use>
-					</svg>
-					<?php echo $p['place']; ?>
-				  </p>
-				  <p class="date">
-					<svg class="icon icon-calendar">
-					  <use xlink:href="#icon-calendar"></use>
-					</svg>
-					<?php _e( 'From', 'Minimal-Artistic-Portfolio' ); ?>
-					<?php echo ' ' . $p['beginDate']; ?>
-					<?php _e( 'to', 'Minimal-Artistic-Portfolio' ); ?>
-					<?php echo ' ' . $p['endDate']; ?>
-				  </p>
-
-				  <a class="button" href="<?php echo $p['link']; ?>"><?php _e( 'Read more', 'Minimal-Artistic-Portfolio' ); ?></a>
-				</div><!-- .wrapper -->
-
-			  </div><!-- .eventInfo -->
-			</div>
-		  <?php endforeach; ?>
-		  </div><!-- .year(Posts/Events)List-->
-		<?php endforeach; ?>
-		</div><!-- .(posts/events)year-section -->
-	  </section><!-- .ac-container -->
-	  <script>
-		window.eventsMapData = <?php echo json_encode( $mapData ); ?>;
-	  </script>
+			</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->
+		</section><!-- .ac-container -->
+		<script>
+			window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
+		</script>
 			<?php
 		}
 	} else {
@@ -441,11 +409,8 @@ function map_list_post_by_year( $type, $limit ) {
 /**
  * Add single image or gallery related to a post
  * 
- * @param int $post_id the post which we will query attachement 
- * @return int the attachement count
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ * @param int $post_id the post which we will query attachement.
+ * @return int the attachement count.
  */
 function map_get_media( $post_id ) {
 	$attachments = get_posts(
@@ -453,18 +418,18 @@ function map_get_media( $post_id ) {
 			'order_by'       => 'menu_order',
 			'order'          => 'ASC',
 			'post_type'      => 'attachment',
-			'posts_per_page' => -1,
-			'post_parent'    => $$post_id,
+			'posts_per_page' => -1, // phpcs:ignore WPThemeReview.CoreFunctionality.PostsPerPage.posts_per_page_posts_per_page,
+			'post_parent'    => $post_id,
 		)
 	);
 
 	if ( $attachments ) {
 		$count = count( $attachments );
 
-		if ( $count == 1 ) {
+		if ( 1 === $count ) {
 			$class    = 'post-attachment mime-' . sanitize_title( $attachments[0]->post_mime_type );
 			$thumbimg = wp_get_attachment_image( $attachments[0]->ID, 'thumbnail-size' );
-			echo '<div class="' . $class . 'single-image">' . $thumbimg . '</div>';
+			echo '<div class="' . esc_attr( $class ) . 'single-image">' . wp_kses_post( $thumbimg ) . '</div>';
 			return $count;
 		}
 		if ( $count > 1 ) {
@@ -472,7 +437,7 @@ function map_get_media( $post_id ) {
 			foreach ( $attachments as $attachment ) {
 				$class    = 'post-attachment mime-' . sanitize_title( $attachment->post_mime_type );
 				$thumbimg = wp_get_attachment_image( $attachment->ID, 'full' );
-				echo $thumbimg;
+				echo wp_kses_post( $thumbimg );
 			}
 			echo '</div><!-- .aap-gallery -->';
 			return $count;
@@ -481,20 +446,17 @@ function map_get_media( $post_id ) {
 }
 /**
  * Remove gallery and html tag from content
- 
- * @param string $content the post_content to clean
- * @return string $content the post_content cleaned
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
+ *
+ * @param string $content the post_content to clean.
+ * @return string $content the post_content cleaned.
  */
-function strip_shortcode_gallery( $content ) {
+function map_strip_shortcode_gallery( $content ) {
 	preg_match_all( '/' . get_shortcode_regex() . '/s', $content, $matches, PREG_SET_ORDER );
 	if ( ! empty( $matches ) ) {
 		foreach ( $matches as $shortcode ) {
 			if ( 'gallery' === $shortcode[2] ) {
 				$pos = strpos( $content, $shortcode[0] );
-				if ( $pos !== false ) {
+				if ( false !== $pos ) {
 					return substr_replace( $content, '', $pos, strlen( $shortcode[0] ) );
 				}
 			}
@@ -505,77 +467,74 @@ function strip_shortcode_gallery( $content ) {
 
 /**
  * Add future or actual event on home
- * 
- * 
- * @package Minimal-Artistic-Portfolio
- * @version 1.0.0
  */
 function map_contextully_load_last_event() {
-	global $post;
 	$today = date( 'Y-m-d' );
 
-	$allEvents     = new WP_Query(
+	$all_events    = new WP_Query(
 		array(
 			'post_type'      => 'event',
 			'post_status'    => 'publish',
-			'posts_per_page' => -1,
+			'posts_per_page' => -1, // phpcs:ignore WPThemeReview.CoreFunctionality.PostsPerPage.posts_per_page_posts_per_page,
 		) 
 	);
 	$actual_events = array();
 	$count         = 0;
-	if ( $allEvents->have_posts() ) {
-		while ( $allEvents->have_posts() ) :
-			$allEvents->the_post();
+	if ( $all_events->have_posts() ) {
+		while ( $all_events->have_posts() ) :
 
-			$eventId = get_the_ID();
-			$endDate = get_post_meta( $eventId, 'ENDDATE', 'true' );
+			global $post;
+			$all_events->the_post();
+
+			$end_date = get_post_meta( $post->ID, 'ENDDATE', 'true' );
 
 
-			if ( $endDate > $today ) :
+			if ( $end_date > $today ) :
 
-				$actual_events[ $eventId ]['eventId'] = $eventId;
-				$actual_events[ $eventId ]['place']   = get_post_meta( $eventId, 'PLACE', 'true' );
-				$actual_events[ $eventId ]['latt']    = get_post_meta( $eventId, 'LATT', true );
-				$actual_events[ $eventId ]['long']    = get_post_meta( $eventId, 'LONG', true ); 
+				$actual_events[ $post->ID ]['eventId']  = $post->ID;
+				$actual_events[ $post->ID ]['place']    = get_post_meta( $post->ID, 'PLACE', 'true' );
+				$actual_events[ $post->ID ]['map_latt'] = get_post_meta( $post->ID, 'LATT', true );
+				$actual_events[ $post->ID ]['map_long'] = get_post_meta( $post->ID, 'LONG', true ); 
 				
 				
-				// TODO move markup in a template parts ?>
-				<?php if ( $count == 0 ) : ?>
+				// TODO move markup in a template parts.
+				?>
+				<?php if ( 0 === $count ) : ?>
 
-		<header class="entry-header actual-event">
-		  <h2 class="entry-title"><?php echo __( 'Coming soon / Now', 'Minimal-Artistic-Portfolio' ); ?></h2>
-		</header>
+					<header class="entry-header actual-event">
+						<h2 class="entry-title"><?php echo esc_html( __( 'Coming soon / Now', 'Minimal-Artistic-Portfolio' ) ); ?></h2>
+					</header>
 
-	  <?php endif; ?>
+				<?php endif; ?>
 				<?php
-				$GLOBALS['latt'] = $actual_events[ $eventId ]['latt'];
-				$GLOBALS['long'] = $actual_events[ $eventId ]['long']; 
+					$GLOBALS['map_latt'] = $actual_events[ $post->ID ]['map_latt'];
+					$GLOBALS['map_long'] = $actual_events[ $post->ID ]['map_long']; 
 				?>
 
-		<div id="event-<?php echo $eventId; ?>" class="row event-on-home">
-		  
-
+		<div id="event-<?php echo esc_attr( $post->ID ); ?>" class="row event-on-home">
 		  <div class="col-6 column ">
 				<?php the_post_thumbnail( 'full' ); ?>
 		  </div>
-
 		  <div class="col-6 column event-info">
-			<h3><?php echo get_the_title( $eventId ); ?></h3>
+			<h3><?php echo esc_html( get_the_title( $post->ID ) ); ?></h3>
 			<p>
 			  <svg class="icon icon-location">
 				<use xlink:href="#icon-location"></use>
 			  </svg>
-				  <?php echo $actual_events[ $eventId ]['place']; ?>
+				  <?php echo esc_html( $actual_events[ $post->ID ]['place'] ); ?>
 			</p>
 			<p class="date">
 			  <svg class="icon icon-calendar">
 				<use xlink:href="#icon-calendar"></use>
 			  </svg>
-				  <?php _e( 'From', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n( 'j F Y', strtotime( get_post_meta( get_the_ID(), 'BEGINDATE', 'true' ) ) ); ?>
-				  <?php _e( 'to', 'Minimal-Artistic-Portfolio' ); ?><?php echo ' ' . date_i18n( 'j F Y', strtotime( $endDate ) ); ?>
+				  <?php echo esc_html( __( 'From', 'Minimal-Artistic-Portfolio' ) ); ?>
+				  <?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( get_post_meta( get_the_ID(), 'BEGINDATE', 'true' ) ) ) ); ?>
+				  <?php echo esc_html( __( 'to', 'Minimal-Artistic-Portfolio' ) ); ?>
+				  <?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $end_date ) ) ); ?>
 			</p>
-			<a class="button" href="<?php echo get_permalink( $eventId ); ?>"><?php _e( 'Read more', 'Minimal-Artistic-Portfolio' ); ?></a>
-
+			<a class="button" href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>">
+				<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
+			</a>
 		  </div><!-- /.col-6 -->
 		</div><!-- /.row -->
 
@@ -583,13 +542,12 @@ function map_contextully_load_last_event() {
 				$count++;
 		endif;
 		endwhile;
-		return $actual_events;
 	}
-	wp_reset_query();
+	wp_reset_postdata();
 }
-/*------SHOW-CUSTOM-POST-TYPES-IN-DASHBOARD-AT-A-GLANCE-WIDGET-------------*/
-add_action( 'dashboard_glance_items', 'map_at_glance_content_table_end' );
-
+/**
+ * Show custom post in the at a glance admin widget
+ */
 function map_at_glance_content_table_end() {
 	$args     = array(
 		'public'   => true,
@@ -602,32 +560,45 @@ function map_at_glance_content_table_end() {
 	foreach ( $post_types as $post_type ) {
 		$num_posts = wp_count_posts( $post_type->name );
 		$num       = number_format_i18n( $num_posts->publish );
-		$text      = _n( $post_type->labels->singular_name, $post_type->labels->name, intval( $num_posts->publish ) );
+		// phpcs:ignore
+		$text = _n( $post_type->labels->singular_name, $post_type->labels->name, intval( $num_posts->publish ) );
 		if ( current_user_can( 'edit_posts' ) ) {
-			$output = '<a href="edit.php?post_type=' . $post_type->name . '">' . $num . ' ' . __( $text, 'Minimal-Artistic-Portfolio' ) . '</a>';
+			$output  = '<a href="edit.php?post_type=' . esc_attr( $post_type->name ) . '">';
+			$output .= esc_html( $num . ' ' . $text );
+			$output .= '</a>';
 
-			echo '<li class="post-count ' . $post_type->name . '-count">' . $output . '</li>';
+			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . wp_kses_post( $output ) . '</li>';
 		}
 	}
 }
-/*------SHOW-CUSTOM-POST-TYPES-IN-DASHBOARD-ACTIVITY-WIDGET------*/
+add_action( 'dashboard_glance_items', 'map_at_glance_content_table_end' );
 
 
-// unregister the default activity widget
-add_action( 'wp_dashboard_setup', 'map_remove_dashboard_widgets' );
+
+/**
+ * Unregister the default activity widget
+ */
 function map_remove_dashboard_widgets() {
 	global $wp_meta_boxes;
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );
 }
+add_action( 'wp_dashboard_setup', 'map_remove_dashboard_widgets' );
 
-// register your custom activity widget
-add_action( 'wp_dashboard_setup', 'map_add_custom_dashboard_activity' );
+/**
+ * Register your custom activity widget
+ */
 function map_add_custom_dashboard_activity() {
 	wp_add_dashboard_widget( 'custom_dashboard_activity', 'Activities', 'map_dashboard_site_activity' );
 }
+add_action( 'wp_dashboard_setup', 'map_add_custom_dashboard_activity' );
 
-// the new function based on wp_dashboard_recent_posts (in wp-admin/includes/dashboard.php)
-function wp_dashboard_recent_post_types( $args ) {
+/** 
+ * The new function based on wp_dashboard_recent_posts 
+ * (in wp-admin/includes/dashboard.php)
+ * 
+ * @param array $args query post arguments.
+ */
+function map_dashboard_recent_post_types( $args ) {
 
 	/* Chenged from here */
 
@@ -637,10 +608,7 @@ function wp_dashboard_recent_post_types( $args ) {
 
 	$query_args = array(
 		'post_type'       => $args['post_type'],
-
-		/* to here */
-
-		'post_status' => $args['status'],
+		'post_status'     => $args['status'],
 		'orderby'         => 'date',
 		'order'           => $args['order'],
 		'posts_per_page'  => intval( $args['max'] ),
@@ -650,36 +618,34 @@ function wp_dashboard_recent_post_types( $args ) {
 	$posts      = new WP_Query( $query_args );
 
 	if ( $posts->have_posts() ) {
-		echo '<div id="' . $args['id'] . '" class="activity-block">';
-		/*
-			if ( $posts->post_count > $args['display'] ) {
-				echo '<small class="show-more hide-if-no-js"><a href="#">' . sprintf( __( 'See %s more…'), $posts->post_count - intval( $args['display'] ) ) . '</a></small>';
-			}
-		*/
-		echo '<h4>' . $args['title'] . '</h4>';
+		echo '<div id="' . esc_attr( $args['id'] ) . '" class="activity-block">';
+
+		echo '<h4>' . esc_html( $args['title'] ) . '</h4>';
 
 		echo '<ul>';
 
-		$i        = 0;
+		$i = 0;
+		//phpcs:ignore
 		$today    = date( 'Y-m-d', current_time( 'timestamp' ) );
+		//phpcs:ignore
 		$tomorrow = date( 'Y-m-d', strtotime( '+1 day', current_time( 'timestamp' ) ) );
 
 		while ( $posts->have_posts() ) {
 			$posts->the_post();
 
 			$time = get_the_time( 'U' );
-			if ( date( 'Y-m-d', $time ) == $today ) {
-				$relative = __( 'Today' );
-			} elseif ( date( 'Y-m-d', $time ) == $tomorrow ) {
-				$relative = __( 'Tomorrow' );
+			if ( date( 'Y-m-d', $time ) === $today ) {
+				$relative = __( 'Today', 'Minimal-Artistic-Portfolio' );
+			} elseif ( date( 'Y-m-d', $time ) === $tomorrow ) {
+				$relative = __( 'Tomorrow', 'Minimal-Artistic-Portfolio' );
 			} else {
 				/* translators: date and time format for recent posts on the dashboard, see http://php.net/date */
-				$relative = date_i18n( __( 'M jS' ), $time );
+				$relative = date_i18n( 'j F Y', $time );
 			}
 
 			$text = sprintf(
 				/* translators: 1: relative date, 2: time, 4: post title */
-				__( '<span>%1$s, %2$s</span> <a href="%3$s">%4$s</a>' ),
+				__( '<span>%1$s, %2$s</span> <a href="%3$s">%4$s</a>', 'Minimal-Artistic-Portfolio' ),
 				$relative,
 				get_the_time(),
 				get_edit_post_link(),
@@ -687,7 +653,7 @@ function wp_dashboard_recent_post_types( $args ) {
 			);
 
 			$hidden = $i >= $args['display'] ? ' class="hidden"' : '';
-			echo "<li{$hidden}>$text</li>";
+			echo wp_kses_post( "<li{$hidden}>$text</li>" );
 			$i++;
 		}
 
@@ -702,30 +668,32 @@ function wp_dashboard_recent_post_types( $args ) {
 	return true;
 }
 
-// The replacement widget
+/**
+ * The replacement widget
+ */
 function map_dashboard_site_activity() {
 	echo '<div id="activity-widget">';
 
-	$future_posts = wp_dashboard_recent_post_types(
+	$future_posts = map_dashboard_recent_post_types(
 		array(
 			'post_type' => 'any',
 			'display'   => 3,
 			'max'       => 7,
 			'status'    => 'future',
 			'order'     => 'ASC',
-			'title'     => __( 'Publishing Soon' ),
+			'title'     => __( 'Publishing Soon', 'Minimal-Artistic-Portfolio' ),
 			'id'        => 'future-posts',
 		)
 	);
 
-	$recent_posts = wp_dashboard_recent_post_types(
+	$recent_posts = map_dashboard_recent_post_types(
 		array(
 			'post_type' => 'any',
 			'display'   => 3,
 			'max'       => 7,
 			'status'    => 'publish',
 			'order'     => 'DESC',
-			'title'     => __( 'Recently Published' ),
+			'title'     => __( 'Recently Published', 'Minimal-Artistic-Portfolio' ),
 			'id'        => 'published-posts',
 		)
 	);
@@ -735,20 +703,19 @@ function map_dashboard_site_activity() {
 	if ( ! $future_posts && ! $recent_posts && ! $recent_comments ) {
 		echo '<div class="no-activity">';
 		echo '<p class="smiley"></p>';
-		echo '<p>' . __( 'No activity yet!' ) . '</p>';
+		echo '<p>' . esc_html( __( 'No activity yet!', 'Minimal-Artistic-Portfolio' ) ) . '</p>';
 		echo '</div>';
 	}
 
 	echo '</div>';
 }
-/*---------ADD-CPT-PICTO-TO-WIDGET-------------*/
-function map_add_admin_styles() {
-	echo '<link href="' . get_template_directory_uri() . '/admin-css-hack.css"  rel="stylesheet">';
-}
 
-add_action( 'admin_head', 'map_add_admin_styles' );
-
-/*---------SHOW-POSTS-THUMBNAILS-IN-FEED-------------*/
+/**
+ * Show post thumbnails in feed
+ *
+ * @param string $content the post excerpt or post_content.
+ * @return string $content with the featured image.
+ */
 function map_post_thumbnail_feeds( $content ) {
 	global $post;
 	if ( has_post_thumbnail( $post->ID ) ) {
@@ -759,38 +726,5 @@ function map_post_thumbnail_feeds( $content ) {
 add_filter( 'the_excerpt_rss', 'map_post_thumbnail_feeds' );
 add_filter( 'the_content_feed', 'map_post_thumbnail_feeds' );
 
-function map_social_module( $title, $url, $class ) {
-	?>
-  <div class="social-sharing-module <?php echo $class; ?>">
-	<p><?php _e( 'Share', 'Minimal-Artistic-Portfolio' ); ?></p>
 
-	<a href="https://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target="_blank">
-	  <svg class="icon icon-facebook">
-		<use xlink:href="#icon-facebook"></use>
-	  </svg>
-	  <span class="screen-reader-text">
-		<?php _e( 'Share on Facebook', 'Minimal-Artistic-Portfolio' ); ?>
-	  </span>
-	</a>
-
-	<a href="https://twitter.com/intent/tweet?text=<?php echo $url; ?> via @Nicolas_Lebrun_" target="_blank">
-	  <svg class="icon icon-twitter">
-		<use xlink:href="#icon-twitter"></use>
-	  </svg>
-	  <span class="screen-reader-text">
-		<?php _e( 'Share on Twitter', 'Minimal-Artistic-Portfolio' ); ?>
-	  </span>
-	</a>
-
-	<a href="mailto:?&body=<?php echo $url; ?>" target="_blank">
-	  <svg class="icon icon-mail">
-		<use xlink:href="#icon-mail"></use>
-	  </svg>
-	  <span class="screen-reader-text">
-		<?php _e( 'Send Email', 'Minimal-Artistic-Portfolio' ); ?>
-	  </span>
-	</a>
-  </div>
-	<?php
-}
 ?>

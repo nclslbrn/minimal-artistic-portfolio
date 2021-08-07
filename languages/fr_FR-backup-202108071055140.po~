@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"PO-Revision-Date: 2021-08-07 10:55+0000\n"
+"PO-Revision-Date: 2021-08-07 10:54+0000\n"
 "Last-Translator: Nicolas <nclslbrn@gmail.com>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -182,7 +182,7 @@ msgstr "Du"
 #: template-parts/events-byyear.php:41
 #, php-format
 msgid "From %1$s to %2$s"
-msgstr "Du %1$s au %2$s"
+msgstr ""
 
 #: inc/custom-post.php:107
 msgid "Gif"

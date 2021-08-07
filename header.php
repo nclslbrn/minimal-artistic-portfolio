@@ -8,7 +8,6 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
-$homepage = is_front_page();
 
 ?>
 <!DOCTYPE html>
@@ -19,24 +18,6 @@ $homepage = is_front_page();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
-	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/favicon-16x16.png">
-	<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="<?php echo get_template_directory(); ?>/build/img/favicon/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
 	<?php wp_head(); ?>
 </head>
 
@@ -82,9 +63,7 @@ $homepage = is_front_page();
 				<path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
 			</symbol>
 		</defs>
-		</svg>
-		
-		
+	</svg>	
 	<div id="loader">
 		<div class="overlay"></div><!-- .overlay -->
 		<svg class="spinner" version="1.1" width="512" height="512" viewBox="0 0 512 512" fill="none" stroke-linecap="round" stroke-miterlimit="10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -95,8 +74,7 @@ $homepage = is_front_page();
 				<polyline class="path" points="165.7 402 165.7 110 343.7 399 343.7 110" />
 			</g>
 		</svg>
-		</div><!-- #loader -->
-		
+	</div><!-- #loader -->
 
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
@@ -107,12 +85,10 @@ $homepage = is_front_page();
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<?php 
-							// SPLIT SITE NAME
-									$name  = get_bloginfo( 'name' );
-									$words = explode( ' ', $name );
-							foreach ( (array) $words as $word ) :
-								echo '<span>' . $word . '</span>';
-									endforeach;
+							$map_sitename_words = explode( ' ', get_bloginfo( 'name' ) );
+							foreach ( (array) $map_sitename_words as $map_word ) { 
+								echo '<span>' . esc_html( $map_word ) . '</span>';
+							}
 							?>
 						</a>
 					</h1>
@@ -132,29 +108,25 @@ $homepage = is_front_page();
 				</button>
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 
-										<?php 
-										wp_nav_menu(
-											array(
-												'theme_location' => 'primary',
-												'menu_id' => 'primary-menu',
-											) 
-										); 
-										?>
-										
-										<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-										
-										<!-- only for mobile -->
-										<div id="widget-area" class="widget-area widget-mobile" role="complementary">
-						<ul class="top-bar">
-											<?php dynamic_sidebar( 'sidebar-2' ); ?>
-											<?php map_mode_chooser_button(); ?>
-						</ul>
-										</div><!-- .widget-area -->
-										<!-- mobile-only -->
+					<?php 
+						wp_nav_menu(
+							array(
+								'theme_location' => 'primary',
+								'menu_id'        => 'primary-menu',
+							) 
+						); 
 
-					<?php endif; ?>
+						if ( is_active_sidebar( 'sidebar-2' ) ) :
+							?>
+						<div id="widget-area" class="widget-area widget-mobile" role="complementary">
+							<ul class="top-bar">
+								<?php dynamic_sidebar( 'sidebar-2' ); ?>
+								<?php map_mode_chooser_button(); ?>
+							</ul>
+						</div><!-- .widget-mobile .widget-area -->
+
+						<?php endif; ?>
 				</nav><!-- #site-navigation -->
-
 
 			</div><!-- .wrapper .row -->
 		</header><!-- #masthead -->

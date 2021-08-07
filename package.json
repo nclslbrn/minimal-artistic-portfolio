@@ -4,8 +4,11 @@
     "description": "![Wordpress](https://img.shields.io/wordpress/v/akismet.svg) ![Status](https://img.shields.io/pypi/status/Django.svg)",
     "main": "src/index.js",
     "scripts": {
-        "build": "webpack --mode production --config webpack.config.js",
-        "watch": "webpack serve --mode development --config webpack.config.js"
+        "build:assets": "webpack --mode production --config webpack.config.js",
+        "build:archive": "dir-archiver --src . --dest ../minimal-artistic-theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore .vscode README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map .babelrc .jscsrc .jshintignore .prettierrc postcss.config.js svgo.config.js webpack.config.js src",
+        "build": "npm run build:assets && npm run build:archive",
+        "watch": "webpack serve --mode development --config webpack.config.js",
+        "compile:rtl": "rtlcss style.css style-rtl.css"
     },
     "repository": {
         "type": "git",
