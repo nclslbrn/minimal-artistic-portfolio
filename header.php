@@ -81,7 +81,7 @@
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="wrapper row">
-				<div class="site-branding col-8">
+				<div class="site-branding">
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<?php 
@@ -94,38 +94,20 @@
 					</h1>
 				</div><!-- .site-branding -->
 
-				<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-				<div id="widget-area" class="widget-area  widget-laptop" role="complementary">
-					<ul class="top-bar">
-						<?php dynamic_sidebar( 'sidebar-2' ); ?>
-						<?php map_mode_chooser_button(); ?>
-					</ul>
-				</div><!-- .widget-area -->
-				<?php endif; ?>
-
 				<button class="menu-toggle col-3" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
 					<span class="menu-icon"></span>
 				</button>
-				<nav id="site-navigation" class="main-navigation" role="navigation">
 
+				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<?php 
 						wp_nav_menu(
 							array(
 								'theme_location' => 'primary',
 								'menu_id'        => 'primary-menu',
+								'container'      => '',
 							) 
-						); 
-
-						if ( is_active_sidebar( 'sidebar-2' ) ) :
-							?>
-						<div id="widget-area" class="widget-area widget-mobile" role="complementary">
-							<ul class="top-bar">
-								<?php dynamic_sidebar( 'sidebar-2' ); ?>
-								<?php map_mode_chooser_button(); ?>
-							</ul>
-						</div><!-- .widget-mobile .widget-area -->
-
-						<?php endif; ?>
+						);
+						?>
 				</nav><!-- #site-navigation -->
 
 			</div><!-- .wrapper .row -->

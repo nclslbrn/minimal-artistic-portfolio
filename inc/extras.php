@@ -52,23 +52,52 @@ function map_fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
 	}
 	return $html;
 }
+/**
+ * Add search form to topbar menu
+ *
+ * @param string $items menu items.
+ * @param array  $args wp_nav_menu arguments.
+ * @return string $items menu items with search form
+ */
+function map_add_search_form_to_menu( $items, $args ) {
+	if ( 'primary' === $args->theme_location ) {
+		$items .= '<li class="search">';
+		$items .= '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '">';
+		$items .= '<input 
+						type="text" placeholder="' . esc_attr__( 'Search', 'Minimal-Artistic-Portfolio' ) . '" 
+						value="" name="s" id="s"/>';
+		$items .= '<input 
+						type="submit" tabindex="-1"	id="searchsubmit" 
+						value="' . esc_attr__( 'Search', 'Minimal-Artistic-Portfolio' ) . '"
+						style="position: absolute; left: -9999px; width: 1px; height: 1px;" />';
+		$items .= '</form>';
+		$items .= '</li>';
+
+		$items .= map_mode_chooser_button();
+	}
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 );
+
 
 /**
  * Add light/dark theme chooser
+ *
+ * @return string $switch the HTML markup of the switch
  */
 function map_mode_chooser_button() {
-	?>
-	<li class="mode-switcher">
-		<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>
-		<label class="switch">
-		  <input type="checkbox" name="mode-switcher" 
-			  <?php echo ( isset( $_COOKIE['mode'] ) && 'dark' === $_COOKIE['mode'] ) ? 'checked' : ''; ?>>
-		  <span class="slider"></span>
-		</label>
+	$switch  = '';
+	$switch .= '<li class="mode-switcher">';
+	$switch .= '<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>';
+	$switch .= '<label class="switch">';
+	$switch .= '<input type="checkbox" name="mode-switcher" ' .
+		( ( isset( $_COOKIE['mode'] ) && 'dark' === $_COOKIE['mode'] ) ? 'checked' : '' ) . '>';
+	$switch .= '<span class="slider"></span>';
+	$switch .= '</label>';
 
-		<?php // _e('Dark', 'minimal_artistic_portfolio'); ?>
-		<svg class="icon icon-moon"><use xlink:href="#icon-moon"></use></svg>
-	</li>
-	<?php
+	$switch .= '<svg class="icon icon-moon"><use xlink:href="#icon-moon"></use></svg>';
+	$switch .= '</li>';
+
+	return $switch;
 }
-?>
+

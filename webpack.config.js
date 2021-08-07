@@ -206,8 +206,8 @@ module.exports = (env, argv) => {
 
         devServer: {
             writeToDisk: true,
-            contentBase: './build'
-            //hot: true
+            contentBase: './build',
+            hot: true
         }
         //stats: 'minimal'
     }

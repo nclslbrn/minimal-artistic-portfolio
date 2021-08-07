@@ -25,6 +25,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php mapentry_footer(); ?>
+		<?php map_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
