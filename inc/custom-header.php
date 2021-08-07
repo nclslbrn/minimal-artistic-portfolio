@@ -64,11 +64,18 @@ add_action( 'after_setup_theme', 'map_custom_header_setup' );
  */
 
 if ( ! function_exists( 'map_get_custom_header' ) ) {
+	/**
+	 * Gets the header image data.
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/get_custom_header/
+	 */
 	function map_get_custom_header() {
 		return (object) array(
 			'url'           => get_header_image(),
 			'thumbnail_url' => get_header_image(),
+			// phpcs:ignore
 			'width'         => HEADER_IMAGE_WIDTH,
+			// phpcs:ignore
 			'height'        => HEADER_IMAGE_HEIGHT,
 		);
 	}
@@ -83,7 +90,7 @@ if ( ! function_exists( 'map_header_style' ) ) :
 	 * @since Minimal-artistic-portfolio 1.0
 	 */
 	function map_header_style() {
-
+		// phpcs:ignore
 		if ( HEADER_TEXTCOLOR === get_header_textcolor() ) {
 			return;
 		}
@@ -92,7 +99,7 @@ if ( ! function_exists( 'map_header_style' ) ) :
 	<style type="text/css">
 		<?php
 		// Has the text been hidden?
-		if ( 'blank' === get_header_textcolor() ) :
+		if ( 'blank' === get_header_textcolor() ) : 
 			?>
 		.site-title,
 		.site-description {
@@ -100,19 +107,16 @@ if ( ! function_exists( 'map_header_style' ) ) :
 			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 			clip: rect(1px, 1px, 1px, 1px);
 		}
-			<?php
-			// If the user has set a custom color for the text use that
-			else :
-				?>
+		<?php else : ?>
 		.site-title a,
 		.site-description {
-			color: #<?php echo get_header_textcolor(); ?> !important;
+			color: #<?php echo esc_attr( get_header_textcolor() ); ?> !important;
 		}
-	<?php endif; ?>
+		<?php endif; ?>
 	</style>
 		<?php
 	}
-endif; // map_header_style
+endif;
 
 if ( ! function_exists( 'map_admin_header_style' ) ) :
 	/**
@@ -142,7 +146,7 @@ if ( ! function_exists( 'map_admin_header_style' ) ) :
 	</style>
 		<?php
 	}
-endif; // map_admin_header_style
+endif;
 
 if ( ! function_exists( 'map_admin_header_image' ) ) :
 	/**
@@ -162,8 +166,8 @@ if ( ! function_exists( 'map_admin_header_image' ) ) :
 				$style = ' style="color:#' . get_header_textcolor() . ';"';
 			}
 			?>
-		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-		<div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
+		<h1><a id="name"<?php echo esc_attr( $style ); ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		<div id="desc"<?php echo esc_attr( $style ); ?>><?php bloginfo( 'description' ); ?></div>
 		<?php 
 		$header_image = get_header_image();
 		if ( ! empty( $header_image ) ) : 
@@ -173,4 +177,4 @@ if ( ! function_exists( 'map_admin_header_image' ) ) :
 	</div>
 		<?php 
 	}
-endif; // map_admin_header_image
+endif;
