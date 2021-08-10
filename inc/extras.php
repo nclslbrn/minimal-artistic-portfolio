@@ -61,6 +61,8 @@ function map_fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
  */
 function map_add_search_form_to_menu( $items, $args ) {
 	if ( 'primary' === $args->theme_location ) {
+		$items .= map_mode_chooser_menu();
+
 		$items .= '<li class="search">';
 		$items .= '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '">';
 		$items .= '<input 
@@ -73,7 +75,6 @@ function map_add_search_form_to_menu( $items, $args ) {
 		$items .= '</form>';
 		$items .= '</li>';
 
-		$items .= map_mode_chooser_button();
 	}
 	return $items;
 }
@@ -81,7 +82,7 @@ add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 );
 
 
 /**
- * Add light/dark theme chooser
+ * Add light/dark theme chooser (switch)
  *
  * @return string $switch the HTML markup of the switch
  */
@@ -100,4 +101,45 @@ function map_mode_chooser_button() {
 
 	return $switch;
 }
+
+/**
+ * Add light/dark theme chooser (menu)
+ *
+ * @return string $entry the HTML markup of menu entry
+ */
+function map_mode_chooser_menu() {
+	$entry  = '<li class=\'menu-item menu-item-has-children\'>';
+	$entry .= '<a title=\'' . esc_attr__( 'Theme', 'Minimal-Artistic-Portfolio' ) . '\'>' . 
+					esc_attr__( 'Theme : ', 'Minimal-Artistic-Portfolio' ) . 
+					( isset( $_COOKIE['mode'] ) && 'dark' ? 
+					'<svg class="icon icon-moon"><use xlink:href="#icon-moon"></use></svg>' :
+					'<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>'
+					) .
+				'</a>';
+	$entry .= '<ul class=\'sub-menu\'>';
+
+
+	$entry .= '<li class=\'theme-mode\'>';
+	$entry .= '<button class=\'theme-mode-button\' data-mode=\'light\'>';
+	$entry .= esc_html__( 'Light', 'Minimal-Artistic-Portfolio' );
+	$entry .= '<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>';
+	$entry .= '</button>';
+	$entry .= '</li>';
+
+	$entry .= '<li class=\'theme-mode\'>';
+	$entry .= '<button class=\'theme-mode-button\' data-mode=\'dark\'>';
+	$entry .= esc_html__( 'Dark', 'Minimal-Artistic-Portfolio' );
+	$entry .= '<svg class="icon icon-moon"><use xlink:href="#icon-moon"></use></svg>';
+	$entry .= '</button>';
+	$entry .= '</li>';
+
+
+	$entry .= '</ul>';
+
+	$entry .= '</li>';
+
+	return $entry;
+
+}
+
 

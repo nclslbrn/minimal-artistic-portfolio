@@ -9,7 +9,7 @@ const detectColorScheme = () => {
 
     //local storage is used to override OS theme settings
     if (localStorage.getItem('theme')) {
-        if (localStorage.getItem('theme') == 'dark') {
+        if ('dark' === localStorage.getItem('theme')) {
             theme = 'dark'
         } else {
             theme = 'light'
@@ -23,7 +23,7 @@ const detectColorScheme = () => {
     }
 
     //dark theme preferred, set document with a `data-theme` attribute
-    if (theme == 'dark') {
+    if ('dark' === theme) {
         document.documentElement.setAttribute('data-theme', 'dark')
     } else {
         document.documentElement.setAttribute('data-theme', 'light')
@@ -51,13 +51,27 @@ const updateCheckBox = (checked) => {
 detectColorScheme()
 
 const modeSwitches = document.querySelectorAll('input[name="mode-switcher"]')
+const modeButtons = document.querySelectorAll('button.theme-mode-button')
 
-if (typeof modeSwitches !== 'undefined') {
+if ('undefined' !== typeof modeSwitches) {
     for (let i = 0; i < modeSwitches.length; i++) {
-        console.log('Mode switcher initialisation')
         modeSwitches[i].addEventListener('change', switchTheme, false)
-        if (document.documentElement.getAttribute('data-theme') == 'dark') {
+        if ('dark' === document.documentElement.dataset.theme) {
             modeSwitches[i].checked = true
+        }
+    }
+}
+
+if ('undefined' !== typeof modeButtons) {
+    console.log(modeButtons)
+    for (let i = 0; i < modeButtons.length; i++) {
+        const theme = modeButtons[i].dataset.mode
+        console.log(theme)
+        if (null !== theme) {
+            modeButtons[i].addEventListener('click', (event) => {
+                event.preventDefault()
+                document.documentElement.setAttribute('data-theme', theme)
+            })
         }
     }
 }
