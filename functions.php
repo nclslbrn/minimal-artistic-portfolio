@@ -151,9 +151,9 @@ add_action( 'widgets_init', 'map_widgets_init' );
 function map_scripts() {
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', '', '3.1.1', true );
 	wp_enqueue_style( 'leafletStyle', '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all' );
-	wp_enqueue_style( 'Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', array(), WP_DEBUG ? false : '1.0.0', 'all' );
+	wp_enqueue_style( 'Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', false, 'all' );
 	wp_enqueue_script( 'leafletScript', '//unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false );
-	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front-bundle.js', array( 'leafletScript' ), '1.0.0', true );
+	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array( 'leafletScript' ), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -164,10 +164,12 @@ add_action( 'wp_enqueue_scripts', 'map_scripts' );
 /**
  * Add a dedicated stylesheet for WordPress Admin
  */
-function map_admin_styles() {
+function map_admin_scripts() {
 	wp_enqueue_style( 'Minimal-Artistic-Portfolio-adminstyle', get_template_directory_uri() . '/admin.css', '', '1.0.0', 'all' );
+	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/back.js', array( 'leafletScript' ), '1.0.0', true );
+
 }
-add_action( 'admin_head', 'map_admin_styles' );
+add_action( 'admin_head', 'map_admin_scripts' );
 
 /*
  * ADD A DIFFERENT SIZE FOR EVENT COVER

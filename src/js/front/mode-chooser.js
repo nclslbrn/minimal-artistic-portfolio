@@ -30,10 +30,6 @@ const detectColorScheme = () => {
     }
 }
 
-detectColorScheme()
-
-const modeSwitches = document.querySelectorAll('input[name="mode-switcher"]')
-
 const switchTheme = (e) => {
     if (e.target.checked) {
         localStorage.setItem('theme', 'dark')
@@ -52,8 +48,13 @@ const updateCheckBox = (checked) => {
     }
 }
 
+detectColorScheme()
+
+const modeSwitches = document.querySelectorAll('input[name="mode-switcher"]')
+
 if (typeof modeSwitches !== 'undefined') {
     for (let i = 0; i < modeSwitches.length; i++) {
+        console.log('Mode switcher initialisation')
         modeSwitches[i].addEventListener('change', switchTheme, false)
         if (document.documentElement.getAttribute('data-theme') == 'dark') {
             modeSwitches[i].checked = true

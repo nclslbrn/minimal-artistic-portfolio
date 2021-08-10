@@ -1,5 +1,8 @@
-import fluidbox from 'fluidbox'
+import 'fluidbox'
+import jQuery from 'jquery'
 
-jQuery(function () {
-    jQuery('a.fluidbox').fluidbox()
-})
+window.onload = function () {
+    if (window.jQuery) {
+        jQuery('a.fluidbox').fluidbox()
+    }
+}

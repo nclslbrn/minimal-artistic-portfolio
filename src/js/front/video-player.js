@@ -1,3 +1,3 @@
-import Plyr from 'plyr';
+import Plyr from 'plyr'
 
-const players = Array.from(document.querySelectorAll('.player')).map(p => new Plyr(p));
+Array.from(document.querySelectorAll('.player')).map((p) => new Plyr(p))

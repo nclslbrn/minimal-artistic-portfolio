@@ -1,12 +1,3 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "debug": false,
-                "useBuiltIns": false,
-                "modules": "commonjs"
-            }
-        ]
-    ]
+  "presets": ["@babel/env"]
 }
