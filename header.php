@@ -64,17 +64,7 @@
 			</symbol>
 		</defs>
 	</svg>	
-	<div id="loader">
-		<div class="overlay"></div><!-- .overlay -->
-		<svg class="spinner" version="1.1" width="512" height="512" viewBox="0 0 512 512" fill="none" stroke-linecap="round" stroke-miterlimit="10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<title>L-n</title>
-			<g>
-				<polyline class="path" points="27.35 176 27.35 27.35 484.65 27.35 484.65 484.65 191.7 484.65" />
-				<polyline class="path" points="27.7 226 27.7 484.65 141.7 484.65" />
-				<polyline class="path" points="165.7 402 165.7 110 343.7 399 343.7 110" />
-			</g>
-		</svg>
-	</div><!-- #loader -->
+
 
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
@@ -93,11 +83,7 @@
 						</a>
 					</h1>
 				</div><!-- .site-branding -->
-
-				<button class="menu-toggle col-3" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
-					<span class="menu-icon"></span>
-				</button>
-
+			
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<?php 
 						wp_nav_menu(
@@ -109,6 +95,11 @@
 						);
 						?>
 				</nav><!-- #site-navigation -->
+
+				<button class="menu-toggle col-3" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
+					<span class="menu-icon"></span>
+				</button>
+
 
 			</div><!-- .wrapper .row -->
 		</header><!-- #masthead -->
