@@ -29,7 +29,6 @@ html[data-theme='light'] {
 
     .tnp-widget .tnp-field-button input.tnp-submit,
     .language-chooser-item a,
-    button.search-submit,
     a.button,
     .page-numbers,
     button.button {
@@ -46,7 +45,6 @@ html[data-theme='light'] {
     form {
         textarea,
         input[type='text'],
-        input[type='search'],
         .tnp-field.tnp-field-email input[type='email'].tnp-email {
             border: $black_border;
             background-color: $base_color;
@@ -55,7 +53,6 @@ html[data-theme='light'] {
         textarea:focus,
         input[type='text']:focus,
         input[type='text'].focus,
-        input[type='search']:focus,
         .tnp-field.tnp-field-email input[type='email'].tnp-email:focus {
             box-shadow: inset 0 0 0.4em
                 transparentize(darken($base_color, 4%), 0.8);
@@ -66,7 +63,6 @@ html[data-theme='light'] {
                 border: $black_border;
             }
         }
-        .top-bar .widget_search form,
         .widget_newsletterwidget .tnp-widget form {
             label input[type='search'],
             input[type='submit'] {
@@ -174,7 +170,6 @@ html[data-theme='dark'] {
     }
     .tnp-widget .tnp-field-button input.tnp-submit,
     .language-chooser-item a,
-    button.search-submit,
     .page-numbers,
     a.button,
     button.button {
@@ -190,7 +185,6 @@ html[data-theme='dark'] {
     form {
         textarea,
         input[type='text'],
-        input[type='search'],
         .tnp-field.tnp-field-email input[type='email'].tnp-email {
             color: #fff;
             border: $white_border;
@@ -199,7 +193,6 @@ html[data-theme='dark'] {
         textarea:focus,
         input[type='text']:focus,
         input[type='text'].focus,
-        input[type='search']:focus,
         .tnp-field.tnp-field-email input[type='email'].tnp-email:focus {
             box-shadow: inset 0 0 0.4em
                 transparentize(darken($dark_base, 4%), 0.8);
@@ -210,7 +203,6 @@ html[data-theme='dark'] {
                 border: $white_border;
             }
         }
-        .top-bar .widget_search form,
         .widget_newsletterwidget .tnp-widget form {
             label input[type='search'],
             input[type='submit'] {

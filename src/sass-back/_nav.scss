@@ -15,7 +15,10 @@ header.site-header .row {
         }
     }
     @include breakpoint(md) {
-        display: block;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .site-branding h1.site-title {
@@ -24,23 +27,24 @@ header.site-header .row {
         font-weight: bold;
         text-align: justify;
         letter-spacing: 0.109em;
+        line-height: 1;
 
         @include breakpoint(xs) {
             @include breakpoint(sm, max) {
-                font-size: 1em * $ratio;
-                line-height: 2rem;
+                font-size: 1.4em * $ratio;
+                //line-height: 2rem;
             }
         }
         @include breakpoint(sm) {
             @include breakpoint(md, max) {
                 font-size: 1.3em * $ratio;
-                line-height: 3rem;
+                //line-height: 3rem;
             }
         }
         @include breakpoint(md) {
-            font-size: 1.6em * $ratio;
+            font-size: 1.2em * $ratio;
             text-indent: 0;
-            line-height: 4rem;
+            //line-height: 2rem;
             box-shadow: none;
             border: none;
         }
