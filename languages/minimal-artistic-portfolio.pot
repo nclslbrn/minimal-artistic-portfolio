@@ -1,52 +1,17 @@
-# Loco Gettext template
-#, fuzzy
+# Copyright (C) 2021 unnamed project
+# This file is distributed under the same license as the unnamed project package.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"POT-Revision-Date: Sat Apr 23 2016 11:31:18 GMT+0100 (CET)\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Nicolas Lebrun <nclslbrn@gmail.com>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: unnamed project\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
-"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
-"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
-"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Poedit-SearchPath-0: .."
-
-#: functions.php:55
-msgid "Primary"
-msgstr ""
-
-#: functions.php:56
-msgid "Footer Menu"
-msgstr ""
-
-#: functions.php:111
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:113
-msgid "Add widgets here."
-msgstr ""
-
-#: functions.php:120
-msgid "Header Sidebar"
-msgstr ""
-
-#: functions.php:122 inc/custom-post-widget.php:117
-msgid "Widgets in this area will be shown on all posts and pages."
-msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -60,394 +25,496 @@ msgstr ""
 msgid "Sorry, we couldn't find the page you were looking for!"
 msgstr ""
 
-#: comments.php:31
-#, php-format
+#. translators: 1: title.
+#: comments.php:35
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:41
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:40 comments.php:61
-msgid "Comment navigation"
-msgstr ""
-
-#: comments.php:43 comments.php:64
-msgid "Older Comments"
-msgstr ""
-
-#: comments.php:44 comments.php:65
-msgid "Newer Comments"
-msgstr ""
-
-#: comments.php:78
+#: comments.php:68
 msgid "Comments are closed."
 msgstr ""
 
-#: inc/custom-post.php:45 inc/custom-post.php:130
-msgid "Events"
-msgstr ""
-
-#: events.php:34 inc/home-project-layout.php:27
-#: template-parts/content-page.php:35 template-parts/content.php:38
-msgid "Pages:"
-msgstr ""
-
-#: search.php:19
-#, php-format
-msgid "Search Results for: %s"
-msgstr ""
-
-#. Name of the template
+#: contact.php:3
 msgid "Contact"
 msgstr ""
 
-#: contact.php:38
-msgid "Human verification incorrect."
+#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:248
+msgid "Events"
 msgstr ""
 
-#: contact.php:39
-msgid "Please supply all information."
+#: events.php:36, template-parts/content-page.php:23, template-parts/content.php:43
+msgid "Pages:"
 msgstr ""
 
-#: contact.php:40
-msgid "Email Address Invalid."
-msgstr ""
-
-#: contact.php:41
-msgid "Message was not sent. Try Again."
-msgstr ""
-
-#: contact.php:42
-msgid "Thanks! Your message has been sent."
-msgstr ""
-
-#: contact.php:62
-msgid "Someone sent a message from "
-msgstr ""
-
-#: contact.php:120
-msgid "Name *"
-msgstr ""
-
-#: contact.php:127
-msgid "Email *"
-msgstr ""
-
-#: contact.php:132
-msgid "Message *"
-msgstr ""
-
-#: contact.php:136
-msgid "Human Verification *"
-msgstr ""
-
-#: contact.php:146
-msgid "* : require field"
-msgstr ""
-
-#: contact.php:150
-msgid "send"
-msgstr ""
-
-#: header.php:103
-msgid "Skip to content"
-msgstr ""
-
-#: footer.php:25
+#: footer.php:26
 msgid "All right reserved"
 msgstr ""
 
-#: footer.php:29
+#: footer.php:30
 msgid "Designed by Nicolas Lebrun"
 msgstr ""
 
-#. Name of the template
+#: functions.php:54
+msgid "Primary"
+msgstr ""
+
+#: functions.php:55
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:124
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:126
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:135
+msgid "Header Sidebar"
+msgstr ""
+
+#: functions.php:137
+msgid "Widgets in this area will be shown on all posts and pages."
+msgstr ""
+
+#: gif-page.php:3
+msgid "Gif-page"
+msgstr ""
+
+#: header.php:70
+msgid "Skip to content"
+msgstr ""
+
+#: homepage.php:3
 msgid "Homepage"
 msgstr ""
 
-#: inc/custom-post.php:6
+#. translators: %s: user input search term
+#: search.php:24
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/custom-post.php:20
 msgctxt "post type general name"
 msgid "Projects"
 msgstr ""
 
-#: inc/custom-post.php:7
+#: inc/custom-post.php:21
 msgctxt "post type singular name"
 msgid "Project"
 msgstr ""
 
-#: inc/custom-post.php:8 inc/custom-post.php:174
+#: inc/custom-post.php:22, inc/custom-post.php:291
 msgid "Projects"
 msgstr ""
 
-#: inc/custom-post.php:9
+#: inc/custom-post.php:23
 msgid "Project"
 msgstr ""
 
-#: inc/custom-post.php:10 inc/custom-post.php:47
+#: inc/custom-post.php:24, inc/custom-post.php:66, inc/custom-post.php:108
 msgid "Add New"
 msgstr ""
 
-#: inc/custom-post.php:11
+#: inc/custom-post.php:25
 msgid "Add New Project"
 msgstr ""
 
-#: inc/custom-post.php:12
+#: inc/custom-post.php:26
 msgid "New Project"
 msgstr ""
 
-#: inc/custom-post.php:13
+#: inc/custom-post.php:27
 msgid "Edit Project"
 msgstr ""
 
-#: inc/custom-post.php:14
+#: inc/custom-post.php:28
 msgid "View Project"
 msgstr ""
 
-#: inc/custom-post.php:15
+#: inc/custom-post.php:29
 msgid "All Projects"
 msgstr ""
 
-#: inc/custom-post.php:16
+#: inc/custom-post.php:30
 msgid "Search Projects"
 msgstr ""
 
-#: inc/custom-post.php:17
+#: inc/custom-post.php:31
 msgid "Parent Projects:"
 msgstr ""
 
-#: inc/custom-post.php:18
+#: inc/custom-post.php:32
 msgid "No projects found."
 msgstr ""
 
-#: inc/custom-post.php:19
+#: inc/custom-post.php:33
 msgid "No projects found in Trash."
 msgstr ""
 
-#: inc/custom-post.php:43
+#: inc/custom-post.php:62
 msgctxt "post type general name"
 msgid "Events"
 msgstr ""
 
-#: inc/custom-post.php:44
+#: inc/custom-post.php:63
 msgctxt "post type singular name"
 msgid "Event"
 msgstr ""
 
-#: inc/custom-post.php:46 inc/meta-box.php:70
+#: inc/custom-post.php:65, inc/meta-box.php:45
 msgid "Event"
 msgstr ""
 
-#: inc/custom-post.php:48
+#: inc/custom-post.php:67
 msgid "Add New Event"
 msgstr ""
 
-#: inc/custom-post.php:49
+#: inc/custom-post.php:68
 msgid "New Event"
 msgstr ""
 
-#: inc/custom-post.php:50
+#: inc/custom-post.php:69
 msgid "Edit Event"
 msgstr ""
 
-#: inc/custom-post.php:51
+#: inc/custom-post.php:70
 msgid "View Event"
 msgstr ""
 
-#: inc/custom-post.php:52
+#: inc/custom-post.php:71
 msgid "All Events"
 msgstr ""
 
-#: inc/custom-post.php:53
+#: inc/custom-post.php:72
 msgid "Search Events"
 msgstr ""
 
-#: inc/custom-post.php:54
+#: inc/custom-post.php:73
 msgid "Parent Events:"
 msgstr ""
 
-#: inc/custom-post.php:55
+#: inc/custom-post.php:74
 msgid "No events found."
 msgstr ""
 
-#: inc/custom-post.php:56
+#: inc/custom-post.php:75
 msgid "No events found in Trash."
 msgstr ""
 
-#: inc/custom-post.php:77
+#: inc/custom-post.php:104
+msgctxt "post type general name"
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:105
+msgctxt "post type singular name"
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:106
+msgid "Gifs"
+msgstr ""
+
+#: inc/custom-post.php:107
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:109
+msgid "Add New Gif"
+msgstr ""
+
+#: inc/custom-post.php:110
+msgid "New Gif"
+msgstr ""
+
+#: inc/custom-post.php:111
+msgid "Edit Gif"
+msgstr ""
+
+#: inc/custom-post.php:112
+msgid "View Gif"
+msgstr ""
+
+#: inc/custom-post.php:113
+msgid "All Gifs"
+msgstr ""
+
+#: inc/custom-post.php:114
+msgid "Search Gifs"
+msgstr ""
+
+#: inc/custom-post.php:115
+msgid "Parent Gifs:"
+msgstr ""
+
+#: inc/custom-post.php:116
+msgid "No gifs found."
+msgstr ""
+
+#: inc/custom-post.php:117
+msgid "No gifs found in Trash."
+msgstr ""
+
+#: inc/custom-post.php:143
 msgid "category"
 msgstr ""
 
-#: inc/custom-post.php:299 inc/custom-post.php:437
-#: template-parts/content-event.php:43
-msgid "From"
-msgstr ""
-
-#: inc/custom-post.php:301 inc/custom-post.php:438
-#: template-parts/content-event.php:44
-msgid "to"
-msgstr ""
-
-#: inc/custom-post.php:305 inc/custom-post.php:440
-#: template-parts/content-project.php:26
-msgid "Read more"
-msgstr ""
-
-#: inc/custom-post.php:409
+#: inc/custom-post.php:505
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:633
-msgid "Share"
+#: inc/custom-post.php:530, template-parts/content-event.php:58
+msgid "From"
+msgstr ""
+
+#: inc/custom-post.php:532, template-parts/content-event.php:60
+msgid "to"
+msgstr ""
+
+#: inc/custom-post.php:536, template-parts/content-project.php:37, template-parts/events-byyear.php:52
+msgid "Read more"
+msgstr ""
+
+#: inc/custom-post.php:564
+msgid "$undefined->singular_name"
+msgid_plural "$undefined->name"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/custom-post.php:638
+msgid "Today"
 msgstr ""
 
 #: inc/custom-post.php:640
-msgid "Share on Facebook"
+msgid "Tomorrow"
 msgstr ""
 
-#: inc/custom-post.php:649
-msgid "Share on Twitter"
+#. translators: 1: relative date, 2: time, 4: post title
+#: inc/custom-post.php:648
+msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#: inc/custom-post.php:658
-msgid "Send Email"
+#: inc/custom-post.php:684
+msgid "Publishing Soon"
 msgstr ""
 
-#: inc/meta-box.php:82
+#: inc/custom-post.php:696
+msgid "Recently Published"
+msgstr ""
+
+#: inc/custom-post.php:706
+msgid "No activity yet!"
+msgstr ""
+
+#: inc/extras.php:67, inc/extras.php:71
+msgid "Search"
+msgstr ""
+
+#: inc/meta-box.php:69
 msgid "Cover option"
 msgstr ""
 
-#: inc/meta-box.php:166 inc/meta-box.php:375
+#: inc/meta-box.php:150, inc/meta-box.php:306
 msgid "Place"
 msgstr ""
 
-#: inc/meta-box.php:181
+#: inc/meta-box.php:172
 msgid "Cover is an image or a video ?"
 msgstr ""
 
-#: inc/meta-box.php:183
+#: inc/meta-box.php:174
 msgid "Image"
 msgstr ""
 
-#: inc/meta-box.php:185
+#: inc/meta-box.php:176
 msgid "Video"
 msgstr ""
 
-#: inc/meta-box.php:187
-msgid "Video ID"
+#: inc/meta-box.php:178
+msgid "Video ID (leave empty if selfhosted)"
 msgstr ""
 
-#: inc/meta-box.php:190
+#: inc/meta-box.php:181
 msgid "Video provider"
 msgstr ""
 
-#: inc/meta-box.php:192
+#: inc/meta-box.php:183
 msgid "Vimeo"
 msgstr ""
 
-#: inc/meta-box.php:194
+#: inc/meta-box.php:185
 msgid "YouTube"
 msgstr ""
 
-#: inc/meta-box.php:374
+#: inc/meta-box.php:187
+msgid "Self hosted"
+msgstr ""
+
+#: inc/meta-box.php:189
+msgid "Self hosting URLs"
+msgstr ""
+
+#: inc/meta-box.php:305
 msgid "Date"
 msgstr ""
 
-#: inc/home-project-layout.php:15
-msgid "Edit"
-msgstr ""
-
-#: inc/home-project-layout.php:31
-msgid "Page"
-msgstr ""
-
-#: inc/template-tags.php:28
-#, php-format
+#. translators: %s: post date.
+#: inc/template-tags.php:30
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:33
-#, php-format
+#. translators: %s: post author.
+#: inc/template-tags.php:46
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:50 inc/template-tags.php:56
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:63, inc/template-tags.php:70
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:52
-#, php-format
+#. translators: 1: list of categories.
+#: inc/template-tags.php:66
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:58
-#, php-format
+#. translators: 1: list of tags.
+#: inc/template-tags.php:73
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:65
-#, php-format
+#. translators: %s: post title
+#: inc/template-tags.php:80
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:72 template-parts/content-page.php:46
-#, php-format
+#. translators: %s: Name of current post
+#. translators: %s: Name of current post
+#: inc/template-tags.php:87, template-parts/content-page.php:35
 msgid "Edit %s"
 msgstr ""
 
-#: inc/custom-post-widget.php:72
-msgid "Widget Title"
+#: inc/template-tags.php:118
+msgid "Share"
 msgstr ""
 
-#: inc/custom-post-widget.php:77
-msgid "Custom post:<br>"
+#: inc/template-tags.php:125
+msgid "Share on Facebook"
 msgstr ""
 
-#: inc/custom-post-widget.php:92
-msgid "Number:<br>"
+#: inc/template-tags.php:134
+msgid "Share on Twitter"
 msgstr ""
 
-#: inc/custom-post-widget.php:115
-msgid "Menu Sidebar"
+#: inc/template-tags.php:143
+msgid "Send Email"
+msgstr ""
+
+#: inc/template-tags.php:161, inc/template-tags.php:168
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: inc/template-tags.php:187
+msgid "Human verification incorrect."
+msgstr ""
+
+#: inc/template-tags.php:188
+msgid "Please supply all information."
+msgstr ""
+
+#: inc/template-tags.php:189
+msgid "Email Address Invalid."
+msgstr ""
+
+#: inc/template-tags.php:190
+msgid "Message was not sent. Try Again."
+msgstr ""
+
+#: inc/template-tags.php:191
+msgid "Thanks! Your message has been sent."
+msgstr ""
+
+#: inc/template-tags.php:213
+msgid "Someone sent a message from "
+msgstr ""
+
+#: inc/template-tags.php:293
+msgid "Name *"
+msgstr ""
+
+#: inc/template-tags.php:301
+msgid "Email *"
+msgstr ""
+
+#: inc/template-tags.php:312
+msgid "Message *"
+msgstr ""
+
+#: inc/template-tags.php:318
+msgid "* : require field"
+msgstr ""
+
+#: inc/template-tags.php:322
+msgid "send"
+msgstr ""
+
+#: template-parts/content-events.php:19
+msgid "Map"
+msgstr ""
+
+#: template-parts/content-events.php:25
+msgid "List"
 msgstr ""
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:21
-#, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#. translators: 1: first post edit link
+#: template-parts/content-none.php:27
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:25
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+#: template-parts/content-none.php:39
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:31
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+#: template-parts/content-project.php:90
+msgid "Your browser doesn't support HTML5 video, but you can read this video with the link below."
 msgstr ""
 
-#: template-parts/content.php:33
-#, php-format
+#: template-parts/content-project.php:91
+msgid "Read the video"
+msgstr ""
+
+#. translators: %s: Name of current post.
+#: template-parts/content.php:36
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: template-parts/content-events.php:10
-msgid "Map"
+#. translators: %2$s: Date delimiter
+#: template-parts/events-byyear.php:42
+msgid "From %1$s to %2$s"
 msgstr ""
 
-#: template-parts/content-events.php:16
-msgid "List"
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:222
+msgid "Inactive Widgets"
 msgstr ""
 
-#. Author of the theme
-msgid "Anonyme"
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:225
+msgid "Drag widgets here to remove them from the sidebar but keep their settings."
 msgstr ""
