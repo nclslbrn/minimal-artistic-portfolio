@@ -220,7 +220,7 @@ function map_list_custom_posts( $type, $limit ) {
 		if ( $project_query->max_num_pages > 1 && -1 !== $limit ) {
 			$current_page = max( 1, get_query_var( 'paged' ) );
 	
-			echo esc_html(
+			echo wp_kses_post(
 				paginate_links(
 					array(
 						'prev_next' => false,
