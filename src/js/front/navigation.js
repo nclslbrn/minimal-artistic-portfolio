@@ -1,11 +1,12 @@
-jQuery('.menu-toggle').click(function () {
-    jQuery(this).toggleClass('open')
-    jQuery('#site-navigation').toggleClass('toggled')
-    jQuery('body').toggleClass('fixed')
-})
+;(function ($) {
+    $('.menu-toggle').click(function () {
+        $(this).toggleClass('open')
+        $(this).attr('aria-expanded', $(this).hasClass(open) ? 'false' : 'true')
+        $('#site-navigation').toggleClass('toggled')
+        $('body').toggleClass('fixed')
+    })
 
-jQuery('.menu-item-has-children').click(function () {
-    jQuery(this).toggleClass('open')
-})
-
-jQuery('.menu-toggle').click()
+    $('.menu-item-has-children').click(function () {
+        $(this).toggleClass('open')
+    })
+})(jQuery)
