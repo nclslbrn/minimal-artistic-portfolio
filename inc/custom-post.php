@@ -372,31 +372,31 @@ function map_list_posts_by_years( $type, $limit ) {
 				$last_year = $post_year;
 			}
 
-			krsort( $post_by_year ); 
-			// TODO move markup in a template parts.
-			?>
-		<section class="ac-container">
+			krsort( $post_by_year ); ?>
+			<section class="ac-container">
 
-			<?php foreach ( $post_by_year as $year => $posts ) : ?>	
-				<div class="<?php echo esc_attr( $type ); ?>-year-section">
+				<?php foreach ( $post_by_year as $year => $posts ) : ?>	
+					<div class="<?php echo esc_attr( $type ); ?>-year-section">
 
-					<h3 class="year"><?php echo esc_attr( $year ); ?></h3>
+						<h2 class="year"><?php echo esc_attr( $year ); ?></h2>
 
-					<div class="yearEventsList">
-						<?php 
-						foreach ( $posts as $post_by_year ) {
-							$args = $post_by_year;
-							get_template_part( 'template-parts/events', 'byyear', $args );
-						} 
-						?>
-					</div><!-- .year(Posts/Events)List-->				
-			<?php endforeach; ?>
+						<div class="yearEventsList">
+							
+							<?php foreach ( $posts as $post_by_year ) : ?>
+								<?php $args = $post_by_year; ?>
+								<?php get_template_part( 'template-parts/events', 'byyear', $args ); ?>
+							<?php endforeach; ?>
 
-			</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->
-		</section><!-- .ac-container -->
-		<script>
-			window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
-		</script>
+						</div><!-- .year(Posts/Events)List-->				
+					
+					</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->
+				
+				<?php endforeach; ?>
+
+			</section><!-- .ac-container -->
+			<script>
+				window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
+			</script>
 			<?php
 		}
 	} else {

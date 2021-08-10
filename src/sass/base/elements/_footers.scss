@@ -1,6 +1,10 @@
-/* footer {
+footer .site-info {
+    display: flex;
+    padding: 1em 0 0 0;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
- */
+
 footer.site-footer .wrapper {
     @include border('top');
     padding: 1em 0;

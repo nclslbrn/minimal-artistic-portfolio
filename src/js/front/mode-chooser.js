@@ -63,10 +63,8 @@ if ('undefined' !== typeof modeSwitches) {
 }
 
 if ('undefined' !== typeof modeButtons) {
-    console.log(modeButtons)
     for (let i = 0; i < modeButtons.length; i++) {
         const theme = modeButtons[i].dataset.mode
-        console.log(theme)
         if (null !== theme) {
             modeButtons[i].addEventListener('click', (event) => {
                 event.preventDefault()

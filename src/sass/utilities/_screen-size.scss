@@ -1,0 +1,13 @@
+.laptop-only {
+    display: none;
+    @include breakpoint(md) {
+        display: block;
+    }
+}
+
+.mobile-only {
+    display: block;
+    @include breakpoint(md) {
+        display: none;
+    }
+}

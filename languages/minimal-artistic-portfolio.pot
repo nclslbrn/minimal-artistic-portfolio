@@ -273,15 +273,15 @@ msgstr ""
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:528, template-parts/content-event.php:58
+#: inc/custom-post.php:528, template-parts/content-event.php:59
 msgid "From"
 msgstr ""
 
-#: inc/custom-post.php:530, template-parts/content-event.php:60
+#: inc/custom-post.php:530, template-parts/content-event.php:61
 msgid "to"
 msgstr ""
 
-#: inc/custom-post.php:534, template-parts/content-project.php:30, template-parts/events-byyear.php:54
+#: inc/custom-post.php:534, template-parts/content-project.php:29, template-parts/events-byyear.php:54
 msgid "Read more"
 msgstr ""
 
@@ -492,7 +492,7 @@ msgstr ""
 msgid "Map"
 msgstr ""
 
-#: template-parts/content-events.php:25
+#: template-parts/content-events.php:26
 msgid "List"
 msgstr ""
 
@@ -509,11 +509,11 @@ msgstr ""
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-project.php:79
+#: template-parts/content-project.php:77
 msgid "Your browser doesn't support HTML5 video, but you can read this video with the link below."
 msgstr ""
 
-#: template-parts/content-project.php:80
+#: template-parts/content-project.php:78
 msgid "Read the video"
 msgstr ""
 

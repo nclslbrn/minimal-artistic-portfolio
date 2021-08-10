@@ -16,20 +16,18 @@ if ( ! is_single() ) { ?>
 		<?php echo get_the_post_thumbnail( get_the_ID(), 'cover' ); ?>
 	</a>
 	<div class="project-cartel">
-		<div class="wrapper">
-			<h4 class="project-title">
-				<a href="<?php echo esc_url( get_permalink() ); ?>">
-				<?php echo esc_html( get_the_title() ); ?>
-				</a>
-			</h4>
-			<p class="project-description">
-				<?php echo wp_kses_post( $map_cartel, ',' ); ?>
-				<?php echo esc_html( mysql2date( 'Y.', $post->post_date_gmt ) ); ?>
-			</p>
-			<a href="<?php echo esc_url( get_permalink() ); ?>" class="button">
-				<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
+		<h2 class="project-title">
+			<a href="<?php echo esc_url( get_permalink() ); ?>">
+			<?php echo esc_html( get_the_title() ); ?>
 			</a>
-		</div><!-- .wrapper -->
+		</h2>
+		<p class="project-description">
+			<?php echo wp_kses_post( $map_cartel, ',' ); ?>
+			<?php echo esc_html( mysql2date( 'Y.', $post->post_date_gmt ) ); ?>
+		</p>
+		<!-- <a href="<?php echo esc_url( get_permalink() ); ?>" class="button">
+			<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
+		</a> -->
 	</div><!-- .cartel -->
 </div><!-- project-summary -->
 	<?php 
@@ -42,8 +40,8 @@ if ( ! is_single() ) { ?>
 	$map_second_res_url   = get_post_meta( $post->ID, '720P_VIDEO_URL', true );
 	$map_third_res_url    = get_post_meta( $post->ID, '1080P_VIDEO_URL', true );
 	$map_content_classes  = '';
-	$map_content_classes .= '' !== get_the_content() ? 'filled ' : '';
-	$map_content_classes .= false === map_get_event( get_the_ID() ) ? 'no-event ' : '';
+	$map_content_classes .= '' !== $post->post_content ? ' filled' : '';
+	$map_content_classes .= false === map_get_event( get_the_ID() ) ? ' no-event' : '';
 
 	?>
 	<header class="entry-header">
@@ -87,7 +85,7 @@ if ( ! is_single() ) { ?>
 		} 
 		?>
 
-		<div class="row project-text <?php echo esc_attr( $map_content_classes ); ?>">
+		<div class="project-texts<?php echo esc_attr( $map_content_classes ); ?>">
 			<div class="project-cartel">
 				<?php if ( $map_cartel ) : ?>
 					<p>
@@ -100,14 +98,14 @@ if ( ! is_single() ) { ?>
 					echo wp_kses_post( map_get_event( $post->ID ) );
 				} 
 				?>
-				<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'laptop' ); ?>
+				<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'laptop-only' ); ?>
 			</div><!-- .project-cartel -->
 
 			<div class="project-description">
 				<?php the_content(); ?>
 			</div><!-- .project-description -->
 
-		<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'mobile' ); ?>
+		<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'mobile-only' ); ?>
 			</div><!-- .row .project-text -->
 		</div><!-- .entry-content -->
 	<?php

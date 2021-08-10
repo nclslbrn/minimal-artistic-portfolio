@@ -2,7 +2,6 @@
 svg.icon {
     width: 1em;
     height: 1em;
-
     fill: var(--text-color);
 }
 
@@ -49,12 +48,4 @@ svg.icon {
     .menu-toggle .menu-icon::after {
         margin-top: 9px;
     }
-}
-@include breakpoint(sm) {
-    /* .menu-toggle .menu-icon::before {
-        margin-top: -12px;
-    }
-    .menu-toggle .menu-icon::after {
-        margin-top: 12px;
-    } */
 }

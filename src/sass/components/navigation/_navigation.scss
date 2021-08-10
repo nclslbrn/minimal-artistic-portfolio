@@ -32,14 +32,6 @@
             a {
                 width: auto;
             }
-
-            :hover > a,
-            .focus > a {
-            }
-
-            a:hover,
-            a.focus {
-            }
         }
 
         li:hover > ul,
@@ -114,7 +106,7 @@
     ul li a,
     ul li input,
     ul li button {
-        padding: 0.5em;
+        padding: 0.8em;
 
         font-size: 2em;
         @include breakpoint(md) {
@@ -133,13 +125,11 @@
     .current_page_ancestor,
     .current-menu-ancestor {
         @include border;
-        @include border;
         opacity: 0.75;
     }
 }
 
 /* Small menu. */
-
 .main-navigation {
     position: absolute;
     width: 100%;
@@ -159,10 +149,9 @@
 
         display: flex;
         flex-flow: row wrap;
-        padding-left: 1em;
     }
     @include breakpoint(lg) {
-        max-width: 70%;
+        max-width: 68%;
     }
 }
 .menu-toggle,
@@ -174,12 +163,9 @@
         position: relative;
         padding: 1.5rem;
         margin: 0;
-        border: none;
-        border-bottom: none;
         background: none;
         vertical-align: middle;
         pointer-events: all;
-        background: var(--focus-color);
     }
 }
 

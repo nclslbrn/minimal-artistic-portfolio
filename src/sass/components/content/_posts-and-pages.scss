@@ -44,3 +44,139 @@
     clear: both;
     margin: 0 0 1.5em;
 }
+
+/* Project & event list
+--------------------------------------------- */
+.project-summary,
+.event-summary {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 0 2em 0;
+
+    @include breakpoint(md) {
+        flex-flow: row nowrap;
+        width: 100%;
+    }
+    div.event-info,
+    div.project-cartel,
+    a.event-featured-image,
+    a.project-featured-image {
+        flex: 1 0 auto;
+    }
+
+    a.event-featured-image {
+        max-width: 40%;
+    }
+
+    div.event-info,
+    div.project-cartel {
+        padding: 2em;
+        flex-basis: 50%;
+    }
+}
+
+/* Single project & event
+--------------------------------------------- */
+.single-project .project-texts,
+.single-event .event-texts {
+    display: flex;
+    flex-flow: column nowrap;
+    @include breakpoint(md) {
+        flex-flow: row nowrap;
+
+        .project-description,
+        .event-description {
+            flex: 0 1 auto;
+        }
+
+        .project-cartel,
+        .event-properties {
+            padding-right: 1.5%;
+            flex: 1 0 28.5%;
+        }
+    }
+}
+
+ul.related-events,
+ul.related-projects {
+    margin-left: 0;
+}
+
+.event-hero {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    overflow: hidden;
+
+    .event-featured-image img {
+        float: left;
+    }
+}
+
+/* Events / CV
+--------------------------------------------- */
+.ac-container .event-year-section {
+}
+.ac-container .event-year-section .yearEventsList {
+    padding-left: 140px;
+}
+
+/* GIF page
+--------------------------------------------- */
+
+.gif-grid {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1em 0;
+    flex-wrap: wrap;
+}
+.gif-grid article {
+    position: relative;
+    padding: 1em;
+    width: fit-content;
+    text-align: center;
+}
+
+.gif-grid article a {
+    display: block;
+    border-radius: 2px;
+    transition: all ease-in-out 0.15s;
+}
+.gif-grid article a:hover {
+    background: var(--hover-color);
+}
+
+.gif-grid a.fluidbox--closed .fluidbox__wrap::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 48px solid rgba(0, 0, 0, 0);
+    margin: -48px 0 0 -24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: var(--hover-color);
+    z-index: 9;
+    transition: all ease-in-out 0.15s;
+}
+
+.gif-grid a.fluidbox--closed .fluidbox__wrap:hover::before {
+    border-left: 48px solid var(--hover-color);
+}
+
+.gif-grid a img {
+    display: block;
+    border: 12px solid rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.gif-grid .gif-source.hidden {
+    display: block;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+    overflow: hidden;
+}

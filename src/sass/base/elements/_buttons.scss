@@ -1,12 +1,26 @@
 button,
 input[type='button'],
 input[type='reset'],
+input[type='submit'],
+.page-nav a,
+.page-nav span,
+a.btn,
+a.button,
+.social-sharing-module a {
+    line-height: 1;
+    padding: 0.6em 1em 0.4em;
+}
+
+a.button,
+button,
+input[type='button'],
+input[type='reset'],
 input[type='submit'] {
     border: 1px solid;
     background: var(--primary-color);
     color: rgba(0, 0, 0, 0.8);
-    line-height: 1;
-    padding: 0.6em 1em 0.4em;
+
+    @include border(all, --primary-color);
 
     &:hover {
         background: var(--hover-color);
@@ -14,6 +28,30 @@ input[type='submit'] {
 
     &:active,
     &:focus {
-        background: var(--focus-color);
+        @include border;
+        background: var(--bg-color);
     }
+}
+
+a.btn,
+.page-nav a,
+.page-nav span,
+.social-sharing-module a {
+    background: var(--bg-color);
+}
+
+a.btn,
+a.button,
+.page-nav a,
+.page-nav span,
+.social-sharing-module a,
+button[data-toggle] {
+    margin: 0.25em;
+    @include border;
+    text-decoration: none;
+}
+
+.page-nav span,
+button[data-toggle].active {
+    opacity: 0.75;
 }
