@@ -12,6 +12,8 @@
             left: -999em;
             z-index: 99999;
             background: var(--bg-color);
+            //box-shadow: 0 0 2px var(--focus-color);
+            @include border;
 
             ul {
                 left: -999em;
@@ -25,10 +27,6 @@
                     display: block;
                     left: auto;
                 }
-            }
-
-            li img.qtranxs-flag {
-                display: none;
             }
 
             a {
@@ -49,33 +47,94 @@
             left: auto;
             width: 100%;
         }
+        @include breakpoint(md) {
+            li > ul > li > a {
+                display: block;
+            }
+        }
+        li img.qtranxs-flag {
+            display: none;
+        }
     }
 
     li {
         position: relative;
-
-        &:hover > a,
-        &.focus > a {
+        border: $border-width $border-style transparent;
+        margin-right: -$border-width;
+        transition: all 0.35s ease-out;
+        &:hover,
+        &.focus {
+            @include border;
         }
     }
-    li a .qtranxs-flag {
+    li.menu-item-has-children {
+        padding-right: 1em;
+    }
+    li.menu-item-has-children > a::after,
+    li.menu-item-has-children > a::before {
+        content: '';
+        display: block;
+        top: 0;
+        margin-left: 0.15em;
+        right: 0.25em;
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-width: 0.5em;
+        margin-top: 1em;
+        border-style: solid;
+        border-color: var(--primary-color) transparent transparent transparent;
+        z-index: 666;
+
+        transition: margin 0.05s ease-out;
+    }
+    li.menu-item-has-children > a::after {
+        margin-top: 0.9em;
+        top: 0;
+        border-color: var(--bg-color) transparent transparent transparent;
+        z-index: 999;
+    }
+    li.menu-item-has-children:hover > a::before,
+    li.menu-item-has-children:hover > a::after {
+        margin-top: 0.5em;
+        border-color: transparent transparent var(--primary-color) transparent;
+    }
+    li.menu-item-has-children:hover > a::after {
+        margin-top: 0.6em;
+        border-color: transparent transparent var(--bg-color) transparent;
+    }
+    li.qtranxs-lang-menu-item a img {
+        display: none;
         margin-bottom: 0.15em;
     }
     a {
         display: block;
         text-decoration: none;
     }
-    a,
-    input {
-        margin: 0.25em 0;
+    ul li a,
+    ul li input,
+    ul li button {
+        padding: 0.5em;
+
         font-size: 2em;
+        @include breakpoint(md) {
+            font-size: 1em;
+        }
+
         text-align: center;
     }
-
-    .current_page_item > a,
-    .current-menu-item > a,
-    .current_page_ancestor > a,
-    .current-menu-ancestor > a {
+    ul li input {
+        @include breakpoint(md) {
+            width: 120px;
+        }
+    }
+    .current_page_item,
+    .current-menu-item,
+    .current_page_ancestor,
+    .current-menu-ancestor {
+        @include border;
+        @include border;
+        opacity: 0.75;
     }
 }
 
@@ -102,6 +161,9 @@
         flex-flow: row wrap;
         padding-left: 1em;
     }
+    @include breakpoint(lg) {
+        max-width: 70%;
+    }
 }
 .menu-toggle,
 .main-navigation.toggled ul {
@@ -110,10 +172,8 @@
 .menu-toggle {
     @include breakpoint(xs) {
         position: relative;
-        padding: 2rem;
+        padding: 1.5rem;
         margin: 0;
-        width: 64px;
-        height: 64px;
         border: none;
         border-bottom: none;
         background: none;
@@ -128,11 +188,16 @@
         display: none;
     }
 
-    .main-navigation ul {
+    .main-navigation > ul {
         display: flex;
+        flex: 1 0 auto;
+        flex-flow: row wrap;
         align-items: center;
-        justify-content: space-between;
-        width: 100%;
+        justify-content: flex-end;
+        max-width: 100%;
+    }
+    .main-navigation ul ul {
+        display: block;
     }
 }
 
@@ -155,4 +220,16 @@
         text-align: end;
         flex: 1 0 50%;
     }
+}
+
+#menu-footer {
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    width: 100%;
+    list-style-type: none;
 }

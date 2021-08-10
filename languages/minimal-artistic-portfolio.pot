@@ -58,8 +58,8 @@ msgstr ""
 msgid "All right reserved"
 msgstr ""
 
-#: footer.php:30
-msgid "Designed by Nicolas Lebrun"
+#: footer.php:29
+msgid "Design : N.Lebrun"
 msgstr ""
 
 #: functions.php:54
@@ -269,55 +269,71 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: inc/custom-post.php:505
+#: inc/custom-post.php:503
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:530, template-parts/content-event.php:58
+#: inc/custom-post.php:528, template-parts/content-event.php:58
 msgid "From"
 msgstr ""
 
-#: inc/custom-post.php:532, template-parts/content-event.php:60
+#: inc/custom-post.php:530, template-parts/content-event.php:60
 msgid "to"
 msgstr ""
 
-#: inc/custom-post.php:536, template-parts/content-project.php:37, template-parts/events-byyear.php:52
+#: inc/custom-post.php:534, template-parts/content-project.php:30, template-parts/events-byyear.php:54
 msgid "Read more"
 msgstr ""
 
-#: inc/custom-post.php:564
+#: inc/custom-post.php:562
 msgid "$undefined->singular_name"
 msgid_plural "$undefined->name"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/custom-post.php:638
+#: inc/custom-post.php:636
 msgid "Today"
 msgstr ""
 
-#: inc/custom-post.php:640
+#: inc/custom-post.php:638
 msgid "Tomorrow"
 msgstr ""
 
 #. translators: 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:648
+#: inc/custom-post.php:646
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#: inc/custom-post.php:684
+#: inc/custom-post.php:682
 msgid "Publishing Soon"
 msgstr ""
 
-#: inc/custom-post.php:696
+#: inc/custom-post.php:694
 msgid "Recently Published"
 msgstr ""
 
-#: inc/custom-post.php:706
+#: inc/custom-post.php:704
 msgid "No activity yet!"
 msgstr ""
 
-#: inc/extras.php:67, inc/extras.php:71
+#: inc/extras.php:69, inc/extras.php:73
 msgid "Search"
+msgstr ""
+
+#: inc/extras.php:112
+msgid "Theme"
+msgstr ""
+
+#: inc/extras.php:113
+msgid "Theme : "
+msgstr ""
+
+#: inc/extras.php:124
+msgid "Light"
+msgstr ""
+
+#: inc/extras.php:131
+msgid "Dark"
 msgstr ""
 
 #: inc/meta-box.php:69
@@ -493,11 +509,11 @@ msgstr ""
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-project.php:90
+#: template-parts/content-project.php:79
 msgid "Your browser doesn't support HTML5 video, but you can read this video with the link below."
 msgstr ""
 
-#: template-parts/content-project.php:91
+#: template-parts/content-project.php:80
 msgid "Read the video"
 msgstr ""
 
@@ -507,7 +523,7 @@ msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #. translators: %2$s: Date delimiter
-#: template-parts/events-byyear.php:42
+#: template-parts/events-byyear.php:44
 msgid "From %1$s to %2$s"
 msgstr ""
 

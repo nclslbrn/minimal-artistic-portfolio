@@ -1,0 +1,7 @@
+/* footer {
+}
+ */
+footer.site-footer .wrapper {
+    @include border('top');
+    padding: 1em 0;
+}

@@ -46,20 +46,20 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 :root[data-theme=light] {
-  --primary-color: #0a428b;
+  --primary-color: #004996;
   --text-color: #333333;
-  --focus-color: lightGreen;
-  --hover-color: tomato;
+  --focus-color: #ffca3a;
+  --hover-color: #ff4c48;
   --bg-color: #fafafa;
   --component-bg-color: #ffffff;
-  --border-color: #cccccc;
+  --border-color: #eee;
 }
 
 :root[data-theme=dark] {
-  --primary-color: #49afd9;
+  --primary-color: #567bae;
   --text-color: #e3f5fc;
-  --focus-color: steelBlue;
-  --hover-color: orange;
+  --focus-color: #ffca3a;
+  --hover-color: #ffbcb3;
   --bg-color: #201b1d;
   --component-bg-color: #22343c;
   --border-color: #333333;
@@ -400,9 +400,11 @@ html {
 /* Typography
 --------------------------------------------- */
 @font-face {
-  font-family: "Inter-Bold";
+  font-family: "Inter-Black";
   font-style: normal;
-  src: url("build/fonts/Inter-Bold.woff2") format("woff2"), url("build/fonts/Inter-Bold.woff") format("woff");
+  font-weight: 900;
+  font-display: swap;
+  src: url("build/fonts/Inter-Black.woff2") format("woff2"), url("build/fonts/Inter-Black.woff") format("woff");
 }
 html {
   font-size: 16px;
@@ -441,7 +443,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter-Bold", sans-serif;
+  font-family: "Inter-Black", sans-serif;
   clear: both;
   color: var(--text-color);
 }
@@ -477,6 +479,11 @@ h1 {
 @media (min-width: 12rem) and (max-width: 54rem) {
   .site-title {
     font-size: 2em;
+  }
+}
+@media (min-width: 54rem) and (max-width: 64rem) {
+  .site-title {
+    text-align: center;
   }
 }
 
@@ -532,6 +539,12 @@ big {
   font-size: 125%;
 }
 
+ul.menu li input,
+ul.menu li button,
+ul.menu li a {
+  font-weight: bolder;
+}
+
 /* Elements
 --------------------------------------------- */
 body {
@@ -546,7 +559,7 @@ svg.icon {
 }
 
 .menu-toggle .menu-icon {
-  margin: 30px 0 0 0;
+  margin: 0;
   left: 25%;
 }
 
@@ -555,12 +568,7 @@ svg.icon {
 .menu-toggle .menu-icon::after {
   display: block;
   position: absolute;
-  top: 0;
-  /*   @include breakpoint(sm) {
-         width: 32px;
-         height: 4px;
-     }
-  */
+  top: 50%;
   background: var(--text-color);
   transition: all 0.3s;
 }
@@ -614,10 +622,19 @@ svg.icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid var(--border-color);
 }
 @media (min-width: 54rem) {
+  .site-header div.wrapper {
+    flex-flow: column nowrap;
+  }
+}
+@media (min-width: 64rem) {
+  .site-header div.wrapper {
+    flex-flow: row nowrap;
+  }
   .site-header div.wrapper .site-title {
-    padding: 0.3em 1em 0.3em 0;
+    padding: 0.3em 0.3em 0.3em 0;
     margin: 0;
   }
 }
@@ -632,6 +649,14 @@ svg.icon {
     display: block;
     margin-right: 0;
   }
+}
+
+/* footer {
+}
+ */
+footer.site-footer .wrapper {
+  border-top: 2px solid var(--border-color);
+  padding: 1em 0;
 }
 
 hr {
@@ -752,7 +777,7 @@ input[type=datetime-local],
 input[type=color],
 textarea {
   color: var(--text-color);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 3px;
   padding: 3px;
   background-color: var(--bg-color);
@@ -777,7 +802,7 @@ textarea:focus {
 }
 
 select {
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
 }
 
 textarea {
@@ -794,8 +819,78 @@ ul.menu form#searchform input#s {
 }
 
 input,
+textarea {
+  outline: none;
+  border: 2px solid var(--border-color);
+}
+input:focus,
+textarea:focus {
+  border-color: var(--hover-color);
+}
+
+input,
 button {
   cursor: pointer;
+}
+
+ul.sub-menu li button {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: none;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.4rem;
+  height: 1.4rem;
+  margin: 0.25em 0.2rem;
+}
+
+.mode-switcher {
+  vertical-align: middle;
+}
+
+.mode-switcher svg {
+  font-size: 2rem;
+  margin: 0 0.25rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border: 2px solid var(--border-color);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  left: 0.2rem;
+  bottom: 0.2rem;
+  background-color: var(--border-color);
+  transition: 0.4s;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--hover-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1rem);
 }
 
 /*--------------------------------------------------------------
@@ -819,6 +914,7 @@ button {
   left: -999em;
   z-index: 99999;
   background: var(--bg-color);
+  border: 2px solid var(--border-color);
 }
 .main-navigation ul ul ul {
   left: -999em;
@@ -831,9 +927,6 @@ button {
   display: block;
   left: auto;
 }
-.main-navigation ul ul li img.qtranxs-flag {
-  display: none;
-}
 .main-navigation ul ul a {
   width: auto;
 }
@@ -842,22 +935,94 @@ button {
   left: auto;
   width: 100%;
 }
+@media (min-width: 54rem) {
+  .main-navigation ul li > ul > li > a {
+    display: block;
+  }
+}
+.main-navigation ul li img.qtranxs-flag {
+  display: none;
+}
 .main-navigation li {
   position: relative;
+  border: 2px solid transparent;
+  margin-right: -2px;
+  transition: all 0.35s ease-out;
 }
-.main-navigation li a .qtranxs-flag {
+.main-navigation li:hover, .main-navigation li.focus {
+  border: 2px solid var(--border-color);
+}
+.main-navigation li.menu-item-has-children {
+  padding-right: 1em;
+}
+.main-navigation li.menu-item-has-children > a::after,
+.main-navigation li.menu-item-has-children > a::before {
+  content: "";
+  display: block;
+  top: 0;
+  margin-left: 0.15em;
+  right: 0.25em;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-width: 0.5em;
+  margin-top: 1em;
+  border-style: solid;
+  border-color: var(--primary-color) transparent transparent transparent;
+  z-index: 666;
+  transition: margin 0.05s ease-out;
+}
+.main-navigation li.menu-item-has-children > a::after {
+  margin-top: 0.9em;
+  top: 0;
+  border-color: var(--bg-color) transparent transparent transparent;
+  z-index: 999;
+}
+.main-navigation li.menu-item-has-children:hover > a::before,
+.main-navigation li.menu-item-has-children:hover > a::after {
+  margin-top: 0.5em;
+  border-color: transparent transparent var(--primary-color) transparent;
+}
+.main-navigation li.menu-item-has-children:hover > a::after {
+  margin-top: 0.6em;
+  border-color: transparent transparent var(--bg-color) transparent;
+}
+.main-navigation li.qtranxs-lang-menu-item a img {
+  display: none;
   margin-bottom: 0.15em;
 }
 .main-navigation a {
   display: block;
   text-decoration: none;
 }
-.main-navigation a,
-.main-navigation input {
-  margin: 0.25em 0;
+.main-navigation ul li a,
+.main-navigation ul li input,
+.main-navigation ul li button {
+  padding: 0.5em;
   font-size: 2em;
   text-align: center;
 }
+@media (min-width: 54rem) {
+  .main-navigation ul li a,
+.main-navigation ul li input,
+.main-navigation ul li button {
+    font-size: 1em;
+  }
+}
+@media (min-width: 54rem) {
+  .main-navigation ul li input {
+    width: 120px;
+  }
+}
+.main-navigation .current_page_item,
+.main-navigation .current-menu-item,
+.main-navigation .current_page_ancestor,
+.main-navigation .current-menu-ancestor {
+  border: 2px solid var(--border-color);
+  border: 2px solid var(--border-color);
+  opacity: 0.75;
+}
+
 /* Small menu. */
 .main-navigation {
   position: absolute;
@@ -880,6 +1045,11 @@ button {
     padding-left: 1em;
   }
 }
+@media (min-width: 64rem) {
+  .main-navigation {
+    max-width: 70%;
+  }
+}
 
 .menu-toggle,
 .main-navigation.toggled ul {
@@ -889,10 +1059,8 @@ button {
 @media (min-width: 12rem) {
   .menu-toggle {
     position: relative;
-    padding: 2rem;
+    padding: 1.5rem;
     margin: 0;
-    width: 64px;
-    height: 64px;
     border: none;
     border-bottom: none;
     background: none;
@@ -907,11 +1075,17 @@ button {
     display: none;
   }
 
-  .main-navigation ul {
+  .main-navigation > ul {
     display: flex;
+    flex: 1 0 auto;
+    flex-flow: row wrap;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+
+  .main-navigation ul ul {
+    display: block;
   }
 }
 .site-main .comment-navigation,
@@ -936,6 +1110,16 @@ button {
   flex: 1 0 50%;
 }
 
+#menu-footer {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+}
+
 /* Posts and pages
 --------------------------------------------- */
 .site .wrapper {
@@ -957,10 +1141,15 @@ button {
 }
 @media (min-width: 54rem) {
   .site .wrapper {
-    width: 1000px;
+    width: 820px;
   }
 }
 @media (min-width: 64rem) {
+  .site .wrapper {
+    width: 960px;
+  }
+}
+@media (min-width: 80rem) {
   .site .wrapper {
     width: 1280px;
   }

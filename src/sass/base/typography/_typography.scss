@@ -1,9 +1,10 @@
 @include font-face(
-    'Inter-Bold',
-    'build/fonts/Inter-Bold',
-    null,
+    'Inter-Black',
+    'build/fonts/Inter-Black',
+    900,
     normal,
-    woff2 woff
+    woff2 woff,
+    swap
 );
 
 html {

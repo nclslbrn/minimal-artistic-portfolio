@@ -29,4 +29,9 @@ $level-size: 0.5rem;
     }
     line-height: 1;
     text-transform: uppercase;
+    @include breakpoint(md) {
+        @include breakpoint(lg, max) {
+            text-align: center;
+        }
+    }
 }

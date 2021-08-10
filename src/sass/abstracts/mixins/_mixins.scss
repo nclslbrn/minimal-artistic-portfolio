@@ -30,7 +30,8 @@
     $path,
     $weight: null,
     $style: null,
-    $exts: eot woff2 woff ttf svg
+    $exts: eot woff2 woff ttf svg,
+    $display: 'swap'
 ) {
     $src: null;
 
@@ -62,6 +63,21 @@
         font-family: quote($name);
         font-style: $style;
         font-weight: $weight;
+        font-display: $display;
         src: $src;
+    }
+}
+
+@mixin border($side: 'all', $color-id: false) {
+    $border-color: var(--border-color);
+    // Assign new CSS var if needed
+    @if ($color-id) {
+        $border-color: var($color-id);
+    }
+
+    @if ($side == 'all') {
+        border: $border-width $border-style $border-color;
+    } @else {
+        border-#{$side}: $border-width $border-style $border-color;
     }
 }

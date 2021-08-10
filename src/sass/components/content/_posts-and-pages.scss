@@ -8,9 +8,12 @@
         width: 90%;
     }
     @include breakpoint(md) {
-        width: 1000px;
+        width: 820px;
     }
     @include breakpoint(lg) {
+        width: 960px;
+    }
+    @include breakpoint(xl) {
         width: 1280px;
     }
 
