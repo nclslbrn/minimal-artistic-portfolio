@@ -1,0 +1,67 @@
+// Center block
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+    width: map-get($columns, $numberColumns) -
+        (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+// responsive breakpoints
+@mixin breakpoint($breakpoint: md, $key: min, $orientation: false) {
+    @if ($orientation) {
+        @media (#{$key}-width: map-get($breakpoints, $breakpoint)) and (orientation : $orientation) {
+            @content;
+        }
+    } @else {
+        @media (#{$key}-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+// include from fonts
+@mixin font-face(
+    $name,
+    $path,
+    $weight: null,
+    $style: null,
+    $exts: eot woff2 woff ttf svg
+) {
+    $src: null;
+
+    $extmods: (
+        eot: '?',
+        svg: '#' + str-replace($name, ' ', '_')
+    );
+
+    $formats: (
+        otf: 'opentype',
+        ttf: 'truetype'
+    );
+
+    @each $ext in $exts {
+        $extmod: if(
+            map-has-key($extmods, $ext),
+            $ext + map-get($extmods, $ext),
+            $ext
+        );
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append(
+            $src,
+            url(quote($path + '.' + $extmod)) format(quote($format)),
+            comma
+        );
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}

@@ -1,0 +1,18 @@
+:root[data-theme='light'] {
+    --primary-color: #0a428b;
+    --text-color: #333333;
+    --focus-color: lightGreen;
+    --hover-color: tomato;
+    --bg-color: #fafafa;
+    --component-bg-color: #ffffff;
+    --border-color: #cccccc;
+}
+:root[data-theme='dark'] {
+    --primary-color: #49afd9;
+    --text-color: #e3f5fc;
+    --focus-color: steelBlue;
+    --hover-color: orange;
+    --bg-color: #201b1d;
+    --component-bg-color: #22343c;
+    --border-color: #333333;
+}

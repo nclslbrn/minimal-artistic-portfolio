@@ -1,0 +1,32 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font__heading;
+    clear: both;
+    color: var(--text-color);
+}
+
+$level-size: 0.5rem;
+
+@each $level in $type-levels {
+    $level-size: $level-size * $type-size-ratio;
+
+    // Output heading styles
+    // Assign to element and create utility class
+    h#{$level} {
+        font-size: $level-size;
+    }
+}
+
+.site-title {
+    @include breakpoint(xs) {
+        @include breakpoint(md, max) {
+            font-size: 2em;
+        }
+    }
+    line-height: 1;
+    text-transform: uppercase;
+}

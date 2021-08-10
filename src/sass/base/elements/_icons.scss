@@ -1,0 +1,65 @@
+// every inline svg
+svg.icon {
+    width: 1em;
+    height: 1em;
+
+    fill: var(--text-color);
+}
+
+// mobile menu icon (animated)
+.menu-toggle .menu-icon {
+    margin: 30px 0 0 0;
+    left: 25%;
+}
+
+.menu-toggle .menu-icon,
+.menu-toggle .menu-icon::before,
+.menu-toggle .menu-icon::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    @include breakpoint(xs) {
+        width: 24px;
+        height: 2px;
+    }
+    /*   @include breakpoint(sm) {
+        width: 32px;
+        height: 4px;
+    }
+ */
+    background: var(--text-color);
+    transition: all 0.3s;
+}
+.menu-toggle.open .menu-icon {
+    background: transparent;
+}
+
+.menu-toggle.open .menu-icon::before {
+    margin-top: 0px;
+    transform: rotate(-45deg);
+}
+.menu-toggle.open .menu-icon::after {
+    margin-top: 0px;
+    transform: rotate(45deg);
+}
+
+.menu-toggle .menu-icon::before,
+.menu-toggle .menu-icon::after {
+    content: '';
+}
+@include breakpoint(xs) {
+    .menu-toggle .menu-icon::before {
+        margin-top: -9px;
+    }
+    .menu-toggle .menu-icon::after {
+        margin-top: 9px;
+    }
+}
+@include breakpoint(sm) {
+    /* .menu-toggle .menu-icon::before {
+        margin-top: -12px;
+    }
+    .menu-toggle .menu-icon::after {
+        margin-top: 12px;
+    } */
+}

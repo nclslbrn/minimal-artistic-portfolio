@@ -1,0 +1,24 @@
+.site-header div.wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint(md) {
+        .site-title {
+            padding: 0.3em 1em 0.3em 0;
+            margin: 0;
+        }
+    }
+
+    .site-title a {
+        text-decoration: none;
+    }
+    .site-title a span {
+        margin-right: 0.25em;
+        @include breakpoint(md) {
+            display: block;
+            margin-right: 0;
+        }
+    }
+}

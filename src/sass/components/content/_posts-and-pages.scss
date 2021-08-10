@@ -1,0 +1,43 @@
+.site .wrapper {
+    display: block;
+
+    @include breakpoint(xs) {
+        width: 90%;
+    }
+    @include breakpoint(sm) {
+        width: 90%;
+    }
+    @include breakpoint(md) {
+        width: 1000px;
+    }
+    @include breakpoint(lg) {
+        width: 1280px;
+    }
+
+    @include center-block;
+    min-height: 100%;
+}
+
+.sticky {
+    display: block;
+}
+
+.post,
+.page {
+    margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+    display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+    margin: 1.5em 0 0;
+}
+
+.page-links {
+    clear: both;
+    margin: 0 0 1.5em;
+}

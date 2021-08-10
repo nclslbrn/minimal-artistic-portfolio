@@ -1,0 +1,41 @@
+@include font-face(
+    'Inter-Bold',
+    'build/fonts/Inter-Bold',
+    null,
+    normal,
+    woff2 woff
+);
+
+html {
+    font-size: 16px;
+}
+@include breakpoint(xs) {
+    html {
+        font-size: calc($body_font_size + 6 * ((100vw - 320px) / 680));
+    }
+}
+@include breakpoint(md) {
+    html {
+        font-size: 20px;
+    }
+}
+@include breakpoint(lg) {
+    html {
+        font-size: 22px;
+    }
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+    color: var(--text-color);
+    font-family: $font__main;
+    font-size: 1rem;
+    line-height: $font__line-height-body;
+}
+
+@import 'headings';
+@import 'copy';
