@@ -377,21 +377,19 @@ function map_list_posts_by_years( $type, $limit ) {
 			?>
 		<section class="ac-container">
 
-			<?php foreach ( $post_by_year as $year => $posts ) : ?>
-			
-			<div class="<?php echo esc_attr( $type ); ?>-year-section">
+			<?php foreach ( $post_by_year as $year => $posts ) : ?>	
+				<div class="<?php echo esc_attr( $type ); ?>-year-section">
 
-				<h3 class="year"><?php echo esc_attr( $year ); ?></h3>
+					<h3 class="year"><?php echo esc_attr( $year ); ?></h3>
 
-				<div class="yearEventsList">
-					<?php 
-					foreach ( $posts as $post_by_year ) {
-						$args = $post_by_year;
-						get_template_part( 'template-parts/events', 'byyear', $args );
-					} 
-					?>
-				</div><!-- .year(Posts/Events)List-->
-				
+					<div class="yearEventsList">
+						<?php 
+						foreach ( $posts as $post_by_year ) {
+							$args = $post_by_year;
+							get_template_part( 'template-parts/events', 'byyear', $args );
+						} 
+						?>
+					</div><!-- .year(Posts/Events)List-->				
 			<?php endforeach; ?>
 
 			</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->
@@ -511,32 +509,32 @@ function map_contextully_load_last_event() {
 					$GLOBALS['map_long'] = $actual_events[ $post->ID ]['map_long']; 
 				?>
 
-		<div id="event-<?php echo esc_attr( $post->ID ); ?>" class="row event-on-home">
-		  <div class="col-6 column ">
-				<?php the_post_thumbnail( 'full' ); ?>
-		  </div>
-		  <div class="col-6 column event-info">
-			<h3><?php echo esc_html( get_the_title( $post->ID ) ); ?></h3>
-			<p>
-			  <svg class="icon icon-location">
-				<use xlink:href="#icon-location"></use>
-			  </svg>
-				  <?php echo esc_html( $actual_events[ $post->ID ]['place'] ); ?>
-			</p>
-			<p class="date">
-			  <svg class="icon icon-calendar">
-				<use xlink:href="#icon-calendar"></use>
-			  </svg>
-				  <?php echo esc_html( __( 'From', 'Minimal-Artistic-Portfolio' ) ); ?>
-				  <?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( get_post_meta( get_the_ID(), 'BEGINDATE', 'true' ) ) ) ); ?>
-				  <?php echo esc_html( __( 'to', 'Minimal-Artistic-Portfolio' ) ); ?>
-				  <?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $end_date ) ) ); ?>
-			</p>
-			<a class="button" href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>">
-				<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
-			</a>
-		  </div><!-- /.col-6 -->
-		</div><!-- /.row -->
+		<div id="event-<?php echo esc_attr( $post->ID ); ?>" class="event-on-home">
+			<div class="event-featured-image">
+					<?php the_post_thumbnail( 'full' ); ?>
+			</div>
+			<div class="event-info">
+				<h3><?php echo esc_html( get_the_title( $post->ID ) ); ?></h3>
+				<p>
+				<svg class="icon icon-location">
+					<use xlink:href="#icon-location"></use>
+				</svg>
+					<?php echo esc_html( $actual_events[ $post->ID ]['place'] ); ?>
+				</p>
+				<p class="date">
+				<svg class="icon icon-calendar">
+					<use xlink:href="#icon-calendar"></use>
+				</svg>
+					<?php echo esc_html( __( 'From', 'Minimal-Artistic-Portfolio' ) ); ?>
+					<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( get_post_meta( get_the_ID(), 'BEGINDATE', 'true' ) ) ) ); ?>
+					<?php echo esc_html( __( 'to', 'Minimal-Artistic-Portfolio' ) ); ?>
+					<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $end_date ) ) ); ?>
+				</p>
+				<a class="button" href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>">
+					<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
+				</a>
+			</div><!-- event-info -->
+		</div><!-- .evennt-on-home -->
 
 				<?php 
 				$count++;

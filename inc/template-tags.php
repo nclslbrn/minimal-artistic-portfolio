@@ -286,7 +286,7 @@ function map_get_form_markup( $url ) {
 		<label class="pot" for="website">Name (please leave this field empty)</label>
 		<input class="pot" id="website" type="url" name="website" autocomplete="off" value="" placeholder="Your website here">
 
-		<span class="input col-6 column">
+		<span class="input">
 			<input 
 				type="text" class="input__field"
 				name="message_name" id="message_name"
@@ -294,7 +294,7 @@ function map_get_form_markup( $url ) {
 				value="<?php echo isset( $data['name'] ) ? esc_html( $data['name'] ) : ''; ?>">
 		</span>
 
-		<span class="input col-6 column">
+		<span class="input">
 			<input 
 				type="text" class="input__field"
 				name="message_email" id="message_email"
@@ -302,7 +302,7 @@ function map_get_form_markup( $url ) {
 				value="<?php echo isset( $data['email'] ) ? esc_html( $data['email'] ) : ''; ?>">
 		</span>
 
-		<span class="input textarea-input col-12 column">
+		<span class="input textarea-input">
 			<textarea 
 				type="text" 
 				name="message_text" 
@@ -313,7 +313,7 @@ function map_get_form_markup( $url ) {
 			><?php echo isset( $data['message'] ) ? esc_html( $data['message'] ) : ''; ?></textarea>
 		</span>
 
-		<div class="input col-4 colunm">
+		<div class="input">
 			<label class="input__label">
 				<?php echo esc_html__( '* : require field', 'Minimal-Artistic-Portfolio' ); ?>
 			</label>

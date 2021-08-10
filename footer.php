@@ -14,22 +14,20 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="wrapper row">
 
-		<div class="col-3 footer-menu">
+		<div class="footer-menu">
 			<?php 
 			if ( has_nav_menu( 'footer-menu' ) ) {
 					wp_nav_menu( array( 'theme_location' => 'footer-menu' ) );
 			} 
 			?>
 		</div>
-		<div class="col-9 site-info">
+		<div class="site-info">
 			<p>
 				<?php echo esc_url( get_site_url() ) . ' '; ?> © <?php esc_html_e( 'All right reserved', 'Minimal-Artistic-Portfolio' ); ?>
-
-				<span class="sep"> | </span>
-				<a href="https://studio.nicolas-lebrun.fr">
-					<?php esc_html_e( 'Designed by Nicolas Lebrun', 'Minimal-Artistic-Portfolio' ); ?>
-				</a>
 			</p>
+			<a href="https://studio.nicolas-lebrun.fr">
+				<?php esc_html_e( 'Design : N.Lebrun', 'Minimal-Artistic-Portfolio' ); ?>
+			</a>
 		</div><!-- .site-info -->
 
 	</div><!-- .wrapper -->

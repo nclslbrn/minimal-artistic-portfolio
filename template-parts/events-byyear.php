@@ -12,23 +12,25 @@
 <div id="post<?php echo esc_attr( $args['id'] ); ?>" class="<?php echo esc_attr( $args['post_type'] ); ?>-year-section--list row clearfix">
 
 	<?php if ( ! empty( $args['thumbnail'] ) ) : ?>
-		<div class="thumbnail col-5 column">
+		<div class="<?php echo esc_attr( $args['post_type'] ); ?>-featured-image">
 			<?php echo wp_kses_post( $args['thumbnail'] ); ?>
 		</div>
 	<?php endif; ?>
 
-	<div class="<?php echo esc_attr( $args['post_type'] ); ?>-info <?php echo( ! empty( $args['thumbnail'] ) ? 'col-7' : 'col-12' ); ?> column">
+	<div class="<?php echo esc_attr( $args['post_type'] ); ?>-info">
 
 		<div class="wrapper">
 
-			<h4 class="event-title"><?php echo esc_attr( $args['title'] ); ?></h4>
+			<h4 class="<?php echo esc_attr( $args['post_type'] ); ?>-title"><?php echo esc_attr( $args['title'] ); ?></h4>
 
-			<p class="place">
-				<svg class="icon icon-location">
-					<use xlink:href="#icon-location"></use>
-				</svg>
-				<?php echo esc_html( $args['place'] ); ?>
-			</p>
+			<?php if ( $args['place'] ) : ?>
+				<p class="place">
+					<svg class="icon icon-location">
+						<use xlink:href="#icon-location"></use>
+					</svg>
+					<?php echo esc_html( $args['place'] ); ?>
+				</p>
+			<?php endif; ?>
 
 			<?php if ( $args['beginDate'] && $args['endDate'] ) : ?>
 				<p class="date">

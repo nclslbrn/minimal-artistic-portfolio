@@ -21,11 +21,11 @@ $map_content_classes .= false === map_get_project( get_the_ID() ) ? 'no-project 
 		<h1 class="event-title"><?php echo esc_html( get_the_title() ); ?></h1>
 	</header>
 	<div class="row">
-		<div class="col-6 column">
+		<div class="event-featured-image">
 			<?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
 		</div>
 
-		<div class="col-6 column col-map">
+		<div>
 			<?php if ( $map_latt && $map_long ) : ?>
 				<div class="map-overlay">
 					<div id='map' 
@@ -39,9 +39,9 @@ $map_content_classes .= false === map_get_project( get_the_ID() ) ? 'no-project 
 		</div>
 
 	</div>
-	<div class="row event-text <?php esc_attr( $map_content_classes ); ?>">
+	<div class="event-description <?php esc_attr( $map_content_classes ); ?>">
 
-	<div class="col-4 column">
+	<div>
 		<?php if ( $map_place_name ) : ?>
 			<p class="place">
 				<svg class="icon icon-location">
@@ -75,15 +75,6 @@ $map_content_classes .= false === map_get_project( get_the_ID() ) ? 'no-project 
 		?>
 
 	</div>
-	<div class="col-8 column">
-		<?php the_content(); ?>
-		<?php 
-		map_social_module(
-			get_the_title(),
-			get_the_permalink( get_the_ID() ),
-			'mobile'
-		); 
-		?>
-	</div>
+
 </div>
 

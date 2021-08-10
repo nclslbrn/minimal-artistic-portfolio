@@ -34,7 +34,7 @@ get_header(); ?>
 
 		<?php $map_gif_query = new WP_Query( $map_gif_query_args ); ?>
 		<?php if ( $map_gif_query->have_posts() ) : ?>
-			<div class="row">
+			<div class="gif-grid">
 				<?php 
 				while ( $map_gif_query->have_posts() ) :
 					$map_gif_query->the_post(); 
@@ -58,7 +58,7 @@ get_header(); ?>
 					<?php endif; ?>
 
 				<?php endwhile; ?>
-			</div><!-- .row -->
+			</div><!-- .gif-grid -->
 
 			<?php if ( $map_gif_query->max_num_pages > 0 ) : ?>
 				<nav class="page-nav">
@@ -78,8 +78,8 @@ get_header(); ?>
 				</nav>
 			<?php endif; ?>
 			<div class="row">
-				<div class="col-2 column"></div>
-				<div class="col-8 column">
+				<div class="column"></div>
+				<div class="column">
 					<p><?php echo wp_kses_post( $map_post_content ); ?></p>
 				</div>
 			</div>

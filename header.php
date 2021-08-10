@@ -96,7 +96,7 @@
 						?>
 				</nav><!-- #site-navigation -->
 
-				<button class="menu-toggle col-3" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
+				<button class="menu-toggle" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
 					<span class="menu-icon"></span>
 				</button>
 
