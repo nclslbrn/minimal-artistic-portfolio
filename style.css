@@ -651,16 +651,18 @@ svg.icon {
   }
 }
 
-footer .site-info {
+footer.site-footer .wrapper {
+  padding: 1em 0;
   display: flex;
-  padding: 1em 0 0 0;
   flex-flow: row nowrap;
   justify-content: space-between;
+  border-top: 1px solid var(--border-color);
 }
 
-footer.site-footer .wrapper {
-  border-top: 1px solid var(--border-color);
-  padding: 1em 0;
+@media (min-width: 54rem) {
+  footer .site-info {
+    text-align: right;
+  }
 }
 
 hr {
@@ -2275,10 +2277,9 @@ button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-  border: 1px solid;
   background: var(--primary-color);
   color: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
 }
 a.button:hover,
 button:hover,
@@ -2562,7 +2563,7 @@ input:checked + .slider:before {
 .main-navigation ul li input,
 .main-navigation ul li button {
   padding: 0.8em;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 @media (min-width: 54rem) {
@@ -2668,13 +2669,14 @@ input:checked + .slider:before {
   flex: 1 0 50%;
 }
 
+nav.page-nav {
+  display: block;
+  margin-bottom: 3em;
+}
+
 #menu-footer {
-  display: flex;
   padding: 0;
   margin: 0;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 100%;
   list-style-type: none;
 }
 
@@ -2743,9 +2745,10 @@ input:checked + .slider:before {
 .event-summary {
   display: flex;
   flex-flow: column nowrap;
-  margin: 0 0 2em 0;
+  margin: 0 0 3em 0;
+  border: 1px solid var(--border-color);
 }
-@media (min-width: 54rem) {
+@media (min-width: 32rem) {
   .project-summary,
 .event-summary {
     flex-flow: row nowrap;
@@ -2754,17 +2757,15 @@ input:checked + .slider:before {
 }
 .project-summary div.event-info,
 .project-summary div.project-cartel,
-.project-summary a.event-featured-image,
-.project-summary a.project-featured-image,
 .event-summary div.event-info,
-.event-summary div.project-cartel,
-.event-summary a.event-featured-image,
-.event-summary a.project-featured-image {
+.event-summary div.project-cartel {
   flex: 1 0 auto;
 }
 .project-summary a.event-featured-image,
-.event-summary a.event-featured-image {
-  max-width: 40%;
+.project-summary a.project-featured-image,
+.event-summary a.event-featured-image,
+.event-summary a.project-featured-image {
+  flex: 1 0 50%;
 }
 .project-summary div.event-info,
 .project-summary div.project-cartel,
@@ -2780,6 +2781,7 @@ input:checked + .slider:before {
 .single-event .event-texts {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 1.4em;
 }
 @media (min-width: 54rem) {
   .single-project .project-texts,
@@ -2809,9 +2811,14 @@ ul.related-projects {
 .event-hero {
   position: relative;
   display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
-  overflow: hidden;
+  flex-flow: column nowrap;
+}
+@media (min-width: 54rem) {
+  .event-hero {
+    flex-flow: row nowrap;
+    align-items: stretch;
+    overflow: hidden;
+  }
 }
 .event-hero .event-featured-image img {
   float: left;
@@ -2819,10 +2826,11 @@ ul.related-projects {
 
 /* Events / CV
 --------------------------------------------- */
-.ac-container .event-year-section .yearEventsList {
-  padding-left: 140px;
+@media (min-width: 54rem) {
+  .ac-container .event-year-section .yearEventsList {
+    padding-left: 140px;
+  }
 }
-
 /* GIF page
 --------------------------------------------- */
 .gif-grid {

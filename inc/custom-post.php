@@ -219,7 +219,7 @@ function map_list_custom_posts( $type, $limit ) {
 		}
 		if ( $project_query->max_num_pages > 1 && -1 !== $limit ) {
 			$current_page = max( 1, get_query_var( 'paged' ) );
-	
+			echo '<nav class=\'page-nav\'>';
 			echo wp_kses_post(
 				paginate_links(
 					array(
@@ -229,6 +229,7 @@ function map_list_custom_posts( $type, $limit ) {
 					)
 				)
 			);
+			echo '</nav><!-- .page-nav -->';
 		}
 	}
 }
@@ -245,8 +246,7 @@ function map_get_event( $post_id ) {
 	$event_module_result = '';
 
 	if ( ! empty( $events[0] ) ) {
-		$event_module .= '<p class="event-of-this-project">' . __( 'Events', 'Minimal-Artistic-Portfolio' ) . ': </p>';
-		$event_module .= '<ul class="related-events">';
+		$event_module .= '<p class="list-title">' . __( 'Events', 'Minimal-Artistic-Portfolio' ) . '</p>';
 
 		foreach ( (array) $events[0] as $event ) {
 			$title = get_the_title( $event );
@@ -254,7 +254,7 @@ function map_get_event( $post_id ) {
 
 			$event_module_result .= '<li><a href="' . $url . '">' . $title . '</a></li>';
 		}
-		$event_module = $event_module . $event_module_result . '</ul>';
+		$event_module = $event_module . '<ul class=\'related-events\'>' . $event_module_result . '</ul>';
 	}
 	if ( empty( $events[0] ) ) {
 		return false;
@@ -288,16 +288,15 @@ function map_get_project( $post_id ) {
 	);
 
 	if ( ! empty( $project_query->posts ) ) {
-		$project_module .= '<p class="list-title">' . __( 'Projects', 'Minimal-Artistic-Portfolio' ) . ':</p>';
-		$project_module .= '<ul class="related-projects">';
+		$project_module .= '<p class="list-title">' . __( 'Projects', 'Minimal-Artistic-Portfolio' ) . '</p>';
 
 		foreach ( (array) $project_query->posts as $project ) {
 			$url       = get_permalink( $project->ID );
-			$projects .= '<li><a href="' . $url . '">' . $project->post_title . '</a></li>';
+			$projects .= '<li><a href="' . esc_url( $url ) . '">' . $project->post_title . '</a></li>';
 		}
 	}
 	if ( ! empty( $projects ) ) {
-		$project_module = $project_module . $projects . '<ul>';
+		$project_module = $project_module . '<ul class="related-projects">' . $projects . '</ul>';
 		return $project_module;
 	} else {
 		return false;

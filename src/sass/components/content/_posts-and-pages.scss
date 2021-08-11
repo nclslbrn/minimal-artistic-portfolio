@@ -51,21 +51,20 @@
 .event-summary {
     display: flex;
     flex-flow: column nowrap;
-    margin: 0 0 2em 0;
+    margin: 0 0 3em 0;
+    @include border;
 
-    @include breakpoint(md) {
+    @include breakpoint(sm) {
         flex-flow: row nowrap;
         width: 100%;
     }
     div.event-info,
-    div.project-cartel,
-    a.event-featured-image,
-    a.project-featured-image {
+    div.project-cartel {
         flex: 1 0 auto;
     }
-
-    a.event-featured-image {
-        max-width: 40%;
+    a.event-featured-image,
+    a.project-featured-image {
+        flex: 1 0 50%;
     }
 
     div.event-info,
@@ -81,6 +80,8 @@
 .single-event .event-texts {
     display: flex;
     flex-flow: column nowrap;
+    margin-top: 1.4em;
+
     @include breakpoint(md) {
         flex-flow: row nowrap;
 
@@ -105,9 +106,13 @@ ul.related-projects {
 .event-hero {
     position: relative;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: stretch;
-    overflow: hidden;
+    flex-flow: column nowrap;
+
+    @include breakpoint(md) {
+        flex-flow: row nowrap;
+        align-items: stretch;
+        overflow: hidden;
+    }
 
     .event-featured-image img {
         float: left;
@@ -118,8 +123,10 @@ ul.related-projects {
 --------------------------------------------- */
 .ac-container .event-year-section {
 }
-.ac-container .event-year-section .yearEventsList {
-    padding-left: 140px;
+@include breakpoint(md) {
+    .ac-container .event-year-section .yearEventsList {
+        padding-left: 140px;
+    }
 }
 
 /* GIF page

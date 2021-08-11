@@ -273,15 +273,15 @@ msgstr ""
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:528, template-parts/content-event.php:59
+#: inc/custom-post.php:528, template-parts/content-event.php:57
 msgid "From"
 msgstr ""
 
-#: inc/custom-post.php:530, template-parts/content-event.php:61
+#: inc/custom-post.php:530, template-parts/content-event.php:59
 msgid "to"
 msgstr ""
 
-#: inc/custom-post.php:534, template-parts/content-project.php:29, template-parts/events-byyear.php:54
+#: inc/custom-post.php:534, template-parts/content-project.php:29, template-parts/events-byyear.php:56
 msgid "Read more"
 msgstr ""
 
@@ -523,7 +523,7 @@ msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #. translators: %2$s: Date delimiter
-#: template-parts/events-byyear.php:44
+#: template-parts/events-byyear.php:46
 msgid "From %1$s to %2$s"
 msgstr ""
 

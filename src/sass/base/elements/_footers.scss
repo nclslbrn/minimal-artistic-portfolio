@@ -1,11 +1,13 @@
-footer .site-info {
+footer.site-footer .wrapper {
+    padding: 1em 0;
     display: flex;
-    padding: 1em 0 0 0;
     flex-flow: row nowrap;
     justify-content: space-between;
+    @include border('top');
 }
 
-footer.site-footer .wrapper {
-    @include border('top');
-    padding: 1em 0;
+footer .site-info {
+    @include breakpoint(md) {
+        text-align: right;
+    }
 }

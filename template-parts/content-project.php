@@ -39,10 +39,10 @@ if ( ! is_single() ) { ?>
 	$map_first_res_url    = get_post_meta( $post->ID, '576P_VIDEO_URL', true );
 	$map_second_res_url   = get_post_meta( $post->ID, '720P_VIDEO_URL', true );
 	$map_third_res_url    = get_post_meta( $post->ID, '1080P_VIDEO_URL', true );
+	$map_related_events   = map_get_event( $post->ID );
 	$map_content_classes  = '';
 	$map_content_classes .= '' !== $post->post_content ? ' filled' : '';
-	$map_content_classes .= false === map_get_event( get_the_ID() ) ? ' no-event' : '';
-
+	$map_content_classes .= false === $map_related_events ? ' no-event' : '';
 	?>
 	<header class="entry-header">
 		<h1 class="project-title"><?php echo esc_html( get_the_title() ); ?></h1>
@@ -94,8 +94,8 @@ if ( ! is_single() ) { ?>
 					</p>
 				<?php endif ?>
 				<?php 
-				if ( false !== map_get_event( $post->ID ) ) {
-					echo wp_kses_post( map_get_event( $post->ID ) );
+				if ( $map_related_events ) {
+					echo wp_kses_post( $map_related_events );
 				} 
 				?>
 				<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'laptop-only' ); ?>
