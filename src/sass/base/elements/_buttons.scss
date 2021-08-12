@@ -4,20 +4,21 @@ input[type='reset'],
 input[type='submit'],
 .page-nav a,
 .page-nav span,
-a.btn,
-a.button,
+.btn,
+.button,
 .social-sharing-module a {
     line-height: 1;
     padding: 0.6em 1em 0.4em;
 }
 
-a.button,
+.btn,
+.button,
 button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
     background: transparent;
-    color: rgba(0, 0, 0, 0.8);
+    // color: rgba(0, 0, 0, 0.8);
 
     @include border;
 
@@ -31,8 +32,14 @@ input[type='submit'] {
         background: var(--bg-color);
     }
 }
+.btn,
+.button,
+button {
+    &:hover {
+        color: var(--bg-color);
+    }
+}
 
-a.btn,
 .page-nav a,
 .page-nav span,
 .social-sharing-module a {
@@ -53,4 +60,9 @@ button[data-toggle] {
 .page-nav span,
 button[data-toggle].active {
     opacity: 0.75;
+}
+
+.social-sharing-module > ul {
+    display: flex;
+    flex-flow: row wrap;
 }

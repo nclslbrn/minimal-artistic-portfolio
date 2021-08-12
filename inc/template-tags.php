@@ -115,34 +115,39 @@ add_action( 'save_post', 'map_category_transient_flusher' );
 function map_social_module( $title, $url, $class = '' ) {
 	?>
 	<div class="social-sharing-module <?php echo esc_attr( $class ); ?>">	
-		<p><?php echo esc_html( __( 'Share', 'Minimal-Artistic-Portfolio' ) ); ?></p>
-
-		<a href="https://www.facebook.com/sharer.php?u=<?php echo esc_url( $url ); ?>" target="_blank">
-			<svg class="icon icon-facebook">
-				<use xlink:href="#icon-facebook"></use>
-			</svg>
-			<span class="screen-reader-text">
-				<?php echo esc_html( __( 'Share on Facebook', 'Minimal-Artistic-Portfolio' ) ); ?>
-			</span>
-		</a>
-
-		<a href="https://twitter.com/intent/tweet?text=<?php echo esc_url( $url ); ?> via @Nicolas_Lebrun_" target="_blank">
-			<svg class="icon icon-twitter">
-				<use xlink:href="#icon-twitter"></use>
-			</svg>
-			<span class="screen-reader-text">
-				<?php echo esc_html( __( 'Share on Twitter', 'Minimal-Artistic-Portfolio' ) ); ?>
-			</span>
-		</a>
-
-		<a href="mailto:?&body=<?php echo esc_url( $url ); ?>" target="_blank">
-			<svg class="icon icon-mail">
-				<use xlink:href="#icon-mail"></use>
-			</svg>
-			<span class="screen-reader-text">
-				<?php echo esc_html( __( 'Send Email', 'Minimal-Artistic-Portfolio' ) ); ?>
-			</span>
-		</a>
+		<p class="list-title"><?php echo esc_html( __( 'Share', 'Minimal-Artistic-Portfolio' ) ); ?></p>
+		<ul>
+			<li>
+				<a href="https://www.facebook.com/sharer.php?u=<?php echo esc_url( $url ); ?>" target="_blank">
+					<svg class="icon icon-facebook">
+						<use xlink:href="#icon-facebook"></use>
+					</svg>
+					<span class="screen-reader-text">
+						<?php echo esc_html( __( 'Share on Facebook', 'Minimal-Artistic-Portfolio' ) ); ?>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/intent/tweet?text=<?php echo esc_url( $url ); ?> via @Nicolas_Lebrun_" target="_blank">
+					<svg class="icon icon-twitter">
+						<use xlink:href="#icon-twitter"></use>
+					</svg>
+					<span class="screen-reader-text">
+						<?php echo esc_html( __( 'Share on Twitter', 'Minimal-Artistic-Portfolio' ) ); ?>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="mailto:?&body=<?php echo esc_url( $url ); ?>" target="_blank">
+					<svg class="icon icon-mail">
+						<use xlink:href="#icon-mail"></use>
+					</svg>
+					<span class="screen-reader-text">
+						<?php echo esc_html( __( 'Send Email', 'Minimal-Artistic-Portfolio' ) ); ?>
+					</span>
+				</a>
+			</li>
+		</ul>
 	</div>
 	<?php
 }

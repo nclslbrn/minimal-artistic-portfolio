@@ -52,10 +52,12 @@
     display: flex;
     flex-flow: column nowrap;
     margin: 0 0 3em 0;
-    @include border;
+    background-color: var(--component-bg-color);
+    // @include border;
 
     @include breakpoint(sm) {
         flex-flow: row nowrap;
+        align-items: center;
         width: 100%;
     }
     div.event-info,
@@ -65,6 +67,12 @@
     a.event-featured-image,
     a.project-featured-image {
         flex: 1 0 50%;
+        /*  @include breakpoint(sm) {
+            padding-left: 1em;
+        } */
+        img {
+            float: left;
+        }
     }
 
     div.event-info,
@@ -94,10 +102,20 @@
         .event-properties {
             padding-right: 1.5%;
             flex: 1 0 28.5%;
+            //word-break: break-all;
+            hyphens: auto;
         }
     }
 }
-
+.project-cartel p,
+.event-properties .date,
+.event-properties .place {
+    display: inline-block;
+}
+.project-cartel .list-title,
+.event-properties .list-title {
+    display: block;
+}
 ul.related-events,
 ul.related-projects {
     margin-left: 0;
@@ -112,6 +130,9 @@ ul.related-projects {
         flex-flow: row nowrap;
         align-items: stretch;
         overflow: hidden;
+        .event-featured-image {
+            max-width: 50%;
+        }
     }
 
     .event-featured-image img {
@@ -121,13 +142,6 @@ ul.related-projects {
 
 /* Events / CV
 --------------------------------------------- */
-.ac-container .event-year-section {
-}
-@include breakpoint(md) {
-    .ac-container .event-year-section .yearEventsList {
-        padding-left: 140px;
-    }
-}
 
 /* GIF page
 --------------------------------------------- */

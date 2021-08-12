@@ -24,7 +24,7 @@
     }
     .site-title a span {
         margin-right: 0.25em;
-        @include breakpoint(md) {
+        @include breakpoint(lg) {
             display: block;
             margin-right: 0;
         }

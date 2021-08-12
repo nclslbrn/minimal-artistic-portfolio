@@ -47,23 +47,49 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 :root[data-theme=light] {
-  --primary-color: #004996;
+  --primary-color: #08396e;
   --text-color: #333333;
-  --focus-color: #ffca3a;
-  --hover-color: #ff4c48;
-  --bg-color: #fafafa;
-  --component-bg-color: #ffffff;
-  --border-color: #eee;
+  --focus-color: #c200b8;
+  --hover-color: #d62839;
+  --bg-color: #d8d8d8;
+  --component-bg-color: #fcfcfc;
+  --border-color: #d4d4d4;
 }
 
 :root[data-theme=dark] {
-  --primary-color: #567bae;
+  --primary-color: #789bcc;
   --text-color: #e3f5fc;
-  --focus-color: #ffca3a;
-  --hover-color: #ffbcb3;
+  --focus-color: #fbbd12;
+  --hover-color: #d62839;
   --bg-color: #201b1d;
-  --component-bg-color: #22343c;
+  --component-bg-color: hsla(212.3, 26.5%, 9.6%, 5);
   --border-color: #333333;
+}
+
+:root {
+  --shadows: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+
+::-moz-placeholder {
+  color: var(--border-color);
+}
+
+:-ms-input-placeholder {
+  color: var(--border-color);
+}
+
+::placeholder {
+  color: var(--border-color);
+}
+
+::-moz-selection {
+  color: var(--bg-color);
+  background-color: var(--hover-color);
+}
+
+::selection {
+  color: var(--bg-color);
+  background-color: var(--hover-color);
 }
 
 /*--------------------------------------------------------------
@@ -408,7 +434,7 @@ html {
   src: url("build/fonts/Inter-Black.woff2") format("woff2"), url("build/fonts/Inter-Black.woff") format("woff");
 }
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media (min-width: 12rem) {
@@ -436,6 +462,7 @@ textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  font-weight: 400;
 }
 
 h1,
@@ -547,17 +574,21 @@ big {
   font-size: 125%;
 }
 
-ul.menu li input,
-ul.menu li button,
-ul.menu li a {
-  font-weight: bolder;
-}
-
 /* Elements
 --------------------------------------------- */
 body {
-  background: var(--bg-color);
   color: var(--text-color);
+}
+
+html[data-theme=dark] body,
+html[data-theme=dark] body ul.sub-menu,
+html[data-theme=dark] body nav.main-navigation {
+  background: url(build/img/noisy_net.png) repeat;
+}
+html[data-theme=light] body,
+html[data-theme=light] body ul.sub-menu,
+html[data-theme=light] body nav.main-navigation {
+  background: url(build/img/dust.png) repeat;
 }
 
 svg.icon {
@@ -644,7 +675,7 @@ svg.icon {
 .site-header div.wrapper .site-title a span {
   margin-right: 0.25em;
 }
-@media (min-width: 54rem) {
+@media (min-width: 64rem) {
   .site-header div.wrapper .site-title a span {
     display: block;
     margin-right: 0;
@@ -2265,30 +2296,33 @@ input[type=reset],
 input[type=submit],
 .page-nav a,
 .page-nav span,
-a.btn,
-a.button,
+.btn,
+.button,
 .social-sharing-module a {
   line-height: 1;
   padding: 0.6em 1em 0.4em;
 }
 
-a.button,
+.btn,
+.button,
 button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-  background: var(--primary-color);
-  color: rgba(0, 0, 0, 0.8);
+  background: transparent;
   border: 1px solid var(--border-color);
 }
-a.button:hover,
+.btn:hover,
+.button:hover,
 button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
 input[type=submit]:hover {
   background: var(--hover-color);
 }
-a.button:active, a.button:focus,
+.btn:active, .btn:focus,
+.button:active,
+.button:focus,
 button:active,
 button:focus,
 input[type=button]:active,
@@ -2301,11 +2335,16 @@ input[type=submit]:focus {
   background: var(--bg-color);
 }
 
-a.btn,
+.btn:hover,
+.button:hover,
+button:hover {
+  color: var(--bg-color);
+}
+
 .page-nav a,
 .page-nav span,
 .social-sharing-module a {
-  background: var(--bg-color);
+  background: transparent;
 }
 
 a.btn,
@@ -2322,6 +2361,11 @@ button[data-toggle] {
 .page-nav span,
 button[data-toggle].active {
   opacity: 0.75;
+}
+
+.social-sharing-module > ul {
+  display: flex;
+  flex-flow: row wrap;
 }
 
 input[type=text],
@@ -2344,7 +2388,7 @@ textarea {
   border: 1px solid var(--border-color);
   border-radius: 3px;
   padding: 3px;
-  background-color: var(--bg-color);
+  background-color: transparent;
 }
 input[type=text]:focus,
 input[type=email]:focus,
@@ -2398,9 +2442,12 @@ button {
 }
 
 ul.sub-menu li button {
-  background: var(--bg-color);
   color: var(--primary-color);
   border: none;
+}
+ul.sub-menu li button:hover {
+  background: transparent;
+  color: var(--hover-color);
 }
 
 /* The switch - the box around the slider */
@@ -2457,6 +2504,39 @@ input:checked + .slider:before {
   transform: translateX(1rem);
 }
 
+/* Honey pot field */
+label.pot,
+input.pot {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
+/* real field */
+span.input {
+  display: block;
+  margin: 2em 0;
+}
+
+span.input input,
+span.input.textarea-input textarea {
+  padding: 1em;
+  background: var(--component-bg-color);
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  transition: all 0.75s ease;
+}
+span.input input:focus,
+span.input.textarea-input textarea:focus {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--focus-color);
+  background: var(--bg-color);
+}
+
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
@@ -2477,7 +2557,7 @@ input:checked + .slider:before {
   top: 100%;
   left: -999em;
   z-index: 99999;
-  background: var(--bg-color);
+  box-shadow: var(--shadows);
   border: 1px solid var(--border-color);
 }
 .main-navigation ul ul ul {
@@ -2525,11 +2605,11 @@ input:checked + .slider:before {
   display: block;
   top: 0;
   margin-left: 0.15em;
-  right: 0.25em;
+  right: 1em;
   width: 0;
   height: 0;
   position: absolute;
-  border-width: 0.5em;
+  border-width: 0.25em;
   margin-top: 1em;
   border-style: solid;
   border-color: var(--primary-color) transparent transparent transparent;
@@ -2544,11 +2624,11 @@ input:checked + .slider:before {
 }
 .main-navigation li.menu-item-has-children:hover > a::before,
 .main-navigation li.menu-item-has-children:hover > a::after {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
   border-color: transparent transparent var(--primary-color) transparent;
 }
 .main-navigation li.menu-item-has-children:hover > a::after {
-  margin-top: 0.6em;
+  margin-top: 0.85em;
   border-color: transparent transparent var(--bg-color) transparent;
 }
 .main-navigation li.qtranxs-lang-menu-item a img {
@@ -2562,7 +2642,7 @@ input:checked + .slider:before {
 .main-navigation ul li a,
 .main-navigation ul li input,
 .main-navigation ul li button {
-  padding: 0.8em;
+  padding: 0.6em 0.8em;
   font-size: 1.5em;
   text-align: center;
 }
@@ -2570,7 +2650,8 @@ input:checked + .slider:before {
   .main-navigation ul li a,
 .main-navigation ul li input,
 .main-navigation ul li button {
-    font-size: 1em;
+    padding: 0.4em 0.6em;
+    font-size: 0.9em;
   }
 }
 @media (min-width: 54rem) {
@@ -2593,7 +2674,6 @@ input:checked + .slider:before {
   top: 100%;
   left: 0;
   height: auto;
-  background-color: var(--bg-color);
   z-index: 999;
 }
 @media (min-width: 54rem) {
@@ -2617,6 +2697,12 @@ input:checked + .slider:before {
 .main-navigation.toggled ul {
   display: block;
 }
+@media (min-width: 12rem) and (max-width: 54rem) {
+  .menu-toggle,
+.main-navigation.toggled ul {
+    box-shadow: var(--shadows);
+  }
+}
 
 @media (min-width: 12rem) {
   .menu-toggle {
@@ -2629,6 +2715,10 @@ input:checked + .slider:before {
   }
 }
 
+.main-navigation > ul {
+  justify-content: center;
+}
+
 @media (min-width: 54rem) {
   .menu-toggle {
     display: none;
@@ -2639,12 +2729,16 @@ input:checked + .slider:before {
     flex: 1 0 auto;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: flex-end;
     max-width: 100%;
   }
 
   .main-navigation ul ul {
     display: block;
+  }
+}
+@media (min-width: 64rem) {
+  .main-navigation > ul {
+    justify-content: flex-end;
   }
 }
 .site-main .comment-navigation,
@@ -2674,6 +2768,7 @@ nav.page-nav {
   margin-bottom: 3em;
 }
 
+.social-sharing-module > ul,
 #menu-footer {
   padding: 0;
   margin: 0;
@@ -2746,12 +2841,13 @@ nav.page-nav {
   display: flex;
   flex-flow: column nowrap;
   margin: 0 0 3em 0;
-  border: 1px solid var(--border-color);
+  background-color: var(--component-bg-color);
 }
 @media (min-width: 32rem) {
   .project-summary,
 .event-summary {
     flex-flow: row nowrap;
+    align-items: center;
     width: 100%;
   }
 }
@@ -2766,6 +2862,15 @@ nav.page-nav {
 .event-summary a.event-featured-image,
 .event-summary a.project-featured-image {
   flex: 1 0 50%;
+  /*  @include breakpoint(sm) {
+      padding-left: 1em;
+  } */
+}
+.project-summary a.event-featured-image img,
+.project-summary a.project-featured-image img,
+.event-summary a.event-featured-image img,
+.event-summary a.project-featured-image img {
+  float: left;
 }
 .project-summary div.event-info,
 .project-summary div.project-cartel,
@@ -2800,7 +2905,21 @@ nav.page-nav {
 .single-event .event-texts .event-properties {
     padding-right: 1.5%;
     flex: 1 0 28.5%;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
   }
+}
+
+.project-cartel p,
+.event-properties .date,
+.event-properties .place {
+  display: inline-block;
+}
+
+.project-cartel .list-title,
+.event-properties .list-title {
+  display: block;
 }
 
 ul.related-events,
@@ -2819,6 +2938,9 @@ ul.related-projects {
     align-items: stretch;
     overflow: hidden;
   }
+  .event-hero .event-featured-image {
+    max-width: 50%;
+  }
 }
 .event-hero .event-featured-image img {
   float: left;
@@ -2826,11 +2948,6 @@ ul.related-projects {
 
 /* Events / CV
 --------------------------------------------- */
-@media (min-width: 54rem) {
-  .ac-container .event-year-section .yearEventsList {
-    padding-left: 140px;
-  }
-}
 /* GIF page
 --------------------------------------------- */
 .gif-grid {

@@ -11,6 +11,7 @@
             top: 100%;
             left: -999em;
             z-index: 99999;
+            box-shadow: var(--shadows);
             @include border;
 
             ul {
@@ -155,6 +156,11 @@
 .menu-toggle,
 .main-navigation.toggled ul {
     display: block;
+    @include breakpoint(xs) {
+        @include breakpoint(md, max) {
+            box-shadow: var(--shadows);
+        }
+    }
 }
 .menu-toggle {
     @include breakpoint(xs) {
@@ -217,7 +223,7 @@ nav.page-nav {
     display: block;
     margin-bottom: 3em;
 }
-
+.social-sharing-module > ul,
 #menu-footer {
     padding: 0;
     margin: 0;

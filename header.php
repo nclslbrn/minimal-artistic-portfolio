@@ -75,9 +75,7 @@
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<?php 
-							/** 
-							 * TODO: compute font-size from letters num
-							 * */ 
+							// TODO: compute font-size from letters num.
 							$map_sitename_words = explode( ' ', get_bloginfo( 'name' ) );
 							foreach ( (array) $map_sitename_words as $map_word ) { 
 								echo '<span>' . esc_html( $map_word ) . '</span>';

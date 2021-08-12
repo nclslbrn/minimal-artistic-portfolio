@@ -118,3 +118,34 @@ input:focus + .slider {
 input:checked + .slider:before {
     transform: translateX(1rem);
 }
+
+/* Honey pot field */
+label.pot,
+input.pot {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+}
+
+/* real field */
+span.input {
+    display: block;
+    margin: 2em 0;
+}
+span.input input,
+span.input.textarea-input textarea {
+    padding: 1em;
+    background: var(--component-bg-color);
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    transition: all 0.75s ease;
+    &:focus {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--focus-color);
+        background: var(--bg-color);
+    }
+}

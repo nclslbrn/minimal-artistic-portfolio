@@ -269,50 +269,38 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: inc/custom-post.php:502
+#: inc/custom-post.php:464
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:527, template-parts/content-event.php:55
-msgid "From"
-msgstr ""
-
-#: inc/custom-post.php:529, template-parts/content-event.php:57
-msgid "to"
-msgstr ""
-
-#: inc/custom-post.php:533, template-parts/content-project.php:29, template-parts/events-byyear.php:58
-msgid "Read more"
-msgstr ""
-
-#: inc/custom-post.php:561
+#: inc/custom-post.php:494
 msgid "$undefined->singular_name"
 msgid_plural "$undefined->name"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/custom-post.php:635
+#: inc/custom-post.php:566
 msgid "Today"
 msgstr ""
 
-#: inc/custom-post.php:637
+#: inc/custom-post.php:568
 msgid "Tomorrow"
 msgstr ""
 
 #. translators: 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:645
+#: inc/custom-post.php:576
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#: inc/custom-post.php:681
+#: inc/custom-post.php:612
 msgid "Publishing Soon"
 msgstr ""
 
-#: inc/custom-post.php:693
+#: inc/custom-post.php:624
 msgid "Recently Published"
 msgstr ""
 
-#: inc/custom-post.php:703
+#: inc/custom-post.php:634
 msgid "No activity yet!"
 msgstr ""
 
@@ -340,47 +328,47 @@ msgstr ""
 msgid "Cover option"
 msgstr ""
 
-#: inc/meta-box.php:150, inc/meta-box.php:306
+#: inc/meta-box.php:151, inc/meta-box.php:334
 msgid "Place"
 msgstr ""
 
-#: inc/meta-box.php:172
+#: inc/meta-box.php:173
 msgid "Cover is an image or a video ?"
 msgstr ""
 
-#: inc/meta-box.php:174
+#: inc/meta-box.php:175
 msgid "Image"
 msgstr ""
 
-#: inc/meta-box.php:176
+#: inc/meta-box.php:177
 msgid "Video"
 msgstr ""
 
-#: inc/meta-box.php:178
+#: inc/meta-box.php:179
 msgid "Video ID (leave empty if selfhosted)"
 msgstr ""
 
-#: inc/meta-box.php:181
+#: inc/meta-box.php:182
 msgid "Video provider"
 msgstr ""
 
-#: inc/meta-box.php:183
+#: inc/meta-box.php:184
 msgid "Vimeo"
 msgstr ""
 
-#: inc/meta-box.php:185
+#: inc/meta-box.php:186
 msgid "YouTube"
 msgstr ""
 
-#: inc/meta-box.php:187
+#: inc/meta-box.php:188
 msgid "Self hosted"
 msgstr ""
 
-#: inc/meta-box.php:189
+#: inc/meta-box.php:190
 msgid "Self hosting URLs"
 msgstr ""
 
-#: inc/meta-box.php:305
+#: inc/meta-box.php:333
 msgid "Date"
 msgstr ""
 
@@ -427,65 +415,82 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: inc/template-tags.php:125
+#: inc/template-tags.php:126
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/template-tags.php:134
+#: inc/template-tags.php:136
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-tags.php:143
+#: inc/template-tags.php:146
 msgid "Send Email"
 msgstr ""
 
-#: inc/template-tags.php:161, inc/template-tags.php:168
+#: inc/template-tags.php:166, inc/template-tags.php:173
 msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: inc/template-tags.php:187
+#: inc/template-tags.php:192
 msgid "Human verification incorrect."
 msgstr ""
 
-#: inc/template-tags.php:188
+#: inc/template-tags.php:193
 msgid "Please supply all information."
 msgstr ""
 
-#: inc/template-tags.php:189
+#: inc/template-tags.php:194
 msgid "Email Address Invalid."
 msgstr ""
 
-#: inc/template-tags.php:190
+#: inc/template-tags.php:195
 msgid "Message was not sent. Try Again."
 msgstr ""
 
-#: inc/template-tags.php:191
+#: inc/template-tags.php:196
 msgid "Thanks! Your message has been sent."
 msgstr ""
 
-#: inc/template-tags.php:213
+#: inc/template-tags.php:218
 msgid "Someone sent a message from "
 msgstr ""
 
-#: inc/template-tags.php:293
+#: inc/template-tags.php:298
 msgid "Name *"
 msgstr ""
 
-#: inc/template-tags.php:301
+#: inc/template-tags.php:306
 msgid "Email *"
 msgstr ""
 
-#: inc/template-tags.php:312
+#: inc/template-tags.php:317
 msgid "Message *"
 msgstr ""
 
-#: inc/template-tags.php:318
+#: inc/template-tags.php:323
 msgid "* : require field"
 msgstr ""
 
-#: inc/template-tags.php:322
+#: inc/template-tags.php:327
 msgid "send"
+msgstr ""
+
+#: template-parts/content-event.php:59
+msgid "From"
+msgstr ""
+
+#: template-parts/content-event.php:61
+msgid "to"
+msgstr ""
+
+#. translators: %2$s: Date delimiter
+#: template-parts/content-event.php:131
+msgid "From %1$s to %2$s"
+msgstr ""
+
+#: template-parts/content-event.php:142, template-parts/content-project.php:30
+msgid "Read more"
 msgstr ""
 
 #: template-parts/content-events.php:19
@@ -509,22 +514,17 @@ msgstr ""
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-project.php:77
+#: template-parts/content-project.php:80
 msgid "Your browser doesn't support HTML5 video, but you can read this video with the link below."
 msgstr ""
 
-#: template-parts/content-project.php:78
+#: template-parts/content-project.php:81
 msgid "Read the video"
 msgstr ""
 
 #. translators: %s: Name of current post.
 #: template-parts/content.php:36
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#. translators: %2$s: Date delimiter
-#: template-parts/events-byyear.php:48
-msgid "From %1$s to %2$s"
 msgstr ""
 
 #: vendor/wp-cli/wp-cli/php/utils-wp.php:222

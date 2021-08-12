@@ -47,7 +47,7 @@ if ( is_single() ) :
 						<svg class="icon icon-location">
 							<use xlink:href="#icon-location"></use>
 						</svg>
-						<?php echo wp_kses_post( $map_event['place_name'] ); ?>
+						<span><?php echo wp_kses_post( $map_event['place_name'] ); ?></span>
 					</p>
 				<?php endif; ?>
 				<?php if ( $map_event['begin_date'] && $map_event['end_date'] ) : ?>
@@ -55,10 +55,12 @@ if ( is_single() ) :
 						<svg class="icon icon-calendar">
 						<use xlink:href="#icon-calendar"></use>
 						</svg>
-						<?php echo esc_html__( 'From', 'Minimal-Artistic-Portfolio' ); ?>
-						<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $map_event['begin_date'] ) ) ); ?>
-						<?php echo esc_html__( 'to', 'Minimal-Artistic-Portfolio' ); ?>
-						<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $map_event['end_date'] ) ) ); ?>
+							<span>
+								<?php echo esc_html__( 'From', 'Minimal-Artistic-Portfolio' ); ?>
+								<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $map_event['begin_date'] ) ) ); ?>
+								<?php echo esc_html__( 'to', 'Minimal-Artistic-Portfolio' ); ?>
+								<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $map_event['end_date'] ) ) ); ?>
+							</span>
 					</p></br />
 				<?php endif; ?>
 				<?php if ( $map_event['related_projects'] ) : ?>
@@ -111,7 +113,7 @@ else :
 					<svg class="icon icon-location">
 						<use xlink:href="#icon-location"></use>
 					</svg>
-					<?php echo esc_html( $map_event['place'] ); ?>
+					<span><?php echo esc_html( $map_event['place'] ); ?></span>
 				</p>
 			<?php endif; ?>
 
@@ -120,7 +122,8 @@ else :
 					<svg class="icon icon-calendar">
 						<use xlink:href="#icon-calendar"></use>
 					</svg>
-					<?php 
+					<span>
+						<?php 
 						// TODO: show month & year on first date only if they are different from endDate.
 						echo esc_html( 
 							sprintf(
@@ -130,7 +133,8 @@ else :
 								$map_event['endDate'] 
 							)
 						); 
-					?>
+						?>
+					</span>
 				</p>
 			<?php endif; ?>
 

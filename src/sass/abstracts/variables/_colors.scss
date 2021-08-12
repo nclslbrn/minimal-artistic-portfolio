@@ -1,18 +1,28 @@
 :root[data-theme='light'] {
-    --primary-color: #004996;
+    --primary-color: #08396e;
     --text-color: #333333;
-    --focus-color: #ffca3a;
-    --hover-color: #ff4c48;
-    --bg-color: #fafafa;
-    --component-bg-color: #ffffff;
-    --border-color: #eee;
+    --focus-color: #c200b8;
+    --hover-color: #d62839;
+    --bg-color: #d8d8d8;
+    --component-bg-color: #fcfcfc;
+    --border-color: #d4d4d4;
 }
 :root[data-theme='dark'] {
-    --primary-color: #567bae;
+    --primary-color: #789bcc;
     --text-color: #e3f5fc;
-    --focus-color: #ffca3a;
-    --hover-color: #ffbcb3;
+    --focus-color: #fbbd12;
+    --hover-color: #d62839;
     --bg-color: #201b1d;
-    --component-bg-color: #22343c;
+    --component-bg-color: hsla(212.3, 26.5%, 9.6%, 5);
     --border-color: #333333;
+}
+:root {
+    --shadows: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+::placeholder {
+    color: var(--border-color);
+}
+::selection {
+    color: var(--bg-color);
+    background-color: var(--hover-color);
 }

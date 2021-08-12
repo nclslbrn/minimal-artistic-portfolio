@@ -8,7 +8,7 @@
 );
 
 html {
-    font-size: 16px;
+    font-size: $body_font_size;
 }
 @include breakpoint(xs) {
     html {
