@@ -114,9 +114,10 @@ function map_create_event_date_meta( $post ) {
  * @param object $post the project post.
  */
 function map_add_project_linked_event( $post ) {
-	$custom         = get_post_custom( $post->ID );
-	$saved_event_id = get_post_meta( $post->ID, 'event', true );
-	$count          = 0;
+	$custom             = get_post_custom( $post->ID );
+	$row_saved_event_id = (array) get_post_meta( $post->ID, 'event', true );
+	$saved_event_id     = array_map( 'intval', $row_saved_event_id );
+	$count              = 0;
 	echo '<div class="link_header">';
 	$query_event_args = array(
 		'post_type'      => 'event',
@@ -126,7 +127,7 @@ function map_add_project_linked_event( $post ) {
 
 	foreach ( $query_event->posts as $event ) {
 		$event_title = get_the_title( $event->ID );
-		if ( is_array( $saved_event_id ) && in_array( $id, $saved_event_id, true ) ) {
+		if ( is_array( $saved_event_id ) && in_array( $event->ID, $saved_event_id, true ) ) {
 			echo '<input type="checkbox" name="event[]" value="' . esc_attr( $event->ID ) . '" checked>' . esc_html( $event_title ) . '<br>';
 		} else {
 			echo '<input type="checkbox" name="event[]" value="' . esc_attr( $event->ID ) . '">' . esc_html( $event_title ) . '<br>';
@@ -207,38 +208,45 @@ function map_add_project_cover_options( $post ) {
  * @param int $post_id the id of the event.
  */
 function map_save_event_postmeta( $post_id ) {
+		
+	if ( isset( $_POST['publish'] ) || isset( $_POST['save'] ) ) {
+		if ( ! isset( $_POST['save_event_meta_nonce'] ) || 
+			! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_event_meta_nonce'] ) ), 'save_event_meta' ) 
+		) {
 
-	if ( ! isset( $_POST['save_event_meta_nonce'] ) || 
-		! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_event_meta_nonce'] ) ), 'save_event_meta' ) 
-	) {
+			wp_die( 'Sorry, your nonce did not verify event.' );
 
-		print 'Sorry, your nonce did not verify.';
+		} else {
 
-	} else {
+			if ( ! empty( $_POST['InputBeginDate'] ) && ! empty( $_POST['InputEndDate'] ) ) {
 
-		if ( ( ! empty( $_POST['InputBeginDate'] ) ) && ( ! empty( $_POST['InputEndDate'] ) ) ) {
-			$begin_date = sanitize_user( wp_unslash( $_POST['InputBeginDate'] ) );
-			$end_date   = sanitize_user( wp_unslash( $_POST['InputEndDate'] ) );
+				$begin_date = sanitize_user( wp_unslash( $_POST['InputBeginDate'] ) );
+				$end_date   = sanitize_user( wp_unslash( $_POST['InputEndDate'] ) );
+							 
+				update_post_meta( $post_id, 'BEGINDATE', $begin_date );
+				update_post_meta( $post_id, 'ENDDATE', $end_date );
 
-			update_post_meta( $post_id, 'BEGINDATE', $begin_date );
-			update_post_meta( $post_id, 'ENDDATE', $end_date );
-		}
+			}
 
-		if ( ! empty( $_POST['InputLatt'] ) && ! empty( $_POST['InputLong'] ) && ! empty( $_POST['InputPlace'] ) ) {
-			$place_name = sanitize_user( wp_unslash( $_POST['InputPlace'] ) );
-			$lattitude  = sanitize_user( wp_unslash( $_POST['InputLatt'] ) );
-			$longitude  = sanitize_user( wp_unslash( $_POST['InputLong'] ) );
+			if ( ! empty( $_POST['InputLatt'] ) && ! empty( $_POST['InputLong'] ) && ! empty( $_POST['InputPlace'] ) ) {
+				$place_name = sanitize_user( wp_unslash( $_POST['InputPlace'] ) );
+				$lattitude  = sanitize_user( wp_unslash( $_POST['InputLatt'] ) );
+				$longitude  = sanitize_user( wp_unslash( $_POST['InputLong'] ) );
 
-			update_post_meta( $post_id, 'PLACE', $place_name );
-			update_post_meta( $post_id, 'LATT', $lattitude );
-			update_post_meta( $post_id, 'LONG', $longitude );
+				update_post_meta( $post_id, 'PLACE', $place_name );
+				update_post_meta( $post_id, 'LATT', $lattitude );
+				update_post_meta( $post_id, 'LONG', $longitude );
+			}
 		}
 	}
+	if ( isset( $_POST['publish'] ) ) {
 
-	global $post;
 
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return $post->ID;
+		global $post;
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return $post->ID;
+		}
 	}
 }
 add_action( 'save_post_event', 'map_save_event_postmeta' );
@@ -249,61 +257,66 @@ add_action( 'save_post_event', 'map_save_event_postmeta' );
  * @param int $post_id the id of the project.
  */
 function map_save_project_postmeta( $post_id ) {
-	if (
-		! isset( $_POST['save_project_meta_nonce'] ) || 
-		! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_project_meta_nonce'] ) ), 'save_project_meta' ) 
-	) {
-		print 'Sorry, your nonce did not verify.';
-
-	} else {
-
-		if ( ! empty( $_POST['Cartel'] ) ) {
-			$cartel = sanitize_user( wp_unslash( $_POST['Cartel'] ) );
-			update_post_meta( $post_id, 'CARTEL', $cartel );
-		}
-		if ( ! empty( $_POST['event'] ) ) {
-			$events_id = intval( $_POST['event'] );
-			update_post_meta( $post_id, 'event', $events_id );
-
-		}
-		if ( isset( $_POST['is_video'] ) && is_numeric( $_POST['is_video'] ) ) {
-			$is_video = sanitize_user( wp_unslash( $_POST['is_video'] ) );
-			update_post_meta( $post_id, 'IS_VIDEO', $is_video );
-		}
-  
-		if ( ! isset( $_POST['video_id'] ) || ( 
-			isset( $_POST['video_id'] ) && 
-			get_post_meta( $post_id, 'VIDEO_ID', true ) !== $_POST['video_id'] ) 
-		) {
-			$video_id = sanitize_user( wp_unslash( $_POST['video_id'] ) );
-			update_post_meta( $post_id, 'VIDEO_ID', $video_id );
-		}
-		if ( ! isset( $_POST['576pVideoUrl'] ) || ( 
-			isset( $_POST['576pVideoUrl'] ) && 
-			get_post_meta( $post_id, '576P_VIDEO_URL', true ) !== $_POST['576pVideoUrl'] )
-		) {
-			update_post_meta( $post_id, '576P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['576pVideoUrl'] ) ) );
-		}
-		if ( ! isset( $_POST['720pVideoUrl'] ) || ( 
-			isset( $_POST['720pVideoUrl'] ) && 
-			get_post_meta( $post_id, '720P_VIDEO_URL', true ) !== $_POST['720pVideoUrl'] )
-		) {
-			update_post_meta( $post_id, '720P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['720pVideoUrl'] ) ) );
-		}
-		if ( ! isset( $_POST['1080pVideoUrl'] ) || 
-			isset( $_POST['1080pVideoUrl'] ) && 
-			get_post_meta( $post_id, '1080P_VIDEO_URL', true ) !== $_POST['1080pVideoUrl'] ) {
-			update_post_meta( $post_id, '1080P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['1080pVideoUrl'] ) ) );
-		}
+	if ( isset( $_POST['publish'] ) || isset( $_POST['save'] ) ) {
 
 		if (
-		! empty( $_POST['video_provider'] )
-		&& in_array( $_POST['video_provider'], array( 'vimeo', 'youtube', 'self' ), true )
+		! isset( $_POST['save_project_meta_nonce'] ) || 
+		! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_project_meta_nonce'] ) ), 'save_project_meta' ) 
 		) {
-			$video_provider = sanitize_user( wp_unslash( $_POST['video_provider'] ) );
-			update_post_meta( $post_id, 'VIDEO_PROVIDER', $video_provider );
+			wp_die( 'Sorry, your nonce did not verify.' );
+
+		} else {
+
+			if ( ! empty( $_POST['Cartel'] ) ) {
+				$cartel = sanitize_user( wp_unslash( $_POST['Cartel'] ) );
+				update_post_meta( $post_id, 'CARTEL', $cartel );
+			}
+			if ( ! empty( $_POST['event'] ) ) {
+				$row_events_ids       = array_map( 'wp_unslash', (array) $_POST['event'] ); //phpcs:ignore
+				$sanitized_events_ids = array_map( 'sanitize_text_field', $row_events_ids );
+				update_post_meta( $post_id, 'event', $sanitized_events_ids );
+
+			}
+			if ( isset( $_POST['is_video'] ) && is_numeric( $_POST['is_video'] ) ) {
+				$is_video = sanitize_user( wp_unslash( $_POST['is_video'] ) );
+				update_post_meta( $post_id, 'IS_VIDEO', $is_video );
+			}
+  
+			if ( ! isset( $_POST['video_id'] ) || ( 
+			isset( $_POST['video_id'] ) && 
+			get_post_meta( $post_id, 'VIDEO_ID', true ) !== $_POST['video_id'] ) 
+			) {
+				$video_id = sanitize_user( wp_unslash( $_POST['video_id'] ) );
+				update_post_meta( $post_id, 'VIDEO_ID', $video_id );
+			}
+			if ( ! isset( $_POST['576pVideoUrl'] ) || ( 
+			isset( $_POST['576pVideoUrl'] ) && 
+			get_post_meta( $post_id, '576P_VIDEO_URL', true ) !== $_POST['576pVideoUrl'] )
+			) {
+				update_post_meta( $post_id, '576P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['576pVideoUrl'] ) ) );
+			}
+			if ( ! isset( $_POST['720pVideoUrl'] ) || ( 
+			isset( $_POST['720pVideoUrl'] ) && 
+			get_post_meta( $post_id, '720P_VIDEO_URL', true ) !== $_POST['720pVideoUrl'] )
+			) {
+				update_post_meta( $post_id, '720P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['720pVideoUrl'] ) ) );
+			}
+			if ( ! isset( $_POST['1080pVideoUrl'] ) || 
+			isset( $_POST['1080pVideoUrl'] ) && 
+			get_post_meta( $post_id, '1080P_VIDEO_URL', true ) !== $_POST['1080pVideoUrl'] ) {
+				update_post_meta( $post_id, '1080P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['1080pVideoUrl'] ) ) );
+			}
+
+			if (
+			! empty( $_POST['video_provider'] )
+			&& in_array( $_POST['video_provider'], array( 'vimeo', 'youtube', 'self' ), true )
+			) {
+				$video_provider = sanitize_user( wp_unslash( $_POST['video_provider'] ) );
+				update_post_meta( $post_id, 'VIDEO_PROVIDER', $video_provider );
+			}
 		}
 	}
+
 }
 
 add_action( 'save_post_project', 'map_save_project_postmeta' );
