@@ -3,8 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @include border('bottom');
+    border-bottom: 5px double var(--border-color);
 
     @include breakpoint(md) {
         flex-flow: column nowrap;

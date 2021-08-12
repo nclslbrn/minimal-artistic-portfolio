@@ -476,20 +476,18 @@ msgstr ""
 msgid "send"
 msgstr ""
 
-#: template-parts/content-event.php:59
+#: inc/template-tags.php:351
 msgid "From"
 msgstr ""
 
-#: template-parts/content-event.php:61
+#: inc/template-tags.php:355
 msgid "to"
 msgstr ""
 
-#. translators: %2$s: Date delimiter
-#: template-parts/content-event.php:131
-msgid "From %1$s to %2$s"
+#: template-parts/content-event.php:59, template-parts/content-event.php:123
 msgstr ""
 
-#: template-parts/content-event.php:142, template-parts/content-project.php:30
+#: template-parts/content-event.php:129, template-parts/content-project.php:30
 msgid "Read more"
 msgstr ""
 

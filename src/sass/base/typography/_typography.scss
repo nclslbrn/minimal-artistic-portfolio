@@ -9,10 +9,11 @@
 
 html {
     font-size: $body_font_size;
+    font-size: calc(16px + 4 * ((100vw - 320px) / 680));
 }
+/*
 @include breakpoint(xs) {
     html {
-        font-size: calc($body_font_size + 6 * ((100vw - 320px) / 680));
     }
 }
 @include breakpoint(md) {
@@ -25,6 +26,7 @@ html {
         font-size: 22px;
     }
 }
+*/
 
 body,
 button,
@@ -36,7 +38,7 @@ textarea {
     font-family: $font__main;
     font-size: 1rem;
     line-height: $font__line-height-body;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 @import 'headings';

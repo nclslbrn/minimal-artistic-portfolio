@@ -132,7 +132,8 @@ input.pot {
 }
 
 /* real field */
-span.input {
+span.input,
+span.input button[type='submit'] {
     display: block;
     margin: 2em 0;
 }
@@ -140,12 +141,26 @@ span.input input,
 span.input.textarea-input textarea {
     padding: 1em;
     background: var(--component-bg-color);
-    border: none;
-    border-bottom: 2px solid var(--primary-color);
+    @include border;
+    box-shadow: inset 0 -4px 0 var(--primary-color);
     transition: all 0.75s ease;
     &:focus {
         color: var(--primary-color);
-        border-bottom: 2px solid var(--focus-color);
+        box-shadow: inset 0 -4px 0 var(--focus-color);
         background: var(--bg-color);
+    }
+}
+span.input button[type='submit'] {
+    padding: 0.6em 0.8em;
+}
+
+/* Default search form */
+form.search-form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+
+    input#s {
+        padding: 0.5em;
     }
 }

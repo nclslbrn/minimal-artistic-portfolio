@@ -3,7 +3,7 @@ footer.site-footer .wrapper {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    @include border('top');
+    border-top: 5px double var(--border-color);
 }
 
 footer .site-info {

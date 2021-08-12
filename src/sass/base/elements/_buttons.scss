@@ -7,6 +7,7 @@ input[type='submit'],
 .btn,
 .button,
 .social-sharing-module a {
+    margin-bottom: 1em;
     line-height: 1;
     padding: 0.6em 1em 0.4em;
 }
@@ -32,6 +33,7 @@ input[type='submit'] {
         background: var(--bg-color);
     }
 }
+
 .btn,
 .button,
 button {

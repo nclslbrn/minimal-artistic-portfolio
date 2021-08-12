@@ -47,8 +47,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 :root[data-theme=light] {
-  --primary-color: #08396e;
-  --text-color: #333333;
+  --primary-color: #339165;
+  --text-color: #444444;
   --focus-color: #c200b8;
   --hover-color: #d62839;
   --bg-color: #d8d8d8;
@@ -57,8 +57,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 :root[data-theme=dark] {
-  --primary-color: #789bcc;
-  --text-color: #e3f5fc;
+  --primary-color: #97c0fa;
+  --text-color: #ccf0ff;
   --focus-color: #fbbd12;
   --hover-color: #d62839;
   --bg-color: #201b1d;
@@ -71,15 +71,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 ::-moz-placeholder {
-  color: var(--border-color);
+  color: var(--text-color);
 }
 
 :-ms-input-placeholder {
-  color: var(--border-color);
+  color: var(--text-color);
 }
 
 ::placeholder {
-  color: var(--border-color);
+  color: var(--text-color);
 }
 
 ::-moz-selection {
@@ -90,6 +90,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 ::selection {
   color: var(--bg-color);
   background-color: var(--hover-color);
+}
+
+.fluidbox--opened .fluidbox__overlay,
+.fluidbox__overlay {
+  background-color: var(--bg-color);
 }
 
 /*--------------------------------------------------------------
@@ -435,23 +440,25 @@ html {
 }
 html {
   font-size: 18px;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 680));
 }
 
-@media (min-width: 12rem) {
-  html {
-    font-size: calc($body_font_size + 6 * ((100vw - 320px) / 680));
-  }
+/*
+@include breakpoint(xs) {
+    html {
+    }
 }
-@media (min-width: 54rem) {
-  html {
-    font-size: 20px;
-  }
+@include breakpoint(md) {
+    html {
+        font-size: 20px;
+    }
 }
-@media (min-width: 64rem) {
-  html {
-    font-size: 22px;
-  }
+@include breakpoint(lg) {
+    html {
+        font-size: 22px;
+    }
 }
+*/
 body,
 button,
 input,
@@ -462,7 +469,7 @@ textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h1,
@@ -653,7 +660,7 @@ svg.icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 5px double var(--border-color);
 }
 @media (min-width: 54rem) {
   .site-header div.wrapper {
@@ -687,7 +694,7 @@ footer.site-footer .wrapper {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  border-top: 1px solid var(--border-color);
+  border-top: 5px double var(--border-color);
 }
 
 @media (min-width: 54rem) {
@@ -2299,6 +2306,7 @@ input[type=submit],
 .btn,
 .button,
 .social-sharing-module a {
+  margin-bottom: 1em;
   line-height: 1;
   padding: 0.6em 1em 0.4em;
 }
@@ -2517,7 +2525,8 @@ input.pot {
 }
 
 /* real field */
-span.input {
+span.input,
+span.input button[type=submit] {
   display: block;
   margin: 2em 0;
 }
@@ -2526,15 +2535,29 @@ span.input input,
 span.input.textarea-input textarea {
   padding: 1em;
   background: var(--component-bg-color);
-  border: none;
-  border-bottom: 2px solid var(--primary-color);
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 -4px 0 var(--primary-color);
   transition: all 0.75s ease;
 }
 span.input input:focus,
 span.input.textarea-input textarea:focus {
   color: var(--primary-color);
-  border-bottom: 2px solid var(--focus-color);
+  box-shadow: inset 0 -4px 0 var(--focus-color);
   background: var(--bg-color);
+}
+
+span.input button[type=submit] {
+  padding: 0.6em 0.8em;
+}
+
+/* Default search form */
+form.search-form {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+}
+form.search-form input#s {
+  padding: 0.5em;
 }
 
 /*--------------------------------------------------------------
@@ -2651,7 +2674,7 @@ span.input.textarea-input textarea:focus {
 .main-navigation ul li input,
 .main-navigation ul li button {
     padding: 0.4em 0.6em;
-    font-size: 0.9em;
+    font-size: 0.82em;
   }
 }
 @media (min-width: 54rem) {
@@ -2689,7 +2712,7 @@ span.input.textarea-input textarea:focus {
 }
 @media (min-width: 64rem) {
   .main-navigation {
-    max-width: 68%;
+    max-width: 70%;
   }
 }
 
@@ -2826,7 +2849,7 @@ nav.page-nav {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
 .page-links {
@@ -2914,7 +2937,15 @@ nav.page-nav {
 .project-cartel p,
 .event-properties .date,
 .event-properties .place {
-  display: inline-block;
+  display: block;
+}
+.project-cartel p::before, .project-cartel p::after,
+.event-properties .date::before,
+.event-properties .date::after,
+.event-properties .place::before,
+.event-properties .place::after {
+  content: "";
+  display: table;
 }
 
 .project-cartel .list-title,
@@ -2925,6 +2956,10 @@ nav.page-nav {
 ul.related-events,
 ul.related-projects {
   margin-left: 0;
+}
+
+.social-sharing-module {
+  margin-bottom: 1em;
 }
 
 .event-hero {
@@ -2946,8 +2981,15 @@ ul.related-projects {
   float: left;
 }
 
-/* Events / CV
+/* Small height content 
 --------------------------------------------- */
+.no-results,
+.not-found,
+.single-project .project-texts,
+.single-event .event-texts {
+  min-height: 60vh;
+}
+
 /* GIF page
 --------------------------------------------- */
 .gif-grid {

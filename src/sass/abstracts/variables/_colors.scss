@@ -1,6 +1,6 @@
 :root[data-theme='light'] {
-    --primary-color: #08396e;
-    --text-color: #333333;
+    --primary-color: #339165;
+    --text-color: #444444;
     --focus-color: #c200b8;
     --hover-color: #d62839;
     --bg-color: #d8d8d8;
@@ -8,8 +8,8 @@
     --border-color: #d4d4d4;
 }
 :root[data-theme='dark'] {
-    --primary-color: #789bcc;
-    --text-color: #e3f5fc;
+    --primary-color: #97c0fa;
+    --text-color: #ccf0ff;
     --focus-color: #fbbd12;
     --hover-color: #d62839;
     --bg-color: #201b1d;
@@ -20,9 +20,13 @@
     --shadows: 0 0 1em rgba(0, 0, 0, 0.1);
 }
 ::placeholder {
-    color: var(--border-color);
+    color: var(--text-color);
 }
 ::selection {
     color: var(--bg-color);
     background-color: var(--hover-color);
+}
+.fluidbox--opened .fluidbox__overlay,
+.fluidbox__overlay {
+    background-color: var(--bg-color);
 }

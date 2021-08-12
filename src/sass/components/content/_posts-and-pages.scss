@@ -37,7 +37,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-    margin: 1.5em 0 0;
+    margin: 1.5em 0 1.5em 0;
 }
 
 .page-links {
@@ -53,7 +53,6 @@
     flex-flow: column nowrap;
     margin: 0 0 3em 0;
     background-color: var(--component-bg-color);
-    // @include border;
 
     @include breakpoint(sm) {
         flex-flow: row nowrap;
@@ -102,7 +101,6 @@
         .event-properties {
             padding-right: 1.5%;
             flex: 1 0 28.5%;
-            //word-break: break-all;
             hyphens: auto;
         }
     }
@@ -110,7 +108,12 @@
 .project-cartel p,
 .event-properties .date,
 .event-properties .place {
-    display: inline-block;
+    display: block;
+    &::before,
+    &::after {
+        content: '';
+        display: table;
+    }
 }
 .project-cartel .list-title,
 .event-properties .list-title {
@@ -119,6 +122,10 @@
 ul.related-events,
 ul.related-projects {
     margin-left: 0;
+}
+
+.social-sharing-module {
+    margin-bottom: 1em;
 }
 
 .event-hero {
@@ -140,8 +147,14 @@ ul.related-projects {
     }
 }
 
-/* Events / CV
+/* Small height content 
 --------------------------------------------- */
+.no-results,
+.not-found,
+.single-project .project-texts,
+.single-event .event-texts {
+    min-height: 60vh;
+}
 
 /* GIF page
 --------------------------------------------- */
