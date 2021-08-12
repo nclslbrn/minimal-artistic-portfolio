@@ -318,7 +318,7 @@ function map_get_form_markup( $url ) {
 			><?php echo isset( $data['message'] ) ? esc_html( $data['message'] ) : ''; ?></textarea>
 		</span>
 
-		<div class="input">
+		<span class="input">
 			<label class="input__label">
 				<?php echo esc_html__( '* : require field', 'Minimal-Artistic-Portfolio' ); ?>
 			</label>
@@ -326,11 +326,34 @@ function map_get_form_markup( $url ) {
 			<button type="submit" name="submit" class="button">
 				<?php echo esc_html__( 'send', 'Minimal-Artistic-Portfolio' ); ?>
 			</button>
-		</div>
+		</span>
 
 	</form>
 
 
 	<?php
 
+}
+
+/** 
+ * Create date string by removing redudant information
+ * 
+ * @param object $begin_date the first date of the string
+ * @param object $end_date the last date of the string
+ * 
+ * @return string the cleaned date string
+ **/
+function map_friendly_date($begin_date, $end_date) {
+	$keep_month = date_i18n( 'j F Y', $begin_date) === date_i18n( 'j F Y', $end_date);
+	$keep_year = date_i18n( 'j F Y', $begin_date) === date_i18n( 'j F Y', $end_date);
+
+
+	$output = __( 'From', 'Minimal-Artistic-Portfolio' );
+	$output .= date_i18n( ' j ', $begin_date);
+	$output .= $keep_month ? date_i18n( ' F ', $begin_date) : '';
+	$output .= $keep_year ? date_i18n( ' Y ', $begin_date) : '';
+	$output .= __( 'to', 'Minimal-Artistic-Portfolio' );
+	$output .= date_i18n( ' j F Y', strtotime( $end_date ) );
+
+	return $output;
 }

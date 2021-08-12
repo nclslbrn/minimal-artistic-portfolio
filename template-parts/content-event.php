@@ -12,8 +12,8 @@ if ( is_single() ) :
 		'latt'             => get_post_meta( $post->ID, 'LATT', true ),
 		'long'             => get_post_meta( $post->ID, 'LONG', true ),
 		'place_name'       => get_post_meta( $post->ID, 'PLACE', true ),
-		'begin_date'       => get_post_meta( $post->ID, 'BEGINDATE', true ),
-		'end_date'         => get_post_meta( $post->ID, 'ENDDATE', true ),
+		'begin_date'       => strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ),
+		'end_date'         => strtotime( get_post_meta( $post->ID, 'ENDDATE', true ) ),
 		'related_projects' => map_get_project( $post->ID ),
 		'content_classes'  => ' ',
 	);
@@ -56,12 +56,9 @@ if ( is_single() ) :
 						<use xlink:href="#icon-calendar"></use>
 						</svg>
 							<span>
-								<?php echo esc_html__( 'From', 'Minimal-Artistic-Portfolio' ); ?>
-								<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $map_event['begin_date'] ) ) ); ?>
-								<?php echo esc_html__( 'to', 'Minimal-Artistic-Portfolio' ); ?>
-								<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $map_event['end_date'] ) ) ); ?>
+								<?php echo esc_html__(map_friendly_date($map_event['begin_date'], $map_event['end_date'] )); ?>
 							</span>
-					</p></br />
+					</p>
 				<?php endif; ?>
 				<?php if ( $map_event['related_projects'] ) : ?>
 					<?php echo wp_kses_post( $map_event['related_projects'] ); ?>
@@ -88,8 +85,8 @@ else :
 		'link'      => get_permalink( $post->ID ),
 		'thumbnail' => get_the_post_thumbnail( $post->ID, 'carton' ),
 		'place'     => get_post_meta( $post->ID, 'PLACE', true ),
-		'beginDate' => date_i18n( 'j F  Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', 'true' ) ) ),
-		'endDate'   => date_i18n( 'j F Y', strtotime( get_post_meta( $post->ID, 'ENDDATE', 'true' ) ) ),
+		'begin_date' => strtotime( get_post_meta( $post->ID, 'BEGINDATE', 'true' ) ),
+		'end_date'   => strtotime( get_post_meta( $post->ID, 'ENDDATE', 'true' ) ),
 	);
 
 	?>
@@ -117,23 +114,13 @@ else :
 				</p>
 			<?php endif; ?>
 
-			<?php if ( $map_event['beginDate'] && $map_event['endDate'] ) : ?>
+			<?php if ( $map_event['begin_date'] && $map_event['end_date'] ) : ?>
 				<p class="date">
 					<svg class="icon icon-calendar">
 						<use xlink:href="#icon-calendar"></use>
 					</svg>
 					<span>
-						<?php 
-						// TODO: show month & year on first date only if they are different from endDate.
-						echo esc_html( 
-							sprintf(
-							/* translators: %2$s: Date delimiter */
-								__( 'From %1$s to %2$s', 'Minimal-Artistic-Portfolio' ),
-								$map_event['beginDate'],
-								$map_event['endDate'] 
-							)
-						); 
-						?>
+						<?php echo esc_html__(map_friendly_date($map_event['begin_date'], $map_event['end_date'] )); ?>
 					</span>
 				</p>
 			<?php endif; ?>
