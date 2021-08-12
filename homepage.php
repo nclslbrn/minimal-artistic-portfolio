@@ -21,8 +21,7 @@ get_header(); ?>
 
 			<div class="entry-content">
 				<!-- List projects -->
-				<?php map_list_custom_posts( 'project', 10 ); ?>
-				
+				<?php map_list_custom_posts( 'project', 10 ); ?>		
 			</div>
 
 		</main><!-- #main -->

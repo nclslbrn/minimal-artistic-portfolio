@@ -46,7 +46,7 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:248
+#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:249
 msgid "Events"
 msgstr ""
 
@@ -269,50 +269,50 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: inc/custom-post.php:503
+#: inc/custom-post.php:502
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:528, template-parts/content-event.php:57
+#: inc/custom-post.php:527, template-parts/content-event.php:55
 msgid "From"
 msgstr ""
 
-#: inc/custom-post.php:530, template-parts/content-event.php:59
+#: inc/custom-post.php:529, template-parts/content-event.php:57
 msgid "to"
 msgstr ""
 
-#: inc/custom-post.php:534, template-parts/content-project.php:29, template-parts/events-byyear.php:56
+#: inc/custom-post.php:533, template-parts/content-project.php:29, template-parts/events-byyear.php:58
 msgid "Read more"
 msgstr ""
 
-#: inc/custom-post.php:562
+#: inc/custom-post.php:561
 msgid "$undefined->singular_name"
 msgid_plural "$undefined->name"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/custom-post.php:636
+#: inc/custom-post.php:635
 msgid "Today"
 msgstr ""
 
-#: inc/custom-post.php:638
+#: inc/custom-post.php:637
 msgid "Tomorrow"
 msgstr ""
 
 #. translators: 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:646
+#: inc/custom-post.php:645
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#: inc/custom-post.php:682
+#: inc/custom-post.php:681
 msgid "Publishing Soon"
 msgstr ""
 
-#: inc/custom-post.php:694
+#: inc/custom-post.php:693
 msgid "Recently Published"
 msgstr ""
 
-#: inc/custom-post.php:704
+#: inc/custom-post.php:703
 msgid "No activity yet!"
 msgstr ""
 
@@ -523,7 +523,7 @@ msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #. translators: %2$s: Date delimiter
-#: template-parts/events-byyear.php:46
+#: template-parts/events-byyear.php:48
 msgid "From %1$s to %2$s"
 msgstr ""
 

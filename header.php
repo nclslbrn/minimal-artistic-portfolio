@@ -70,11 +70,14 @@
 		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
-			<div class="wrapper row">
+			<div class="wrapper">
 				<div class="site-branding">
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<?php 
+							/** 
+							 * TODO: compute font-size from letters num
+							 * */ 
 							$map_sitename_words = explode( ' ', get_bloginfo( 'name' ) );
 							foreach ( (array) $map_sitename_words as $map_word ) { 
 								echo '<span>' . esc_html( $map_word ) . '</span>';
@@ -83,7 +86,6 @@
 						</a>
 					</h1>
 				</div><!-- .site-branding -->
-			
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<?php 
 						wp_nav_menu(
@@ -101,8 +103,8 @@
 				</button>
 
 
-			</div><!-- .wrapper .row -->
+			</div><!-- .wrapper -->
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content">
-			<div class="wrapper row">
+			<div class="wrapper">

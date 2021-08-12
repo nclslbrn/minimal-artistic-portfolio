@@ -24,7 +24,6 @@
 				<?php echo esc_attr( $args['title'] ); ?>
 			</a>
 		</h3>
-	
 		<?php if ( $args['place'] ) : ?>
 			<p class="place">
 				<svg class="icon icon-location">
@@ -40,6 +39,9 @@
 					<use xlink:href="#icon-calendar"></use>
 				</svg>
 				<?php 
+					/**
+					 * TODO: show month & year on first date only if they are different from endDate
+					 */
 					echo esc_html( 
 						sprintf(
 						/* translators: %2$s: Date delimiter */

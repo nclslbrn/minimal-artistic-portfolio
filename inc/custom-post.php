@@ -379,17 +379,14 @@ function map_list_posts_by_years( $type, $limit ) {
 
 						<h2 class="year"><?php echo esc_attr( $year ); ?></h2>
 
-						<div class="yearEventsList">
-							
+						<div class="yearEventsList">				
 							<?php foreach ( $posts as $post_by_year ) : ?>
 								<?php $args = $post_by_year; ?>
 								<?php get_template_part( 'template-parts/events', 'byyear', $args ); ?>
 							<?php endforeach; ?>
 
-						</div><!-- .year(Posts/Events)List-->				
-					
-					</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->
-				
+						</div><!-- .year(Posts/Events)List-->
+					</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->		
 				<?php endforeach; ?>
 
 			</section><!-- .ac-container -->
@@ -478,15 +475,14 @@ function map_contextully_load_last_event() {
 	$actual_events = array();
 	$count         = 0;
 	if ( $all_events->have_posts() ) {
-		while ( $all_events->have_posts() ) :
+		while ( $all_events->have_posts() ) {
 
 			global $post;
 			$all_events->the_post();
-
 			$end_date = get_post_meta( $post->ID, 'ENDDATE', 'true' );
 
 
-			if ( $end_date > $today ) :
+			if ( $end_date > $today ) {
 
 				$actual_events[ $post->ID ]['eventId']  = $post->ID;
 				$actual_events[ $post->ID ]['place']    = get_post_meta( $post->ID, 'PLACE', 'true' );
@@ -537,8 +533,8 @@ function map_contextully_load_last_event() {
 
 				<?php 
 				$count++;
-		endif;
-		endwhile;
+			}
+		}
 	}
 	wp_reset_postdata();
 }
@@ -597,8 +593,6 @@ add_action( 'wp_dashboard_setup', 'map_add_custom_dashboard_activity' );
  */
 function map_dashboard_recent_post_types( $args ) {
 
-	/* Chenged from here */
-
 	if ( ! $args['post_type'] ) {
 		$args['post_type'] = 'any';
 	}
@@ -608,7 +602,7 @@ function map_dashboard_recent_post_types( $args ) {
 		'post_status'     => $args['status'],
 		'orderby'         => 'date',
 		'order'           => $args['order'],
-		'posts_per_page'  => intval( $args['max'] ),
+		'posts_per_page'  => intval( $args['max'] ), // phpcs:ignore
 		'no_found_rows'   => true,
 		'cache_results'   => false,
 	);
