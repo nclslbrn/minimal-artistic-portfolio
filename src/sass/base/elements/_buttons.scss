@@ -16,7 +16,7 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-    background: var(--primary-color);
+    background: transparent;
     color: rgba(0, 0, 0, 0.8);
 
     @include border;
@@ -36,7 +36,7 @@ a.btn,
 .page-nav a,
 .page-nav span,
 .social-sharing-module a {
-    background: var(--bg-color);
+    background: transparent;
 }
 
 a.btn,

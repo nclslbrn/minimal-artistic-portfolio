@@ -21,7 +21,7 @@ textarea {
     padding: 3px;
 
     //color: var(--text-color);
-    background-color: var(--bg-color);
+    background-color: transparent;
 
     &:focus {
         color: var(--focus-color);
@@ -58,10 +58,15 @@ button {
 }
 
 ul.sub-menu li button {
-    background: var(--bg-color);
     color: var(--primary-color);
     border: none;
+
+    &:hover {
+        background: transparent;
+        color: var(--hover-color);
+    }
 }
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
