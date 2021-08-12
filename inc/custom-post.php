@@ -308,7 +308,6 @@ function map_get_project( $post_id ) {
  * 
  * @param string $type post type name.
  * @param int    $limit how many post query.
- * @return string|boolean HTML list of events links or false if no event found.
  */
 function map_list_posts_by_years( $type, $limit ) {
 	$post_year       = '';
@@ -332,72 +331,52 @@ function map_list_posts_by_years( $type, $limit ) {
 	);
 	$posts = new WP_Query( $args );
 
-	if ( $posts->have_posts() ) {
-		$post_by_year = array();
-		$map_data     = array();
+	if ( $posts->have_posts() ) : 
+		$previous_year = 0;
+		$post_count    = 0;
+		$map_data      = array();
+		$firt_post     = true;
+		$list_open     = false;
 		while ( $posts->have_posts() ) :
 
 			global $post;
 			$posts->the_post();
-			$year = date_i18n( 'Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ) );
+			$current_year = date_i18n( 'Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ) );
 
-			$post_by_year[ $year ][ $post->ID ] = array(
-				'id'        => $post->ID,
-				'title'     => get_the_title( $post->ID ),
-				'link'      => get_permalink( $post->ID ),
-				'place'     => get_post_meta( $post->ID, 'PLACE', true ),
-				'content'   => get_the_content(),
-				'beginDate' => date_i18n( 'j F  Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', 'true' ) ) ),
-				'endDate'   => date_i18n( 'j F Y', strtotime( get_post_meta( $post->ID, 'ENDDATE', 'true' ) ) ),
-				'thumbnail' => get_the_post_thumbnail( $post->ID, 'carton' ),
-				'post_type' => $post->post_type,
-			);
+			if ( $list_open && $current_year === $previous_year ) {
+				get_template_part( 'template-parts/content', 'event' );
+			}
+			if ( $list_open && 
+				( $current_year !== $previous_year || $post->post_count === $post_count ) 
+			) {
+				echo '</ul><!-- .year-events-list -->';
+				echo '</section><!-- .events-year -->';
+				$list_open = false;
+			}
+			if ( ! $list_open || $first_post ) {
+				echo '<section =\'events-year\'>';
+				echo '<h2 class=\'year\'>' . esc_attr( $current_year ) . '</h2><!-- .year -->';
+				echo '<ul class=\'year-events-list\'>';
+				get_template_part( 'template-parts/content', 'event' );
+				$first_post = false;
+				$list_open  = true;
+			}
 
-
-			$map_data[] = array(
+			$map_data[]    = array(
 				'link'     => get_permalink( $post->ID ),
 				'title'    => get_the_title( $post->ID ),
 				'latt'     => get_post_meta( $post->ID, 'LATT', true ),
 				'long'     => get_post_meta( $post->ID, 'LONG', true ),
 			);
-		endwhile;
-		wp_reset_postdata();
-
-		if ( ! empty( $post_by_year ) ) {
-			if ( empty( $post_year ) ) {
-				$array_key = array_keys( $post_by_year );
-				$last_year = array_shift( $array_key );
-			} elseif ( ! empty( $post_year ) ) {
-				$last_year = $post_year;
-			}
-
-			krsort( $post_by_year ); ?>
-			<section class="ac-container">
-
-				<?php foreach ( $post_by_year as $year => $posts ) : ?>	
-					<div class="<?php echo esc_attr( $type ); ?>-year-section">
-
-						<h2 class="year"><?php echo esc_attr( $year ); ?></h2>
-
-						<div class="yearEventsList">				
-							<?php foreach ( $posts as $post_by_year ) : ?>
-								<?php $args = $post_by_year; ?>
-								<?php get_template_part( 'template-parts/events', 'byyear', $args ); ?>
-							<?php endforeach; ?>
-
-						</div><!-- .year(Posts/Events)List-->
-					</div><!-- .<?php echo esc_attr( $type ); ?>-year-section -->		
-				<?php endforeach; ?>
-
-			</section><!-- .ac-container -->
-			<script>
-				window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
-			</script>
-			<?php
-		}
-	} else {
-		return false;
-	}
+			$previous_year = $current_year;
+			$post_count++;
+		endwhile; ?>
+		<script>
+			window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
+		</script>
+		<?php wp_reset_postdata(); ?>
+		<?php 
+	endif;
 }
 
 /**
@@ -460,83 +439,41 @@ function map_strip_shortcode_gallery( $content ) {
 }
 
 /**
- * Add future or actual event on home
+ * Add next or current events on home
  */
 function map_contextully_load_last_event() {
-	$today = date( 'Y-m-d' );
-
-	$all_events    = new WP_Query(
+	$next_events = new WP_Query(
 		array(
 			'post_type'      => 'event',
 			'post_status'    => 'publish',
 			'posts_per_page' => -1, // phpcs:ignore WPThemeReview.CoreFunctionality.PostsPerPage.posts_per_page_posts_per_page,
+			'orderby'        => 'ID',
+			'order'          => 'ASC',
+			'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				array(
+					'key'     => 'ENDDATE',
+					'value'   => date( 'Y-m-d' ),
+					'compare' => '>',
+				),
+			),
 		) 
 	);
-	$actual_events = array();
-	$count         = 0;
-	if ( $all_events->have_posts() ) {
-		while ( $all_events->have_posts() ) {
+	if ( $next_events->have_posts() ) : 
+		?>
+		<header class="entry-header next-events">
+			<h2 class="entry-title"><?php echo esc_html( __( 'Coming soon / Now', 'Minimal-Artistic-Portfolio' ) ); ?></h2>
+		</header>
+		<div class="entry-content">
+			<?php while ( $next_events->have_posts() ) : ?>
 
-			global $post;
-			$all_events->the_post();
-			$end_date = get_post_meta( $post->ID, 'ENDDATE', 'true' );
+				<?php global $post; ?>
+				<?php $next_events->the_post(); ?>
+				<?php get_template_part( 'template-parts/content', 'event' ); ?>
 
-
-			if ( $end_date > $today ) {
-
-				$actual_events[ $post->ID ]['eventId']  = $post->ID;
-				$actual_events[ $post->ID ]['place']    = get_post_meta( $post->ID, 'PLACE', 'true' );
-				$actual_events[ $post->ID ]['map_latt'] = get_post_meta( $post->ID, 'LATT', true );
-				$actual_events[ $post->ID ]['map_long'] = get_post_meta( $post->ID, 'LONG', true ); 
-				
-				
-				// TODO move markup in a template parts.
-				?>
-				<?php if ( 0 === $count ) : ?>
-
-					<header class="entry-header actual-event">
-						<h2 class="entry-title"><?php echo esc_html( __( 'Coming soon / Now', 'Minimal-Artistic-Portfolio' ) ); ?></h2>
-					</header>
-
-				<?php endif; ?>
-				<?php
-					$GLOBALS['map_latt'] = $actual_events[ $post->ID ]['map_latt'];
-					$GLOBALS['map_long'] = $actual_events[ $post->ID ]['map_long']; 
-				?>
-
-		<div id="event-<?php echo esc_attr( $post->ID ); ?>" class="event-on-home">
-			<div class="event-featured-image">
-					<?php the_post_thumbnail( 'full' ); ?>
-			</div>
-			<div class="event-info">
-				<h3><?php echo esc_html( get_the_title( $post->ID ) ); ?></h3>
-				<p>
-				<svg class="icon icon-location">
-					<use xlink:href="#icon-location"></use>
-				</svg>
-					<?php echo esc_html( $actual_events[ $post->ID ]['place'] ); ?>
-				</p>
-				<p class="date">
-				<svg class="icon icon-calendar">
-					<use xlink:href="#icon-calendar"></use>
-				</svg>
-					<?php echo esc_html( __( 'From', 'Minimal-Artistic-Portfolio' ) ); ?>
-					<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( get_post_meta( get_the_ID(), 'BEGINDATE', 'true' ) ) ) ); ?>
-					<?php echo esc_html( __( 'to', 'Minimal-Artistic-Portfolio' ) ); ?>
-					<?php echo esc_html( ' ' . date_i18n( 'j F Y', strtotime( $end_date ) ) ); ?>
-				</p>
-				<a class="button" href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>">
-					<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
-				</a>
-			</div><!-- event-info -->
-		</div><!-- .evennt-on-home -->
-
-				<?php 
-				$count++;
-			}
-		}
-	}
-	wp_reset_postdata();
+			<?php endwhile; ?>
+		</div>
+	<?php endif; ?>
+	<?php wp_reset_postdata();
 }
 /**
  * Show custom post in the at a glance admin widget
@@ -564,7 +501,7 @@ function map_at_glance_content_table_end() {
 		}
 	}
 }
-add_action( 'dashboard_glance_items', 'map_at_glance_content_table_end' );
+			add_action( 'dashboard_glance_items', 'map_at_glance_content_table_end' );
 
 
 
@@ -575,7 +512,7 @@ function map_remove_dashboard_widgets() {
 	global $wp_meta_boxes;
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );
 }
-add_action( 'wp_dashboard_setup', 'map_remove_dashboard_widgets' );
+			add_action( 'wp_dashboard_setup', 'map_remove_dashboard_widgets' );
 
 /**
  * Register your custom activity widget
@@ -583,7 +520,7 @@ add_action( 'wp_dashboard_setup', 'map_remove_dashboard_widgets' );
 function map_add_custom_dashboard_activity() {
 	wp_add_dashboard_widget( 'custom_dashboard_activity', 'Activities', 'map_dashboard_site_activity' );
 }
-add_action( 'wp_dashboard_setup', 'map_add_custom_dashboard_activity' );
+			add_action( 'wp_dashboard_setup', 'map_add_custom_dashboard_activity' );
 
 /** 
  * The new function based on wp_dashboard_recent_posts 
@@ -714,8 +651,8 @@ function map_post_thumbnail_feeds( $content ) {
 	}
 	return $content;
 }
-add_filter( 'the_excerpt_rss', 'map_post_thumbnail_feeds' );
-add_filter( 'the_content_feed', 'map_post_thumbnail_feeds' );
+			add_filter( 'the_excerpt_rss', 'map_post_thumbnail_feeds' );
+			add_filter( 'the_content_feed', 'map_post_thumbnail_feeds' );
 
 
 ?>
