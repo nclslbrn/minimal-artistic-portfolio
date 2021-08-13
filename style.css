@@ -603,6 +603,7 @@ svg.icon {
   width: 1em;
   height: 1em;
   fill: var(--text-color);
+  pointer-events: none;
 }
 
 .menu-toggle .menu-icon {
@@ -2412,13 +2413,22 @@ textarea {
   width: 100%;
 }
 
-ul.menu form#searchform input#s {
-  width: 100%;
+@media (min-width: 12rem) and (max-width: 32rem) {
+  ul.menu form#searchform input#s {
+    width: 100%;
+  }
 }
 @media (min-width: 54rem) {
   ul.menu form#searchform input#s {
     padding: 0.5em;
   }
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
 }
 
 input,
@@ -2589,6 +2599,7 @@ form.search-form button.search-submit {
 }
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
+  display: block;
   left: 50%;
   width: 200px;
   margin-left: -100px;
@@ -2598,16 +2609,12 @@ form.search-form button.search-submit {
     display: block;
   }
 }
-.main-navigation ul li img.qtranxs-flag {
-  display: none;
-}
 .main-navigation li {
   position: relative;
-  border: 1px solid transparent;
-  margin-right: -1px;
+  border-bottom: 1px solid var(--border-color);
   transition: all 0.35s ease-out;
 }
-.main-navigation li.menu-item-has-children {
+.main-navigation li.menu-item-has-children a {
   padding-right: 1em;
 }
 .main-navigation li.menu-item-has-children > a::after,
@@ -2621,25 +2628,25 @@ form.search-form button.search-submit {
   height: 0;
   position: absolute;
   border-width: 0.25em;
-  margin-top: 1em;
+  margin-top: 1.25em;
   border-style: solid;
   border-color: var(--primary-color) transparent transparent transparent;
   z-index: 666;
   transition: margin 0.05s ease-out;
 }
 .main-navigation li.menu-item-has-children > a::after {
-  margin-top: 0.9em;
+  margin-top: 1.15em;
   top: 0;
   border-color: var(--bg-color) transparent transparent transparent;
   z-index: 999;
 }
 .main-navigation li.menu-item-has-children:hover > a::before,
 .main-navigation li.menu-item-has-children:hover > a::after {
-  margin-top: 0.75em;
+  margin-top: 1em;
   border-color: transparent transparent var(--primary-color) transparent;
 }
 .main-navigation li.menu-item-has-children:hover > a::after {
-  margin-top: 0.85em;
+  margin-top: 1.05em;
   border-color: transparent transparent var(--bg-color) transparent;
 }
 .main-navigation li.qtranxs-lang-menu-item a img {
@@ -2652,17 +2659,20 @@ form.search-form button.search-submit {
 }
 .main-navigation ul li a,
 .main-navigation ul li input,
-.main-navigation ul li button {
+.main-navigation ul li button,
+.main-navigation ul li fieldset {
   padding: 0.6em 0.8em;
   font-size: 1.5em;
   text-align: center;
+  background: transparent;
 }
 @media (min-width: 54rem) {
   .main-navigation ul li a,
 .main-navigation ul li input,
-.main-navigation ul li button {
+.main-navigation ul li button,
+.main-navigation ul li fieldset {
     padding: 0.4em 0.6em;
-    font-size: 0.82em;
+    font-size: 1em;
   }
 }
 @media (min-width: 54rem) {

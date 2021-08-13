@@ -37,12 +37,22 @@ textarea {
 }
 
 ul.menu form#searchform input#s {
+    @include breakpoint(xs) {
+        @include breakpoint(sm, max) {
+            width: 100%;
+        }
+    }
     @include breakpoint(md) {
         padding: 0.5em;
     }
-    width: 100%;
 }
 
+fieldset {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+}
 input,
 textarea {
     outline: none;

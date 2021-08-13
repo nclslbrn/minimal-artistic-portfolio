@@ -31,14 +31,21 @@ const detectColorScheme = () => {
 }
 
 const switchTheme = (e) => {
-    if (e.target.checked) {
-        localStorage.setItem('theme', 'dark')
-        document.documentElement.setAttribute('data-theme', 'dark')
-        updateCheckBox(true)
-    } else {
-        localStorage.setItem('theme', 'light')
-        document.documentElement.setAttribute('data-theme', 'light')
-        updateCheckBox(false)
+    if (
+        e &&
+        ('undefined' !== e.target.checked || e.target.hasAttribute('data-mode'))
+    ) {
+        if ('dark' === e.target.getAttribute('data-mode') || e.target.checked) {
+            localStorage.setItem('theme', 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            updateCheckBox(true)
+            updateMenu(true)
+        } else {
+            localStorage.setItem('theme', 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            updateCheckBox(false)
+            updateMenu(false)
+        }
     }
 }
 
@@ -47,11 +54,21 @@ const updateCheckBox = (checked) => {
         modeSwitches[i].checked = checked
     }
 }
-
-detectColorScheme()
+const updateMenu = (isDark) => {
+    const menuIcon = document.querySelector('a#theme-menu-entry svg use')
+    if (menuIcon) {
+        if (isDark) {
+            menuIcon.setAttribute('xlink:href', '#icon-moon')
+        } else {
+            menuIcon.setAttribute('xlink:href', '#icon-sun')
+        }
+    }
+}
 
 const modeSwitches = document.querySelectorAll('input[name="mode-switcher"]')
 const modeButtons = document.querySelectorAll('button.theme-mode-button')
+
+detectColorScheme()
 
 if ('undefined' !== typeof modeSwitches) {
     for (let i = 0; i < modeSwitches.length; i++) {
@@ -59,6 +76,7 @@ if ('undefined' !== typeof modeSwitches) {
         if ('dark' === document.documentElement.dataset.theme) {
             modeSwitches[i].checked = true
         }
+        switchTheme()
     }
 }
 
@@ -66,10 +84,8 @@ if ('undefined' !== typeof modeButtons) {
     for (let i = 0; i < modeButtons.length; i++) {
         const theme = modeButtons[i].dataset.mode
         if (null !== theme) {
-            modeButtons[i].addEventListener('click', (event) => {
-                event.preventDefault()
-                document.documentElement.setAttribute('data-theme', theme)
-            })
+            modeButtons[i].addEventListener('click', switchTheme, false)
         }
+        // switchTheme()
     }
 }

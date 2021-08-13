@@ -36,6 +36,7 @@
 
         li:hover > ul,
         li.focus > ul {
+            display: block;
             left: 50%;
             width: 200px;
             margin-left: -100px;
@@ -45,18 +46,14 @@
                 display: block;
             }
         }
-        li img.qtranxs-flag {
-            display: none;
-        }
     }
 
     li {
         position: relative;
-        border: $border-width $border-style transparent;
-        margin-right: -$border-width;
+        @include border('bottom');
         transition: all 0.35s ease-out;
     }
-    li.menu-item-has-children {
+    li.menu-item-has-children a {
         padding-right: 1em;
     }
     li.menu-item-has-children > a::after,
@@ -70,7 +67,7 @@
         height: 0;
         position: absolute;
         border-width: 0.25em;
-        margin-top: 1em;
+        margin-top: 1.25em;
         border-style: solid;
         border-color: var(--primary-color) transparent transparent transparent;
         z-index: 666;
@@ -78,18 +75,18 @@
         transition: margin 0.05s ease-out;
     }
     li.menu-item-has-children > a::after {
-        margin-top: 0.9em;
+        margin-top: 1.15em;
         top: 0;
         border-color: var(--bg-color) transparent transparent transparent;
         z-index: 999;
     }
     li.menu-item-has-children:hover > a::before,
     li.menu-item-has-children:hover > a::after {
-        margin-top: 0.75em;
+        margin-top: 1em;
         border-color: transparent transparent var(--primary-color) transparent;
     }
     li.menu-item-has-children:hover > a::after {
-        margin-top: 0.85em;
+        margin-top: 1.05em;
         border-color: transparent transparent var(--bg-color) transparent;
     }
     li.qtranxs-lang-menu-item a img {
@@ -102,16 +99,18 @@
     }
     ul li a,
     ul li input,
-    ul li button {
+    ul li button,
+    ul li fieldset {
         padding: 0.6em 0.8em;
         font-size: 1.5em;
 
         @include breakpoint(md) {
             padding: 0.4em 0.6em;
-            font-size: 0.82em;
+            font-size: 1em;
         }
 
         text-align: center;
+        background: transparent;
     }
     ul li input {
         @include breakpoint(md) {

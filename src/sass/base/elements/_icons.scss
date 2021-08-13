@@ -3,6 +3,7 @@ svg.icon {
     width: 1em;
     height: 1em;
     fill: var(--text-color);
+    pointer-events: none;
 }
 
 // mobile menu icon (animated)
