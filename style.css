@@ -48,22 +48,22 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 :root[data-theme=light] {
-  --primary-color: #339165;
-  --text-color: #444444;
-  --focus-color: #c200b8;
-  --hover-color: #d62839;
+  --primary-color: #3a443f;
+  --text-color: #333333;
+  --focus-color: #408ead;
+  --hover-color: #30885f;
   --bg-color: #d8d8d8;
   --component-bg-color: #fcfcfc;
   --border-color: #d4d4d4;
 }
 
 :root[data-theme=dark] {
-  --primary-color: #f2cee6;
-  --text-color: #f6ffa3;
+  --primary-color: #e2f0eb;
+  --text-color: #eefffa;
   --focus-color: #92e0ff;
-  --hover-color: #d62839;
-  --bg-color: #201b1d;
-  --component-bg-color: hsla(212.3, 26.5%, 9.6%, 5);
+  --hover-color: #38db6e;
+  --bg-color: #1c1c1e;
+  --component-bg-color: #14191e;
   --border-color: #333333;
 }
 
@@ -2294,9 +2294,45 @@ input[type=submit],
 .btn,
 .button,
 .social-sharing-module a {
-  margin-bottom: 1em;
+  background: transparent;
   line-height: 1;
   padding: 0.6em 1em 0.4em;
+}
+
+main button,
+main input[type=button],
+main input[type=reset],
+main input[type=submit],
+main .page-nav a,
+main .page-nav span,
+main .btn,
+main .button,
+main .social-sharing-module a {
+  margin-bottom: 1em;
+  background-color: var(--component-bg-color);
+}
+main button:hover,
+main input[type=button]:hover,
+main input[type=reset]:hover,
+main input[type=submit]:hover,
+main .page-nav a:hover,
+main .page-nav span:hover,
+main .btn:hover,
+main .button:hover,
+main .social-sharing-module a:hover {
+  color: var(--hover-color);
+  border-color: var(--hover-color);
+}
+main button:hover svg,
+main input[type=button]:hover svg,
+main input[type=reset]:hover svg,
+main input[type=submit]:hover svg,
+main .page-nav a:hover svg,
+main .page-nav span:hover svg,
+main .btn:hover svg,
+main .button:hover svg,
+main .social-sharing-module a:hover svg {
+  fill: var(--hover-color);
 }
 
 .btn,
@@ -2305,7 +2341,6 @@ button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-  background: transparent;
   border: 1px solid var(--border-color);
 }
 .btn:hover,
@@ -2611,8 +2646,12 @@ form.search-form button.search-submit {
 }
 .main-navigation li {
   position: relative;
-  border-bottom: 1px solid var(--border-color);
   transition: all 0.35s ease-out;
+}
+@media (min-width: 12rem) and (max-width: 32rem) {
+  .main-navigation li {
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 .main-navigation li.menu-item-has-children a {
   padding-right: 1em;
@@ -2623,7 +2662,7 @@ form.search-form button.search-submit {
   display: block;
   top: 0;
   margin-left: 0.15em;
-  right: 1em;
+  right: 0.25em;
   width: 0;
   height: 0;
   position: absolute;
@@ -2637,7 +2676,7 @@ form.search-form button.search-submit {
 .main-navigation li.menu-item-has-children > a::after {
   margin-top: 1.15em;
   top: 0;
-  border-color: var(--bg-color) transparent transparent transparent;
+  border-color: var(--component-bg-color) transparent transparent transparent;
   z-index: 999;
 }
 .main-navigation li.menu-item-has-children:hover > a::before,
@@ -2647,7 +2686,7 @@ form.search-form button.search-submit {
 }
 .main-navigation li.menu-item-has-children:hover > a::after {
   margin-top: 1.05em;
-  border-color: transparent transparent var(--bg-color) transparent;
+  border-color: transparent transparent var(--component-bg-color) transparent;
 }
 .main-navigation li.qtranxs-lang-menu-item a img {
   display: none;

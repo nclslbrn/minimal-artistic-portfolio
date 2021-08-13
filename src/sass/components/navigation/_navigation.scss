@@ -50,7 +50,11 @@
 
     li {
         position: relative;
-        @include border('bottom');
+        @include breakpoint(xs) {
+            @include breakpoint(sm, max) {
+                @include border('bottom');
+            }
+        }
         transition: all 0.35s ease-out;
     }
     li.menu-item-has-children a {
@@ -62,7 +66,7 @@
         display: block;
         top: 0;
         margin-left: 0.15em;
-        right: 1em;
+        right: 0.25em;
         width: 0;
         height: 0;
         position: absolute;
@@ -77,7 +81,8 @@
     li.menu-item-has-children > a::after {
         margin-top: 1.15em;
         top: 0;
-        border-color: var(--bg-color) transparent transparent transparent;
+        border-color: var(--component-bg-color) transparent transparent
+            transparent;
         z-index: 999;
     }
     li.menu-item-has-children:hover > a::before,
@@ -87,7 +92,8 @@
     }
     li.menu-item-has-children:hover > a::after {
         margin-top: 1.05em;
-        border-color: transparent transparent var(--bg-color) transparent;
+        border-color: transparent transparent var(--component-bg-color)
+            transparent;
     }
     li.qtranxs-lang-menu-item a img {
         display: none;

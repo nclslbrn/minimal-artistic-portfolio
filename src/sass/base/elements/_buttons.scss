@@ -7,9 +7,30 @@ input[type='submit'],
 .btn,
 .button,
 .social-sharing-module a {
-    margin-bottom: 1em;
+    background: transparent;
     line-height: 1;
     padding: 0.6em 1em 0.4em;
+}
+
+main button,
+main input[type='button'],
+main input[type='reset'],
+main input[type='submit'],
+main .page-nav a,
+main .page-nav span,
+main .btn,
+main .button,
+main .social-sharing-module a {
+    margin-bottom: 1em;
+    background-color: var(--component-bg-color);
+
+    &:hover {
+        color: var(--hover-color);
+        border-color: var(--hover-color);
+        & svg {
+            fill: var(--hover-color);
+        }
+    }
 }
 
 .btn,
@@ -18,7 +39,6 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-    background: transparent;
     // color: rgba(0, 0, 0, 0.8);
 
     @include border;
