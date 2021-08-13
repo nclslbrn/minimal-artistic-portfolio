@@ -12,12 +12,16 @@
 ?>
 </div><!-- .wrapper .row -->
 <footer id="colophon" class="site-footer" role="contentinfo">
-	<div class="wrapper row">
-
+	<div class="wrapper">
 		<div class="footer-menu">
 			<?php 
 			if ( has_nav_menu( 'footer-menu' ) ) {
-					wp_nav_menu( array( 'theme_location' => 'footer-menu' ) );
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer-menu',
+							'container'      => '',
+						) 
+					);
 			} 
 			?>
 		</div>

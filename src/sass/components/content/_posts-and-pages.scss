@@ -80,6 +80,13 @@
         flex-basis: 50%;
     }
 }
+ul.year-events-list {
+    margin: 0;
+    padding: 0;
+    @include breakpoint(sm) {
+        margin: 0 0 1.5em 12%;
+    }
+}
 
 /* Single project & event
 --------------------------------------------- */
