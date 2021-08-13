@@ -29,7 +29,7 @@
 			<p>
 				<?php echo esc_url( get_site_url() ) . ' '; ?> © <?php esc_html_e( 'All right reserved', 'Minimal-Artistic-Portfolio' ); ?>
 			</p>
-			<a href="https://studio.nicolas-lebrun.fr">
+			<a href="https://github.com/nclslbrn/Minimal-artist-portfolio">
 				<?php esc_html_e( 'Design : N.Lebrun', 'Minimal-Artistic-Portfolio' ); ?>
 			</a>
 		</div><!-- .site-info -->
