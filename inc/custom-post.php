@@ -190,22 +190,26 @@ add_filter( 'pre_get_posts', 'map_add_post_types_to_queries' );
  * @param string $type the custom post type name to query.
  * @param int    $limit how many post we want per pages.
  */
-function map_list_custom_posts( $type, $limit ) {    
+function map_list_custom_posts( $type ) {
+	
+
+	$posts_per_page = get_option( 'posts_per_page' );
+    
 	$project_query_args = array(
 		'post_type'      => $type,
 		'post_status'    => 'publish',
+		'posts_per_page' => $posts_per_page
 	);
+	$paged = 1;
 
-	if ( -1 !== $limit ) {
+	if ( -1 !== $posts_per_page ) {
 		if ( get_query_var( 'paged' ) ) {
 			$paged = get_query_var( 'paged' );
 		} elseif ( get_query_var( 'page' ) ) {
 			$paged = get_query_var( 'page' );
-		} else {
-			$paged = 1;
-		}
+		} 
 		$project_query_args['paged']          = $paged;
-		$project_query_args['posts_per_page'] = $limit;
+		$project_query_args['posts_per_page'] = $posts_per_page;
 	}
 	$project_query = new WP_Query( $project_query_args );
 
@@ -217,15 +221,15 @@ function map_list_custom_posts( $type, $limit ) {
 
 			get_template_part( 'template-parts/content', 'project' );
 		}
-		if ( $project_query->max_num_pages > 1 && -1 !== $limit ) {
-			$current_page = max( 1, get_query_var( 'paged' ) );
+		if ( $project_query->max_num_pages > 1 && -1 !== $posts_per_page ) {
+			$current_page = max( 1, get_query_var( 'page' ) );
 			echo '<nav class=\'page-nav\'>';
 			echo wp_kses_post(
 				paginate_links(
 					array(
 						'prev_next' => false,
 						'current'   => $paged,
-						'total'     => $project_query->max_num_pages,
+						'total'     => $project_query->max_num_pages
 					)
 				)
 			);
@@ -342,24 +346,32 @@ function map_list_posts_by_years( $type, $limit ) {
 			global $post;
 			$posts->the_post();
 			$current_year = date_i18n( 'Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ) );
+			$post_count++;
 
 			if ( $list_open && $current_year === $previous_year ) {
+				echo '<li>';
 				get_template_part( 'template-parts/content', 'event' );
+				echo '</li>';
 			}
+			
+			if ( ! $list_open || $first_post ) {
+				echo '<section class=\'events-year\' data-post=\''.$post_count . '/'. $posts->post_count .'\'>';
+				echo '<h2 class=\'year\'>' . esc_attr( $current_year ) . '</h2><!-- .year -->';
+				echo '<ul class=\'year-events-list\'>';
+				echo '<li>';
+				get_template_part( 'template-parts/content', 'event' );
+				echo '</li>';
+
+				$first_post = false;
+				$list_open  = true;
+			}
+
 			if ( $list_open && 
-				( $current_year !== $previous_year || $post->post_count === $post_count ) 
+				( $current_year !== $previous_year || $posts->post_count == $post_count ) 
 			) {
 				echo '</ul><!-- .year-events-list -->';
 				echo '</section><!-- .events-year -->';
 				$list_open = false;
-			}
-			if ( ! $list_open || $first_post ) {
-				echo '<section =\'events-year\'>';
-				echo '<h2 class=\'year\'>' . esc_attr( $current_year ) . '</h2><!-- .year -->';
-				echo '<ul class=\'year-events-list\'>';
-				get_template_part( 'template-parts/content', 'event' );
-				$first_post = false;
-				$list_open  = true;
 			}
 
 			$map_data[]    = array(
@@ -369,7 +381,6 @@ function map_list_posts_by_years( $type, $limit ) {
 				'long'     => get_post_meta( $post->ID, 'LONG', true ),
 			);
 			$previous_year = $current_year;
-			$post_count++;
 		endwhile; ?>
 		<script>
 			window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
@@ -491,7 +502,11 @@ function map_at_glance_content_table_end() {
 		$num_posts = wp_count_posts( $post_type->name );
 		$num       = number_format_i18n( $num_posts->publish );
 		// phpcs:ignore
-		$text = _n( $post_type->labels->singular_name, $post_type->labels->name, intval( $num_posts->publish ) );
+		$text = _n( 
+			$post_type->labels->singular_name, 
+			$post_type->labels->name, 
+			intval( $num_posts->publish ) 
+		);
 		if ( current_user_can( 'edit_posts' ) ) {
 			$output  = '<a href="edit.php?post_type=' . esc_attr( $post_type->name ) . '">';
 			$output .= esc_html( $num . ' ' . $text );

@@ -17,29 +17,62 @@ get_header();
 
 			<?php
 			while ( have_posts() ) :
+				global $post;
 				the_post();
+
+
+				$map_school_section = get_post_meta( $post->ID, 'school', true );
+				$map_experience_section = get_post_meta( $post->ID, 'experience', true );
 				?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-				</header><!-- .entry-header -->
-				<div class="entry-content">
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<header class="entry-header">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						<div id="change-event-display-mode" class="event-menu">
+							<button data-toggle="map" class="button">
+								<svg class="icon icon-location">
+									<use xlink:href="#icon-location"></use>
+								</svg>
+								<?php esc_html( __( 'Map', 'Minimal-Artistic-Portfolio' ) ); ?>
+							</button>
+							<button data-toggle="events-list" class="button active">
+								<svg class="icon icon-calendar">
+									<use xlink:href="#icon-calendar"></use>
+								</svg>
+								<?php esc_html( __( 'List', 'Minimal-Artistic-Portfolio' ) ); ?>
+							</button>
+						</div>
+					</header><!-- .entry-header -->
+					<div class="entry-content">
 
+						<div id="events-list">	
 
-				<?php	get_template_part( 'template-parts/content', 'events' ); ?>
-				<?php
-					the_content();
+							<?php map_list_posts_by_years( 'event', -1 ); ?>
 
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'Minimal-Artistic-Portfolio' ),
-							'after'  => '</div>',
-						) 
-					);
-				?>
-				</div><!-- .entry-content -->
-			</article>
+							<?php if( $map_school_section ) : ?>
+								<section>
+									<h2><?php _e('Degrees', 'Minimal-Artistic-Portfolio'); ?></h2>
+									<ul>
+										<?php echo wp_kses_post( $map_school_section ); ?>
+									</ul>
+								</section>
+							<?php endif; ?>
+							<?php if( $map_experience_section ) : ?>
+								<section>
+									<h2><?php _e('Others', 'Minimal-Artistic-Portfolio'); ?></h2>
+									<ul>
+										<?php echo wp_kses_post( $map_experience_section); ?>
+									</ul>
+								</section>
+							<?php endif; ?>
+						</div><!-- #event-list -->
+						<!-- <div class="map-overlay" style="height: 0; overflow: hidden;"> -->
+						<div id="map" class="map multiple-marker"></div>
+						<!-- </div> .map-overlay -->
+
+						<?php the_content(); ?>
+					</div><!-- .entry-content -->
+				</article>
 			<?php endwhile; // End of the loop.	?>
 
 		</main><!-- #main -->
