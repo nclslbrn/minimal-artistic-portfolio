@@ -56,7 +56,14 @@ if ( is_single() ) :
 						<use xlink:href="#icon-calendar"></use>
 						</svg>
 							<span>
-								<?php echo esc_html__(map_friendly_date($map_event['begin_date'], $map_event['end_date'] )); ?>
+								<?php 
+								echo esc_html( 
+									map_friendly_date( 
+										$map_event['begin_date'], 
+										$map_event['end_date'] 
+									) 
+								); 
+								?>
 							</span>
 					</p>
 				<?php endif; ?>
@@ -82,9 +89,9 @@ if ( is_single() ) :
 else : 
 	
 	$map_event = array(
-		'link'      => get_permalink( $post->ID ),
-		'thumbnail' => get_the_post_thumbnail( $post->ID, 'carton' ),
-		'place'     => get_post_meta( $post->ID, 'PLACE', true ),
+		'link'       => get_permalink( $post->ID ),
+		'thumbnail'  => get_the_post_thumbnail( $post->ID, 'carton' ),
+		'place'      => get_post_meta( $post->ID, 'PLACE', true ),
 		'begin_date' => strtotime( get_post_meta( $post->ID, 'BEGINDATE', 'true' ) ),
 		'end_date'   => strtotime( get_post_meta( $post->ID, 'ENDDATE', 'true' ) ),
 	);
@@ -120,7 +127,14 @@ else :
 						<use xlink:href="#icon-calendar"></use>
 					</svg>
 					<span>
-						<?php echo esc_html__(map_friendly_date($map_event['begin_date'], $map_event['end_date'] )); ?>
+						<?php 
+						echo esc_html( 
+							map_friendly_date( 
+								$map_event['begin_date'], 
+								$map_event['end_date'] 
+							)
+						); 
+						?>
 					</span>
 				</p>
 			<?php endif; ?>

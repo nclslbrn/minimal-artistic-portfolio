@@ -9,6 +9,7 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: Minimal-Artistic-Portfolio
+Domain Path: /languages/
 Tags: portfolio, minimal, light&dark
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -57,9 +58,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 :root[data-theme=dark] {
-  --primary-color: #97c0fa;
-  --text-color: #ccf0ff;
-  --focus-color: #fbbd12;
+  --primary-color: #f2cee6;
+  --text-color: #f6ffa3;
+  --focus-color: #92e0ff;
   --hover-color: #d62839;
   --bg-color: #201b1d;
   --component-bg-color: hsla(212.3, 26.5%, 9.6%, 5);
@@ -440,7 +441,7 @@ html {
 }
 html {
   font-size: 18px;
-  font-size: calc(16px + 4 * ((100vw - 320px) / 680));
+  font-size: calc(16px + 2 * ((100vw - 320px) / 680));
 }
 
 /*
@@ -516,7 +517,7 @@ h1 {
 }
 @media (min-width: 12rem) and (max-width: 54rem) {
   .site-title {
-    font-size: 2em;
+    font-size: 1.9em;
   }
 }
 @media (min-width: 54rem) and (max-width: 64rem) {
@@ -686,20 +687,6 @@ svg.icon {
   .site-header div.wrapper .site-title a span {
     display: block;
     margin-right: 0;
-  }
-}
-
-footer.site-footer .wrapper {
-  padding: 1em 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  border-top: 5px double var(--border-color);
-}
-
-@media (min-width: 54rem) {
-  footer .site-info {
-    text-align: right;
   }
 }
 
@@ -2426,7 +2413,7 @@ textarea {
 }
 
 ul.menu form#searchform input#s {
-  max-width: 100%;
+  width: 100%;
 }
 @media (min-width: 54rem) {
   ul.menu form#searchform input#s {
@@ -2556,8 +2543,10 @@ form.search-form {
   flex-flow: row nowrap;
   justify-content: stretch;
 }
-form.search-form input#s {
-  padding: 0.5em;
+form.search-form input#s,
+form.search-form button.search-submit {
+  padding: 0.5em 1em;
+  margin: 0;
 }
 
 /*--------------------------------------------------------------
@@ -2593,14 +2582,16 @@ form.search-form input#s {
 .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
   display: block;
   left: auto;
+  width: auto;
 }
 .main-navigation ul ul a {
   width: auto;
 }
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
-  left: auto;
-  width: 100%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
 }
 @media (min-width: 54rem) {
   .main-navigation ul li > ul > li > a {
@@ -2615,9 +2606,6 @@ form.search-form input#s {
   border: 1px solid transparent;
   margin-right: -1px;
   transition: all 0.35s ease-out;
-}
-.main-navigation li:hover, .main-navigation li.focus {
-  border: 1px solid var(--border-color);
 }
 .main-navigation li.menu-item-has-children {
   padding-right: 1em;
@@ -2682,22 +2670,40 @@ form.search-form input#s {
     width: 120px;
   }
 }
-.main-navigation .current_page_item,
-.main-navigation .current-menu-item,
-.main-navigation .current_page_ancestor,
-.main-navigation .current-menu-ancestor {
-  border: 1px solid var(--border-color);
-  opacity: 0.75;
+.main-navigation .current_page_item::after,
+.main-navigation .current-menu-item::after,
+.main-navigation .current_page_ancestor::after,
+.main-navigation .current-menu-ancestor::after {
+  content: "___";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--border-color);
+}
+@media (min-width: 54rem) {
+  .main-navigation .current_page_item::after,
+.main-navigation .current-menu-item::after,
+.main-navigation .current_page_ancestor::after,
+.main-navigation .current-menu-ancestor::after {
+    margin-bottom: -0.5em;
+  }
 }
 
 /* Small menu. */
 .main-navigation {
+  display: none;
   position: absolute;
   width: 100%;
   top: 100%;
   left: 0;
   height: auto;
   z-index: 999;
+}
+.main-navigation.toggled {
+  display: block;
 }
 @media (min-width: 54rem) {
   .main-navigation {
@@ -2716,46 +2722,39 @@ form.search-form input#s {
   }
 }
 
-.menu-toggle,
-.main-navigation.toggled ul {
+.menu-toggle {
   display: block;
+  position: relative;
+  padding: 1.5rem;
+  margin: 0;
+  background: none;
 }
-@media (min-width: 12rem) and (max-width: 54rem) {
-  .menu-toggle,
-.main-navigation.toggled ul {
-    box-shadow: var(--shadows);
-  }
-}
-
-@media (min-width: 12rem) {
-  .menu-toggle {
-    position: relative;
-    padding: 1.5rem;
-    margin: 0;
-    background: none;
-    vertical-align: middle;
-    pointer-events: all;
-  }
-}
-
-.main-navigation > ul {
-  justify-content: center;
-}
-
 @media (min-width: 54rem) {
   .menu-toggle {
     display: none;
   }
+}
 
+.main-navigation > ul {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  box-shadow: var(--shadows);
+}
+@media (min-width: 32rem) {
   .main-navigation > ul {
-    display: flex;
-    flex: 1 0 auto;
     flex-flow: row wrap;
+  }
+}
+@media (min-width: 54rem) {
+  .main-navigation > ul {
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
     max-width: 100%;
+    box-shadow: none;
   }
-
-  .main-navigation ul ul {
+  .main-navigation > ul ul {
     display: block;
   }
 }
@@ -2764,6 +2763,8 @@ form.search-form input#s {
     justify-content: flex-end;
   }
 }
+
+/* comon navigation */
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
@@ -2786,16 +2787,63 @@ form.search-form input#s {
   flex: 1 0 50%;
 }
 
+/* page num navigation */
 nav.page-nav {
   display: block;
   margin-bottom: 3em;
 }
 
+/* sharing menu */
 .social-sharing-module > ul,
 #menu-footer {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+
+/* footer */
+footer.site-footer .wrapper {
+  padding: 1em 0;
+  display: flex;
+  flex-flow: column wrap;
+  border-top: 5px double var(--border-color);
+}
+@media (min-width: 54rem) {
+  footer.site-footer .wrapper {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+}
+footer.site-footer .wrapper ul.menu {
+  display: flex;
+  flex-flow: row wrap;
+}
+footer.site-footer .wrapper ul.menu li a {
+  padding: 0.5em;
+}
+@media (min-width: 54rem) {
+  footer.site-footer .wrapper ul.menu {
+    flex-flow: column nowrap;
+  }
+  footer.site-footer .wrapper ul.menu li a {
+    padding: 0.5em 0;
+  }
+}
+footer.site-footer .wrapper .site-info p,
+footer.site-footer .wrapper .site-info a {
+  padding: 0 0.5em;
+}
+@media (min-width: 54rem) {
+  footer.site-footer .wrapper .site-info p,
+footer.site-footer .wrapper .site-info a {
+    padding: 0;
+  }
+}
+
+@media (min-width: 54rem) {
+  footer .site-info {
+    text-align: right;
+  }
 }
 
 /* Posts and pages
@@ -2901,6 +2949,16 @@ nav.page-nav {
 .event-summary div.project-cartel {
   padding: 2em;
   flex-basis: 50%;
+}
+
+ul.year-events-list {
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 32rem) {
+  ul.year-events-list {
+    margin: 0 0 1.5em 12%;
+  }
 }
 
 /* Single project & event

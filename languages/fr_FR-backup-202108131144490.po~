@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"PO-Revision-Date: 2021-08-07 10:54+0000\n"
-"Last-Translator: Nicolas <nclslbrn@gmail.com>\n"
+"PO-Revision-Date: 2021-08-13 11:35+0000\n"
+"Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
@@ -21,9 +21,9 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Loco-Target-Locale: fr_FR\n"
-"X-Loco-Version: 2.3.0; wp-5.2.3"
+"X-Loco-Version: 2.5.3; wp-5.8"
 
-#: contact.php:146
+#: inc/template-tags.php:323
 msgid "* : require field"
 msgstr "* : champs requis"
 
@@ -33,10 +33,18 @@ msgid ", "
 msgstr ", "
 
 #. 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:647
+#: inc/custom-post.php:576
 #, php-format
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
+
+#. Description of the theme
+msgid ""
+"A wordpress theme for artist (painter, sculptor, video-producer, ...) made "
+"with SASS, Babel, Gulp and more."
+msgstr ""
+"Un thème WordPress pour les artistes (peintre, sculpteur, producteur de "
+"vidéo) fait avec Sass, Babel, Gulp et plus encore. "
 
 #: inc/custom-post.php:24 inc/custom-post.php:66 inc/custom-post.php:108
 msgid "Add New"
@@ -70,34 +78,28 @@ msgstr "Tout les Gifs"
 msgid "All Projects"
 msgstr "Tous les projets"
 
-#: footer.php:26
+#: footer.php:30
 msgid "All right reserved"
 msgstr "Tous droits réservés"
-
-#. Author of the theme
-msgid "Anonyme"
-msgstr "Anonyme"
 
 #: inc/custom-post.php:143
 msgid "category"
 msgstr "catégorie"
 
-#: inc/custom-post.php:503
+#: inc/custom-post.php:464
 msgid "Coming soon / Now"
 msgstr "À venir / en cours"
 
-#: comments.php:40 comments.php:61
-msgid "Comment navigation"
-msgstr "Navigation des commentaires"
-
-#: comments.php:78
+#: comments.php:68
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés"
 
-#: comments.php:31
-#, php-format
+#. 1: comment count number, 2: title.
+#: comments.php:41
+#, fuzzy, php-format
+#| msgid "One thought on &ldquo;%2$s&rdquo;"
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Une remarque sur  &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s remarques sur &ldquo;%2$s&rdquo;"
@@ -112,7 +114,7 @@ msgstr "Contact"
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Lire plus sur  %s <span class=« meta-nav »>&rarr;</span>"
 
-#: inc/meta-box.php:172
+#: inc/meta-box.php:173
 msgid "Cover is an image or a video ?"
 msgstr "La couverture est une image ou une vidéo ?"
 
@@ -120,17 +122,17 @@ msgstr "La couverture est une image ou une vidéo ?"
 msgid "Cover option"
 msgstr "Option de couverture"
 
-#: inc/meta-box.php:305
+#: inc/extras.php:131
+msgid "Dark"
+msgstr "Sombre"
+
+#: inc/meta-box.php:333
 msgid "Date"
 msgstr "Date"
 
-#: footer.php:30
-msgid "Designed by Nicolas Lebrun"
-msgstr "Design : Nicolas Lebrun"
-
-#: inc/home-project-layout.php:16
-msgid "Edit"
-msgstr "Editer"
+#: footer.php:33
+msgid "Design : N.Lebrun"
+msgstr "Design : N.Lebrun"
 
 #. %s: Name of current post
 #: inc/template-tags.php:87 template-parts/content-page.php:35
@@ -150,11 +152,11 @@ msgstr "Editer le Gif"
 msgid "Edit Project"
 msgstr "Editer le projet"
 
-#: contact.php:127
+#: inc/template-tags.php:306
 msgid "Email *"
 msgstr "E-mail *"
 
-#: contact.php:40
+#: inc/template-tags.php:194
 msgid "Email Address Invalid."
 msgstr "Adresse Mail invalide."
 
@@ -167,7 +169,7 @@ msgid "Event"
 msgstr "Évènement"
 
 #. Name of the template
-#: inc/custom-post.php:64 inc/custom-post.php:248
+#: inc/custom-post.php:64 inc/custom-post.php:249
 msgid "Events"
 msgstr "Évènements"
 
@@ -175,14 +177,23 @@ msgstr "Évènements"
 msgid "Footer Menu"
 msgstr "Menu de pied de page"
 
-#: inc/custom-post.php:528 template-parts/content-event.php:58
-msgid "From"
-msgstr "Du"
-
-#: template-parts/events-byyear.php:41
+#. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
+#: inc/template-tags.php:355
 #, php-format
-msgid "From %1$s to %2$s"
-msgstr ""
+msgid "From %1$s %2$ s%3$s to %4$s %5$s %6$s"
+msgstr "Du %2$s %1$s %3$s au %5$s %4$s %6$s "
+
+#. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
+#: inc/template-tags.php:367
+#, php-format
+msgid "From %1$s %2$s to %3$s %4$s %5$s"
+msgstr "Du %2$s %1$s au %4$s %3$s %5$s"
+
+#. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
+#: inc/template-tags.php:380
+#, php-format
+msgid "From %1$s to %2$s %3$s %4$s"
+msgstr "Du %1$s au %2$s %3%s %4$s"
 
 #: inc/custom-post.php:107
 msgid "Gif"
@@ -204,25 +215,21 @@ msgstr "En-tête de la colonne latérale"
 msgid "Homepage"
 msgstr "Accueil"
 
-#: contact.php:136
-msgid "Human Verification *"
-msgstr "Code de vérification *"
+#. Author URI of the theme
+msgid "https://about.me/nicolaslebrun"
+msgstr "https://about.me/nicolaslebrun"
 
-#: contact.php:38
+#. URI of the theme
+msgid "https://github.com/nclslbrn/minimal-artist-portfolio"
+msgstr "https://github.com/nclslbrn/minimal-artist-portfolio"
+
+#: inc/template-tags.php:192
 msgid "Human verification incorrect."
 msgstr "La réponse au code de vérification n’est pas correct."
 
-#: inc/meta-box.php:174
+#: inc/meta-box.php:175
 msgid "Image"
 msgstr "Image"
-
-#: template-parts/content-none.php:31
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-"Il semblerait que nous ne pouvons trouvé ce que vous cherchez. Essayer de "
-"chercher."
 
 #. %s: post title
 #: inc/template-tags.php:80
@@ -230,7 +237,11 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
 
-#: template-parts/content-events.php:25
+#: inc/extras.php:124
+msgid "Light"
+msgstr "Clair"
+
+#: template-parts/content-events.php:26
 msgid "List"
 msgstr "Liste"
 
@@ -238,15 +249,19 @@ msgstr "Liste"
 msgid "Map"
 msgstr "Carte"
 
-#: contact.php:132
+#: inc/template-tags.php:317
 msgid "Message *"
 msgstr "Message *"
 
-#: contact.php:41
+#: inc/template-tags.php:195
 msgid "Message was not sent. Try Again."
 msgstr "Le message n’a pas été envoyé, réessayer."
 
-#: contact.php:120
+#. Name of the theme
+msgid "Minimal-Artistic-Portfolio"
+msgstr "Minimal-Artistic-Portfolio"
+
+#: inc/template-tags.php:298
 msgid "Name *"
 msgstr "Nom *"
 
@@ -262,11 +277,11 @@ msgstr "Nouveau Gif"
 msgid "New Project"
 msgstr "Nouveau projet"
 
-#: comments.php:44 comments.php:65
-msgid "Newer Comments"
-msgstr "Commentaires plus récents"
+#. Author of the theme
+msgid "Nicolas Lebrun"
+msgstr "Nicolas Lebrun"
 
-#: inc/custom-post.php:705
+#: inc/custom-post.php:634
 msgid "No activity yet!"
 msgstr "Pas encore d'activité"
 
@@ -298,20 +313,18 @@ msgstr "Pas de projet trouvé."
 msgid "Nothing Found"
 msgstr "Rien de trouvé"
 
-#: comments.php:43 comments.php:64
-msgid "Older Comments"
-msgstr "Commentaires plus anciens"
+#. 1: title.
+#: comments.php:35
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Un commentaire sur  &ldquo;%1$s&rdquo;"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oups! Cette page n’existe pas !"
 
-#: inc/home-project-layout.php:33
-msgid "Page"
-msgstr "Page"
-
-#: events.php:34 inc/home-project-layout.php:29
-#: template-parts/content-page.php:23 template-parts/content.php:43
+#: events.php:36 template-parts/content-page.php:23
+#: template-parts/content.php:43
 msgid "Pages:"
 msgstr "Pages:"
 
@@ -327,11 +340,11 @@ msgstr "Gif parent :"
 msgid "Parent Projects:"
 msgstr "Projet parent"
 
-#: inc/meta-box.php:150 inc/meta-box.php:306
+#: inc/meta-box.php:151 inc/meta-box.php:334
 msgid "Place"
 msgstr "Lieu"
 
-#: contact.php:39
+#: inc/template-tags.php:193
 msgid "Please supply all information."
 msgstr "S’il vous plaît, remplissez tous les champs obligatoires."
 
@@ -397,29 +410,33 @@ msgstr "Projet"
 msgid "Projects"
 msgstr "Projets"
 
-#: inc/custom-post.php:683
+#: inc/custom-post.php:612
 msgid "Publishing Soon"
 msgstr "À paraître bientôt"
 
-#: inc/custom-post.php:534 template-parts/content-project.php:37
-#: template-parts/events-byyear.php:51
+#: template-parts/content-event.php:143 template-parts/content-project.php:30
 msgid "Read more"
 msgstr "Lire plus"
 
-#: template-parts/content-project.php:91
+#: template-parts/content-project.php:81
 msgid "Read the video"
 msgstr "Lire la vidéo"
 
-#: template-parts/content-none.php:21
+#. 1: first post edit link
+#: template-parts/content-none.php:27
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 "Ready to public your first post? <a href=« %1$s »>Get started hère</a>."
 
-#: inc/custom-post.php:695
+#: inc/custom-post.php:624
 msgid "Recently Published"
 msgstr "Récemment publié"
+
+#: inc/extras.php:69 inc/extras.php:73
+msgid "Search"
+msgstr "Recherche"
 
 #: inc/custom-post.php:72
 msgid "Search Events"
@@ -433,24 +450,25 @@ msgstr "Chercher dans les Gifs"
 msgid "Search Projects"
 msgstr "Cherche un projet"
 
-#: search.php:19
+#. %s: user input search term
+#: search.php:24
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Résultat de la recherche pour: %s"
 
-#: inc/meta-box.php:187
+#: inc/meta-box.php:188
 msgid "Self hosted"
 msgstr "Auto-hébergée"
 
-#: inc/meta-box.php:189
+#: inc/meta-box.php:190
 msgid "Self hosting URLs"
 msgstr "Urls de la vidéo auto-hébergée"
 
-#: contact.php:150
+#: inc/template-tags.php:327
 msgid "send"
 msgstr "envoyer"
 
-#: inc/template-tags.php:143
+#: inc/template-tags.php:146
 msgid "Send Email"
 msgstr "Envoyer par Email"
 
@@ -458,11 +476,11 @@ msgstr "Envoyer par Email"
 msgid "Share"
 msgstr "Diffuser"
 
-#: inc/template-tags.php:125
+#: inc/template-tags.php:126
 msgid "Share on Facebook"
 msgstr "Diffuser sur Facebook"
 
-#: inc/template-tags.php:134
+#: inc/template-tags.php:136
 msgid "Share on Twitter"
 msgstr "Diffuser sur Twitter"
 
@@ -470,15 +488,15 @@ msgstr "Diffuser sur Twitter"
 msgid "Sidebar"
 msgstr "Barre latérale"
 
-#: header.php:102
+#: header.php:70
 msgid "Skip to content"
 msgstr "Aller au contenu"
 
-#: contact.php:62
+#: inc/template-tags.php:218
 msgid "Someone sent a message from "
 msgstr "Quelqu’un vous a envoyé un message via "
 
-#: template-parts/content-none.php:25
+#: template-parts/content-none.php:39
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -490,7 +508,7 @@ msgstr ""
 msgid "Sorry, we couldn't find the page you were looking for!"
 msgstr "Désolé, nous ne pouvons trouver la page que vous cherchez."
 
-#: inc/template-tags.php:161 inc/template-tags.php:168
+#: inc/template-tags.php:166 inc/template-tags.php:173
 msgctxt "submit button"
 msgid "Search"
 msgstr "Recherche"
@@ -501,31 +519,35 @@ msgstr "Recherche"
 msgid "Tagged %1$s"
 msgstr "Tag %1$s"
 
-#: contact.php:42
+#: inc/template-tags.php:196
 msgid "Thanks! Your message has been sent."
 msgstr "Merci! Votre message a bien été envoyé."
 
-#: inc/custom-post.php:530 template-parts/content-event.php:60
-msgid "to"
-msgstr "au"
+#: inc/extras.php:112
+msgid "Theme"
+msgstr "Thème"
 
-#: inc/custom-post.php:637
+#: inc/extras.php:113
+msgid "Theme : "
+msgstr "Thème :"
+
+#: inc/custom-post.php:566
 msgid "Today"
 msgstr "Ajourd'hui"
 
-#: inc/custom-post.php:639
+#: inc/custom-post.php:568
 msgid "Tomorrow"
 msgstr "Demain"
 
-#: inc/meta-box.php:176
+#: inc/meta-box.php:177
 msgid "Video"
 msgstr "Vidéo"
 
-#: inc/meta-box.php:178
+#: inc/meta-box.php:179
 msgid "Video ID (leave empty if selfhosted)"
 msgstr "ID de la vidéo (laisser vide si auto-hébergée)"
 
-#: inc/meta-box.php:181
+#: inc/meta-box.php:182
 msgid "Video provider"
 msgstr "Source de la vidéo"
 
@@ -541,7 +563,7 @@ msgstr "Voir le Gif"
 msgid "View Project"
 msgstr "voir le projet"
 
-#: inc/meta-box.php:183
+#: inc/meta-box.php:184
 msgid "Vimeo"
 msgstr "Vimeo"
 
@@ -549,7 +571,7 @@ msgstr "Vimeo"
 msgid "Widgets in this area will be shown on all posts and pages."
 msgstr "Les widgets seront visibles sur toutes les pages"
 
-#: template-parts/content-project.php:90
+#: template-parts/content-project.php:80
 msgid ""
 "Your browser doesn't support HTML5 video, but you can read this video with "
 "the link below."
@@ -557,6 +579,6 @@ msgstr ""
 "Votre navigateur ne supporte pas les vidéos HTML5 mais vous pouvez lire la "
 "vidéo en cliquant sur le lien ci dessous."
 
-#: inc/meta-box.php:185
+#: inc/meta-box.php:186
 msgid "YouTube"
 msgstr "Youtube"

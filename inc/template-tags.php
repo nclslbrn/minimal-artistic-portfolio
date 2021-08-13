@@ -338,22 +338,52 @@ function map_get_form_markup( $url ) {
 /** 
  * Create date string by removing redudant information
  * 
- * @param object $begin_date the first date of the string
- * @param object $end_date the last date of the string
+ * @param object $begin_date the first date of the string.
+ * @param object $end_date the last date of the string.
  * 
  * @return string the cleaned date string
  **/
-function map_friendly_date($begin_date, $end_date) {
-	$keep_month = date_i18n( 'j F Y', $begin_date) === date_i18n( 'j F Y', $end_date);
-	$keep_year = date_i18n( 'j F Y', $begin_date) === date_i18n( 'j F Y', $end_date);
+function map_friendly_date( $begin_date, $end_date ) {
+	$keep_month = ! date_i18n( 'm', $begin_date ) === date_i18n( 'm', $end_date );
+	$keep_year  = ! date_i18n( 'Y', $begin_date ) === date_i18n( 'Y', $end_date );
+	$output     = '';
 
+	// default full string date.
 
-	$output = __( 'From', 'Minimal-Artistic-Portfolio' );
-	$output .= date_i18n( ' j ', $begin_date);
-	$output .= $keep_month ? date_i18n( ' F ', $begin_date) : '';
-	$output .= $keep_year ? date_i18n( ' Y ', $begin_date) : '';
-	$output .= __( 'to', 'Minimal-Artistic-Portfolio' );
-	$output .= date_i18n( ' j F Y', strtotime( $end_date ) );
+	$output = sprintf(
+		// translators: %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
+		__( 'From %1$s %2$ s%3$s to %4$s %5$s %6$s', 'Minimal-Artistic-Portfolio' ),
+		date_i18n( 'F', $begin_date ),
+		date_i18n( 'j', $begin_date ),
+		date_i18n( 'Y', $begin_date ),
+		date_i18n( 'F', $end_date ),
+		date_i18n( 'j', $end_date ),
+		date_i18n( 'Y', $end_date )
+	);
+	// string date without first year.
+	if ( ! $keep_year ) {
+		$output = sprintf(
+			// translators: From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
+			__( 'From %1$s %2$s to %3$s %4$s %5$s', 'Minimal-Artistic-Portfolio' ),
+			date_i18n( 'F', $begin_date ),
+			date_i18n( 'j', $begin_date ),
+			date_i18n( 'F', $end_date ),
+			date_i18n( 'j', $end_date ),
+			date_i18n( 'Y', $end_date )
+		);
+	}
+
+	// string date without first month.
+	if ( ! $keep_year && ! $keep_month ) {
+		$output = sprintf(
+			// translators: From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
+			__( 'From %1$s to %2$s %3$s %4$s', 'Minimal-Artistic-Portfolio' ),
+			date_i18n( 'j', $begin_date ),
+			date_i18n( 'j', $end_date ),
+			date_i18n( 'F', $end_date ),
+			date_i18n( 'Y', $end_date )
+		);
+	}
 
 	return $output;
 }
