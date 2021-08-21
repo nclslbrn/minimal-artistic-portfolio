@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"PO-Revision-Date: 2021-08-13 20:18+0000\n"
+"PO-Revision-Date: 2021-08-16 15:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -23,30 +23,29 @@ msgstr ""
 "X-Loco-Target-Locale: fr_FR\n"
 "X-Loco-Version: 2.5.3; wp-5.8"
 
+#: inc/custom-post.php:505
+msgid "$undefined->singular_name"
+msgid_plural "$undefined->name"
+msgstr[0] ""
+msgstr[1] ""
+
 #: inc/template-tags.php:323
 msgid "* : require field"
 msgstr "* : champs requis"
 
-#. used between list items, there is a space after the comma
-#: inc/template-tags.php:63 inc/template-tags.php:70
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:63, inc/template-tags.php:70
 msgid ", "
 msgstr ", "
 
-#. 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:587
+#. translators: 1: relative date, 2: time, 4: post title
+#: inc/custom-post.php:591
 #, php-format
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 
-#. Description of the theme
-msgid ""
-"A wordpress theme for artist (painter, sculptor, video-producer, ...) made "
-"with SASS, Babel, Gulp and more."
-msgstr ""
-"Un thème wordpress pour artiste (peintre, sculpteur, producteur vidéo, ...) "
-"réalisé avec SASS, Babel, Gulp et plus."
-
-#: inc/custom-post.php:24 inc/custom-post.php:66 inc/custom-post.php:108
+#: inc/custom-post.php:24, inc/custom-post.php:66, inc/custom-post.php:108
 msgid "Add New"
 msgstr "Ajouter nouveau"
 
@@ -86,7 +85,7 @@ msgstr "Tous droits réservés"
 msgid "category"
 msgstr "catégorie"
 
-#: inc/custom-post.php:471
+#: inc/custom-post.php:475
 msgid "Coming soon / Now"
 msgstr "À venir / en cours"
 
@@ -94,7 +93,7 @@ msgstr "À venir / en cours"
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés"
 
-#. 1: comment count number, 2: title.
+#. translators: 1: comment count number, 2: title.
 #: comments.php:41
 #, php-format
 #| msgid "One thought on &ldquo;%2$s&rdquo;"
@@ -104,11 +103,11 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Une remarque sur  &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s remarques sur &ldquo;%2$s&rdquo;"
 
-#. Name of the template
+#: contact.php:3
 msgid "Contact"
 msgstr "Contact"
 
-#. %s: Name of current post.
+#. translators: %s: Name of current post.
 #: template-parts/content.php:36
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
@@ -122,7 +121,11 @@ msgstr "La couverture est une image ou une vidéo ?"
 msgid "Cover option"
 msgstr "Option de couverture"
 
-#: inc/extras.php:136
+#: inc/night-mode-widget.php:46
+msgid "Current mode"
+msgstr "Mode actuel"
+
+#: inc/extras.php:136, inc/night-mode-widget.php:62
 msgid "Dark"
 msgstr "Sombre"
 
@@ -138,8 +141,20 @@ msgstr "Diplômes"
 msgid "Design : N.Lebrun"
 msgstr "Design : N.Lebrun"
 
-#. %s: Name of current post
-#: inc/template-tags.php:87 template-parts/content-page.php:35
+#: inc/night-mode-widget.php:18
+msgid "Display button to change theme (light/dark)"
+msgstr "Bouton d'affichage pour changer de thème (clair/foncé)"
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:225
+msgid ""
+"Drag widgets here to remove them from the sidebar but keep their settings."
+msgstr ""
+"Faites glisser les widgets ici pour les retirer de la barre latérale tout en "
+"conservant leurs paramètres."
+
+#. translators: %s: Name of current post
+#. translators: %s: Name of current post
+#: inc/template-tags.php:87, template-parts/content-page.php:35
 #, php-format
 msgid "Edit %s"
 msgstr "Editer %s"
@@ -168,12 +183,11 @@ msgstr "Adresse Mail invalide."
 msgid "error"
 msgstr "erreur"
 
-#: inc/meta-box.php:45 inc/custom-post.php:65
+#: inc/custom-post.php:65, inc/meta-box.php:45
 msgid "Event"
 msgstr "Évènement"
 
-#. Name of the template
-#: inc/custom-post.php:64 inc/custom-post.php:249
+#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:253
 msgid "Events"
 msgstr "Évènements"
 
@@ -181,19 +195,19 @@ msgstr "Évènements"
 msgid "Footer Menu"
 msgstr "Menu de pied de page"
 
-#. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
+#. translators: %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
 #: inc/template-tags.php:355
 #, php-format
 msgid "From %1$s %2$ s%3$s to %4$s %5$s %6$s"
 msgstr "Du %2$s %1$s %3$s au %5$s %4$s %6$s "
 
-#. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
+#. translators: From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
 #: inc/template-tags.php:367
 #, php-format
 msgid "From %1$s %2$s to %3$s %4$s %5$s"
 msgstr "Du %2$s %1$s au %4$s %3$s %5$s"
 
-#. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
+#. translators: From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
 #: inc/template-tags.php:380
 #, php-format
 msgid "From %1$s to %2$s %3$s %4$s"
@@ -203,7 +217,7 @@ msgstr "Du %1$s au %2$s %3$s %4$s"
 msgid "Gif"
 msgstr "Gif"
 
-#. Name of the template
+#: gif-page.php:3
 msgid "Gif-page"
 msgstr "Page des Gifs"
 
@@ -211,21 +225,9 @@ msgstr "Page des Gifs"
 msgid "Gifs"
 msgstr "Gifs"
 
-#: functions.php:135
-msgid "Header Sidebar"
-msgstr "En-tête de la colonne latérale"
-
-#. Name of the template
+#: homepage.php:3
 msgid "Homepage"
 msgstr "Accueil"
-
-#. Author URI of the theme
-msgid "https://about.me/nicolaslebrun"
-msgstr "https://about.me/nicolaslebrun"
-
-#. URI of the theme
-msgid "https://github.com/nclslbrn/minimal-artist-portfolio"
-msgstr "https://github.com/nclslbrn/minimal-artist-portfolio"
 
 #: inc/template-tags.php:192
 msgid "Human verification incorrect."
@@ -235,13 +237,17 @@ msgstr "La réponse au code de vérification n’est pas correct."
 msgid "Image"
 msgstr "Image"
 
-#. %s: post title
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:222
+msgid "Inactive Widgets"
+msgstr "Widgets inactifs"
+
+#. translators: %s: post title
 #: inc/template-tags.php:80
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
 
-#: inc/extras.php:129
+#: inc/extras.php:129, inc/night-mode-widget.php:57
 msgid "Light"
 msgstr "Clair"
 
@@ -253,6 +259,10 @@ msgstr "Liste"
 msgid "Map"
 msgstr "Carte"
 
+#: inc/night-mode-widget.php:147
+msgid "Menu"
+msgstr "Menu"
+
 #: inc/template-tags.php:317
 msgid "Message *"
 msgstr "Message *"
@@ -260,10 +270,6 @@ msgstr "Message *"
 #: inc/template-tags.php:195
 msgid "Message was not sent. Try Again."
 msgstr "Le message n’a pas été envoyé, réessayer."
-
-#. Name of the theme
-msgid "Minimal-Artistic-Portfolio"
-msgstr "Minimal-Artistic-Portfolio"
 
 #: inc/template-tags.php:298
 msgid "Name *"
@@ -281,11 +287,15 @@ msgstr "Nouveau Gif"
 msgid "New Project"
 msgstr "Nouveau projet"
 
-#. Author of the theme
-msgid "Nicolas Lebrun"
-msgstr "Nicolas Lebrun"
+#: inc/night-mode-widget.php:113
+msgid "New title"
+msgstr "Nouveau titre"
 
-#: inc/custom-post.php:645
+#: inc/night-mode-widget.php:15
+msgid "Night mode widget"
+msgstr "Widget mode nuit"
+
+#: inc/custom-post.php:649
 msgid "No activity yet!"
 msgstr "Pas encore d'activité"
 
@@ -317,7 +327,7 @@ msgstr "Pas de projet trouvé."
 msgid "Nothing Found"
 msgstr "Rien de trouvé"
 
-#. 1: title.
+#. translators: 1: title.
 #: comments.php:35
 #, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
@@ -331,7 +341,7 @@ msgstr "Oups! Cette page n’existe pas !"
 msgid "Others"
 msgstr "Autres"
 
-#: template-parts/content.php:43 template-parts/content-page.php:23
+#: template-parts/content-page.php:23, template-parts/content.php:43
 msgid "Pages:"
 msgstr "Pages:"
 
@@ -347,7 +357,7 @@ msgstr "Gif parent :"
 msgid "Parent Projects:"
 msgstr "Projet parent"
 
-#: inc/meta-box.php:151 inc/meta-box.php:334
+#: inc/meta-box.php:151, inc/meta-box.php:334
 msgid "Place"
 msgstr "Lieu"
 
@@ -355,14 +365,14 @@ msgstr "Lieu"
 msgid "Please supply all information."
 msgstr "S’il vous plaît, remplissez tous les champs obligatoires."
 
-#. %s: post author.
+#. translators: %s: post author.
 #: inc/template-tags.php:46
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr "par %s"
 
-#. %s: post date.
+#. translators: %s: post date.
 #: inc/template-tags.php:30
 #, php-format
 msgctxt "post date"
@@ -399,7 +409,7 @@ msgctxt "post type singular name"
 msgid "Project"
 msgstr "Projet"
 
-#. 1: list of categories.
+#. translators: 1: list of categories.
 #: inc/template-tags.php:66
 #, php-format
 msgid "Posted in %1$s"
@@ -413,15 +423,15 @@ msgstr "Menu"
 msgid "Project"
 msgstr "Projet"
 
-#: inc/custom-post.php:22 inc/custom-post.php:291
+#: inc/custom-post.php:22, inc/custom-post.php:295
 msgid "Projects"
 msgstr "Projets"
 
-#: inc/custom-post.php:623
+#: inc/custom-post.php:627
 msgid "Publishing Soon"
 msgstr "À paraître bientôt"
 
-#: template-parts/content-project.php:30 template-parts/content-event.php:143
+#: template-parts/content-event.php:143, template-parts/content-project.php:30
 msgid "Read more"
 msgstr "Lire plus"
 
@@ -429,7 +439,7 @@ msgstr "Lire plus"
 msgid "Read the video"
 msgstr "Lire la vidéo"
 
-#. 1: first post edit link
+#. translators: 1: first post edit link
 #: template-parts/content-none.php:27
 #, php-format
 msgid ""
@@ -437,11 +447,11 @@ msgid ""
 msgstr ""
 "Ready to public your first post? <a href=« %1$s »>Get started hère</a>."
 
-#: inc/custom-post.php:635
+#: inc/custom-post.php:639
 msgid "Recently Published"
 msgstr "Récemment publié"
 
-#: inc/extras.php:72 inc/extras.php:76
+#: inc/extras.php:72, inc/extras.php:76
 msgid "Search"
 msgstr "Recherche"
 
@@ -457,7 +467,7 @@ msgstr "Chercher dans les Gifs"
 msgid "Search Projects"
 msgstr "Cherche un projet"
 
-#. %s: user input search term
+#. translators: %s: user input search term
 #: search.php:24
 #, php-format
 msgid "Search Results for: %s"
@@ -515,12 +525,16 @@ msgstr ""
 msgid "Sorry, we couldn't find the page you were looking for!"
 msgstr "Désolé, nous ne pouvons trouver la page que vous cherchez."
 
-#: inc/template-tags.php:166 inc/template-tags.php:173
+#: inc/template-tags.php:166, inc/template-tags.php:173
 msgctxt "submit button"
 msgid "Search"
 msgstr "Recherche"
 
-#. 1: list of tags.
+#: inc/night-mode-widget.php:144
+msgid "Switch"
+msgstr "Switch"
+
+#. translators: 1: list of tags.
 #: inc/template-tags.php:73
 #, php-format
 msgid "Tagged %1$s"
@@ -534,13 +548,21 @@ msgstr "Merci! Votre message a bien été envoyé."
 msgid "Theme"
 msgstr "Thème"
 
-#: inc/custom-post.php:577
+#: inc/night-mode-widget.php:124
+msgid "Title"
+msgstr "Titre"
+
+#: inc/custom-post.php:581
 msgid "Today"
 msgstr "Ajourd'hui"
 
-#: inc/custom-post.php:579
+#: inc/custom-post.php:583
 msgid "Tomorrow"
 msgstr "Demain"
+
+#: inc/night-mode-widget.php:135
+msgid "Type"
+msgstr "Type"
 
 #: inc/meta-box.php:177
 msgid "Video"
@@ -569,10 +591,6 @@ msgstr "voir le projet"
 #: inc/meta-box.php:184
 msgid "Vimeo"
 msgstr "Vimeo"
-
-#: functions.php:137
-msgid "Widgets in this area will be shown on all posts and pages."
-msgstr "Les widgets seront visibles sur toutes les pages"
 
 #: template-parts/content-project.php:80
 msgid ""

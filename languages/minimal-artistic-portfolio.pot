@@ -90,14 +90,6 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:135
-msgid "Header Sidebar"
-msgstr ""
-
-#: functions.php:137
-msgid "Widgets in this area will be shown on all posts and pages."
-msgstr ""
-
 #: gif-page.php:3
 msgid "Gif-page"
 msgstr ""
@@ -324,11 +316,11 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: inc/extras.php:129
+#: inc/extras.php:129, inc/night-mode-widget.php:54
 msgid "Light"
 msgstr ""
 
-#: inc/extras.php:136
+#: inc/extras.php:136, inc/night-mode-widget.php:59
 msgid "Dark"
 msgstr ""
 
@@ -378,6 +370,38 @@ msgstr ""
 
 #: inc/meta-box.php:333
 msgid "Date"
+msgstr ""
+
+#: inc/night-mode-widget.php:15
+msgid "Night mode widget"
+msgstr ""
+
+#: inc/night-mode-widget.php:18
+msgid "Display button to change theme (light/dark)"
+msgstr ""
+
+#: inc/night-mode-widget.php:46
+msgid "Current mode"
+msgstr ""
+
+#: inc/night-mode-widget.php:110
+msgid "New title"
+msgstr ""
+
+#: inc/night-mode-widget.php:121
+msgid "Title"
+msgstr ""
+
+#: inc/night-mode-widget.php:132
+msgid "Type"
+msgstr ""
+
+#: inc/night-mode-widget.php:141
+msgid "Switch"
+msgstr ""
+
+#: inc/night-mode-widget.php:144
+msgid "Menu"
 msgstr ""
 
 #. translators: %s: post date.
