@@ -50,15 +50,23 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: events.php:36, template-parts/content-page.php:23, template-parts/content.php:43
+#: events.php:31
+msgid "Map"
+msgstr ""
+
+#: events.php:37
+msgid "List"
+msgstr ""
+
+#: events.php:50, template-parts/content-page.php:23, template-parts/content.php:43
 msgid "Pages:"
 msgstr ""
 
-#: footer.php:26
+#: footer.php:30
 msgid "All right reserved"
 msgstr ""
 
-#: footer.php:29
+#: footer.php:33
 msgid "Design : N.Lebrun"
 msgstr ""
 
@@ -269,58 +277,54 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: inc/custom-post.php:464
+#: inc/custom-post.php:471
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:494
+#: inc/custom-post.php:501
 msgid "$undefined->singular_name"
 msgid_plural "$undefined->name"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/custom-post.php:566
+#: inc/custom-post.php:573
 msgid "Today"
 msgstr ""
 
-#: inc/custom-post.php:568
+#: inc/custom-post.php:575
 msgid "Tomorrow"
 msgstr ""
 
 #. translators: 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:576
+#: inc/custom-post.php:583
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#: inc/custom-post.php:612
+#: inc/custom-post.php:619
 msgid "Publishing Soon"
 msgstr ""
 
-#: inc/custom-post.php:624
+#: inc/custom-post.php:631
 msgid "Recently Published"
 msgstr ""
 
-#: inc/custom-post.php:634
+#: inc/custom-post.php:641
 msgid "No activity yet!"
 msgstr ""
 
-#: inc/extras.php:69, inc/extras.php:73
+#: inc/extras.php:72, inc/extras.php:76
 msgid "Search"
 msgstr ""
 
-#: inc/extras.php:112
+#: inc/extras.php:118
 msgid "Theme"
 msgstr ""
 
-#: inc/extras.php:113
-msgid "Theme : "
-msgstr ""
-
-#: inc/extras.php:124
+#: inc/extras.php:129
 msgid "Light"
 msgstr ""
 
-#: inc/extras.php:131
+#: inc/extras.php:136
 msgid "Dark"
 msgstr ""
 
@@ -476,27 +480,23 @@ msgstr ""
 msgid "send"
 msgstr ""
 
-#: inc/template-tags.php:351
-msgid "From"
-msgstr ""
-
+#. translators: %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
 #: inc/template-tags.php:355
-msgid "to"
+msgid "From %1$s %2$ s%3$s to %4$s %5$s %6$s"
 msgstr ""
 
-#: template-parts/content-event.php:59, template-parts/content-event.php:123
+#. translators: From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
+#: inc/template-tags.php:367
+msgid "From %1$s %2$s to %3$s %4$s %5$s"
 msgstr ""
 
-#: template-parts/content-event.php:129, template-parts/content-project.php:30
+#. translators: From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
+#: inc/template-tags.php:380
+msgid "From %1$s to %2$s %3$s %4$s"
+msgstr ""
+
+#: template-parts/content-event.php:143, template-parts/content-project.php:30
 msgid "Read more"
-msgstr ""
-
-#: template-parts/content-events.php:19
-msgid "Map"
-msgstr ""
-
-#: template-parts/content-events.php:26
-msgid "List"
 msgstr ""
 
 #: template-parts/content-none.php:14

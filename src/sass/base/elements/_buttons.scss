@@ -16,8 +16,8 @@ main button,
 main input[type='button'],
 main input[type='reset'],
 main input[type='submit'],
-main .page-nav a,
-main .page-nav span,
+main nav.page-nav a,
+main nav.page-nav span,
 main .btn,
 main .button,
 main .social-sharing-module a {
@@ -25,10 +25,10 @@ main .social-sharing-module a {
     background-color: var(--component-bg-color);
 
     &:hover {
-        color: var(--hover-color);
+        //color: var(--text-color);
         border-color: var(--hover-color);
         & svg {
-            fill: var(--hover-color);
+            fill: var(--component-bg-color);
         }
     }
 }
@@ -38,19 +38,23 @@ main .social-sharing-module a {
 button,
 input[type='button'],
 input[type='reset'],
-input[type='submit'] {
-    // color: rgba(0, 0, 0, 0.8);
-
+input[type='submit'],
+main nav.page-nav a,
+main nav.page-nav span {
     @include border;
 
     &:hover {
         background: var(--hover-color);
+        color: var(--component-bg-color);
+        & svg {
+            fill: var(--component-bg-color);
+        }
     }
 
     &:active,
     &:focus {
         @include border;
-        background: var(--bg-color);
+        // background: var(--bg-color);
     }
 }
 

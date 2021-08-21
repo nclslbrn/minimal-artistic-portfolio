@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"PO-Revision-Date: 2021-08-13 11:44+0000\n"
+"PO-Revision-Date: 2021-08-13 20:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -33,7 +33,7 @@ msgid ", "
 msgstr ", "
 
 #. 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:576
+#: inc/custom-post.php:587
 #, php-format
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
@@ -43,8 +43,8 @@ msgid ""
 "A wordpress theme for artist (painter, sculptor, video-producer, ...) made "
 "with SASS, Babel, Gulp and more."
 msgstr ""
-"Un thème WordPress pour les artistes (peintre, sculpteur, producteur de "
-"vidéo) fait avec Sass, Babel, Gulp et plus encore. "
+"Un thème wordpress pour artiste (peintre, sculpteur, producteur vidéo, ...) "
+"réalisé avec SASS, Babel, Gulp et plus."
 
 #: inc/custom-post.php:24 inc/custom-post.php:66 inc/custom-post.php:108
 msgid "Add New"
@@ -86,7 +86,7 @@ msgstr "Tous droits réservés"
 msgid "category"
 msgstr "catégorie"
 
-#: inc/custom-post.php:464
+#: inc/custom-post.php:471
 msgid "Coming soon / Now"
 msgstr "À venir / en cours"
 
@@ -96,7 +96,7 @@ msgstr "Les commentaires sont fermés"
 
 #. 1: comment count number, 2: title.
 #: comments.php:41
-#, fuzzy, php-format
+#, php-format
 #| msgid "One thought on &ldquo;%2$s&rdquo;"
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
@@ -122,13 +122,17 @@ msgstr "La couverture est une image ou une vidéo ?"
 msgid "Cover option"
 msgstr "Option de couverture"
 
-#: inc/extras.php:131
+#: inc/extras.php:136
 msgid "Dark"
 msgstr "Sombre"
 
 #: inc/meta-box.php:333
 msgid "Date"
 msgstr "Date"
+
+#: events.php:54
+msgid "Degrees"
+msgstr "Diplômes"
 
 #: footer.php:33
 msgid "Design : N.Lebrun"
@@ -237,15 +241,15 @@ msgstr "Image"
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
 
-#: inc/extras.php:124
+#: inc/extras.php:129
 msgid "Light"
 msgstr "Clair"
 
-#: template-parts/content-events.php:26
+#: events.php:42
 msgid "List"
 msgstr "Liste"
 
-#: template-parts/content-events.php:19
+#: events.php:36
 msgid "Map"
 msgstr "Carte"
 
@@ -281,7 +285,7 @@ msgstr "Nouveau projet"
 msgid "Nicolas Lebrun"
 msgstr "Nicolas Lebrun"
 
-#: inc/custom-post.php:634
+#: inc/custom-post.php:645
 msgid "No activity yet!"
 msgstr "Pas encore d'activité"
 
@@ -323,14 +327,17 @@ msgstr "Un commentaire sur  &ldquo;%1$s&rdquo;"
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oups! Cette page n’existe pas !"
 
-#: events.php:36 template-parts/content-page.php:23
-#: template-parts/content.php:43
+#: events.php:62
+msgid "Others"
+msgstr "Autres"
+
+#: template-parts/content.php:43 template-parts/content-page.php:23
 msgid "Pages:"
 msgstr "Pages:"
 
 #: inc/custom-post.php:73
 msgid "Parent Events:"
-msgstr "Avènement parent:"
+msgstr "Évènement parent:"
 
 #: inc/custom-post.php:115
 msgid "Parent Gifs:"
@@ -410,11 +417,11 @@ msgstr "Projet"
 msgid "Projects"
 msgstr "Projets"
 
-#: inc/custom-post.php:612
+#: inc/custom-post.php:623
 msgid "Publishing Soon"
 msgstr "À paraître bientôt"
 
-#: template-parts/content-event.php:143 template-parts/content-project.php:30
+#: template-parts/content-project.php:30 template-parts/content-event.php:143
 msgid "Read more"
 msgstr "Lire plus"
 
@@ -430,11 +437,11 @@ msgid ""
 msgstr ""
 "Ready to public your first post? <a href=« %1$s »>Get started hère</a>."
 
-#: inc/custom-post.php:624
+#: inc/custom-post.php:635
 msgid "Recently Published"
 msgstr "Récemment publié"
 
-#: inc/extras.php:69 inc/extras.php:73
+#: inc/extras.php:72 inc/extras.php:76
 msgid "Search"
 msgstr "Recherche"
 
@@ -523,19 +530,15 @@ msgstr "Tag %1$s"
 msgid "Thanks! Your message has been sent."
 msgstr "Merci! Votre message a bien été envoyé."
 
-#: inc/extras.php:112
+#: inc/extras.php:118
 msgid "Theme"
 msgstr "Thème"
 
-#: inc/extras.php:113
-msgid "Theme : "
-msgstr "Thème :"
-
-#: inc/custom-post.php:566
+#: inc/custom-post.php:577
 msgid "Today"
 msgstr "Ajourd'hui"
 
-#: inc/custom-post.php:568
+#: inc/custom-post.php:579
 msgid "Tomorrow"
 msgstr "Demain"
 

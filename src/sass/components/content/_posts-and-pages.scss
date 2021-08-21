@@ -80,9 +80,21 @@
         flex-basis: 50%;
     }
 }
-ul.year-events-list {
+
+/* Post by year 
+--------------------------------------------- */
+body.page-template-events article.type-page > header.entry-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+#events-list section ul {
     margin: 0;
     padding: 0;
+    list-style-type: none;
+
     @include breakpoint(sm) {
         margin: 0 0 1.5em 12%;
     }
@@ -165,7 +177,6 @@ ul.related-projects {
 
 /* GIF page
 --------------------------------------------- */
-
 .gif-grid {
     display: flex;
     flex-flow: row wrap;

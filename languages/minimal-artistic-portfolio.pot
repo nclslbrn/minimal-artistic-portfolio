@@ -46,12 +46,24 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:249
+#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:253
 msgid "Events"
 msgstr ""
 
-#: events.php:36, template-parts/content-page.php:23, template-parts/content.php:43
-msgid "Pages:"
+#: events.php:36
+msgid "Map"
+msgstr ""
+
+#: events.php:42
+msgid "List"
+msgstr ""
+
+#: events.php:54
+msgid "Degrees"
+msgstr ""
+
+#: events.php:62
+msgid "Others"
 msgstr ""
 
 #: footer.php:30
@@ -113,7 +125,7 @@ msgctxt "post type singular name"
 msgid "Project"
 msgstr ""
 
-#: inc/custom-post.php:22, inc/custom-post.php:291
+#: inc/custom-post.php:22, inc/custom-post.php:295
 msgid "Projects"
 msgstr ""
 
@@ -269,38 +281,38 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: inc/custom-post.php:464
+#: inc/custom-post.php:475
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:494
+#: inc/custom-post.php:505
 msgid "$undefined->singular_name"
 msgid_plural "$undefined->name"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/custom-post.php:566
+#: inc/custom-post.php:581
 msgid "Today"
 msgstr ""
 
-#: inc/custom-post.php:568
+#: inc/custom-post.php:583
 msgid "Tomorrow"
 msgstr ""
 
 #. translators: 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:576
+#: inc/custom-post.php:591
 msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#: inc/custom-post.php:612
+#: inc/custom-post.php:627
 msgid "Publishing Soon"
 msgstr ""
 
-#: inc/custom-post.php:624
+#: inc/custom-post.php:639
 msgid "Recently Published"
 msgstr ""
 
-#: inc/custom-post.php:634
+#: inc/custom-post.php:649
 msgid "No activity yet!"
 msgstr ""
 
@@ -491,14 +503,6 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: template-parts/content-events.php:19
-msgid "Map"
-msgstr ""
-
-#: template-parts/content-events.php:26
-msgid "List"
-msgstr ""
-
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
@@ -510,6 +514,10 @@ msgstr ""
 
 #: template-parts/content-none.php:39
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-page.php:23, template-parts/content.php:43
+msgid "Pages:"
 msgstr ""
 
 #: template-parts/content-project.php:80

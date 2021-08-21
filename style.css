@@ -50,9 +50,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 :root[data-theme=light] {
   --primary-color: #3a443f;
   --text-color: #333333;
-  --focus-color: #408ead;
+  --focus-color: #c05904;
   --hover-color: #30885f;
-  --bg-color: #d8d8d8;
+  --bg-color: #eeecec;
   --component-bg-color: #fcfcfc;
   --border-color: #d4d4d4;
 }
@@ -60,7 +60,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 :root[data-theme=dark] {
   --primary-color: #e2f0eb;
   --text-color: #eefffa;
-  --focus-color: #92e0ff;
+  --focus-color: #ff9c2a;
   --hover-color: #38db6e;
   --bg-color: #1c1c1e;
   --component-bg-color: #14191e;
@@ -2303,8 +2303,8 @@ main button,
 main input[type=button],
 main input[type=reset],
 main input[type=submit],
-main .page-nav a,
-main .page-nav span,
+main nav.page-nav a,
+main nav.page-nav span,
 main .btn,
 main .button,
 main .social-sharing-module a {
@@ -2315,24 +2315,23 @@ main button:hover,
 main input[type=button]:hover,
 main input[type=reset]:hover,
 main input[type=submit]:hover,
-main .page-nav a:hover,
-main .page-nav span:hover,
+main nav.page-nav a:hover,
+main nav.page-nav span:hover,
 main .btn:hover,
 main .button:hover,
 main .social-sharing-module a:hover {
-  color: var(--hover-color);
   border-color: var(--hover-color);
 }
 main button:hover svg,
 main input[type=button]:hover svg,
 main input[type=reset]:hover svg,
 main input[type=submit]:hover svg,
-main .page-nav a:hover svg,
-main .page-nav span:hover svg,
+main nav.page-nav a:hover svg,
+main nav.page-nav span:hover svg,
 main .btn:hover svg,
 main .button:hover svg,
 main .social-sharing-module a:hover svg {
-  fill: var(--hover-color);
+  fill: var(--component-bg-color);
 }
 
 .btn,
@@ -2340,7 +2339,9 @@ main .social-sharing-module a:hover svg {
 button,
 input[type=button],
 input[type=reset],
-input[type=submit] {
+input[type=submit],
+main nav.page-nav a,
+main nav.page-nav span {
   border: 1px solid var(--border-color);
 }
 .btn:hover,
@@ -2348,8 +2349,21 @@ input[type=submit] {
 button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
-input[type=submit]:hover {
+input[type=submit]:hover,
+main nav.page-nav a:hover,
+main nav.page-nav span:hover {
   background: var(--hover-color);
+  color: var(--component-bg-color);
+}
+.btn:hover svg,
+.button:hover svg,
+button:hover svg,
+input[type=button]:hover svg,
+input[type=reset]:hover svg,
+input[type=submit]:hover svg,
+main nav.page-nav a:hover svg,
+main nav.page-nav span:hover svg {
+  fill: var(--component-bg-color);
 }
 .btn:active, .btn:focus,
 .button:active,
@@ -2361,9 +2375,12 @@ input[type=button]:focus,
 input[type=reset]:active,
 input[type=reset]:focus,
 input[type=submit]:active,
-input[type=submit]:focus {
+input[type=submit]:focus,
+main nav.page-nav a:active,
+main nav.page-nav a:focus,
+main nav.page-nav span:active,
+main nav.page-nav span:focus {
   border: 1px solid var(--border-color);
-  background: var(--bg-color);
 }
 
 .btn:hover,
@@ -3000,12 +3017,23 @@ footer.site-footer .wrapper .site-info a {
   flex-basis: 50%;
 }
 
-ul.year-events-list {
+/* Post by year 
+--------------------------------------------- */
+body.page-template-events article.type-page > header.entry-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#events-list section ul {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 @media (min-width: 32rem) {
-  ul.year-events-list {
+  #events-list section ul {
     margin: 0 0 1.5em 12%;
   }
 }
