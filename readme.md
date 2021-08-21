@@ -80,7 +80,7 @@ Added a simple image post called gif (but could be used with static picture), wi
 ### Installation
 
 -   install with `npm install`
--   update your change (SASS, PHP, image, fonts) with `npm run watch` and build it with `npm run build`
+-   update your change (SASS, PHP, image, fonts) with `gulp watch` and build it with `build`
 
 ## Build with/thanks
 
@@ -88,8 +88,8 @@ Added a simple image post called gif (but could be used with static picture), wi
 <img src="https://raw.githubusercontent.com/WordPress/WordPress/master/wp-admin/images/wordpress-logo.png" alt="Wordpress" width="139">
 </a>
 
-<a href="https://github.com/webpack/webpack" style="text-decoration: none;">
-<img src="https://camo.githubusercontent.com/d18f4a7a64244f703efcb322bf298dcb4ca38856/68747470733a2f2f7765627061636b2e6a732e6f72672f6173736574732f69636f6e2d7371756172652d6269672e737667" alt="Webpack" width="100">
+<a href="https://github.com/gulpjs/gulp" style="text-decoration: none;">
+<img src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png" alt="Gulp" width="100">
 </a>
 
 <a href="https://github.com/cssnano/cssnano" style="text-decoration: none;">
