@@ -1,2 +1,2 @@
 import '../sass/admin.scss'
-import './front/customizer'
+// import './front/customizer'

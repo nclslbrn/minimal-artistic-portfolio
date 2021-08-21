@@ -85,7 +85,12 @@ export default {
     },
     otherFiles: [
         // examples:
-        './src/fonts/**'
+        './src/fonts/**',
+        {
+            origPath: ['./src/js/back/customizer.js'],
+            path: './js/customizer.js'
+        }
+
         // {
         //   origPath: ["node_modules/optinout.js/dist/optinout.js"],
         //   path: "web/app/themes/efs/assets/libs/"
