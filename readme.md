@@ -8,6 +8,7 @@ Webpack and more.
 [Demo here](https://nicolas-lebrun.fr/) (It's not demo content but my own artistic works)
 
 1st Note: Translation content function work with [qTranslateX](https://wordpress.org/plugins/qtranslate-x/) you can use another plugin, static contents are translated (english/french) with a .po file.
+2nd Note: Currently Gutenbeg blocks are not supported but they should work in the lower right part of events and projects pages (where post_content/the_content() is output).
 
 ## Features
 
@@ -36,7 +37,17 @@ Webpack and more.
 -   contact page template (admin email is used to recieve email, there is no option to change it)
 -   two menus (header & footer), page can be nested in a dropdown in the header navigation bar, these two menus are responsive
 
+
 ## Changelog
+
+### Ver.1.0.4
+- Refactoring with phpcs and wp-coding-standarts (composer dependency)
+- Move top sidebar to bottom (before footer)
+- Move color variables (relative to light and dark modes) from Sass to CSS variable
+- Change front bundler from Webpack to Gulp
+- Loops optimization (with pagination)
+- Complete CSS rewrite from [_s theme](https://github.com/automattic/_s) Sass folders and files structure
+- Create a widget for dark mode with an option for switching from differents UI elements
 
 ### Ver.1.0.3
 
