@@ -130,17 +130,6 @@ function map_widgets_init() {
 			'after_title'   => '</h2>',
 		) 
 	);
-	register_sidebar(
-		array(
-			'name'          => __( 'Header Sidebar', 'Minimal-Artistic-Portfolio' ),
-			'id'            => 'sidebar-2',
-			'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'Minimal-Artistic-Portfolio' ),
-			'before_widget' => '<li id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</li>',
-			'before_title'  => '<h2 class="widgettitle">',
-			'after_title'   => '</h2>',
-		) 
-	);
 
 }
 add_action( 'widgets_init', 'map_widgets_init' );
@@ -212,3 +201,8 @@ require get_template_directory() . '/inc/custom-post.php';
  * Load meta box features.
  */
 require get_template_directory() . '/inc/meta-box.php';
+
+/**
+ * Load night mode widget
+ */
+require get_template_directory() . '/inc/night-mode-widget.php';
