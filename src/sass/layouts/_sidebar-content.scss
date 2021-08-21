@@ -1,27 +1,20 @@
-.site {
-	display: grid;
-	grid-template-columns: ($size__site-sidebar) auto;
-	grid-template-areas:
-		"header header"
-		"sidebar main"
-		"footer footer";
-}
-
-.site-header {
-	grid-area: header;
-}
-
-.site-main {
-	grid-area: main;
-	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
-}
-
 .widget-area {
-	grid-area: sidebar;
-}
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 
-.site-footer {
-	grid-area: footer;
-}
+    @include breakpoint(sm) {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    width: 100%;
 
-@import "no-sidebar";
+    section {
+        @include breakpoint(sm) {
+            flex: 1 0 auto;
+        }
+
+        text-align: center;
+    }
+}

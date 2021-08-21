@@ -81,3 +81,15 @@
         border-#{$side}: $border-width $border-style $border-color;
     }
 }
+
+@mixin clearfix() {
+    &::before,
+    &::after {
+        content: '';
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+}

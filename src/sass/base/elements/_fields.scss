@@ -13,6 +13,7 @@ input[type='time'],
 input[type='datetime'],
 input[type='datetime-local'],
 input[type='color'],
+select,
 textarea {
     color: var(--text-color);
     @include border;
@@ -29,9 +30,12 @@ textarea {
 }
 
 select {
+    padding: 0.75em;
     @include border;
 }
-
+select[name='mode-switcher'] {
+    padding: 0.75em 0.75em 0.75em 0.25em;
+}
 textarea {
     width: 100%;
 }

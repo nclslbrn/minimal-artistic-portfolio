@@ -45,6 +45,10 @@
     margin: 0 0 1.5em;
 }
 
+main article > .entry-content:last-of-type {
+    padding-bottom: 2em;
+}
+
 /* Project & event list
 --------------------------------------------- */
 .project-summary,
@@ -182,6 +186,7 @@ ul.related-projects {
     flex-flow: row wrap;
     margin: 1em 0;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .gif-grid article {
     position: relative;

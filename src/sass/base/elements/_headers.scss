@@ -22,7 +22,11 @@
         text-decoration: none;
     }
     .site-title a span {
-        margin-right: 0.25em;
+        display: block;
+        @include breakpoint(xs) {
+            display: inline;
+            margin-right: 0.25em;
+        }
         @include breakpoint(lg) {
             display: block;
             margin-right: 0;
