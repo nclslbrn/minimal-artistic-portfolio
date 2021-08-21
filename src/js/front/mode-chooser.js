@@ -28,45 +28,67 @@ const detectColorScheme = () => {
     } else {
         document.documentElement.setAttribute('data-theme', 'light')
     }
+    updateAll(theme == 'dark')
 }
 
 const switchTheme = (e) => {
-    if (
-        e &&
-        ('undefined' !== e.target.checked || e.target.hasAttribute('data-mode'))
-    ) {
-        if ('dark' === e.target.getAttribute('data-mode') || e.target.checked) {
-            localStorage.setItem('theme', 'dark')
-            document.documentElement.setAttribute('data-theme', 'dark')
-            updateCheckBox(true)
-            updateMenu(true)
-        } else {
-            localStorage.setItem('theme', 'light')
-            document.documentElement.setAttribute('data-theme', 'light')
-            updateCheckBox(false)
-            updateMenu(false)
-        }
+    let mode = false
+
+    if (e && e.currentTarget && 'undefined' !== e.currentTarget.checked)
+        mode = e.currentTarget.checked ? 'dark' : 'light' // hidden input[type="checkbox"][name="mode-switcher"] switch
+    if (e && e.currentTarget && 'undefined' !== e.currentTarget.value)
+        mode = e.currentTarget.value // select|input[name="mode-switcher"] menu & buttons
+
+    if (mode) {
+        localStorage.setItem('theme', mode)
+        document.documentElement.setAttribute('data-theme', mode)
+        updateAll(mode === 'dark')
     }
 }
 
-const updateCheckBox = (checked) => {
+const updateCheckBox = (isDark) => {
     for (let i = 0; i < modeSwitches.length; i++) {
-        modeSwitches[i].checked = checked
+        modeSwitches[i].checked = isDark
+        modeSwitches[i].value = isDark ? 'light' : 'dark'
     }
 }
-const updateMenu = (isDark) => {
-    const menuIcon = document.querySelector('a#theme-menu-entry svg use')
-    if (menuIcon) {
-        if (isDark) {
-            menuIcon.setAttribute('xlink:href', '#icon-moon')
-        } else {
-            menuIcon.setAttribute('xlink:href', '#icon-sun')
-        }
+const updateLabel = (isDark) => {
+    const themeLabels = document.querySelectorAll(
+        '[data-current-theme] svg use'
+    )
+    if (themeLabels) {
+        themeLabels.forEach((icon) => {
+            if (isDark) {
+                icon.setAttribute('xlink:href', '#icon-moon')
+            } else {
+                icon.setAttribute('xlink:href', '#icon-sun')
+            }
+        })
     }
 }
 
-const modeSwitches = document.querySelectorAll('input[name="mode-switcher"]')
-const modeButtons = document.querySelectorAll('button.theme-mode-button')
+const updateSelect = (isDark) => {
+    const modeOptionOrder = {
+        light: 0,
+        dark: 1
+    }
+    const themeSelect = document.querySelectorAll('select[name="mode-switcher"')
+    themeSelect.forEach((select) => {
+        if (isDark) {
+            select.selectedIndex = modeOptionOrder.dark
+        } else {
+            select.selectedIndex = modeOptionOrder.light
+        }
+    })
+}
+
+const updateAll = (isDark) => {
+    updateCheckBox(isDark)
+    updateLabel(isDark)
+    updateSelect(isDark)
+}
+const modeSwitches = document.querySelectorAll('[name="mode-switcher"]')
+const modeButtons = document.querySelectorAll('.theme-mode-button')
 
 detectColorScheme()
 
@@ -82,10 +104,10 @@ if ('undefined' !== typeof modeSwitches) {
 
 if ('undefined' !== typeof modeButtons) {
     for (let i = 0; i < modeButtons.length; i++) {
-        const theme = modeButtons[i].dataset.mode
+        const theme = modeButtons[i].value
         if (null !== theme) {
             modeButtons[i].addEventListener('click', switchTheme, false)
         }
-        // switchTheme()
+        switchTheme()
     }
 }
