@@ -63,8 +63,8 @@ function map_add_search_form_to_menu( $items, $args ) {
 	if ( 'primary' === $args->theme_location ) {
 		$items .= map_mode_chooser_menu();
 		/**  Uncomment  below to activate mode switcher.
+		 */
 		$items .= map_mode_chooser_button();
-		*/
 
 		$items .= '<li class="search">';
 		$items .= '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '">';
@@ -81,7 +81,7 @@ function map_add_search_form_to_menu( $items, $args ) {
 	}
 	return $items;
 }
-add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 );
+// add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 );
 
 
 /**
@@ -115,7 +115,7 @@ function map_mode_chooser_button() {
 function map_mode_chooser_menu() {
 	$icon_name = isset( $_COOKIE['mode'] ) && 'dark' === $_COOKIE['mode'] ? 'moon' : 'sun';
 	$entry     = '<li class=\'menu-item menu-item-has-children\'>';
-	$entry    .= '<a id=\'theme-menu-entry\' title=\'' . esc_attr__( 'Theme', 'Minimal-Artistic-Portfolio' ) . '\'>' . 
+	$entry    .= '<a data-current-theme title=\'' . esc_attr__( 'Theme', 'Minimal-Artistic-Portfolio' ) . '\'>' . 
 					'<svg class=\'icon icon-' . $icon_name . '\'>' .
 						'<use xlink:href=\'#icon-' . $icon_name . '\'>' .
 						'</use>' .
@@ -125,22 +125,19 @@ function map_mode_chooser_menu() {
 
 
 	$entry .= '<li class=\'theme-mode\'>';
-	$entry .= '<button class=\'theme-mode-button\' data-mode=\'light\'>';
+	$entry .= '<button name="mode-switcher" class=\'theme-mode-button\' value=\'light\'>';
 	$entry .= esc_html__( 'Light', 'Minimal-Artistic-Portfolio' );
 	$entry .= '<svg class="icon icon-sun"><use xlink:href="#icon-sun"></use></svg>';
 	$entry .= '</button>';
 	$entry .= '</li>';
 
 	$entry .= '<li class=\'theme-mode\'>';
-	$entry .= '<button class=\'theme-mode-button\' data-mode=\'dark\'>';
+	$entry .= '<button name="mode-switcher" class=\'theme-mode-button\' value=\'dark\'>';
 	$entry .= esc_html__( 'Dark', 'Minimal-Artistic-Portfolio' );
 	$entry .= '<svg class="icon icon-moon"><use xlink:href="#icon-moon"></use></svg>';
 	$entry .= '</button>';
 	$entry .= '</li>';
-
-
 	$entry .= '</ul>';
-
 	$entry .= '</li>';
 
 	return $entry;
