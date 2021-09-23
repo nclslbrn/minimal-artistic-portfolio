@@ -505,7 +505,8 @@ function map_at_glance_content_table_end() {
 		$text = _n( 
 			$post_type->labels->singular_name, 
 			$post_type->labels->name, 
-			intval( $num_posts->publish ) 
+			intval( $num_posts->publish ),
+			'Minimal-Artistic-Portfolio'
 		);
 		if ( current_user_can( 'edit_posts' ) ) {
 			$output  = '<a href="edit.php?post_type=' . esc_attr( $post_type->name ) . '">';
