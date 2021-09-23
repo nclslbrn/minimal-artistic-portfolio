@@ -1,4 +1,11 @@
-@import '../../../../node_modules/plyr/dist/plyr';
+//@import '../../../../node_modules/plyr/dist/plyr';
+@import '../../../../node_modules/plyr/src/sass/plyr';
+
 :root {
     --plyr-color-main: var(--primary-color);
+}
+
+.plyr .plyr__controls .plyr__controls__item,
+.plyr .plyr__controls .plyr__controls__item button.plyr__control {
+    margin-bottom: 0 !important;
 }
