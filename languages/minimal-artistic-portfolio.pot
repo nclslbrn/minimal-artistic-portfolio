@@ -1,5 +1,6 @@
 # Copyright (C) 2021 unnamed project
 # This file is distributed under the same license as the unnamed project package.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
@@ -7,266 +8,72 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:"
+"1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2021-09-23 08:28+0000\n"
+"X-Generator: Loco https://localise.biz/"
 
-#: 404.php:17
-msgid "Oops! That page can&rsquo;t be found."
+#: inc/template-tags.php:322
+msgid "* : require field"
 msgstr ""
 
-#: 404.php:22
-msgid "error"
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:63 inc/template-tags.php:70
+msgid ", "
 msgstr ""
 
-#: 404.php:24
-msgid "Sorry, we couldn't find the page you were looking for!"
+#. 1: relative date, 2: time, 4: post title
+#: inc/custom-post.php:592
+msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
 msgstr ""
 
-#. translators: 1: title.
-#: comments.php:35
-msgid "One thought on &ldquo;%1$s&rdquo;"
+#. Description of the theme
+msgid ""
+"A wordpress theme for artist (painter, sculptor, video-producer, ...) made "
+"with SASS, Babel, Gulp and more."
 msgstr ""
 
-#. translators: 1: comment count number, 2: title.
-#: comments.php:41
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: comments.php:68
-msgid "Comments are closed."
-msgstr ""
-
-#: contact.php:3
-msgid "Contact"
-msgstr ""
-
-#: events.php:3, inc/custom-post.php:64, inc/custom-post.php:253
-msgid "Events"
-msgstr ""
-
-#: events.php:36
-msgid "Map"
-msgstr ""
-
-#: events.php:42
-msgid "List"
-msgstr ""
-
-#: events.php:54
-msgid "Degrees"
-msgstr ""
-
-#: events.php:62
-msgid "Others"
-msgstr ""
-
-#: footer.php:30
-msgid "All right reserved"
-msgstr ""
-
-#: footer.php:33
-msgid "Design : N.Lebrun"
-msgstr ""
-
-#: functions.php:54
-msgid "Primary"
-msgstr ""
-
-#: functions.php:55
-msgid "Footer Menu"
-msgstr ""
-
-#: functions.php:124
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:126
-msgid "Add widgets here."
-msgstr ""
-
-#: gif-page.php:3
-msgid "Gif-page"
-msgstr ""
-
-#: header.php:70
-msgid "Skip to content"
-msgstr ""
-
-#: homepage.php:3
-msgid "Homepage"
-msgstr ""
-
-#. translators: %s: user input search term
-#: search.php:24
-msgid "Search Results for: %s"
-msgstr ""
-
-#: inc/custom-post.php:20
-msgctxt "post type general name"
-msgid "Projects"
-msgstr ""
-
-#: inc/custom-post.php:21
-msgctxt "post type singular name"
-msgid "Project"
-msgstr ""
-
-#: inc/custom-post.php:22, inc/custom-post.php:295
-msgid "Projects"
-msgstr ""
-
-#: inc/custom-post.php:23
-msgid "Project"
-msgstr ""
-
-#: inc/custom-post.php:24, inc/custom-post.php:66, inc/custom-post.php:108
+#: inc/custom-post.php:24 inc/custom-post.php:66 inc/custom-post.php:108
 msgid "Add New"
-msgstr ""
-
-#: inc/custom-post.php:25
-msgid "Add New Project"
-msgstr ""
-
-#: inc/custom-post.php:26
-msgid "New Project"
-msgstr ""
-
-#: inc/custom-post.php:27
-msgid "Edit Project"
-msgstr ""
-
-#: inc/custom-post.php:28
-msgid "View Project"
-msgstr ""
-
-#: inc/custom-post.php:29
-msgid "All Projects"
-msgstr ""
-
-#: inc/custom-post.php:30
-msgid "Search Projects"
-msgstr ""
-
-#: inc/custom-post.php:31
-msgid "Parent Projects:"
-msgstr ""
-
-#: inc/custom-post.php:32
-msgid "No projects found."
-msgstr ""
-
-#: inc/custom-post.php:33
-msgid "No projects found in Trash."
-msgstr ""
-
-#: inc/custom-post.php:62
-msgctxt "post type general name"
-msgid "Events"
-msgstr ""
-
-#: inc/custom-post.php:63
-msgctxt "post type singular name"
-msgid "Event"
-msgstr ""
-
-#: inc/custom-post.php:65, inc/meta-box.php:45
-msgid "Event"
 msgstr ""
 
 #: inc/custom-post.php:67
 msgid "Add New Event"
 msgstr ""
 
-#: inc/custom-post.php:68
-msgid "New Event"
+#: inc/custom-post.php:109
+msgid "Add New Gif"
 msgstr ""
 
-#: inc/custom-post.php:69
-msgid "Edit Event"
+#: inc/custom-post.php:25
+msgid "Add New Project"
 msgstr ""
 
-#: inc/custom-post.php:70
-msgid "View Event"
+#: functions.php:126
+msgid "Add widgets here."
 msgstr ""
 
 #: inc/custom-post.php:71
 msgid "All Events"
 msgstr ""
 
-#: inc/custom-post.php:72
-msgid "Search Events"
-msgstr ""
-
-#: inc/custom-post.php:73
-msgid "Parent Events:"
-msgstr ""
-
-#: inc/custom-post.php:74
-msgid "No events found."
-msgstr ""
-
-#: inc/custom-post.php:75
-msgid "No events found in Trash."
-msgstr ""
-
-#: inc/custom-post.php:104
-msgctxt "post type general name"
-msgid "Gif"
-msgstr ""
-
-#: inc/custom-post.php:105
-msgctxt "post type singular name"
-msgid "Gif"
-msgstr ""
-
-#: inc/custom-post.php:106
-msgid "Gifs"
-msgstr ""
-
-#: inc/custom-post.php:107
-msgid "Gif"
-msgstr ""
-
-#: inc/custom-post.php:109
-msgid "Add New Gif"
-msgstr ""
-
-#: inc/custom-post.php:110
-msgid "New Gif"
-msgstr ""
-
-#: inc/custom-post.php:111
-msgid "Edit Gif"
-msgstr ""
-
-#: inc/custom-post.php:112
-msgid "View Gif"
-msgstr ""
-
 #: inc/custom-post.php:113
 msgid "All Gifs"
 msgstr ""
 
-#: inc/custom-post.php:114
-msgid "Search Gifs"
+#: inc/custom-post.php:29
+msgid "All Projects"
 msgstr ""
 
-#: inc/custom-post.php:115
-msgid "Parent Gifs:"
-msgstr ""
-
-#: inc/custom-post.php:116
-msgid "No gifs found."
-msgstr ""
-
-#: inc/custom-post.php:117
-msgid "No gifs found in Trash."
+#: footer.php:30
+msgid "All right reserved"
 msgstr ""
 
 #: inc/custom-post.php:143
@@ -277,87 +84,378 @@ msgstr ""
 msgid "Coming soon / Now"
 msgstr ""
 
-#: inc/custom-post.php:505
-msgid "$undefined->singular_name"
-msgid_plural "$undefined->name"
+#: comments.php:68
+msgid "Comments are closed."
+msgstr ""
+
+#. 1: comment count number, 2: title.
+#: comments.php:41
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/custom-post.php:581
-msgid "Today"
+#. Name of the template
+msgid "Contact"
 msgstr ""
 
-#: inc/custom-post.php:583
-msgid "Tomorrow"
-msgstr ""
-
-#. translators: 1: relative date, 2: time, 4: post title
-#: inc/custom-post.php:591
-msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
-msgstr ""
-
-#: inc/custom-post.php:627
-msgid "Publishing Soon"
-msgstr ""
-
-#: inc/custom-post.php:639
-msgid "Recently Published"
-msgstr ""
-
-#: inc/custom-post.php:649
-msgid "No activity yet!"
-msgstr ""
-
-#: inc/extras.php:72, inc/extras.php:76
-msgid "Search"
-msgstr ""
-
-#: inc/extras.php:118
-msgid "Theme"
-msgstr ""
-
-#: inc/extras.php:129, inc/night-mode-widget.php:54
-msgid "Light"
-msgstr ""
-
-#: inc/extras.php:136, inc/night-mode-widget.php:59
-msgid "Dark"
-msgstr ""
-
-#: inc/meta-box.php:69
-msgid "Cover option"
-msgstr ""
-
-#: inc/meta-box.php:151, inc/meta-box.php:334
-msgid "Place"
+#. %s: Name of current post.
+#: template-parts/content.php:36
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #: inc/meta-box.php:173
 msgid "Cover is an image or a video ?"
 msgstr ""
 
+#: inc/meta-box.php:69
+msgid "Cover option"
+msgstr ""
+
+#: inc/night-mode-widget.php:46
+msgid "Current mode"
+msgstr ""
+
+#: inc/extras.php:136 inc/night-mode-widget.php:59
+msgid "Dark"
+msgstr ""
+
+#: inc/meta-box.php:333
+msgid "Date"
+msgstr ""
+
+#: events.php:54
+msgid "Degrees"
+msgstr ""
+
+#: footer.php:33
+msgid "Design : N.Lebrun"
+msgstr ""
+
+#: inc/night-mode-widget.php:18
+msgid "Display button to change theme (light/dark)"
+msgstr ""
+
+#. %s: Name of current post
+#: inc/template-tags.php:87 template-parts/content-page.php:35
+msgid "Edit %s"
+msgstr ""
+
+#: inc/custom-post.php:69
+msgid "Edit Event"
+msgstr ""
+
+#: inc/custom-post.php:111
+msgid "Edit Gif"
+msgstr ""
+
+#: inc/custom-post.php:27
+msgid "Edit Project"
+msgstr ""
+
+#: inc/template-tags.php:305
+msgid "Email *"
+msgstr ""
+
+#: inc/template-tags.php:194
+msgid "Email Address Invalid."
+msgstr ""
+
+#: 404.php:22
+msgid "error"
+msgstr ""
+
+#: inc/meta-box.php:45 inc/custom-post.php:65
+msgid "Event"
+msgstr ""
+
+#. Name of the template
+#: inc/custom-post.php:64 inc/custom-post.php:253
+msgid "Events"
+msgstr ""
+
+#: functions.php:55
+msgid "Footer Menu"
+msgstr ""
+
+#. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
+#: inc/template-tags.php:354
+msgid "From %1$s %2$ s%3$s to %4$s %5$s %6$s"
+msgstr ""
+
+#. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
+#: inc/template-tags.php:366
+msgid "From %1$s %2$s to %3$s %4$s %5$s"
+msgstr ""
+
+#. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
+#: inc/template-tags.php:379
+msgid "From %1$s to %2$s %3$s %4$s"
+msgstr ""
+
+#: inc/custom-post.php:107
+msgid "Gif"
+msgstr ""
+
+#. Name of the template
+msgid "Gif-page"
+msgstr ""
+
+#: inc/custom-post.php:106
+msgid "Gifs"
+msgstr ""
+
+#. Name of the template
+msgid "Homepage"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://about.me/nicolaslebrun"
+msgstr ""
+
+#. URI of the theme
+msgid "https://github.com/nclslbrn/minimal-artist-portfolio"
+msgstr ""
+
+#: inc/template-tags.php:192
+msgid "Human verification incorrect."
+msgstr ""
+
 #: inc/meta-box.php:175
 msgid "Image"
 msgstr ""
 
-#: inc/meta-box.php:177
-msgid "Video"
+#. %s: post title
+#: inc/template-tags.php:80
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/meta-box.php:179
-msgid "Video ID (leave empty if selfhosted)"
+#: inc/extras.php:129 inc/night-mode-widget.php:54
+msgid "Light"
 msgstr ""
 
-#: inc/meta-box.php:182
-msgid "Video provider"
+#: events.php:42
+msgid "List"
 msgstr ""
 
-#: inc/meta-box.php:184
-msgid "Vimeo"
+#: events.php:36
+msgid "Map"
 msgstr ""
 
-#: inc/meta-box.php:186
-msgid "YouTube"
+#: inc/night-mode-widget.php:144
+msgid "Menu"
+msgstr ""
+
+#: inc/template-tags.php:316
+msgid "Message *"
+msgstr ""
+
+#: inc/template-tags.php:195
+msgid "Message was not sent. Try Again."
+msgstr ""
+
+#. Name of the theme
+msgid "Minimal-Artistic-Portfolio"
+msgstr ""
+
+#: inc/template-tags.php:297
+msgid "Name *"
+msgstr ""
+
+#: inc/custom-post.php:68
+msgid "New Event"
+msgstr ""
+
+#: inc/custom-post.php:110
+msgid "New Gif"
+msgstr ""
+
+#: inc/custom-post.php:26
+msgid "New Project"
+msgstr ""
+
+#: inc/night-mode-widget.php:110
+msgid "New title"
+msgstr ""
+
+#. Author of the theme
+msgid "Nicolas Lebrun"
+msgstr ""
+
+#: inc/night-mode-widget.php:15
+msgid "Night mode widget"
+msgstr ""
+
+#: inc/custom-post.php:650
+msgid "No activity yet!"
+msgstr ""
+
+#: inc/custom-post.php:75
+msgid "No events found in Trash."
+msgstr ""
+
+#: inc/custom-post.php:74
+msgid "No events found."
+msgstr ""
+
+#: inc/custom-post.php:117
+msgid "No gifs found in Trash."
+msgstr ""
+
+#: inc/custom-post.php:116
+msgid "No gifs found."
+msgstr ""
+
+#: inc/custom-post.php:33
+msgid "No projects found in Trash."
+msgstr ""
+
+#: inc/custom-post.php:32
+msgid "No projects found."
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#. 1: title.
+#: comments.php:35
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: events.php:62
+msgid "Others"
+msgstr ""
+
+#: template-parts/content-page.php:23 template-parts/content.php:43
+msgid "Pages:"
+msgstr ""
+
+#: inc/custom-post.php:73
+msgid "Parent Events:"
+msgstr ""
+
+#: inc/custom-post.php:115
+msgid "Parent Gifs:"
+msgstr ""
+
+#: inc/custom-post.php:31
+msgid "Parent Projects:"
+msgstr ""
+
+#: inc/meta-box.php:151 inc/meta-box.php:334
+msgid "Place"
+msgstr ""
+
+#: inc/template-tags.php:193
+msgid "Please supply all information."
+msgstr ""
+
+#. %s: post author.
+#: inc/template-tags.php:46
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. %s: post date.
+#: inc/template-tags.php:30
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#: inc/custom-post.php:62
+msgctxt "post type general name"
+msgid "Events"
+msgstr ""
+
+#: inc/custom-post.php:104
+msgctxt "post type general name"
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:20
+msgctxt "post type general name"
+msgid "Projects"
+msgstr ""
+
+#: inc/custom-post.php:63
+msgctxt "post type singular name"
+msgid "Event"
+msgstr ""
+
+#: inc/custom-post.php:105
+msgctxt "post type singular name"
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:21
+msgctxt "post type singular name"
+msgid "Project"
+msgstr ""
+
+#. 1: list of categories.
+#: inc/template-tags.php:66
+msgid "Posted in %1$s"
+msgstr ""
+
+#: functions.php:54
+msgid "Primary"
+msgstr ""
+
+#: inc/custom-post.php:23
+msgid "Project"
+msgstr ""
+
+#: inc/custom-post.php:22 inc/custom-post.php:295
+msgid "Projects"
+msgstr ""
+
+#: inc/custom-post.php:628
+msgid "Publishing Soon"
+msgstr ""
+
+#: template-parts/content-event.php:143 template-parts/content-project.php:30
+msgid "Read more"
+msgstr ""
+
+#: template-parts/content-project.php:81
+msgid "Read the video"
+msgstr ""
+
+#. 1: first post edit link
+#: template-parts/content-none.php:27
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: inc/custom-post.php:640
+msgid "Recently Published"
+msgstr ""
+
+#: inc/extras.php:72 inc/extras.php:76
+msgid "Search"
+msgstr ""
+
+#: inc/custom-post.php:72
+msgid "Search Events"
+msgstr ""
+
+#: inc/custom-post.php:114
+msgid "Search Gifs"
+msgstr ""
+
+#: inc/custom-post.php:30
+msgid "Search Projects"
+msgstr ""
+
+#. %s: user input search term
+#: search.php:24
+msgid "Search Results for: %s"
 msgstr ""
 
 #: inc/meta-box.php:188
@@ -368,79 +466,12 @@ msgstr ""
 msgid "Self hosting URLs"
 msgstr ""
 
-#: inc/meta-box.php:333
-msgid "Date"
+#: inc/template-tags.php:326
+msgid "send"
 msgstr ""
 
-#: inc/night-mode-widget.php:15
-msgid "Night mode widget"
-msgstr ""
-
-#: inc/night-mode-widget.php:18
-msgid "Display button to change theme (light/dark)"
-msgstr ""
-
-#: inc/night-mode-widget.php:46
-msgid "Current mode"
-msgstr ""
-
-#: inc/night-mode-widget.php:110
-msgid "New title"
-msgstr ""
-
-#: inc/night-mode-widget.php:121
-msgid "Title"
-msgstr ""
-
-#: inc/night-mode-widget.php:132
-msgid "Type"
-msgstr ""
-
-#: inc/night-mode-widget.php:141
-msgid "Switch"
-msgstr ""
-
-#: inc/night-mode-widget.php:144
-msgid "Menu"
-msgstr ""
-
-#. translators: %s: post date.
-#: inc/template-tags.php:30
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr ""
-
-#. translators: %s: post author.
-#: inc/template-tags.php:46
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63, inc/template-tags.php:70
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of categories.
-#: inc/template-tags.php:66
-msgid "Posted in %1$s"
-msgstr ""
-
-#. translators: 1: list of tags.
-#: inc/template-tags.php:73
-msgid "Tagged %1$s"
-msgstr ""
-
-#. translators: %s: post title
-#: inc/template-tags.php:80
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: Name of current post
-#. translators: %s: Name of current post
-#: inc/template-tags.php:87, template-parts/content-page.php:35
-msgid "Edit %s"
+#: inc/template-tags.php:146
+msgid "Send Email"
 msgstr ""
 
 #: inc/template-tags.php:118
@@ -455,112 +486,100 @@ msgstr ""
 msgid "Share on Twitter"
 msgstr ""
 
-#: inc/template-tags.php:146
-msgid "Send Email"
+#: functions.php:124
+msgid "Sidebar"
 msgstr ""
 
-#: inc/template-tags.php:166, inc/template-tags.php:173
-msgctxt "submit button"
-msgid "Search"
-msgstr ""
-
-#: inc/template-tags.php:192
-msgid "Human verification incorrect."
-msgstr ""
-
-#: inc/template-tags.php:193
-msgid "Please supply all information."
-msgstr ""
-
-#: inc/template-tags.php:194
-msgid "Email Address Invalid."
-msgstr ""
-
-#: inc/template-tags.php:195
-msgid "Message was not sent. Try Again."
-msgstr ""
-
-#: inc/template-tags.php:196
-msgid "Thanks! Your message has been sent."
+#: header.php:70
+msgid "Skip to content"
 msgstr ""
 
 #: inc/template-tags.php:218
 msgid "Someone sent a message from "
 msgstr ""
 
-#: inc/template-tags.php:298
-msgid "Name *"
-msgstr ""
-
-#: inc/template-tags.php:306
-msgid "Email *"
-msgstr ""
-
-#: inc/template-tags.php:317
-msgid "Message *"
-msgstr ""
-
-#: inc/template-tags.php:323
-msgid "* : require field"
-msgstr ""
-
-#: inc/template-tags.php:327
-msgid "send"
-msgstr ""
-
-#. translators: %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
-#: inc/template-tags.php:355
-msgid "From %1$s %2$ s%3$s to %4$s %5$s %6$s"
-msgstr ""
-
-#. translators: From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
-#: inc/template-tags.php:367
-msgid "From %1$s %2$s to %3$s %4$s %5$s"
-msgstr ""
-
-#. translators: From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
-#: inc/template-tags.php:380
-msgid "From %1$s to %2$s %3$s %4$s"
-msgstr ""
-
-#: template-parts/content-event.php:143, template-parts/content-project.php:30
-msgid "Read more"
-msgstr ""
-
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr ""
-
-#. translators: 1: first post edit link
-#: template-parts/content-none.php:27
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
 #: template-parts/content-none.php:39
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
-#: template-parts/content-page.php:23, template-parts/content.php:43
-msgid "Pages:"
+#: 404.php:24
+msgid "Sorry, we couldn't find the page you were looking for!"
+msgstr ""
+
+#: inc/template-tags.php:166 inc/template-tags.php:173
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: inc/night-mode-widget.php:141
+msgid "Switch"
+msgstr ""
+
+#. 1: list of tags.
+#: inc/template-tags.php:73
+msgid "Tagged %1$s"
+msgstr ""
+
+#: inc/template-tags.php:196
+msgid "Thanks! Your message has been sent."
+msgstr ""
+
+#: inc/extras.php:118
+msgid "Theme"
+msgstr ""
+
+#: inc/night-mode-widget.php:121
+msgid "Title"
+msgstr ""
+
+#: inc/custom-post.php:582
+msgid "Today"
+msgstr ""
+
+#: inc/custom-post.php:584
+msgid "Tomorrow"
+msgstr ""
+
+#: inc/night-mode-widget.php:132
+msgid "Type"
+msgstr ""
+
+#: inc/meta-box.php:177
+msgid "Video"
+msgstr ""
+
+#: inc/meta-box.php:179
+msgid "Video ID (leave empty if selfhosted)"
+msgstr ""
+
+#: inc/meta-box.php:182
+msgid "Video provider"
+msgstr ""
+
+#: inc/custom-post.php:70
+msgid "View Event"
+msgstr ""
+
+#: inc/custom-post.php:112
+msgid "View Gif"
+msgstr ""
+
+#: inc/custom-post.php:28
+msgid "View Project"
+msgstr ""
+
+#: inc/meta-box.php:184
+msgid "Vimeo"
 msgstr ""
 
 #: template-parts/content-project.php:80
-msgid "Your browser doesn't support HTML5 video, but you can read this video with the link below."
+msgid ""
+"Your browser doesn't support HTML5 video, but you can read this video with "
+"the link below."
 msgstr ""
 
-#: template-parts/content-project.php:81
-msgid "Read the video"
-msgstr ""
-
-#. translators: %s: Name of current post.
-#: template-parts/content.php:36
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: vendor/wp-cli/wp-cli/php/utils-wp.php:222
-msgid "Inactive Widgets"
-msgstr ""
-
-#: vendor/wp-cli/wp-cli/php/utils-wp.php:225
-msgid "Drag widgets here to remove them from the sidebar but keep their settings."
+#: inc/meta-box.php:186
+msgid "YouTube"
 msgstr ""

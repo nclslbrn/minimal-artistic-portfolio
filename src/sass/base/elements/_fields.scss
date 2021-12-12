@@ -164,6 +164,22 @@ span.input.textarea-input textarea {
         background: var(--bg-color);
     }
 }
+
+.success,
+.warning,
+.error {
+    padding: 0.5em 1.5em 0.8em 0.5em;
+    border-radius: 2px;
+}
+.success {
+    background: limegreen;
+}
+.warning {
+    background: orange;
+}
+.error {
+    background-color: tomato;
+}
 span.input button[type='submit'] {
     padding: 0.6em 0.8em;
 }

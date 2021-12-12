@@ -258,7 +258,7 @@ export const build = (done) => {
     return gulp.series(
         clean,
         copyOtherFiles,
-        gulp.parallel(scripts, styles, optimizeImages, translateWordPress)
+        gulp.parallel(scripts, styles, optimizeImages) // translateWordPress
     )(done)
 }
 
@@ -269,7 +269,7 @@ export const develop = (done) =>
     gulp.series(
         clean,
         copyOtherFiles,
-        gulp.parallel(scripts, styles, optimizeImages, translateWordPress),
+        gulp.parallel(scripts, styles, optimizeImages), // translateWordPress
         watch
     )(done)
 

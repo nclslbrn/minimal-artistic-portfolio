@@ -1,7 +1,7 @@
 export default {
     themeSlug: 'minimal-artistic-portfolio',
     server: {
-        proxy: 'nicolas-lebrun.localhost',
+        proxy: 'nicolas-lebrun.local',
         port: 8080
     },
     srcDir: './src',
