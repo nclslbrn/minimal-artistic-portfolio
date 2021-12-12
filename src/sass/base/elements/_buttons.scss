@@ -28,7 +28,7 @@ main .social-sharing-module a {
         //color: var(--text-color);
         border-color: var(--hover-color);
         & svg {
-            fill: var(--component-bg-color);
+            fill: var(--hover-color);
         }
     }
 }
@@ -47,7 +47,7 @@ main nav.page-nav span {
         background: var(--hover-color);
         color: var(--component-bg-color);
         & svg {
-            fill: var(--component-bg-color);
+            fill: var(--hover-color);
         }
     }
 

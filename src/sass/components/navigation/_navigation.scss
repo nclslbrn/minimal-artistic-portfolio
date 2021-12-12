@@ -128,14 +128,14 @@
     .current_page_ancestor,
     .current-menu-ancestor {
         &::after {
-            content: '___';
+            content: '.......';
             display: block;
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             text-align: center;
-            color: var(--border-color);
+            color: var(--hover-color);
             @include breakpoint(md) {
                 margin-bottom: -0.5em;
             }
