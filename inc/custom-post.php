@@ -336,52 +336,39 @@ function map_list_posts_by_years( $type, $limit ) {
 	$posts = new WP_Query( $args );
 
 	if ( $posts->have_posts() ) : 
-		$previous_year = 0;
-		$post_count    = 0;
 		$map_data      = array();
-		$firt_post     = true;
-		$list_open     = false;
+		$post_by_year 	   = []; 
+
 		while ( $posts->have_posts() ) :
 
 			global $post;
 			$posts->the_post();
 			$current_year = date_i18n( 'Y', strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ) );
-			$post_count++;
-
-			if ( $list_open && $current_year === $previous_year ) {
-				echo '<li>';
-				get_template_part( 'template-parts/content', 'event' );
-				echo '</li>';
-			}
+			$post_by_year[$current_year][] = $post;
+		
+		endwhile;
 			
-			if ( ! $list_open || $first_post ) {
-				echo '<section class=\'events-year\' data-post=\''.$post_count . '/'. $posts->post_count .'\'>';
-				echo '<h2 class=\'year\'>' . esc_attr( $current_year ) . '</h2><!-- .year -->';
-				echo '<ul class=\'year-events-list\'>';
-				echo '<li>';
-				get_template_part( 'template-parts/content', 'event' );
-				echo '</li>';
+		foreach( $post_by_year as $year => $posts ) : ?>
 
-				$first_post = false;
-				$list_open  = true;
-			}
+			<section class="events-year">
+				<h2 class="year"><?php echo esc_attr( $year ); ?></h2><!-- .year -->
+				<ul class="year-events-list">
+			<?php foreach( $posts as $post ) : ?>
+				<?php 
+					$map_data[]    = array(
+						'link'     => get_permalink( $post->ID ),
+						'title'    => get_the_title( $post->ID ),
+						'latt'     => get_post_meta( $post->ID, 'LATT', true ),
+						'long'     => get_post_meta( $post->ID, 'LONG', true ),
+					);
+				?>
+				<li><?php get_template_part( 'template-parts/content', 'event' ); ?></li>
 
-			if ( $list_open && 
-				( $current_year !== $previous_year || $posts->post_count == $post_count ) 
-			) {
-				echo '</ul><!-- .year-events-list -->';
-				echo '</section><!-- .events-year -->';
-				$list_open = false;
-			}
-
-			$map_data[]    = array(
-				'link'     => get_permalink( $post->ID ),
-				'title'    => get_the_title( $post->ID ),
-				'latt'     => get_post_meta( $post->ID, 'LATT', true ),
-				'long'     => get_post_meta( $post->ID, 'LONG', true ),
-			);
-			$previous_year = $current_year;
-		endwhile; ?>
+			<?php endforeach; ?>
+				</ul><!-- .year-events-list -->
+			</section><!-- .events-year -->
+		<?php endforeach; ?>
+		
 		<script>
 			window.eventsMapData = <?php echo json_encode( $map_data ); //phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode ?>;
 		</script>
