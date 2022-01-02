@@ -50,6 +50,9 @@ main nav.page-nav span {
             fill: var(--hover-color);
         }
     }
+    &[data-toggle]:hover svg {
+        fill: var(--bg-color);
+    }
 
     &:active,
     &:focus {

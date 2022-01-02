@@ -170,11 +170,14 @@ ul.related-projects {
     }
 }
 
-/* Left margin page
+/* Left margin page 
 --------------------------------------------- */
-body.page-template-left-margin-page main article {
-    padding-left: 28.5%;
+body.page-template-left-margin-page article .entry-content {
+    @include breakpoint(md) {
+        padding-left: 28.5%;
+    }
 }
+
 /* Small height content 
 --------------------------------------------- */
 .no-results,

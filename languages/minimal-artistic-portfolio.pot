@@ -52,8 +52,8 @@ msgstr ""
 msgid "Add New Gif"
 msgstr ""
 
-#: inc/custom-post.php:25
-msgid "Add New Project"
+#: events.php:3, inc/custom-post.php:65, inc/custom-post.php:255
+msgid "Events"
 msgstr ""
 
 #: functions.php:126
@@ -117,223 +117,214 @@ msgstr ""
 msgid "Current mode"
 msgstr ""
 
-#: inc/extras.php:136 inc/night-mode-widget.php:59
-msgid "Dark"
+#: left-margin-page.php:4
+msgid "Left margin page"
 msgstr ""
 
-#: inc/meta-box.php:333
-msgid "Date"
+#. translators: %s: user input search term
+#: search.php:24
+msgid "Search Results for: %s"
 msgstr ""
 
-#: events.php:54
-msgid "Degrees"
+#: inc/custom-post.php:21
+msgctxt "post type general name"
+msgid "Projects"
 msgstr ""
 
-#: footer.php:33
-msgid "Design : N.Lebrun"
+#: inc/custom-post.php:22
+msgctxt "post type singular name"
+msgid "Project"
 msgstr ""
 
-#: inc/night-mode-widget.php:18
-msgid "Display button to change theme (light/dark)"
+#: inc/custom-post.php:23, inc/custom-post.php:298
+msgid "Projects"
 msgstr ""
 
-#. %s: Name of current post
-#: inc/template-tags.php:87 template-parts/content-page.php:35
-msgid "Edit %s"
+#: inc/custom-post.php:24
+msgid "Project"
 msgstr ""
 
-#: inc/custom-post.php:69
-msgid "Edit Event"
-msgstr ""
-
-#: inc/custom-post.php:111
-msgid "Edit Gif"
-msgstr ""
-
-#: inc/custom-post.php:27
-msgid "Edit Project"
-msgstr ""
-
-#: inc/template-tags.php:305
-msgid "Email *"
-msgstr ""
-
-#: inc/template-tags.php:194
-msgid "Email Address Invalid."
-msgstr ""
-
-#: 404.php:22
-msgid "error"
-msgstr ""
-
-#: inc/meta-box.php:45 inc/custom-post.php:65
-msgid "Event"
-msgstr ""
-
-#. Name of the template
-#: inc/custom-post.php:64 inc/custom-post.php:253
-msgid "Events"
-msgstr ""
-
-#: functions.php:55
-msgid "Footer Menu"
-msgstr ""
-
-#. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
-#: inc/template-tags.php:354
-msgid "From %1$s %2$ s%3$s to %4$s %5$s %6$s"
-msgstr ""
-
-#. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
-#: inc/template-tags.php:366
-msgid "From %1$s %2$s to %3$s %4$s %5$s"
-msgstr ""
-
-#. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
-#: inc/template-tags.php:379
-msgid "From %1$s to %2$s %3$s %4$s"
-msgstr ""
-
-#: inc/custom-post.php:107
-msgid "Gif"
-msgstr ""
-
-#. Name of the template
-msgid "Gif-page"
-msgstr ""
-
-#: inc/custom-post.php:106
-msgid "Gifs"
-msgstr ""
-
-#. Name of the template
-msgid "Homepage"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://about.me/nicolaslebrun"
-msgstr ""
-
-#. URI of the theme
-msgid "https://github.com/nclslbrn/minimal-artist-portfolio"
-msgstr ""
-
-#: inc/template-tags.php:192
-msgid "Human verification incorrect."
-msgstr ""
-
-#: inc/meta-box.php:175
-msgid "Image"
-msgstr ""
-
-#. %s: post title
-#: inc/template-tags.php:80
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#: inc/extras.php:129 inc/night-mode-widget.php:54
-msgid "Light"
-msgstr ""
-
-#: events.php:42
-msgid "List"
-msgstr ""
-
-#: events.php:36
-msgid "Map"
-msgstr ""
-
-#: inc/night-mode-widget.php:144
-msgid "Menu"
-msgstr ""
-
-#: inc/template-tags.php:316
-msgid "Message *"
-msgstr ""
-
-#: inc/template-tags.php:195
-msgid "Message was not sent. Try Again."
-msgstr ""
-
-#. Name of the theme
-msgid "Minimal-Artistic-Portfolio"
-msgstr ""
-
-#: inc/template-tags.php:297
-msgid "Name *"
-msgstr ""
-
-#: inc/custom-post.php:68
-msgid "New Event"
-msgstr ""
-
-#: inc/custom-post.php:110
-msgid "New Gif"
+#: inc/custom-post.php:25, inc/custom-post.php:67, inc/custom-post.php:109
+msgid "Add New"
 msgstr ""
 
 #: inc/custom-post.php:26
+msgid "Add New Project"
+msgstr ""
+
+#: inc/custom-post.php:27
 msgid "New Project"
 msgstr ""
 
-#: inc/night-mode-widget.php:110
-msgid "New title"
+#: inc/custom-post.php:28
+msgid "Edit Project"
 msgstr ""
 
-#. Author of the theme
-msgid "Nicolas Lebrun"
+#: inc/custom-post.php:29
+msgid "View Project"
 msgstr ""
 
-#: inc/night-mode-widget.php:15
-msgid "Night mode widget"
+#: inc/custom-post.php:30
+msgid "All Projects"
 msgstr ""
 
-#: inc/custom-post.php:650
-msgid "No activity yet!"
-msgstr ""
-
-#: inc/custom-post.php:75
-msgid "No events found in Trash."
-msgstr ""
-
-#: inc/custom-post.php:74
-msgid "No events found."
-msgstr ""
-
-#: inc/custom-post.php:117
-msgid "No gifs found in Trash."
-msgstr ""
-
-#: inc/custom-post.php:116
-msgid "No gifs found."
-msgstr ""
-
-#: inc/custom-post.php:33
-msgid "No projects found in Trash."
+#: inc/custom-post.php:31
+msgid "Search Projects"
 msgstr ""
 
 #: inc/custom-post.php:32
+msgid "Parent Projects:"
+msgstr ""
+
+#: inc/custom-post.php:33
 msgid "No projects found."
 msgstr ""
 
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
+#: inc/custom-post.php:34
+msgid "No projects found in Trash."
 msgstr ""
 
-#. 1: title.
-#: comments.php:35
-msgid "One thought on &ldquo;%1$s&rdquo;"
+#: inc/custom-post.php:63
+msgctxt "post type general name"
+msgid "Events"
 msgstr ""
 
-#: 404.php:17
-msgid "Oops! That page can&rsquo;t be found."
+#: inc/custom-post.php:64
+msgctxt "post type singular name"
+msgid "Event"
 msgstr ""
 
-#: events.php:62
-msgid "Others"
+#: inc/custom-post.php:66, inc/meta-box.php:45
+msgid "Event"
 msgstr ""
 
-#: template-parts/content-page.php:23 template-parts/content.php:43
-msgid "Pages:"
+#: inc/custom-post.php:68
+msgid "Add New Event"
+msgstr ""
+
+#: inc/custom-post.php:69
+msgid "New Event"
+msgstr ""
+
+#: inc/custom-post.php:70
+msgid "Edit Event"
+msgstr ""
+
+#: inc/custom-post.php:71
+msgid "View Event"
+msgstr ""
+
+#: inc/custom-post.php:72
+msgid "All Events"
+msgstr ""
+
+#: inc/custom-post.php:73
+msgid "Search Events"
+msgstr ""
+
+#: inc/custom-post.php:74
+msgid "Parent Events:"
+msgstr ""
+
+#: inc/custom-post.php:75
+msgid "No events found."
+msgstr ""
+
+#: inc/custom-post.php:76
+msgid "No events found in Trash."
+msgstr ""
+
+#: inc/custom-post.php:105
+msgctxt "post type general name"
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:106
+msgctxt "post type singular name"
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:107
+msgid "Gifs"
+msgstr ""
+
+#: inc/custom-post.php:108
+msgid "Gif"
+msgstr ""
+
+#: inc/custom-post.php:110
+msgid "Add New Gif"
+msgstr ""
+
+#: inc/custom-post.php:111
+msgid "New Gif"
+msgstr ""
+
+#: inc/custom-post.php:112
+msgid "Edit Gif"
+msgstr ""
+
+#: inc/custom-post.php:113
+msgid "View Gif"
+msgstr ""
+
+#: inc/custom-post.php:114
+msgid "All Gifs"
+msgstr ""
+
+#: inc/custom-post.php:115
+msgid "Search Gifs"
+msgstr ""
+
+#: inc/custom-post.php:116
+msgid "Parent Gifs:"
+msgstr ""
+
+#: inc/custom-post.php:117
+msgid "No gifs found."
+msgstr ""
+
+#: inc/custom-post.php:118
+msgid "No gifs found in Trash."
+msgstr ""
+
+#: inc/custom-post.php:144
+msgid "category"
+msgstr ""
+
+#: inc/custom-post.php:482
+msgid "Coming soon / Now"
+msgstr ""
+
+#: inc/custom-post.php:513
+msgid "$undefined->singular_name"
+msgid_plural "$undefined->name"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/custom-post.php:591
+msgid "Today"
+msgstr ""
+
+#: inc/custom-post.php:593
+msgid "Tomorrow"
+msgstr ""
+
+#. translators: 1: relative date, 2: time, 4: post title
+#: inc/custom-post.php:601
+msgid "<span>%1$s, %2$s</span> <a href=\"%3$s\">%4$s</a>"
+msgstr ""
+
+#: inc/custom-post.php:638
+msgid "Publishing Soon"
+msgstr ""
+
+#: inc/custom-post.php:650
+msgid "Recently Published"
+msgstr ""
+
+#: inc/custom-post.php:660
+msgid "No activity yet!"
 msgstr ""
 
 #: inc/custom-post.php:73
