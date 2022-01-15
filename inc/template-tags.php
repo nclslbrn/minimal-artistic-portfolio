@@ -361,15 +361,15 @@ function map_get_form_markup( $url ) {
  * @return string the cleaned date string
  **/
 function map_friendly_date( $begin_date, $end_date ) {
-    $keep_month = ! date_i18n( 'm', $begin_date ) === date_i18n( 'm', $end_date );
-    $keep_year  = ! date_i18n( 'Y', $begin_date ) === date_i18n( 'Y', $end_date );
+    $keep_month = intval( date_i18n( 'm', $begin_date ) ) !== intval( date_i18n( 'm', $end_date ) );
+    $keep_year  = intval( date_i18n( 'Y', $begin_date ) ) !== intval( date_i18n( 'Y', $end_date ) );
     $output     = '';
 
     // default full string date.
 
     $output = sprintf(
         // translators: %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
-        __( 'From %1$s %2$ s%3$s to %4$s %5$s %6$s', 'Minimal-Artistic-Portfolio' ),
+        __( 'From %1$s %2$s %3$s to %4$s %5$s %6$s', 'Minimal-Artistic-Portfolio' ),
         date_i18n( 'F', $begin_date ),
         date_i18n( 'j', $begin_date ),
         date_i18n( 'Y', $begin_date ),
@@ -402,5 +402,5 @@ function map_friendly_date( $begin_date, $end_date ) {
         );
     }
 
-    return $output;
+    return  $output;
 }

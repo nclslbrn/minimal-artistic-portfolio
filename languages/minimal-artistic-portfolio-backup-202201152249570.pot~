@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Language: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2022-01-15 22:49+0000\n"
+"POT-Creation-Date: 2022-01-15 22:48+0000\n"
 "X-Generator: Loco https://localise.biz/"
 
 #: inc/template-tags.php:340
@@ -183,7 +183,7 @@ msgstr ""
 #. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
 #: inc/template-tags.php:372
 #, php-format
-msgid "From %1$s %2$s %3$s to %4$s %5$s %6$s"
+msgid "From %1$s %2$s s%3$s to %4$s %5$s %6$s"
 msgstr ""
 
 #. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
