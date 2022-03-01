@@ -268,7 +268,7 @@ function map_save_project_postmeta( $post_id ) {
 		} else {
 
 			if ( ! empty( $_POST['Cartel'] ) ) {
-				$cartel = sanitize_user( wp_unslash( $_POST['Cartel'] ) );
+				$cartel = sanitize_textarea_field( wp_unslash( $_POST['Cartel'] ) );
 				update_post_meta( $post_id, 'CARTEL', $cartel );
 			}
 			if ( ! empty( $_POST['event'] ) ) {
