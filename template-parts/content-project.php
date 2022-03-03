@@ -23,12 +23,9 @@ if ( ! is_single() ) { ?>
 			</a>
 		</h2>
 		<p class="project-description">
-			<?php echo wp_kses_post( $map_cartel, ',' ); ?>
+			<?php echo wp_kses_post( $map_cartel ) . ','; ?>
 			<?php echo esc_html( mysql2date( 'Y.', $post->post_date_gmt ) ); ?>
 		</p>
-		<!-- <a href="<?php echo esc_url( get_permalink() ); ?>" class="button">
-			<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
-		</a> -->
 	</div><!-- .cartel -->
 </article><!-- project-summary -->
 	<?php 
@@ -92,7 +89,7 @@ if ( ! is_single() ) { ?>
 				<div class="project-cartel">
 					<?php if ( $map_cartel ) : ?>
 						<p>
-							<?php echo wp_kses_post( $map_cartel . ',' ); ?>
+							<?php echo wp_kses_post( $map_cartel ) . ','; ?>
 							<?php echo esc_html( mysql2date( 'Y', $post->post_date_gmt ) . '.' ); ?>
 						</p>
 					<?php endif ?>
