@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"PO-Revision-Date: 2022-01-15 22:50+0000\n"
+"PO-Revision-Date: 2022-09-17 18:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
-"Language: fr_FR\n"
+"Language: fr-FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Loco-Target-Locale: fr_FR\n"
-"X-Loco-Version: 2.5.3; wp-5.8.1"
+"X-Loco-Version: 2.6.2; wp-6.0.2"
 
 #: inc/template-tags.php:340
 msgid "* : require field"
@@ -176,7 +176,7 @@ msgstr "Adresse Mail invalide."
 msgid "error"
 msgstr "erreur"
 
-#: inc/meta-box.php:45 inc/custom-post.php:66
+#: inc/custom-post.php:66 inc/meta-box.php:45
 msgid "Event"
 msgstr "Évènement"
 
@@ -191,19 +191,20 @@ msgstr "Menu de pied de page"
 
 #. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
 #: inc/template-tags.php:372
-#, fuzzy, php-format
+#, fuzzy
+#, php-format
 #| msgid "From %1$s %2$s s%3$s to %4$s %5$s %6$s"
 msgid "From %1$s %2$s %3$s to %4$s %5$s %6$s"
 msgstr "Du %2$s %1$s %3$s au %5$s %4$s %6$s "
 
 #. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
-#: inc/template-tags.php:384
+#: inc/template-tags.php:385
 #, php-format
 msgid "From %1$s %2$s to %3$s %4$s %5$s"
 msgstr "Du %2$s %1$s au %4$s %3$s %5$s"
 
 #. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
-#: inc/template-tags.php:397
+#: inc/template-tags.php:398
 #, php-format
 msgid "From %1$s to %2$s %3$s %4$s"
 msgstr "Du %1$s au %2$s %3$s %4$s"
@@ -240,6 +241,11 @@ msgstr "La réponse au code de vérification n’est pas correct."
 msgid "Image"
 msgstr "Image"
 
+#: inc/template-tags.php:407
+#, php-format
+msgid "%1$s %2$s of %3$s %4$s"
+msgstr "Le %1$s %2$s %3$s %4$s"
+
 #. %s: post title
 #: inc/template-tags.php:80
 #, php-format
@@ -248,7 +254,7 @@ msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</spa
 
 #. Name of the template
 msgid "Left margin page"
-msgstr ""
+msgstr "Page avec une marge gauche"
 
 #: inc/night-mode-widget.php:54 inc/extras.php:129
 msgid "Light"
@@ -442,11 +448,11 @@ msgstr "Projets"
 msgid "Publishing Soon"
 msgstr "À paraître bientôt"
 
-#: template-parts/content-project.php:30 template-parts/content-event.php:143
+#: template-parts/content-event.php:143
 msgid "Read more"
 msgstr "Lire plus"
 
-#: template-parts/content-project.php:81
+#: template-parts/content-project.php:78
 msgid "Read the video"
 msgstr "Lire la vidéo"
 
@@ -603,7 +609,7 @@ msgstr "voir le projet"
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: template-parts/content-project.php:80
+#: template-parts/content-project.php:77
 msgid ""
 "Your browser doesn't support HTML5 video, but you can read this video with "
 "the link below."

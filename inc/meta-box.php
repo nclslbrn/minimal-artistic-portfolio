@@ -218,7 +218,7 @@ function map_save_event_postmeta( $post_id ) {
 
 		} else {
 
-			if ( ! empty( $_POST['InputBeginDate'] ) && ! empty( $_POST['InputEndDate'] ) ) {
+			if ( ! empty( $_POST['InputBeginDate'] ) ) { // && ! empty( $_POST['InputEndDate'] ) ) {
 
 				$begin_date = sanitize_user( wp_unslash( $_POST['InputBeginDate'] ) );
 				$end_date   = sanitize_user( wp_unslash( $_POST['InputEndDate'] ) );

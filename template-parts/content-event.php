@@ -50,7 +50,7 @@ if ( is_single() ) :
 						<span><?php echo wp_kses_post( $map_event['place_name'] ); ?></span>
 					</p>
 				<?php endif; ?>
-				<?php if ( $map_event['begin_date'] && $map_event['end_date'] ) : ?>
+				<?php if ( $map_event['begin_date'] ) : ?>
 					<p class="date">
 						<svg class="icon icon-calendar">
 						<use xlink:href="#icon-calendar"></use>
@@ -121,7 +121,7 @@ else :
 				</p>
 			<?php endif; ?>
 
-			<?php if ( $map_event['begin_date'] && $map_event['end_date'] ) : ?>
+			<?php if ( $map_event['begin_date'] ) : ?>
 				<p class="date">
 					<svg class="icon icon-calendar">
 						<use xlink:href="#icon-calendar"></use>

@@ -377,6 +377,7 @@ function map_friendly_date( $begin_date, $end_date ) {
         date_i18n( 'j', $end_date ),
         date_i18n( 'Y', $end_date )
     );
+   
     // string date without first year.
     if ( ! $keep_year ) {
         $output = sprintf(
@@ -399,6 +400,16 @@ function map_friendly_date( $begin_date, $end_date ) {
             date_i18n( 'j', $end_date ),
             date_i18n( 'F', $end_date ),
             date_i18n( 'Y', $end_date )
+        );
+    }
+    if(!$end_date || $end_date == '' || $end_date == $begin_date) {
+        $output = sprintf(
+            // translators: Only one date
+            __( '%1$s %2$s of %3$s %4$s', 'Minimal-Artistic-Portfolio'),
+            date_i18n( 'l', $begin_date ),
+            date_i18n( 'j', $begin_date ),
+            date_i18n( 'F', $begin_date ),
+            date_i18n( 'Y', $begin_date )
         );
     }
 
