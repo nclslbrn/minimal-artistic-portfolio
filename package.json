@@ -65,7 +65,7 @@
     "devDependencies": {
         "browser-sync": "^2.27.7",
         "fluidbox": "^2.0.5",
-        "gulp-imagemin": "^7.1.0",
+        "gulp-imagemin": "^8.0.0",
         "plyr": "^3.6.12"
     }
 }
