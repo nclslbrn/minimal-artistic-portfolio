@@ -1,0 +1,7 @@
+- [ ] Add a dinamyc antechronological list of project https://wordpress.stackexchange.com/questions/59892/dynamically-link-to-the-latest-post-or-simulate-request-of-specific-post-in-page
+- [ ] Update nodeJS front workflow (maybe change gulp for something else)
+- [ ] Clean SCSS to get an empty/skeleton theme
+- [ ] Check markup and functions of underscore theme to get last standart
+- [ ] Create an indexhibit style design (maybe less minimal)
+- [ ] Implement RDFa meta to replace Yoast plugin with something taxonomicly more relevant
+- [ ] Take a break
