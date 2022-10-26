@@ -1,279 +1,426 @@
-import gulp from 'gulp'
-
-// Live reload
-const browserSync = require('browser-sync').create()
-
-// GULP UTILS
-import path from 'path'
-import del from 'del'
-import plumber from 'gulp-plumber' // Prevent pipe breaking caused by errors from gulp plugins.
-import sort from 'gulp-sort' // Recommended to prevent unnecessary changes in pot-file.
-
-// JAVASCRIPT
-import { terser } from 'rollup-plugin-terser' // Minifies JS files.
-import { rollup } from 'rollup'
-import babel from '@rollup/plugin-babel'
-import rollupResolveNode from '@rollup/plugin-node-resolve'
-import rollupResolveCommonjs from '@rollup/plugin-commonjs'
-
-// CSS
-import sourcemaps from 'gulp-sourcemaps' // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css).
-import gulpSass from 'gulp-sass' // Gulp plugin for Sass compilation.
-import sassCompiler from 'sass'
-import autoprefixer from 'gulp-autoprefixer' // Autoprefixing magic.
-
-// IMAGES
-import imagemin from 'gulp-imagemin' // Minify PNG, JPEG, GIF and SVG images with imagemin.
-
-// TRANSLATION
-import wpPot from 'gulp-wp-pot' // For generating the .pot file.
-
-// CONFIG
-import config from './gulp.config'
-
-const sass = gulpSass(sassCompiler)
-
-// HELPER
-let isProduction = false
-
-const errorHandler = (error) => {
-    console.error(error)
-}
+/**
+ * Gulpfile.
+ *
+ * Gulp with WordPress.
+ *
+ * Implements:
+ *      1. Live reloads browser with BrowserSync.
+ *      2. CSS: Sass to CSS conversion, error catching, Autoprefixing, Sourcemaps,
+ *         CSS minification, and Merge Media Queries.
+ *      3. JS: Concatenates & uglifies Vendor and Custom JS files.
+ *      4. Images: Minifies PNG, JPEG, GIF and SVG images.
+ *      5. Watches files for changes in CSS or JS.
+ *      6. Watches files for changes in PHP.
+ *      7. Corrects the line endings.
+ *      8. InjectCSS instead of browser page reload.
+ *      9. Generates .pot file for i18n and l10n.
+ *
+ * @tutorial https://github.com/ahmadawais/WPGulp
+ * @author Ahmad Awais <https://twitter.com/MrAhmadAwais/>
+ */
 
 /**
- * Copies some other files (e.g. used for fonts, font-awesome icons,...) into the dist directory
+ * Load WPGulp Configuration.
+ *
+ * TODO: Customize your project in the wpgulp.js file.
  */
-export const copyOtherFiles = (done) => {
-    if (!config.otherFiles || config.otherFiles.length <= 0) {
-        return done()
-    }
-    const parsedFiles = []
-
-    /**
-     * Parses an array of files to copy.
-     * The files are often defined in an `assets.json` or `build.json` and can have the following formats.
-     * The files configuration can be passed as string or object.
-     * If it's a string this string/glob will be used as src and the function will try to build a base if it has wildcards. The destination will be null (should be set by gulp.dest)
-     * If it's an object the origPath and path will be used for src and dest, base is optional and will not be built.
-     * The returned array can be used to build multiple promises with Promise.all See the example gulpfile.
-     * @see examples directory for example configurations.
-     *
-     * @param {Object[]|string[]} files Different file configs to parse. If string can be a glob to pass to gulp.
-     * @param {string} files[].origPath The source path of the file to copy.
-     * @param {string} [files[].base] The base path to use for gulp.src
-     * @param {string} files[].path The destination path to copy the file too.
-     * @returns {Object[]} Array of file objects to be used in a gulp task. Each Object has a src, base and dest property.
-     */
-    config.otherFiles.forEach((el) => {
-        if (typeof el === 'object') {
-            parsedFiles.push({
-                src: el.origPath,
-                base: el.base || null,
-                dest: el.path
-            })
-        } else {
-            let srcPath = el
-            const wildcardPosition = el.indexOf('*')
-            if (wildcardPosition) {
-                srcPath = el.substring(0, wildcardPosition)
-            }
-
-            const baseDir = path.dirname(srcPath)
-            parsedFiles.push({
-                src: el,
-                base: baseDir || null,
-                dest: null
-            })
-        }
-    })
-
-    const tasks = []
-
-    parsedFiles.forEach((fileSet) => {
-        tasks.push(
-            gulp
-                .src(fileSet.src, { base: fileSet.base || null })
-                .pipe(gulp.dest(fileSet.dest || config.dstDir))
-        )
-    })
-
-    return Promise.all(tasks)
-}
+const config = require( './wpgulp.config.js' );
 
 /**
- * Bundles, transpiles and minifies scripts and adds sourcemaps.
+ * Load Plugins.
+ *
+ * Load gulp plugins and passing them semantic names.
  */
-export const scripts = () => {
-    let paths = Array.isArray(config.scripts.entries) // ensure src is array
-        ? config.scripts.entries
-        : [config.scripts.entries]
-    // prefix srcDir
-    paths = paths.map((p) => {
-        if (typeof p === 'string') {
-            return { path: path.join(config.scripts.srcDir, p) }
-        }
+const gulp = require( 'gulp' ); // Gulp of-course.
 
-        const { path: entryPath, ...entryConfig } = p
+// CSS related plugins.
+const sass = require( 'gulp-dart-sass' ); // Gulp plugin for Sass compilation.
+const minifycss = require( 'gulp-uglifycss' ); // Minifies CSS files.
+const autoprefixer = require( 'gulp-autoprefixer' ); // Autoprefixing magic.
+const mmq = require( 'gulp-merge-media-queries' ); // Combine matching media queries into one.
+const rtlcss = require( 'gulp-rtlcss' ); // Generates RTL stylesheet.
 
-        return {
-            path: path.join(config.scripts.srcDir, entryPath),
-            ...entryConfig
-        }
-    })
+// JS related plugins.
+const concat = require( 'gulp-concat' ); // Concatenates JS files.
+const uglify = require( 'gulp-uglify' ); // Minifies JS files.
+const babel = require( 'gulp-babel' ); // Compiles ESNext to browser compatible JS.
 
-    const tasks = paths.map((entry) => {
-        const { path: entryPath, ...entryConfig } = entry
+// Image related plugins.
+const imagemin = require( 'gulp-imagemin' ); // Minify PNG, JPEG, GIF and SVG images with imagemin.
 
-        return rollup({
-            input: entryPath,
-            plugins: [
-                rollupResolveNode(),
-                rollupResolveCommonjs(),
-                babel({
-                    presets: config.scripts.babelPreset,
-                    // exclude full node_modules -> only transpile own code; definately exclude /core-js/ to avoid circular references
-                    exclude: [/node_modules/],
-                    babelHelpers: 'bundled',
-                    ...(entryConfig.babelConfig || {})
-                })
-            ],
-            external: config.scripts.external,
-            ...(entryConfig.rollupConfig || {})
-        })
-            .then((bundle) =>
-                bundle.write({
-                    dir: config.scripts.dstDir,
-                    globals: config.scripts.globals,
-                    intro: config.scripts.intro || '',
-                    format: 'iife',
-                    sourcemap: true,
-                    plugins: isProduction ? [terser()] : []
-                })
-            )
-            .catch((err) => {
-                console.error(err.message)
-            })
-    })
-
-    return Promise.all(tasks)
-}
+// Utility related plugins.
+const rename = require( 'gulp-rename' ); // Renames files E.g. style.css -> style.min.css.
+const lineec = require( 'gulp-line-ending-corrector' ); // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings).
+const filter = require( 'gulp-filter' ); // Enables you to work on a subset of the original files by filtering them using a glob.
+const sourcemaps = require( 'gulp-sourcemaps' ); // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css).
+const notify = require( 'gulp-notify' ); // Sends message notification to you.
+const browserSync = require( 'browser-sync' ).create(); // Reloads browser and injects CSS. Time-saving synchronized browser testing.
+const wpPot = require( 'gulp-wp-pot' ); // For generating the .pot file.
+const sort = require( 'gulp-sort' ); // Recommended to prevent unnecessary changes in pot-file.
+const cache = require( 'gulp-cache' ); // Cache files in stream for later use.
+const remember = require( 'gulp-remember' ); //  Adds all the files it has ever seen back into the stream.
+const plumber = require( 'gulp-plumber' ); // Prevent pipe breaking caused by errors from gulp plugins.
+const beep = require( 'beepbeep' );
+const zip = require( 'gulp-zip' ); // Zip plugin or theme file.
 
 /**
- * Bundles, compiles and minifies stiles and adds sourcemaps.
+ * Custom Error Handler.
+ *
+ * @param Mixed err
  */
-export const styles = () => {
-    let paths = Array.isArray(config.styles.src) // ensure src is array
-        ? config.styles.src
-        : [config.styles.src]
-    paths = paths.map((p) => path.join(config.styles.srcDir, p)) // prefix srcDir
+const errorHandler = ( r ) => {
+	notify.onError( '\n\n❌  ===> ERROR: <%= error.message %>\n' )( r );
+	beep();
 
-    const outputStyle = isProduction ? 'compressed' : 'expanded'
-    return gulp
-        .src(paths, {
-            base: config.styles.srcDir
-        })
-        .pipe(plumber(errorHandler))
-        .pipe(sourcemaps.init())
-        .pipe(
-            sass
-                .sync({ includePaths: ['node_modules'], outputStyle })
-                .on('error', sass.logError)
-        )
-        .pipe(autoprefixer())
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(config.styles.dstDir))
-        .pipe(browserSync.stream())
-}
+	// this.emit('end');
+};
 
 /**
- * Optimizes all images
+ * Task: `browser-sync`.
+ *
+ * Live Reloads, CSS injections, Localhost tunneling.
+ * @link http://www.browsersync.io/docs/options/
+ *
+ * @param {Mixed} done Done.
  */
-export const optimizeImages = () =>
-    gulp
-        .src(path.join(config.images.srcDir, '**/*'), {
-            base: config.images.srcDir
-        })
-        .pipe(plumber(errorHandler))
-        .pipe(
-            imagemin([
-                imagemin.gifsicle({ interlaced: true }),
-                imagemin.mozjpeg({ progressive: true }),
-                imagemin.optipng({ optimizationLevel: 3 }),
-                imagemin.svgo({
-                    plugins: [{ removeViewBox: true }, { cleanupIDs: false }]
-                })
-            ])
-        )
-        .pipe(gulp.dest(config.images.dstDir))
+const browsersync = ( done ) => {
+	browserSync.init({
+		proxy: config.projectURL,
+		open: config.browserAutoOpen,
+		injectChanges: config.injectChanges,
+		watchEvents: [ 'change', 'add', 'unlink', 'addDir', 'unlinkDir' ]
+	});
+	done();
+};
+
+// Helper function to allow browser reload with Gulp 4.
+const reload = ( done ) => {
+	browserSync.reload();
+	done();
+};
 
 /**
- * Translates WordPress php files to pot files.
+ * Task: `styles`.
+ *
+ * Compiles Sass, Autoprefixes it and Minifies CSS.
+ *
+ * This task does the following:
+ *    1. Gets the source scss file
+ *    2. Compiles Sass to CSS
+ *    3. Writes Sourcemaps for it
+ *    4. Autoprefixes it and generates style.css
+ *    5. Renames the CSS file with suffix .min.css
+ *    6. Minifies the CSS file and generates style.min.css
+ *    7. Injects CSS or reloads the browser via browserSync
  */
-export const translateWordPress = () => {
-    let paths = Array.isArray(config.translate.src) // ensure src is array
-        ? config.translate.src
-        : [config.translate.src]
-    paths = paths.map((p) => path.join(config.translate.srcDir, p)) // prefix srcDir
-    return gulp
-        .src(paths)
-        .pipe(plumber(errorHandler))
-        .pipe(sort())
-        .pipe(wpPot())
-        .pipe(
-            gulp.dest(
-                path.join(config.translate.dstDir, config.themeSlug + '.pot')
-            )
-        )
-}
+gulp.task( 'styles', () => {
+	return gulp
+		.src( config.styleSRC, { allowEmpty: true })
+		.pipe( plumber( errorHandler ) )
+		.pipe( sourcemaps.init() )
+		.pipe(
+			sass({
+				errLogToConsole: config.errLogToConsole,
+				outputStyle: config.outputStyle,
+				precision: config.precision
+			})
+		)
+		.on( 'error', sass.logError )
+		.pipe( sourcemaps.write({ includeContent: false }) )
+		.pipe( sourcemaps.init({ loadMaps: true }) )
+		.pipe( autoprefixer( config.BROWSERS_LIST ) )
+		.pipe( sourcemaps.write( './' ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.styleDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
+		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
+		.pipe( rename({ suffix: '.min' }) )
+		.pipe( minifycss({ maxLineLen: 10 }) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.styleDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( browserSync.stream() ) // Reloads style.min.css if that is enqueued.
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> STYLES — completed!\n',
+				onLast: true
+			})
+		);
+});
 
 /**
- * Cleans the dist directory.
+ * Task: `stylesRTL`.
+ *
+ * Compiles Sass, Autoprefixes it, Generates RTL stylesheet, and Minifies CSS.
+ *
+ * This task does the following:
+ *    1. Gets the source scss file
+ *    2. Compiles Sass to CSS
+ *    4. Autoprefixes it and generates style.css
+ *    5. Renames the CSS file with suffix -rtl and generates style-rtl.css
+ *    6. Writes Sourcemaps for style-rtl.css
+ *    7. Renames the CSS files with suffix .min.css
+ *    8. Minifies the CSS file and generates style-rtl.min.css
+ *    9. Injects CSS or reloads the browser via browserSync
  */
-export const clean = () =>
-    del([`${config.dstDir}/**/*`, `!${config.dstDir}/.gitkeep`])
+gulp.task( 'stylesRTL', () => {
+	return gulp
+		.src( config.styleSRC, { allowEmpty: true })
+		.pipe( plumber( errorHandler ) )
+		.pipe( sourcemaps.init() )
+		.pipe(
+			sass({
+				errLogToConsole: config.errLogToConsole,
+				outputStyle: config.outputStyle,
+				precision: config.precision
+			})
+		)
+		.on( 'error', sass.logError )
+		.pipe( sourcemaps.write({ includeContent: false }) )
+		.pipe( sourcemaps.init({ loadMaps: true }) )
+		.pipe( autoprefixer( config.BROWSERS_LIST ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
+		.pipe( rtlcss() ) // Convert to RTL.
+		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
+		.pipe( gulp.dest( config.styleDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
+		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
+		.pipe( rename({ suffix: '.min' }) )
+		.pipe( minifycss({ maxLineLen: 10 }) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.styleDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> STYLES RTL — completed!\n',
+				onLast: true
+			})
+		);
+});
 
 /**
- * Watches CSS, JS and image directories for changes and calls the respective task.
+ * Task: `vendorsJS`.
+ *
+ * Concatenate and uglify vendor JS scripts.
+ *
+ * This task does the following:
+ *     1. Gets the source folder for JS vendor files
+ *     2. Concatenates all the files and generates vendors.js
+ *     3. Renames the JS file with suffix .min.js
+ *     4. Uglifes/Minifies the JS file and generates vendors.min.js
  */
-const watch = () => {
-    browserSync.init({
-        proxy: config.server.proxy,
-        port: config.server.port
-    })
-
-    gulp.watch(`${config.styles.srcDir}/**/*.scss`, styles)
-    gulp.watch(`${config.scripts.srcDir}/**/*.js`, scripts)
-    gulp.watch(`${config.images.srcDir}/**/*`, optimizeImages)
-    gulp.watch('*/*.php').on('change', browserSync.reload)
-}
+gulp.task( 'vendorsJS', () => {
+	return gulp
+		.src( config.jsVendorSRC, { since: gulp.lastRun( 'vendorsJS' ) }) // Only run on changed files.
+		.pipe( plumber( errorHandler ) )
+		.pipe(
+			babel({
+				presets: [
+					[
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						{
+							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
+						}
+					]
+				]
+			})
+		)
+		.pipe( remember( config.jsVendorSRC ) ) // Bring all files back to stream.
+		.pipe( concat( config.jsVendorFile + '.js' ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsVendorDestination ) )
+		.pipe(
+			rename({
+				basename: config.jsVendorFile,
+				suffix: '.min'
+			})
+		)
+		.pipe( uglify() )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsVendorDestination ) )
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> VENDOR JS — completed!\n',
+				onLast: true
+			})
+		);
+});
 
 /**
- * Build Task:
- * Sets isProduction to true to enable minify
- * Clean dist directory, copy other files (before everything else if src files depend on it)
- * and build scripts, styles, images and translations.
+ * Task: `customJS`.
+ *
+ * Concatenate and uglify custom JS scripts.
+ *
+ * This task does the following:
+ *     1. Gets the source folder for JS custom files
+ *     2. Concatenates all the files and generates custom.js
+ *     3. Renames the JS file with suffix .min.js
+ *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
-export const build = (done) => {
-    isProduction = true
-    return gulp.series(
-        clean,
-        copyOtherFiles,
-        gulp.parallel(scripts, styles, optimizeImages) // translateWordPress
-    )(done)
-}
+gulp.task( 'customJS', () => {
+	return gulp
+		.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
+		.pipe( plumber( errorHandler ) )
+		.pipe(
+			babel({
+				presets: [
+					[
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						{
+							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
+						}
+					]
+				]
+			})
+		)
+		.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
+		.pipe( concat( config.jsCustomFile + '.js' ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsCustomDestination ) )
+		.pipe(
+			rename({
+				basename: config.jsCustomFile,
+				suffix: '.min'
+			})
+		)
+		.pipe( uglify() )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsCustomDestination ) )
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> CUSTOM JS — completed!\n',
+				onLast: true
+			})
+		);
+});
 
 /**
- * Develop Task: Call same tasks as in build task (but with isProduction not changed from default false) and watch for changes.
+ * Task: `images`.
+ *
+ * Minifies PNG, JPEG, GIF and SVG images.
+ *
+ * This task does the following:
+ *     1. Gets the source of images raw folder
+ *     2. Minifies PNG, JPEG, GIF and SVG images
+ *     3. Generates and saves the optimized images
+ *
+ * This task will run only once, if you want to run it
+ * again, do it with the command `gulp images`.
+ *
+ * Read the following to change these options.
+ * @link https://github.com/sindresorhus/gulp-imagemin
  */
-export const develop = (done) =>
-    gulp.series(
-        clean,
-        copyOtherFiles,
-        gulp.parallel(scripts, styles, optimizeImages), // translateWordPress
-        watch
-    )(done)
+gulp.task( 'images', () => {
+	return gulp
+		.src( config.imgSRC )
+		.pipe(
+			cache(
+				imagemin([
+					imagemin.gifsicle({ interlaced: true }),
+					imagemin.mozjpeg({ quality: 90, progressive: true }),
+					imagemin.optipng({ optimizationLevel: 3 }), // 0-7 low-high.
+					imagemin.svgo({
+						plugins: [
+							{ removeViewBox: true },
+							{ cleanupIDs: false }
+						]
+					})
+				])
+			)
+		)
+		.pipe( gulp.dest( config.imgDST ) )
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> IMAGES — completed!\n',
+				onLast: true
+			})
+		);
+});
 
 /**
- * Export develop task as default.
+ * Task: `clear-images-cache`.
+ *
+ * Deletes the images cache. By running the next "images" task,
+ * each image will be regenerated.
  */
-export default develop
+gulp.task( 'clearCache', function( done ) {
+	return cache.clearAll( done );
+});
+
+/**
+ * WP POT Translation File Generator.
+ *
+ * This task does the following:
+ * 1. Gets the source of all the PHP files
+ * 2. Sort files in stream by path or any custom sort comparator
+ * 3. Applies wpPot with the variable set at the top of this file
+ * 4. Generate a .pot file of i18n that can be used for l10n to build .mo file
+ */
+gulp.task( 'translate', () => {
+	return gulp
+		.src( config.watchPhp )
+		.pipe( sort() )
+		.pipe(
+			wpPot({
+				domain: config.textDomain,
+				package: config.packageName,
+				bugReport: config.bugReport,
+				lastTranslator: config.lastTranslator,
+				team: config.team
+			})
+		)
+		.pipe(
+			gulp.dest(
+				config.translationDestination + '/' + config.translationFile
+			)
+		)
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> TRANSLATE — completed!\n',
+				onLast: true
+			})
+		);
+});
+
+/**
+ * Zips theme or plugin and places in the parent directory
+ *
+ * zipIncludeGlob: Files to be included in the zip file
+ * zipIgnoreGlob: Files to be ignored from the zip file
+ * zipDestination: Must be a folder outside of the zip folder.
+ * zipName: theme.zip or plugin.zip
+ */
+gulp.task( 'zip', () => {
+	const src = [ ...config.zipIncludeGlob, ...config.zipIgnoreGlob ];
+	return gulp
+		.src( src )
+		.pipe( zip( config.zipName ) )
+		.pipe( gulp.dest( config.zipDestination ) );
+});
+
+/**
+ * Watch Tasks.
+ *
+ * Watches for file changes and runs specific tasks.
+ */
+gulp.task(
+	'default',
+	gulp.parallel(
+		'styles',
+		'vendorsJS',
+		'customJS',
+		'images',
+		browsersync,
+		() => {
+			gulp.watch( config.watchPhp, reload ); // Reload on PHP file changes.
+			gulp.watch( config.watchStyles, gulp.parallel( 'styles' ) ); // Reload on SCSS file changes.
+			gulp.watch( config.watchJsVendor, gulp.series( 'vendorsJS', reload ) ); // Reload on vendorsJS file changes.
+			gulp.watch( config.watchJsCustom, gulp.series( 'customJS', reload ) ); // Reload on customJS file changes.
+			gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ); // Reload on customJS file changes.
+		}
+	)
+);

@@ -14,10 +14,10 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 	<?php wp_head(); ?>
 </head>
 
@@ -67,33 +67,21 @@
 
 
 	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Skip to content', 'Minimal-Artistic-Portfolio'); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="wrapper">
 				<div class="site-branding">
 					<h1 class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php 
-							// TODO: compute font-size from letters num.
-							$map_sitename_words = explode( ' ', get_bloginfo( 'name' ) );
-							foreach ( (array) $map_sitename_words as $map_word ) { 
-								echo '<span>' . esc_html( $map_word ) . '</span>';
-							}
-							?>
-						</a>
+						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php echo get_bloginfo('name'); ?></a>
 					</h1>
 				</div><!-- .site-branding -->
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<?php 
-						wp_nav_menu(
-							array(
-								'theme_location' => 'primary',
-								'menu_id'        => 'primary-menu',
-								'container'      => '',
-							) 
-						);
-						?>
+					<?php wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'menu_id'        => 'primary-menu',
+                        'container'      => '',
+                    )); ?>
 				</nav><!-- #site-navigation -->
 
 				<button class="menu-toggle" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
