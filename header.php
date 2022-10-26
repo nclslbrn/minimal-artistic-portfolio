@@ -83,6 +83,7 @@
                         'container'      => '',
                     )); ?>
 				</nav><!-- #site-navigation -->
+				<?php get_sidebar(); ?>
 
 				<button class="menu-toggle" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
 					<span class="menu-icon"></span>

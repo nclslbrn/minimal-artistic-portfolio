@@ -51,7 +51,6 @@ main article > .entry-content:last-of-type {
     display: flex;
     flex-flow: column nowrap;
     margin: 0 0 3em 0;
-    background-color: var(--component-bg-color);
 
     @include breakpoint(sm) {
         flex-flow: row nowrap;

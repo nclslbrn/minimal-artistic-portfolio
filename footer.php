@@ -12,7 +12,6 @@
 ?>
 </div><!-- .wrapper .row -->
 <footer id="colophon" class="site-footer" role="contentinfo">
-	<div class="wrapper">
 		<div class="footer-menu">
 			<?php 
 			if ( has_nav_menu( 'footer-menu' ) ) {
@@ -34,7 +33,6 @@
 			</a>
 		</div><!-- .site-info -->
 
-	</div><!-- .wrapper -->
 </footer><!-- #colophon -->
 
 </div><!-- #content -->

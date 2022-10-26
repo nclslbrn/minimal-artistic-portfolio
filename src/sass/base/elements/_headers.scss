@@ -8,6 +8,10 @@
 
     @include breakpoint(md) {
         flex-flow: column nowrap;
+
+        aside {
+            align-self: end;
+        }
     }
 
     @include breakpoint(lg) {
@@ -22,10 +26,7 @@
     }
     @include breakpoint(lg) {
         .site-title {
-            font-size: 1em;
-            font-family: $font__main;
-            font-weight: normal;
-            margin: 1.25rem 0;
+            margin-bottom: 1.25rem;
             padding-left: 0.6rem;
         }
     }
@@ -34,3 +35,4 @@
         text-decoration: none;
     }
 }
+

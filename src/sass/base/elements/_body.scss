@@ -2,21 +2,10 @@ body {
     // background: var(--bg-color);
     color: var(--text-color);
 }
-/*
-html {
-    &[data-theme='dark'] {
-        body,
-        body ul.sub-menu,
-        body nav.main-navigation {
-            background: url(build/img/noisy_net.png) repeat;
-        }
-    }
-    &[data-theme='light'] {
-        body,
-        body ul.sub-menu,
-        body nav.main-navigation {
-            background: url(build/img/dust.png) repeat;
-        }
-    }
+
+
+body,
+body ul.sub-menu,
+body nav.main-navigation {
+    background: var(--bg-color);
 }
-*/

@@ -16,9 +16,8 @@ module.exports = {
 		// 'space-in-parens': 'off',
 		// 'array-bracket-spacing': 'off', // Disable weird WP spacing rules.
 		indent: [ 'error', 'tab' ],
-		semi: [ 'error', 'always' ],
+		semi: [ 'error', 'never' ],
 		quotes: [ 'error', 'single' ],
 		'linebreak-style': [ 'error', 'unix' ]
 	}
-};
-'';
+}

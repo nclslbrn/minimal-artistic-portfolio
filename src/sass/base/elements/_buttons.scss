@@ -41,11 +41,11 @@ input[type='reset'],
 input[type='submit'],
 main nav.page-nav a,
 main nav.page-nav span {
-    @include border;
+    border: none;
+    @include border('bottom');
 
     &:hover {
-        background: var(--hover-color);
-        color: var(--component-bg-color);
+        color: var(--hover-color);
         & svg {
             fill: var(--hover-color);
         }

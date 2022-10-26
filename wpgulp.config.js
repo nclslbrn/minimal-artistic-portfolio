@@ -82,7 +82,7 @@ const zipName = 'minimal-artistic-portfolio.zip'
 
 // Must be a folder outside of the zip folder.
 const zipDestination = './../' // Default: Parent folder.
-const zipIncludeGlob = ['./**/*'] // Default: Include all files/folders in current directory.
+const zipIncludeGlob = [ './**/*' ] // Default: Include all files/folders in current directory.
 
 // Default ignored files and folders for the zip file.
 const zipIgnoreGlob = [
@@ -133,7 +133,7 @@ const team = 'Nicolas Lebrun <nclslbrn@gmail.com>'
 
 // Browsers you care about for auto-prefixing. Browserlist https://github.com/ai/browserslist
 // The following list is set as per WordPress requirements. Though; Feel free to change.
-const BROWSERS_LIST = ['last 2 version', '> 1%']
+const BROWSERS_LIST = [ 'last 2 version', '> 1%' ]
 
 // Export.
 module.exports = {

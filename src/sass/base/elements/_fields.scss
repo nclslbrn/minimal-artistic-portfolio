@@ -16,9 +16,9 @@ input[type='color'],
 select,
 textarea {
     color: var(--text-color);
-    @include border;
+    border: none;
+    @include border('bottom');
 
-    border-radius: 3px;
     padding: 3px;
 
     //color: var(--text-color);
@@ -38,17 +38,6 @@ select[name='mode-switcher'] {
 }
 textarea {
     width: 100%;
-}
-
-ul.menu form#searchform input#s {
-    @include breakpoint(xs) {
-        @include breakpoint(sm, max) {
-            width: 100%;
-        }
-    }
-    @include breakpoint(md) {
-        padding: 0.5em;
-    }
 }
 
 fieldset {
@@ -189,10 +178,19 @@ form.search-form {
     display: flex;
     flex-flow: row nowrap;
     justify-content: stretch;
-
+    
+    input#s {
+        @include breakpoint(md) {
+            width: 140px;
+        }
+    }
+    
     input#s,
     button.search-submit {
-        padding: 0.5em 1em;
+        padding: 0.5em;
         margin: 0;
+    }
+    button.search-submit {
+        padding: 0.25em 0.5em;
     }
 }

@@ -1,5 +1,12 @@
-#content.site-content {
-    @include breakpoint(lg) {
-        margin-left: 15%;
+@include breakpoint(lg) {
+    #content.site-content {
+        margin-left: 16%;
+    }
+    body.page .site-content .entry-content,
+    #content.site-content .project-texts,
+    #content.site-content .event-texts,
+    #content.site-content article.page  .entry-content,
+    #content.site-content footer.site-footer {
+        max-width: 1080px;
     }
 }
