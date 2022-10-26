@@ -1,0 +1,5 @@
+#content.site-content {
+    @include breakpoint(lg) {
+        margin-left: 15%;
+    }
+}

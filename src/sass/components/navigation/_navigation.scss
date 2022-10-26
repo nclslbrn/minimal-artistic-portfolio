@@ -111,7 +111,7 @@
         font-size: 1.5em;
 
         @include breakpoint(md) {
-            padding: 0.4em 0.6em;
+            padding: 0.4rem 0.6rem;
             font-size: 1em;
         }
 
@@ -166,7 +166,8 @@
         flex: 1 0 auto;
 
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
+        align-items: flex-start;
     }
     @include breakpoint(lg) {
         max-width: 70%;
@@ -184,9 +185,8 @@
 }
 
 .main-navigation > ul {
-    flex: 1 0 auto;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     box-shadow: var(--shadows);
 
     @include breakpoint(sm) {
@@ -195,7 +195,7 @@
 
     @include breakpoint(md) {
         flex-flow: row wrap;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         max-width: 100%;
         box-shadow: none;
@@ -203,9 +203,6 @@
         ul {
             display: block;
         }
-    }
-    @include breakpoint(lg) {
-        justify-content: flex-end;
     }
 }
 

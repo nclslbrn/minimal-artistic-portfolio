@@ -8,14 +8,9 @@
         width: 90%;
     }
     @include breakpoint(md) {
-        width: 820px;
+        width: inherit;
     }
-    @include breakpoint(lg) {
-        width: 960px;
-    }
-    @include breakpoint(xl) {
-        width: 1280px;
-    }
+    
 
     @include center-block;
     min-height: 100%;
@@ -167,14 +162,6 @@ ul.related-projects {
 
     .event-featured-image img {
         float: left;
-    }
-}
-
-/* Left margin page 
---------------------------------------------- */
-body.page-template-left-margin-page article .entry-content {
-    @include breakpoint(md) {
-        padding-left: 28.5%;
     }
 }
 

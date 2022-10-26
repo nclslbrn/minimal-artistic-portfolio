@@ -28,7 +28,7 @@ $type-ratios: (
     @return map-get($type-ratios, $key);
 }
 // Select by key of map, or use a custom value
-$type-size-ratio: type-ratio('perfectFourth');
+$type-size-ratio: type-ratio('minorThird');
 
 // List in descending order to prevent extra sort function
 $type-levels: 6, 5, 4, 3, 2, 1;

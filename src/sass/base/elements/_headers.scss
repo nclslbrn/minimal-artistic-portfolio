@@ -1,8 +1,9 @@
 .site-header div.wrapper {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
     border-bottom: 5px double var(--border-color);
 
     @include breakpoint(md) {
@@ -10,26 +11,26 @@
     }
 
     @include breakpoint(lg) {
-        flex-flow: row nowrap;
+        display: block;
+        position: fixed;
+        width: 15%;
 
         .site-title {
             padding: 0.3em 0.3em 0.3em 0;
             margin: 0;
         }
     }
+    @include breakpoint(lg) {
+        .site-title {
+            font-size: 1em;
+            font-family: $font__main;
+            font-weight: normal;
+            margin: 1.25rem 0;
+            padding-left: 0.6rem;
+        }
+    }
 
     .site-title a {
         text-decoration: none;
-    }
-    .site-title a span {
-        display: block;
-        @include breakpoint(xs) {
-            display: inline;
-            margin-right: 0.25em;
-        }
-        @include breakpoint(lg) {
-            display: block;
-            margin-right: 0;
-        }
     }
 }

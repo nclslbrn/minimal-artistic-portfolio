@@ -65,9 +65,7 @@ $fluidbox__animation-bg-color: $fluidbox__overlay-bg-color !default;
     // > transition-property: opacity, transform, -webkit-transform;
     // ...which will break Fluidbox
     /* autoprefixer: ignore next */
-    -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, -webkit-transform;
-    transition-property: opacity, transform;
+    transition: opacity, transform;
 
     .fluidbox--opened & {
         cursor: pointer;
