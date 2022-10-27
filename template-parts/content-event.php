@@ -21,7 +21,7 @@ if ( is_single() ) :
 	$map_event['content_classes'] .= '' !== $post->post_content ? ' filled' : '';
 	$map_event['content_classes'] .= false === $map_event['related_projects'] ? ' no-project' : '';
 	?>
-<div id="event-<?php echo get_the_ID(); ?>" class="event">
+<article id="event-<?php echo get_the_ID(); ?>" class="event">
 	<header class="entry-header">
 		<h1 class="event-title"><?php echo esc_html( $post->post_title ); ?></h1>
 	</header>
@@ -83,7 +83,7 @@ if ( is_single() ) :
 			</div><!-- event-description -->
 		</div><!-- .event-texts -->
 	</div><!-- .entry-content -->
-</div>
+</article>
 
 	<?php 
 else : 
