@@ -22,11 +22,10 @@ main .btn,
 main .button,
 main .social-sharing-module a {
     margin-bottom: 1em;
-    background-color: var(--component-bg-color);
 
     &:hover {
         //color: var(--text-color);
-        border-color: var(--hover-color);
+        @include border('bottom', --hover-color);
         & svg {
             fill: var(--hover-color);
         }
@@ -42,31 +41,21 @@ input[type='submit'],
 main nav.page-nav a,
 main nav.page-nav span {
     border: none;
-    @include border('bottom');
+    @include border('bottom', --border-color);
 
-    &:hover {
-        color: var(--hover-color);
-        & svg {
+    &.active,
+    &:active,
+    &:hover,
+    &:focus {
+        border-color: var(--hover-color);
+        svg {
             fill: var(--hover-color);
         }
     }
-    &[data-toggle]:hover svg {
-        fill: var(--bg-color);
-    }
-
-    &:active,
-    &:focus {
-        @include border;
-        // background: var(--bg-color);
-    }
 }
 
-.btn,
-.button,
-button {
-    &:hover {
-        color: var(--bg-color);
-    }
+form.search-form button.search-submit {
+    border: none;
 }
 
 .page-nav a,
@@ -82,7 +71,7 @@ a.button,
 .social-sharing-module a,
 button[data-toggle] {
     margin: 0.25em;
-    @include border;
+    @include border('bottom', --border-color);
     text-decoration: none;
 }
 

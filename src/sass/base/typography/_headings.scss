@@ -29,7 +29,6 @@ $level-size: 0.5rem;
             font-size: 1.9em;
         }
     }
-    line-height: 1;
     @include breakpoint(md) {
         @include breakpoint(lg, max) {
             text-align: center;

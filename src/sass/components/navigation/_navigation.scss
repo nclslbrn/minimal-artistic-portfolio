@@ -1,53 +1,29 @@
 .main-navigation {
-    ul {
-        display: none;
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
+    > ul {
+        list-style-type: none;
+        padding-bottom: 1rem;
+    }
 
-        ul {
-            float: left;
-            position: absolute;
-            top: 100%;
-            left: -999em;
-            z-index: 99999;
-            box-shadow: var(--shadows);
-            @include border;
-
-            ul {
-                left: -999em;
-                top: 0;
-            }
-
-            li {
-                text-align: center;
-                &:hover > ul,
-                &.focus > ul {
-                    display: block;
-                    left: auto;
-                    width: auto;
-                }
-            }
-
-            a {
-                width: auto;
-            }
-        }
-
-        li:hover > ul,
-        li.focus > ul {
-            display: block;
-            left: 50%;
-            width: 200px;
-            margin-left: -100px;
-        }
-        @include breakpoint(md) {
-            li > ul > li > a {
-                display: block;
+    > ul li > ul {
+        margin-left: 0;
+        
+        li {
+            // padding-left: 0.5em;
+            // margin-left: 0.5em;
+            list-style-type: none;
+            clear: both;
+            float: none;
+            line-height: 1.5;
+            &::before {
+                content: '⤷';
+                color: var(--text-color);
+                float: left;
+                line-height: 1;
+                margin-right: 0.2em;
+                opacity: 0.5;
             }
         }
     }
-
     li {
         position: relative;
         @include breakpoint(xs) {
@@ -111,8 +87,10 @@
         font-size: 1.5em;
 
         @include breakpoint(md) {
-            padding: 0.4rem 0.6rem;
-            font-size: 1em;
+            padding: 0;
+            margin: 0.6em 0;
+            font-size: 0.85em;
+            line-height: 1.25;
         }
 
         text-align: center;
@@ -123,23 +101,12 @@
             width: 120px;
         }
     }
+    [aria-current="page"],
     .current_page_item,
     .current-menu-item,
     .current_page_ancestor,
     .current-menu-ancestor {
-        &::after {
-            content: '.......';
-            display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: var(--accent-color);
-            @include breakpoint(md) {
-                margin-bottom: -0.5em;
-            }
-        }
+      color: var(--hover-color);
     }
 }
 
@@ -170,7 +137,9 @@
         align-items: flex-start;
     }
     @include breakpoint(lg) {
-        max-width: 70%;
+        ul li a {
+            text-align: left;
+        }
     }
 }
 .menu-toggle {
@@ -194,9 +163,9 @@
     }
 
     @include breakpoint(md) {
-        flex-flow: row wrap;
+        margin: 1em 0 0 0.8rem;
+        flex-flow: column wrap;
         justify-content: flex-start;
-        align-items: center;
         max-width: 100%;
         box-shadow: none;
 
@@ -245,34 +214,13 @@ footer.site-footer {
     padding: 1em 0;
     display: flex;
     flex-flow: column wrap;
-    @include breakpoint(md) {
+
+    ul.menu,
+    .site-info {
+        display: flex;
+        width: 100%;
         flex-flow: row nowrap;
         justify-content: space-between;
     }
-    ul.menu {
-        display: flex;
-        flex-flow: row wrap;
-        li a {
-            padding: 0.5em;
-        }
-        @include breakpoint(md) {
-            flex-flow: column nowrap;
-            li a {
-                padding: 0.5em 0;
-            }
-        }
-    }
-    .site-info p,
-    .site-info a {
-        padding: 0 0.5em;
-        @include breakpoint(md) {
-            padding: 0;
-        }
-    }
 }
 
-footer .site-info {
-    @include breakpoint(md) {
-        text-align: right;
-    }
-}

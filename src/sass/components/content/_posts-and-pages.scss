@@ -8,7 +8,7 @@
         width: 90%;
     }
     @include breakpoint(md) {
-        width: inherit;
+        width: 100%;
     }
     
 
@@ -81,13 +81,7 @@ main article > .entry-content:last-of-type {
 
 /* Post by year 
 --------------------------------------------- */
-body.page-template-events article.type-page > header.entry-header {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
+
 #events-list section ul {
     margin: 0;
     padding: 0;
@@ -135,10 +129,6 @@ body.page-template-events article.type-page > header.entry-header {
 .project-cartel .list-title,
 .event-properties .list-title {
     display: block;
-}
-ul.related-events,
-ul.related-projects {
-    margin-left: 0;
 }
 
 .social-sharing-module {

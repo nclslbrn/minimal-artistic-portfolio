@@ -1,6 +1,7 @@
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	padding: 0;
+	margin: 0 0 1em 1.5em;
 }
 
 ul {
@@ -14,7 +15,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 1em;
 }
 
 dt {
@@ -22,5 +23,18 @@ dt {
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 1em 1em;
+}
+
+
+ul {
+	list-style-type: square;
+
+	ul {
+		list-style: disc;
+
+		ul {
+			list-style: circle;
+		}
+	}
 }

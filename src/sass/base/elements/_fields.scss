@@ -20,7 +20,7 @@ textarea {
     @include border('bottom');
 
     padding: 3px;
-
+    font-size: 0.85em;
     //color: var(--text-color);
     background-color: transparent;
 
@@ -177,20 +177,21 @@ span.input button[type='submit'] {
 form.search-form {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: stretch;
+    justify-content: flex-end;
     
     input#s {
         @include breakpoint(md) {
-            width: 140px;
+            width: 116px;
         }
     }
     
     input#s,
     button.search-submit {
-        padding: 0.5em;
+        padding: 0.5em 0.25em;
         margin: 0;
     }
     button.search-submit {
         padding: 0.25em 0.5em;
+        background: transparent;
     }
 }

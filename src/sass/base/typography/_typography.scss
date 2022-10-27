@@ -9,7 +9,8 @@
 
 html {
     font-size: $body_font_size;
-    font-size: calc(16px + 2 * ((100vw - 320px) / 680));
+    font-size: calc($body_font_size + 2 * ((100vw - 320px) / 680));
+    line-height: 1.5;
 }
 /*
 @include breakpoint(xs) {

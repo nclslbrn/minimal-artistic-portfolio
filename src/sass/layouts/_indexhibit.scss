@@ -1,6 +1,7 @@
 @include breakpoint(lg) {
     #content.site-content {
         margin-left: 16%;
+        padding-right: 1rem;
     }
     body.page .site-content .entry-content,
     #content.site-content .project-texts,
