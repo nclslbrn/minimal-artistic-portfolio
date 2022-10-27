@@ -81,7 +81,8 @@ function map_add_search_form_to_menu( $items, $args ) {
 	}
 	return $items;
 }
-// add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 );
+
+/* add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 ); */
 
 
 /**
@@ -143,5 +144,3 @@ function map_mode_chooser_menu() {
 	return $entry;
 
 }
-
-
