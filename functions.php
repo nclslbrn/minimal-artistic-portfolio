@@ -53,7 +53,7 @@ if ( ! function_exists( 'map_setup' ) ) :
 			array(
 				'primary'     => esc_html__( 'Primary', 'Minimal-Artistic-Portfolio' ),
 				'footer-menu' => esc_html__( 'Footer Menu', 'Minimal-Artistic-Portfolio' ),
-			) 
+			)
 		);
 
 		/*
@@ -68,7 +68,7 @@ if ( ! function_exists( 'map_setup' ) ) :
 				'comment-list',
 				'gallery',
 				'caption',
-			) 
+			)
 		);
 
 		/*
@@ -83,7 +83,7 @@ if ( ! function_exists( 'map_setup' ) ) :
 				'video',
 				'quote',
 				'link',
-			) 
+			)
 		);
 
 		// Set up the WordPress core custom background feature.
@@ -94,8 +94,8 @@ if ( ! function_exists( 'map_setup' ) ) :
 				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',
-				) 
-			) 
+				)
+			)
 		);
 	}
 endif;
@@ -128,9 +128,8 @@ function map_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		) 
+		)
 	);
-
 }
 add_action( 'widgets_init', 'map_widgets_init' );
 
@@ -140,7 +139,7 @@ add_action( 'widgets_init', 'map_widgets_init' );
 function map_scripts() {
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', '', '3.1.1', true );
 	wp_enqueue_style( 'leafletStyle', '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all' );
-	wp_enqueue_style( 'Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', false, 'all' );
+	wp_enqueue_style( 'Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', '2.0.0', 'all' );
 	wp_enqueue_script( 'leafletScript', '//unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false );
 	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array( 'leafletScript' ), '1.0.0', true );
 
@@ -156,7 +155,6 @@ add_action( 'wp_enqueue_scripts', 'map_scripts' );
 function map_admin_scripts() {
 	wp_enqueue_style( 'Minimal-Artistic-Portfolio-adminstyle', get_template_directory_uri() . '/admin.css', '', '1.0.0', 'all' );
 	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/back.js', array( 'leafletScript' ), '1.0.0', true );
-
 }
 add_action( 'admin_head', 'map_admin_scripts' );
 
@@ -196,6 +194,11 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load custom post type feature (ie: projects & events).
  */
 require get_template_directory() . '/inc/custom-post.php';
+
+/**
+ * Load a dynamic project menu (comment to disable it)
+ */
+require get_template_directory() . '/inc/map-dynamic-project-menu.php';
 
 /**
  * Load meta box features.

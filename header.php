@@ -14,10 +14,10 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>
 
@@ -67,23 +67,32 @@
 
 
 	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Skip to content', 'Minimal-Artistic-Portfolio'); ?></a>
+		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="wrapper">
 				<div class="site-branding">
 					<h1 class="site-title">
-						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php echo get_bloginfo('name'); ?></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<?php echo esc_textarea( get_bloginfo( 'name' ) ); ?>
+						</a>
 					</h1>
 				</div><!-- .site-branding -->
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<?php wp_nav_menu(array(
-                        'theme_location' => 'primary',
-                        'menu_id'        => 'primary-menu',
-                        'container'      => '',
-                    )); ?>
+					<?php 
+					
+					wp_nav_menu(
+						array(
+							'theme_location'   => 'primary',
+							'menu_id'          => 'primary-menu',
+							'container'        => '',
+							'add_project_list' => true,
+							'wrap_into_year'   => false,
+							'depth'            => 3,
+						)
+					);
+					?>
 				</nav><!-- #site-navigation -->
-				<?php get_sidebar(); ?>
 
 				<button class="menu-toggle" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
 					<span class="menu-icon"></span>
