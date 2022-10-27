@@ -1,9 +1,22 @@
 {
-    "name": "your-project",
-    "description": "A WPGulp based project.",
-    "version": "0.0.1",
-    "repository": "ahmadawais/WPGulp",
-    "license": "MIT",
+    "name": "minimal-artistic-portfolio",
+    "version": "2.0.0",
+    "description": "A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel, Gulp and more.",
+    "keywords": [
+        "portfolio",
+        "gulp",
+        "minimal",
+        "day & night themes"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nclslbrn/Minimal-artist-portfolio.git"
+    },
+    "author": "Nicolas Lebrun",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/nclslbrn/Minimal-artist-portfolio/issues"
+    },
     "devDependencies": {
         "@babel/core": "^7.0.0",
         "@babel/preset-env": "^7.12.1",
