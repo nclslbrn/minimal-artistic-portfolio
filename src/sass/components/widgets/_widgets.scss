@@ -1,5 +1,5 @@
 .widget {
-    margin: 1em 0;
+    margin: 0.5em 0;
 
     // Make sure select elements fit in widgets.
     select {
@@ -22,4 +22,9 @@
         border-color: var(--hover-color);
         
     }
+}
+
+.widget_night_mode fieldset{
+    display: inline-flex;
+    align-items: center;
 }

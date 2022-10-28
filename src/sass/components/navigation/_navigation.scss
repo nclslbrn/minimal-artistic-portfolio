@@ -1,35 +1,41 @@
 .main-navigation {
     > ul {
         list-style-type: none;
-        padding-bottom: 1rem;
     }
 
     > ul li > ul {
         margin-left: 0;
         
         li {
-            // padding-left: 0.5em;
-            // margin-left: 0.5em;
             list-style-type: none;
             clear: both;
             float: none;
             line-height: 1.5;
             &::before {
-                content: '⤷';
+                //content: '⤷';
+                content: '/';
+
                 color: var(--text-color);
                 float: left;
                 line-height: 1;
                 margin-right: 0.2em;
                 opacity: 0.5;
             }
+            a {
+                margin-left: 1em;
+            }
         }
     }
     li {
         position: relative;
-        @include breakpoint(xs) {
-            @include breakpoint(sm, max) {
-                @include border('bottom');
-            }
+        padding-bottom: 0;
+        @include border('bottom');
+        &:last-child {
+            border-bottom: none;
+        }
+
+        @include breakpoint(lg) {
+            border-bottom: none;
         }
         transition: all 0.35s ease-out;
     }
@@ -71,24 +77,18 @@
         border-color: transparent transparent var(--component-bg-color)
             transparent;
     }
-    li.qtranxs-lang-menu-item a img {
-        display: none;
-        margin-bottom: 0.15em;
-    }
+   
     a {
         display: block;
         text-decoration: none;
     }
-    ul li a,
-    ul li input,
-    ul li button,
-    ul li fieldset {
-        padding: 0.6em 0.8em;
-        font-size: 1.5em;
+    ul li a {
+        padding: 1em 0.8em;
+        font-size: 1em;
 
-        @include breakpoint(md) {
+        @include breakpoint(lg) {
             padding: 0;
-            margin: 0.6em 0;
+            margin: 0 0 0.5rem 0;
             font-size: 0.85em;
             line-height: 1.25;
         }
@@ -96,11 +96,7 @@
         text-align: center;
         background: transparent;
     }
-    ul li input {
-        @include breakpoint(md) {
-            width: 120px;
-        }
-    }
+
     [aria-current="page"],
     .current_page_item,
     .current-menu-item,
@@ -124,7 +120,31 @@
     height: auto;
     z-index: 999;
 
-    @include breakpoint(md) {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+        float: none;
+    }
+
+    ul.sub-menu {
+        display: none;
+    }
+}
+.menu-toggle {
+    display: block;
+    position: relative;
+    padding: 1.5rem;
+    margin: 0;
+    background: none;
+    width: auto;
+    border-bottom: none;
+    @include breakpoint(lg) {
+        display: none;
+    }
+}
+.main-navigation {
+    @include breakpoint(lg) {
         position: relative;
         width: auto;
         top: unset;
@@ -135,35 +155,32 @@
         display: flex;
         flex-flow: column nowrap;
         align-items: flex-start;
-    }
-    @include breakpoint(lg) {
+        
+        & > ul {
+            padding-bottom: 1rem;
+
+        }
+        ul.sub-menu {
+            display: block;
+        }
+    
         ul li a {
             text-align: left;
         }
     }
 }
-.menu-toggle {
-    display: block;
-    position: relative;
-    padding: 1.5rem;
-    margin: 0;
-    background: none;
-    @include breakpoint(md) {
-        display: none;
-    }
-}
-
 .main-navigation > ul {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     box-shadow: var(--shadows);
+    width: 200px;
+    align-items: stretch;
+    float: right;
+    background: var(--component-bg-color);
 
-    @include breakpoint(sm) {
-        flex-flow: row wrap;
-    }
 
     @include breakpoint(md) {
-        margin: 1em 0 0 0.8rem;
+        margin: 0.6rem 0 0 0.8rem;
         flex-flow: column wrap;
         justify-content: flex-start;
         max-width: 100%;
@@ -172,6 +189,9 @@
         ul {
             display: block;
         }
+    }
+    @include breakpoint(lg) {
+        background: none;
     }
 }
 
@@ -211,16 +231,18 @@ nav.page-nav {
 }
 /* footer */
 footer.site-footer {
-    padding: 1em 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     display: flex;
     flex-flow: column wrap;
+    @include border('top');
 
-    ul.menu,
-    .site-info {
+    ul.menu {
         display: flex;
         width: 100%;
         flex-flow: row nowrap;
         justify-content: space-between;
     }
+
 }
 

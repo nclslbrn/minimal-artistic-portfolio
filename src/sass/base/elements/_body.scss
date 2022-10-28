@@ -1,11 +1,10 @@
 body {
-    // background: var(--bg-color);
     color: var(--text-color);
+    box-sizing: border-box;
 }
 
 
 body,
-body ul.sub-menu,
-body nav.main-navigation {
+body ul.sub-menu {
     background: var(--bg-color);
 }

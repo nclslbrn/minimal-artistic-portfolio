@@ -2,16 +2,18 @@
     display: block;
 
     @include breakpoint(xs) {
-        width: 90%;
+        width: 95%;
     }
     @include breakpoint(sm) {
-        width: 90%;
+        width: 85%;
     }
     @include breakpoint(md) {
+        width: 90%;
+    }
+    @include breakpoint(lg) {
         width: 100%;
     }
     
-
     @include center-block;
     min-height: 100%;
 }
@@ -32,7 +34,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-    margin: 1.5em 0 1.5em 0;
+    margin: 0.5rem 0 1.5em 0;
 }
 
 .page-links {
@@ -64,9 +66,7 @@ main article > .entry-content:last-of-type {
     a.event-featured-image,
     a.project-featured-image {
         flex: 1 0 50%;
-        /*  @include breakpoint(sm) {
-            padding-left: 1em;
-        } */
+      
         img {
             float: left;
         }
@@ -110,8 +110,8 @@ main article > .entry-content:last-of-type {
 
         .project-cartel,
         .event-properties {
-            padding-right: 1.5%;
-            flex: 1 0 28.5%;
+            padding-right: 2rem;
+            flex: 1 0 20%;
             hyphens: auto;
         }
     }
@@ -156,12 +156,12 @@ main article > .entry-content:last-of-type {
 
 /* Small height content 
 --------------------------------------------- */
-.no-results,
+/* .no-results,
 .not-found,
 .single-project .project-texts,
 .single-event .event-texts {
     min-height: 60vh;
-}
+} */
 
 /* GIF page
 --------------------------------------------- */

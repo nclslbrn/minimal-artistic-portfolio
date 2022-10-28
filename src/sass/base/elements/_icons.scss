@@ -7,14 +7,14 @@ svg.icon {
 }
 
 // mobile menu icon (animated)
-.menu-toggle .menu-icon {
+button.menu-toggle .menu-icon {
     margin: 0;
     left: 25%;
 }
 
-.menu-toggle .menu-icon,
-.menu-toggle .menu-icon::before,
-.menu-toggle .menu-icon::after {
+button.menu-toggle .menu-icon,
+button.menu-toggle .menu-icon::before,
+button.menu-toggle .menu-icon::after {
     display: block;
     position: absolute;
     top: 50%;
@@ -25,7 +25,17 @@ svg.icon {
     background: var(--text-color);
     transition: all 0.3s;
 }
-.menu-toggle.open .menu-icon {
+button.menu-toggle .menu-icon:hover,
+button.menu-toggle .menu-icon:focus,
+button.menu-toggle .menu-icon:hover::before,
+button.menu-toggle .menu-icon:focus::before,
+button.menu-toggle .menu-icon:hover::after,
+button.menu-toggle .menu-icon:focus::after {
+    background: var(--hover-color);
+}
+.menu-toggle.open .menu-icon,
+.menu-toggle.open .menu-icon:hover,
+.menu-toggle.open .menu-icon:focus {
     background: transparent;
 }
 

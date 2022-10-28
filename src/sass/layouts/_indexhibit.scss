@@ -1,4 +1,19 @@
+aside {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
 @include breakpoint(lg) {
+    aside {
+        position: absolute;
+        padding: 0 2rem;
+        top: 0;
+        right: 2rem;
+        width: auto;
+        justify-content: flex-end;
+    }
     #content.site-content {
         margin-left: 16%;
         padding-right: 1rem;
@@ -7,7 +22,31 @@
     #content.site-content .project-texts,
     #content.site-content .event-texts,
     #content.site-content article.page  .entry-content,
-    #content.site-content footer.site-footer {
-        max-width: 1080px;
+    #content.site-content footer.site-footer,
+    body.page-template-gif-page .site-content main {
+        max-width: 1280px;
+    }
+
+
+    .site-title,
+    body.page main .entry-header .entry-title, 
+    main article.project .entry-header .project-title,
+    main article.event .entry-header .event-title {
+        margin: 0;
+        padding: 0.2em 0;
+    }
+    body.page main .entry-header,
+    body.page main .entry-content,
+    main article.project .entry-header,
+    main article.project .entry-content .project-texts,
+    main article.event .entry-header,
+    main article.event .entry-content .event-texts,
+    footer.site-footer {
+        padding: 0 2rem;
+    }
+    
+
+    footer.site-footer .site-info {
+        text-align: center;
     }
 }
