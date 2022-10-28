@@ -3,9 +3,14 @@ import '../fonts/Inter-Bold.woff'
 import '../fonts/Inter-Bold.woff2'
 import '../sass/style.scss'
 */
-import './front/event-map'
-import './front/mode-chooser'
-import './front/navigation'
-import './front/skip-link-focus-fix'
-import './front/video-player'
-import './front/project-fluidBox'
+import map from './front/event-map'
+import mode from './front/mode-chooser'
+import nav from './front/navigation'
+import skipLink from './front/skip-link-focus-fix'
+import videoPlayer from './front/video-player'
+
+map()
+mode()
+nav()
+skipLink()
+videoPlayer()

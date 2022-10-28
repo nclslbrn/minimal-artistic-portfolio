@@ -21,7 +21,10 @@
         "@babel/core": "^7.0.0",
         "@babel/preset-env": "^7.12.1",
         "@babel/register": "^7.0.0",
+        "babel-preset-env": "^1.7.0",
+        "babelify": "^10.0.0",
         "browser-sync": "^2.11.1",
+        "browserify": "^17.0.0",
         "eslint": "^7.12.0",
         "eslint-config-wordpress": "^2.0.0",
         "gulp": "^4.0.0",
@@ -43,7 +46,10 @@
         "gulp-uglify": "^3.0.0",
         "gulp-uglifycss": "^1.0.6",
         "gulp-wp-pot": "^2.0.7",
-        "gulp-zip": "^5.0.2"
+        "gulp-zip": "^5.0.2",
+        "simplelightbox": "^2.10.4",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
     },
     "scripts": {
         "dev": "gulp",
@@ -57,7 +63,6 @@
         "cache-clear": "gulp clearCache"
     },
     "dependencies": {
-        "fluidbox": "^2.0.5",
         "plyr": "^3.7.2"
     }
 }

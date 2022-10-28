@@ -1,3 +1,4 @@
 import Plyr from 'plyr'
-
-Array.from(document.querySelectorAll('.player')).map((p) => new Plyr(p))
+export default function() {
+	Array.from( document.querySelectorAll( '.player' ) ).map( ( p ) => new Plyr( p ) )
+}

@@ -43,6 +43,10 @@ const rtlcss = require( 'gulp-rtlcss' ) // Generates RTL stylesheet.
 // JS related plugins.
 const concat = require( 'gulp-concat' ) // Concatenates JS files.
 const uglify = require( 'gulp-uglify' ) // Minifies JS files.
+const browserify = require( 'browserify' ) // bundle all require module
+require( 'babelify' )
+const source = require( 'vinyl-source-stream' )
+const buffer = require( 'vinyl-buffer' )
 const babel = require( 'gulp-babel' ) // Compiles ESNext to browser compatible JS.
 
 // Image related plugins.
@@ -256,34 +260,17 @@ gulp.task( 'vendorsJS', () => {
  *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
 gulp.task( 'customJS', () => {
-	return gulp
-		.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
+	return browserify({entries: config.jsCustomSRC, debug: true })
+		.transform( 'babelify', {  presets: [ 'env' ] })
+		.bundle()
+		.pipe( source( `${config.jsCustomFile}.js` ) )
+		.pipe( buffer() )
+		.pipe( sourcemaps.init({loadMaps: true}) )
 		.pipe( plumber( errorHandler ) )
-		.pipe(
-			babel({
-				presets: [
-					[
-						'@babel/preset-env', // Preset to compile your modern JS to ES5.
-						{
-							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
-						}
-					]
-				]
-			})
-		)
-		.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
-		.pipe( concat( config.jsCustomFile + '.js' ) )
-		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-		.pipe( plumber.stop() )
-		.pipe( gulp.dest( config.jsCustomDestination ) )
-		.pipe(
-			rename({
-				basename: config.jsCustomFile,
-				suffix: '.min'
-			})
-		)
 		.pipe( uglify() )
+		.pipe( plumber.stop() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( sourcemaps.write() )
 		.pipe( gulp.dest( config.jsCustomDestination ) )
 		.on( 'end', function() {
 			console.log( '✅ CUSTOM JS — completed!' )

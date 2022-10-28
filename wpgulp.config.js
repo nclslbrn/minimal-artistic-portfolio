@@ -45,13 +45,13 @@ const jsVendorFile = 'vendor'
 // JS Custom options.
 
 // Path to JS custom scripts folder.
-const jsCustomSRC = './src/js/*.js'
+const jsCustomSRC = './src/js/front.js'
 
 // Path to place the compiled JS custom scripts file.
 const jsCustomDestination = './build/js/'
 
 // Compiled JS custom file name. Default set to custom i.e. custom.js.
-const jsCustomFile = 'custom'
+const jsCustomFile = 'front'
 
 // Images options.
 
@@ -88,6 +88,7 @@ const zipIncludeGlob = [ './**/*' ] // Default: Include all files/folders in cur
 const zipIgnoreGlob = [
 	'!./{node_modules,node_modules/**/*}',
 	'!./.git',
+	'!./.gitignore',
 	'!./.svn',
 	'!./gulpfile.babel.js',
 	'!./wpgulp.config.js',
@@ -102,6 +103,7 @@ const zipIgnoreGlob = [
 	'!./assets/css',
 	'!./assets/img/raw/**/*',
 	'!./assets/img/raw',
+	'!/vendor/',
 	`!${imgSRC}`,
 	`!${styleSRC}`,
 	`!${jsCustomSRC}`,

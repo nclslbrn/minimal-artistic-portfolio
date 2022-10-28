@@ -1,88 +1,105 @@
-const leaflet = window.L
-const mapElem = document.getElementById('map')
-const dataBlock = document.getElementById('eventsMapData')
-const layer = {
-    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}
+export default function() {
 
-const eventsMapCenter = [46.48117, 2.440409]
-const eventsMapZoom = 6
+	const leaflet = window.L
+	const mapElem = document.getElementById( 'map' )
 
-if (mapElem !== null && leaflet !== null) {
-    // single event map
-    if (mapElem.classList.contains('single-marker')) {
-        const overlay = mapElem.parentElement
-        mapElem.width = overlay.offsetWidth
-        mapElem.height = overlay.offsetHeight
-        const latitude = mapElem.getAttribute('data-latitude')
-        const longitude = mapElem.getAttribute('data-longitude')
-        const singleEventMap = leaflet
-            .map('map')
-            .setView([latitude, longitude], 18)
+	// const dataBlock = document.getElementById( 'eventsMapData' )
+	const layer = {
+		url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}',
+		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		subdomains: 'abcd',
+		minZoom: 0,
+		maxZoom: 20,
+		ext: 'png'
+	}
 
-        leaflet
-            .tileLayer(layer.url, {
-                attribution: layer.attribution
-            })
-            .addTo(singleEventMap)
+	const eventsMapCenter = [ 46.48117, 2.440409 ]
+	const eventsMapZoom = 6
+	const singleEventMapZoom = 16
 
-        leaflet.marker([latitude, longitude]).addTo(singleEventMap)
-        // mulitple events map
-    } else if (
-        window.eventsMapData !== null &&
+	if ( null !== mapElem && null !== leaflet ) {
+
+		// single event map
+		if ( mapElem.classList.contains( 'single-marker' ) ) {
+			const overlay = mapElem.parentElement
+			mapElem.width = overlay.offsetWidth
+			mapElem.height = overlay.offsetHeight
+			const latitude = mapElem.getAttribute( 'data-latitude' )
+			const longitude = mapElem.getAttribute( 'data-longitude' )
+			const singleEventMap = leaflet
+				.map( 'map' )
+				.setView([ latitude, longitude ], singleEventMapZoom )
+
+			leaflet
+				.tileLayer( layer.url, {
+					attribution: layer.attribution,
+					subdomains: layer.subdomains,
+					minZoom: layer.minZoom,
+					maxZoom: layer.maxZoom,
+					ext: layer.ext
+				})
+				.addTo( singleEventMap )
+
+			leaflet.marker([ latitude, longitude ]).addTo( singleEventMap )
+
+		// mulitple events map
+		} else if (
+			null !== window.eventsMapData &&
         window.eventsMapData !== undefined
-    ) {
-        const multipleEventsMap = leaflet
-            .map('map')
-            .setView(eventsMapCenter, eventsMapZoom)
-        leaflet
-            .tileLayer(layer.url, {
-                attribution: layer.attribution,
-                maxZoom: 18
-            })
-            .addTo(multipleEventsMap)
+		) {
+			const multipleEventsMap = leaflet
+				.map( 'map' )
+				.setView( eventsMapCenter, eventsMapZoom )
+			leaflet
+				.tileLayer( layer.url, {
+					attribution: layer.attribution,
+					subdomains: layer.subdomains,
+					minZoom: layer.minZoom,
+					maxZoom: layer.maxZoom,
+					ext: layer.ext
+				})
+				.addTo( multipleEventsMap )
 
-        eventsMapData.forEach((eventData) => {
-            leaflet
-                .marker([eventData.latt, eventData.long])
-                .bindPopup(`<a href="${eventData.link}">${eventData.title}</a>`)
-                .openPopup()
-                .addTo(multipleEventsMap)
-        })
+			window.eventsMapData.forEach( ( eventData ) => {
+				leaflet
+					.marker([ eventData.latt, eventData.long ])
+					.bindPopup( `<a href="${eventData.link}">${eventData.title}</a>` )
+					.openPopup()
+					.addTo( multipleEventsMap )
+			})
 
-        const viewButton = document.querySelectorAll(
-            '#change-event-display-mode > button'
-        )
-        const eventList = document.getElementById('events-list')
-        if (
-            viewButton.length > 0 &&
-            eventList !== null &&
+			const viewButton = document.querySelectorAll(
+				'#change-event-display-mode > button'
+			)
+			const eventList = document.getElementById( 'events-list' )
+			if (
+				0 < viewButton.length &&
+            null !== eventList &&
             eventList !== undefined
-        ) {
-            for (let i = 0; i < viewButton.length; i++) {
-                viewButton[i].addEventListener('click', (event) => {
-                    const target = viewButton[i].getAttribute('data-toggle')
-                    for (let j = 0; j < viewButton.length; j++) {
-                        viewButton[j].classList.remove('active')
-                    }
-                    viewButton[i].classList.add('active')
-                    if (target === 'map') {
-                        eventList.style.display = 'none'
-                        mapElem.style.height = '500px'
-                        leaflet.Util.requestAnimFrame(
-                            multipleEventsMap.invalidateSize,
-                            multipleEventsMap,
-                            !1,
-                            multipleEventsMap._container
-                        )
-                    } else if (target === 'events-list') {
-                        mapElem.style.height = '0'
-                        eventList.style.display = 'block'
-                    }
-                })
-            }
-        }
-    }
+			) {
+				for ( let i = 0; i < viewButton.length; i++ ) {
+					viewButton[i].addEventListener( 'click', () => {
+						const target = viewButton[i].getAttribute( 'data-toggle' )
+						for ( let j = 0; j < viewButton.length; j++ ) {
+							viewButton[j].classList.remove( 'active' )
+						}
+						viewButton[i].classList.add( 'active' )
+						if ( 'map' === target ) {
+							eventList.style.display = 'none'
+							mapElem.style.height = '70vh'
+							leaflet.Util.requestAnimFrame(
+								multipleEventsMap.invalidateSize,
+								multipleEventsMap,
+								! 1,
+								multipleEventsMap._container
+							)
+						} else if ( 'events-list' === target ) {
+							mapElem.style.height = '0'
+							eventList.style.display = 'block'
+						}
+					})
+				}
+			}
+		}
+	}
 }
