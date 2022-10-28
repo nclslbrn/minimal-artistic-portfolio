@@ -7,11 +7,12 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
-$posts_per_page = get_option( 'posts_per_page' );
+
+$map_posts_per_page = get_option( 'posts_per_page' );
 
 $map_gif_query_args = array(
 	'post_type'      => 'gif',
-	'posts_per_page' => $posts_per_page,
+	'posts_per_page' => $map_posts_per_page,
 	'post_status'    => 'publish',
 	'paged'          => get_query_var( 'paged' ),
 );
