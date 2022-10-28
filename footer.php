@@ -12,6 +12,7 @@
 ?>
 </div><!-- .wrapper .row -->
 <footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="wrapper">
 		<div class="footer-menu">
 			<?php 
 			if ( has_nav_menu( 'footer-menu' ) ) {
@@ -27,12 +28,12 @@
 		<div class="site-info">
 			<p>
 				<?php echo esc_url( get_site_url() ) . ' '; ?> © <?php esc_html_e( 'All right reserved', 'Minimal-Artistic-Portfolio' ); ?>
+				<a href="https://github.com/nclslbrn/Minimal-artist-portfolio">
+					<?php esc_html_e( 'Design : N.Lebrun', 'Minimal-Artistic-Portfolio' ); ?>
+				</a>
 			</p>
-			<a href="https://github.com/nclslbrn/Minimal-artist-portfolio">
-				<?php esc_html_e( 'Design : N.Lebrun', 'Minimal-Artistic-Portfolio' ); ?>
-			</a>
 		</div><!-- .site-info -->
-
+	</div><!-- .wrapper -->
 </footer><!-- #colophon -->
 
 </div><!-- #content -->
