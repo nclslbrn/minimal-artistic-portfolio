@@ -53,14 +53,13 @@ const rename = require( 'gulp-rename' ) // Renames files E.g. style.css -> style
 const lineec = require( 'gulp-line-ending-corrector' ) // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings).
 const filter = require( 'gulp-filter' ) // Enables you to work on a subset of the original files by filtering them using a glob.
 const sourcemaps = require( 'gulp-sourcemaps' ) // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css).
-const notify = require( 'gulp-notify' ) // Sends message notification to you.
 const browserSync = require( 'browser-sync' ).create() // Reloads browser and injects CSS. Time-saving synchronized browser testing.
 const wpPot = require( 'gulp-wp-pot' ) // For generating the .pot file.
 const sort = require( 'gulp-sort' ) // Recommended to prevent unnecessary changes in pot-file.
 const cache = require( 'gulp-cache' ) // Cache files in stream for later use.
 const remember = require( 'gulp-remember' ) //  Adds all the files it has ever seen back into the stream.
 const plumber = require( 'gulp-plumber' ) // Prevent pipe breaking caused by errors from gulp plugins.
-const beep = require( 'beepbeep' )
+// const beep = require( 'beepbeep' )
 const zip = require( 'gulp-zip' ) // Zip plugin or theme file.
 
 /**
@@ -69,10 +68,8 @@ const zip = require( 'gulp-zip' ) // Zip plugin or theme file.
  * @param Mixed err
  */
 const errorHandler = ( r ) => {
-	notify.onError( '\n\n❌  ===> ERROR: <%= error.message %>\n' )( r )
-	beep()
-
-	// this.emit('end');
+	console.error( '❌  ERROR: \n', r )
+	this.emit( 'end' )
 }
 
 /**
@@ -139,15 +136,15 @@ gulp.task( 'styles', () => {
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss({ maxLineLen: 10 }) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( plumber.stop() )
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.min.css if that is enqueued.
-		.pipe(
-			notify({
-				message: '\n\n✅  ===> STYLES — completed!\n',
-				onLast: true
-			})
-		)
+
+		.on( 'end', function() {
+			console.log( '✅ STYLES — completed!' )
+		})
+
 })
 
 /**
@@ -192,15 +189,13 @@ gulp.task( 'stylesRTL', () => {
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss({ maxLineLen: 10 }) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( plumber.stop() )
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
-		.pipe(
-			notify({
-				message: '\n\n✅  ===> STYLES RTL — completed!\n',
-				onLast: true
-			})
-		)
+		.on( 'end', function() {
+			console.log( '✅ STYLES RTL — completed!' )
+		})
 })
 
 /**
@@ -242,13 +237,11 @@ gulp.task( 'vendorsJS', () => {
 		)
 		.pipe( uglify() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( plumber.stop() )
 		.pipe( gulp.dest( config.jsVendorDestination ) )
-		.pipe(
-			notify({
-				message: '\n\n✅  ===> VENDOR JS — completed!\n',
-				onLast: true
-			})
-		)
+		.on( 'end', function() {
+			console.log( '✅  VENDOR JS — completed!\n' )
+		})
 })
 
 /**
@@ -281,6 +274,7 @@ gulp.task( 'customJS', () => {
 		.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsCustomFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( plumber.stop() )
 		.pipe( gulp.dest( config.jsCustomDestination ) )
 		.pipe(
 			rename({
@@ -291,12 +285,9 @@ gulp.task( 'customJS', () => {
 		.pipe( uglify() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
-		.pipe(
-			notify({
-				message: '\n\n✅  ===> CUSTOM JS — completed!\n',
-				onLast: true
-			})
-		)
+		.on( 'end', function() {
+			console.log( '✅ CUSTOM JS — completed!' )
+		})
 })
 
 /**
@@ -334,12 +325,9 @@ gulp.task( 'images', () => {
 			)
 		)
 		.pipe( gulp.dest( config.imgDST ) )
-		.pipe(
-			notify({
-				message: '\n\n✅  ===> IMAGES — completed!\n',
-				onLast: true
-			})
-		)
+		.on( 'end', function() {
+			console.log( '✅ IMAGES — completed!' )
+		})
 })
 
 /**
@@ -379,12 +367,9 @@ gulp.task( 'translate', () => {
 				config.translationDestination + '/' + config.translationFile
 			)
 		)
-		.pipe(
-			notify({
-				message: '\n\n✅  ===> TRANSLATE — completed!\n',
-				onLast: true
-			})
-		)
+		.on( 'end', function() {
+			console.log( '✅ TRANSLATE — completed!' )
+		})
 })
 
 /**
