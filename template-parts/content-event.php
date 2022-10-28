@@ -70,13 +70,6 @@ if ( is_single() ) :
 				<?php if ( $map_event['related_projects'] ) : ?>
 					<?php echo wp_kses_post( $map_event['related_projects'] ); ?>
 				<?php endif; ?>		
-				<?php 
-				map_social_module(
-					get_the_title(),
-					get_the_permalink( $post->ID ),
-					'laptop-only'
-				); 
-				?>
 			</div><!-- .event-properties -->
 			<div class="event-description">
 				<?php the_content(); ?>

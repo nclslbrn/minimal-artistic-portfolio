@@ -98,14 +98,12 @@ if ( ! is_single() ) { ?>
 						echo wp_kses_post( $map_related_events );
 					} 
 					?>
-					<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'laptop-only' ); ?>
 				</div><!-- .project-cartel -->
 
 				<div class="project-description">
 					<?php the_content(); ?>
 				</div><!-- .project-description -->
 
-			<?php map_social_module( get_the_title(), get_the_permalink( $post->ID ), 'mobile-only' ); ?>
 			</div><!-- .project-text -->
 		</div><!-- .entry-content -->
 	</article>
