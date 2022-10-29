@@ -1,0 +1,26 @@
+a.simplelightbox {
+    position: relative;
+    display: block;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 7px;
+        background-color: var(--primary-color);
+        box-shadow: 0 0 0 0.25rem var(--hover-color);
+        z-index: -1;
+        opacity: 0.5;
+    }
+    img {
+        opacity: 1;
+    }
+    &:hover,
+    &:focus {
+        img {
+            opacity: 0.75;
+        }
+    }
+}

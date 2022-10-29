@@ -9,7 +9,7 @@ aside {
     aside {
         position: absolute;
         padding: 0 2rem;
-        top: 0;
+        top: 1.5rem;
         right: 2rem;
         width: auto;
         justify-content: flex-end;
@@ -21,15 +21,27 @@ aside {
     body.page .site-content .entry-content,
     #content.site-content .project-texts,
     #content.site-content .event-texts,
-    #content.site-content article.page  .entry-content,
-    #content.site-content footer.site-footer,
+    #content.site-content article.page .entry-content,
+    #content.site-content footer.site-footer .wrapper,
     body.page-template-gif-page .site-content main {
         max-width: 1280px;
     }
+    #content.site-content article.project .entry-content > img.size-full.wp-post-image,
+    #content.site-content article.event .entry-content > img.size-full.wp-post-image,
+    #content.site-content article.page .entry-content > img.size-full.wp-post-image {
+        margin: 4px 0 0 4px;
+    }
 
-
+    #content.site-content footer.site-footer .wrapper {
+        margin-left: 0;
+    }
+    body.page main .entry-header,
+    main article.project .entry-header,
+    main article.event .entry-header {
+        border-bottom: 2px solid var(--border-color);
+    }
     .site-title,
-    body.page main .entry-header .entry-title, 
+    body.page main .entry-header .entry-title,
     main article.project .entry-header .project-title,
     main article.event .entry-header .event-title {
         margin: 0;
@@ -44,7 +56,6 @@ aside {
     footer.site-footer {
         padding: 0 2rem;
     }
-    
 
     footer.site-footer .site-info {
         text-align: center;

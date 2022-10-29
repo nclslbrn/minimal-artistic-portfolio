@@ -8,7 +8,6 @@
     swap
 ); */
 
-
 html {
     font-size: $body_font_size;
     font-size: calc($body_font_size + 2 * ((100vw - 320px) / 680));
@@ -44,5 +43,5 @@ textarea {
     font-weight: 500;
 }
 
-@import 'headings';
-@import 'copy';
+@import "headings";
+@import "copy";

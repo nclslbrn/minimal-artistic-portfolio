@@ -1,6 +1,6 @@
 .site-header {
     position: relative;
-    @include border('bottom');
+    @include border("bottom");
 
     @include breakpoint(lg) {
         position: fixed;
@@ -8,6 +8,7 @@
         height: 100vh;
         overflow-y: auto;
         border-bottom: none;
+        border-right: 2px double var(--border-color);
     }
 }
 
@@ -33,14 +34,14 @@
 
         .site-title {
             font-size: 1.5em;
-            line-height: 3.5;
+            line-height: 3.18;
+            @include breakpoint(lg) {
+                border-bottom: 2px solid var(--border-color);
+            }
         }
-        
     }
 
     .site-title a {
         text-decoration: none;
-    }    
+    }
 }
-
-
