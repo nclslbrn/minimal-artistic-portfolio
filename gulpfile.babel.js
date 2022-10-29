@@ -318,6 +318,20 @@ gulp.task( 'images', () => {
 })
 
 /**
+ * Taks fonts
+ *
+ * Simple copy script
+ */
+gulp.task( 'fonts', () => {
+	return gulp
+		.src( config.fontSRC )
+		.pipe( gulp.dest( config.fontDST ) )
+		.on( 'end', function() {
+			console.log( '✅ FONTS — completed!' )
+		})
+})
+
+/**
  * Task: `clear-images-cache`.
  *
  * Deletes the images cache. By running the next "images" task,
@@ -387,6 +401,7 @@ gulp.task(
 		'vendorsJS',
 		'customJS',
 		'images',
+		'fonts',
 		browsersync,
 		() => {
 			gulp.watch( config.watchPhp, reload ) // Reload on PHP file changes.
@@ -394,6 +409,7 @@ gulp.task(
 			gulp.watch( config.watchJsVendor, gulp.series( 'vendorsJS', reload ) ) // Reload on vendorsJS file changes.
 			gulp.watch( config.watchJsCustom, gulp.series( 'customJS', reload ) ) // Reload on customJS file changes.
 			gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ) // Reload on customJS file changes.
+			gulp.watch( config.fontSRC, gulp.series( 'fonts', reload ) ) // Reload on customJS file changes.
 		}
 	)
 )

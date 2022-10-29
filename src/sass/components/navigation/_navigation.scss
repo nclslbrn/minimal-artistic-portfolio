@@ -12,15 +12,14 @@
             float: none;
             line-height: 1.5;
             &::before {
-                //content: '⤷';
                 content: '/';
-
                 color: var(--text-color);
                 float: left;
                 line-height: 1;
                 margin-right: 0.2em;
                 opacity: 0.5;
             }
+            
             a {
                 margin-left: 1em;
             }
@@ -88,9 +87,8 @@
 
         @include breakpoint(lg) {
             padding: 0;
-            margin: 0 0 0.5rem 0;
-            font-size: 0.85em;
-            line-height: 1.25;
+            margin: 0 0 0.25rem 0;
+            line-height: 1.15;
         }
 
         text-align: center;
@@ -180,7 +178,7 @@
 
 
     @include breakpoint(md) {
-        margin: 0.6rem 0 0 0.8rem;
+        margin: 0 0 0 0.8rem;
         flex-flow: column wrap;
         justify-content: flex-start;
         max-width: 100%;

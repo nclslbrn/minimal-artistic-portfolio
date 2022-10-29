@@ -43,7 +43,7 @@ function map_dynamic_project_menu( $sorted_menu_items, $args ) {
 	} 
 	$project_list = array();
 	global $post;
-	$current_post_id = $post->ID;
+	$current_post_id = isset( $post ) ? $post->ID : 0;
 	foreach ( $projects as $project ) {
 		$year = date( 'Y', strtotime( $project->post_date ) );
 		

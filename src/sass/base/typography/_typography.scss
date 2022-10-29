@@ -1,11 +1,13 @@
-/* @include font-face(
-    'Inter-Black',
-    'build/fonts/Inter-Black',
-    900,
+/* 
+@include font-face(
+    'hk_groteskbold',
+    './build/fonts/hk-grotesk-bold-webfont',
+    normal,
     normal,
     woff2 woff,
     swap
 ); */
+
 
 html {
     font-size: $body_font_size;

@@ -4,11 +4,12 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: 'Helvetica Neue', sans-serif;
     font-family: $font__heading;
     clear: both;
     color: var(--text-color);
     hyphens: auto;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 $level-size: 0.5rem;

@@ -72,8 +72,6 @@ assets/img/.DS_Store
 node_modules/*
 .sass-cache/**
 build/
-src/fonts/*.woff
-src/fonts/*.woff2
 *.css.map
 vendor/*
 bin/*

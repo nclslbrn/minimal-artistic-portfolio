@@ -18,8 +18,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/:root[data-theme=light]{--primary-color:#3a443f;--text-color:#333;--focus-color:#c05904;--hover-color:#27ae60;--bg-color:#eeecec;--component-bg-color:#fcfcfc;--border-color:#d4d4d4}
-:root[data-theme=dark]{--primary-color:#e2f0eb;--text-color:#eefffa;--focus-color:#ff9c2a;--hover-color:#38db6e;--bg-color:#14191e;--component-bg-color:#333;--border-color:#333}
+*/:root[data-theme=light]{--primary-color:#3b4d3d;--text-color:#3e4b44;--focus-color:#c05904;--hover-color:#72f;--bg-color:#fff4f4;--component-bg-color:#fcfcfc;--border-color:#4a544d}
+:root[data-theme=dark]{--primary-color:#fdd;--text-color:#fee4e4;--focus-color:#ff9c2a;--hover-color:#ea41fd;--bg-color:#050a1a;--component-bg-color:#333;--border-color:#1e0048}
 :root{--shadows:0 0 1em rgba(0,0,0,0.1)}
 ::placeholder{color:var(--text-color)}
 ::selection{color:var(--bg-color);background-color:var(--hover-color)}
@@ -62,13 +62,13 @@ template{display:none}
 html{box-sizing:border-box}
 html{font-size:14px;font-size:calc(14px + 2*(100vw - 320px)/680);line-height:1.5}
 body,button,input,select,optgroup,textarea{color:var(--text-color);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;font-size:1rem;line-height:1.5;font-weight:500}
-h1,h2,h3,h4,h5,h6{font-family:system-ui,sans-serif;clear:both;color:var(--text-color);hyphens:auto;font-weight:400}
-h6{font-size:.6rem}
-h5{font-size:.72rem}
-h4{font-size:.864rem}
-h3{font-size:1.0368rem}
-h2{font-size:1.24416rem}
-h1{font-size:1.492992rem}
+h1,h2,h3,h4,h5,h6{font-family:"Helvetica Neue",sans-serif;font-family:"hk_groteskbold","Helvetica Neue",sans-serif;clear:both;color:var(--text-color);hyphens:auto;font-weight:700}
+h6{font-size:.6665rem}
+h5{font-size:.8884445rem}
+h4{font-size:1.1842965185rem}
+h3{font-size:1.5786672592rem}
+h2{font-size:2.1043634565rem}
+h1{font-size:2.8051164875rem}
 p{margin-bottom:1.5em}
 .entry-content p{margin-bottom:.75em}
 dfn,cite,em,i{font-style:italic}
@@ -431,7 +431,7 @@ body.no-scroll{display:block;max-height:100vh;pointer-events:none;overflow:hidde
 #events-list section ul{margin:0 0 1.5em 12%}
 }@media(min-width:54rem)and (max-width:64rem){.site-title{text-align:center}
 }@media(min-width:54rem){form.search-form input#s{width:116px}
-.main-navigation>ul{margin:.6rem 0 0 .8rem;flex-flow:column wrap;justify-content:flex-start;max-width:100%;box-shadow:none}
+.main-navigation>ul{margin:0 0 0 .8rem;flex-flow:column wrap;justify-content:flex-start;max-width:100%;box-shadow:none}
 .main-navigation>ul ul{display:block}
 .site .wrapper{width:90%}
 .single-project .project-texts,.single-event .event-texts{flex-flow:row nowrap}
@@ -444,6 +444,7 @@ body.no-scroll{display:block;max-height:100vh;pointer-events:none;overflow:hidde
 }@media(min-width:64rem){.site-header{position:fixed;width:16%;height:100vh;overflow-y:auto;border-bottom:0}
 .site-header div.wrapper{position:relative;display:flex;flex-flow:row wrap;align-items:stretch;justify-content:flex-start;flex-flow:column nowrap}
 .site-header div.wrapper .site-title,.site-header div.wrapper aside{padding-left:.8rem}
+.site-header div.wrapper .site-title{font-size:1.5em;line-height:3.5}
 aside{position:absolute;padding:0 2rem;top:0;right:2rem;width:auto;justify-content:flex-end}
 #content.site-content{margin-left:16%;padding-right:1rem}
 body.page .site-content .entry-content,#content.site-content .project-texts,#content.site-content .event-texts,#content.site-content article.page .entry-content,#content.site-content footer.site-footer,body.page-template-gif-page .site-content main{max-width:1280px}
@@ -451,7 +452,7 @@ body.page .site-content .entry-content,#content.site-content .project-texts,#con
 body.page main .entry-header,body.page main .entry-content,main article.project .entry-header,main article.project .entry-content .project-texts,main article.event .entry-header,main article.event .entry-content .event-texts,footer.site-footer{padding:0 2rem}
 footer.site-footer .site-info{text-align:center}
 .main-navigation li{border-bottom:0}
-.main-navigation ul li a{padding:0;margin:0 0 .5rem 0;font-size:.85em;line-height:1.25}
+.main-navigation ul li a{padding:0;margin:0 0 .25rem 0;line-height:1.15}
 .menu-toggle{display:none}
 .main-navigation{position:relative;width:auto;top:unset;left:unset;flex:1 0 auto;display:flex;flex-flow:column nowrap;align-items:flex-start}
 .main-navigation>ul{padding-bottom:1rem}
