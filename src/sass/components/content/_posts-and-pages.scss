@@ -33,7 +33,8 @@
 
 .page-content,
 .entry-content,
-.entry-summary {
+.entry-summary,
+body.search .site-content main > article {
     margin: 0 0 1.5em 0;
 }
 
@@ -74,7 +75,7 @@ main article > .entry-content:last-of-type {
 
     div.event-info,
     div.project-cartel {
-        padding: 2em;
+        padding: 0 2em;
         flex-basis: 50%;
     }
 }

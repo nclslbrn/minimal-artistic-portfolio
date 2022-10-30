@@ -3,15 +3,15 @@ body {
     box-sizing: border-box;
 }
 
-body,
-body ul.sub-menu {
+body {
     background: var(--bg-color);
 }
 
 body #page {
+    background: url(./build/img/concrete-wall.png) repeat;
+}
+/* 
+body[data-theme="dark"] #page {
     background: url(./build/img/fabric-1-light.png) repeat;
 }
-
-body[data-theme="dark"] #page {
-    background: url(./build/img/fabric-1-dark.png) repeat;
-}
+ */

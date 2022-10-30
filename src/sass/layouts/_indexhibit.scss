@@ -2,13 +2,21 @@ aside {
     display: flex;
     width: 100%;
     flex-flow: row nowrap;
+    align-items: center;
     justify-content: space-between;
 }
-
+body.page-template-homepage main .entry-content {
+    margin-top: 1rem;
+}
+body.page-template-homepage main .entry-content > article,
+body.search .site-content main > article {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+}
 @include breakpoint(lg) {
     aside {
         position: absolute;
-        padding: 0 2rem;
+        padding: 0;
         top: 1.5rem;
         right: 2rem;
         width: auto;
@@ -23,36 +31,31 @@ aside {
     #content.site-content .event-texts,
     #content.site-content article.page .entry-content,
     #content.site-content footer.site-footer .wrapper,
-    body.page-template-gif-page .site-content main {
+    body.page-template-gif-page .site-content main,
+    body.search .site-content main,
+    body.hfeed .site-content main {
         max-width: 1280px;
-    }
-    #content.site-content article.project .entry-content > img.size-full.wp-post-image,
-    #content.site-content article.event .entry-content > img.size-full.wp-post-image,
-    #content.site-content article.page .entry-content > img.size-full.wp-post-image {
-        margin: 4px 0 0 4px;
     }
 
     #content.site-content footer.site-footer .wrapper {
         margin-left: 0;
     }
-    body.page main .entry-header,
-    main article.project .entry-header,
-    main article.event .entry-header {
-        border-bottom: 2px solid var(--border-color);
-    }
     .site-title,
     body.page main .entry-header .entry-title,
     main article.project .entry-header .project-title,
-    main article.event .entry-header .event-title {
+    main article.event .entry-header .event-title,
+    main header.page-header .page-title {
         margin: 0;
         padding: 0.2em 0;
     }
+
     body.page main .entry-header,
     body.page main .entry-content,
-    main article.project .entry-header,
-    main article.project .entry-content .project-texts,
-    main article.event .entry-header,
-    main article.event .entry-content .event-texts,
+    div.content-area main article.project .entry-header,
+    div.content-area main article.project .entry-content .project-texts,
+    div.content-area main article.event .entry-header,
+    div.content-area main article.event .entry-content .event-texts,
+    .site-content section.content-area main,
     footer.site-footer {
         padding: 0 2rem;
     }

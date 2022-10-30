@@ -59,7 +59,7 @@ class Night_Mode_Widget extends WP_Widget {
                     <?php echo esc_html__( 'Dark', 'Minimal-Artistic-Portfolio' ); ?>   
                 </option>                
         </select>
-        <?php else : ?>
+        <?php elseif( $type === 'switch'): ?>
             <fieldset>
                 <svg class="icon icon-sun">
                     <use xlink:href="#icon-sun"></use>
@@ -75,7 +75,16 @@ class Night_Mode_Widget extends WP_Widget {
                     <use xlink:href="#icon-moon"></use>
                 </svg>
             </fieldset>
-        
+        <?php elseif ( $type === 'single-button') : ?>
+            <fieldset class="single-button button" data-current-theme <?php echo $title ? 'title="'. $title . '"' : ''; ?>>
+                <label for="theme-button">
+                    <?php echo esc_html__('Current mode', 'Minimal-Artistic-Portfolio' ); ?>
+                </label>
+                <input id="theme-button" type="checkbox" name="mode-switcher">
+                    <svg class="icon icon-<?php echo $icon_name; ?>">
+                    <use xlink:href="#icon-<?php echo $icon_name; ?>"></use>
+                </svg>
+            </fieldset>
         <?php endif; ?>
         <?php echo $args['after_widget']; ?>
         
@@ -142,6 +151,9 @@ class Night_Mode_Widget extends WP_Widget {
             </option>
             <option value="menu" <?php echo $type === 'menu' ? 'selected' : '';?>>
                 <?php _e('Menu', 'Minimal-Artistic-Portfolio' ); ?>
+            </option>
+            <option value="single-button" <?php echo $type === 'single-button' ? 'selected' : '';?>>
+                <?php _e('Single button', 'Minimal-Artistic-Portfolio' ); ?>
             </option>
         </select>   
 

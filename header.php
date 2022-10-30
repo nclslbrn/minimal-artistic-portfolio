@@ -94,7 +94,13 @@
 					?>
 				</nav><!-- #site-navigation -->
 
-				<button class="menu-toggle" aria-controls="primary-menu" name="menu-button" aria-expanded="false">
+				<button 
+					class="menu-toggle" 
+					aria-controls="primary-menu" 
+					aria-labelledby="primary-menu"
+					aria-label="open-menu"
+					name="menu-button" 
+					aria-expanded="false">
 					<span class="menu-icon"></span>
 				</button>
 

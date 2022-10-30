@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2019-10-01 14:00+0000\n"
-"PO-Revision-Date: 2022-09-17 18:41+0000\n"
+"PO-Revision-Date: 2022-10-30 09:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
-"Language: fr-FR\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,13 @@ msgstr ""
 "X-Loco-Target-Locale: fr_FR\n"
 "X-Loco-Version: 2.6.2; wp-6.0.2"
 
-#: inc/template-tags.php:340
+#. Only one date.
+#: inc/template-tags.php:428
+#, php-format
+msgid "%1$s %2$s of %3$s %4$s"
+msgstr "Le %1$s %2$s %3$s %4$s"
+
+#: inc/template-tags.php:359
 msgid "* : require field"
 msgstr "* : champs requis"
 
@@ -126,7 +132,7 @@ msgstr "Option de couverture"
 msgid "Current mode"
 msgstr "Mode actuel"
 
-#: inc/night-mode-widget.php:59 inc/extras.php:136
+#: inc/night-mode-widget.php:59 inc/extras.php:137
 msgid "Dark"
 msgstr "Sombre"
 
@@ -138,7 +144,7 @@ msgstr "Date"
 msgid "Degrees"
 msgstr "Diplômes"
 
-#: footer.php:33
+#: footer.php:32
 msgid "Design : N.Lebrun"
 msgstr "Design : N.Lebrun"
 
@@ -164,7 +170,7 @@ msgstr "Editer le Gif"
 msgid "Edit Project"
 msgstr "Editer le projet"
 
-#: inc/template-tags.php:311
+#: inc/template-tags.php:330
 msgid "Email *"
 msgstr "E-mail *"
 
@@ -172,11 +178,11 @@ msgstr "E-mail *"
 msgid "Email Address Invalid."
 msgstr "Adresse Mail invalide."
 
-#: 404.php:22
+#: 404.php:17
 msgid "error"
 msgstr "erreur"
 
-#: inc/custom-post.php:66 inc/meta-box.php:45
+#: inc/meta-box.php:45 inc/custom-post.php:66
 msgid "Event"
 msgstr "Évènement"
 
@@ -190,21 +196,20 @@ msgid "Footer Menu"
 msgstr "Menu de pied de page"
 
 #. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
-#: inc/template-tags.php:372
-#, fuzzy
-#, php-format
+#: inc/template-tags.php:392
+#, fuzzy, php-format
 #| msgid "From %1$s %2$s s%3$s to %4$s %5$s %6$s"
 msgid "From %1$s %2$s %3$s to %4$s %5$s %6$s"
 msgstr "Du %2$s %1$s %3$s au %5$s %4$s %6$s "
 
 #. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
-#: inc/template-tags.php:385
+#: inc/template-tags.php:405
 #, php-format
 msgid "From %1$s %2$s to %3$s %4$s %5$s"
 msgstr "Du %2$s %1$s au %4$s %3$s %5$s"
 
 #. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
-#: inc/template-tags.php:398
+#: inc/template-tags.php:418
 #, php-format
 msgid "From %1$s to %2$s %3$s %4$s"
 msgstr "Du %1$s au %2$s %3$s %4$s"
@@ -241,22 +246,13 @@ msgstr "La réponse au code de vérification n’est pas correct."
 msgid "Image"
 msgstr "Image"
 
-#: inc/template-tags.php:407
-#, php-format
-msgid "%1$s %2$s of %3$s %4$s"
-msgstr "Le %1$s %2$s %3$s %4$s"
-
 #. %s: post title
 #: inc/template-tags.php:80
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Laisser un commentaire<span class=« screen-reader-text »> on %s</span>"
 
-#. Name of the template
-msgid "Left margin page"
-msgstr "Page avec une marge gauche"
-
-#: inc/night-mode-widget.php:54 inc/extras.php:129
+#: inc/night-mode-widget.php:54 inc/extras.php:130
 msgid "Light"
 msgstr "Clair"
 
@@ -268,11 +264,11 @@ msgstr "Liste"
 msgid "Map"
 msgstr "Carte"
 
-#: inc/night-mode-widget.php:144
+#: inc/night-mode-widget.php:152
 msgid "Menu"
 msgstr "Menu"
 
-#: inc/template-tags.php:322
+#: inc/template-tags.php:341
 msgid "Message *"
 msgstr "Message *"
 
@@ -284,7 +280,7 @@ msgstr "Le message n’a pas été envoyé, réessayer."
 msgid "Minimal-Artistic-Portfolio"
 msgstr "Minimal-Artistic-Portfolio"
 
-#: inc/template-tags.php:303
+#: inc/template-tags.php:322
 msgid "Name *"
 msgstr "Nom *"
 
@@ -300,7 +296,7 @@ msgstr "Nouveau Gif"
 msgid "New Project"
 msgstr "Nouveau projet"
 
-#: inc/night-mode-widget.php:110
+#: inc/night-mode-widget.php:118
 msgid "New title"
 msgstr "Nouveau titre"
 
@@ -350,7 +346,7 @@ msgstr "Rien de trouvé"
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr "Un commentaire sur  &ldquo;%1$s&rdquo;"
 
-#: 404.php:17
+#: 404.php:22
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oups! Cette page n’existe pas !"
 
@@ -448,7 +444,7 @@ msgstr "Projets"
 msgid "Publishing Soon"
 msgstr "À paraître bientôt"
 
-#: template-parts/content-event.php:143
+#: template-parts/content-event.php:136
 msgid "Read more"
 msgstr "Lire plus"
 
@@ -498,7 +494,7 @@ msgstr "Auto-hébergée"
 msgid "Self hosting URLs"
 msgstr "Urls de la vidéo auto-hébergée"
 
-#: inc/template-tags.php:344
+#: inc/template-tags.php:363
 msgid "send"
 msgstr "envoyer"
 
@@ -521,6 +517,10 @@ msgstr "Diffuser sur Twitter"
 #: functions.php:124
 msgid "Sidebar"
 msgstr "Barre latérale"
+
+#: inc/night-mode-widget.php:155
+msgid "Single button"
+msgstr "Bouton unique"
 
 #: header.php:70
 msgid "Skip to content"
@@ -547,7 +547,7 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Recherche"
 
-#: inc/night-mode-widget.php:141
+#: inc/night-mode-widget.php:149
 msgid "Switch"
 msgstr "Switch"
 
@@ -561,11 +561,11 @@ msgstr "Tag %1$s"
 msgid "Thanks! Your message has been sent."
 msgstr "Merci ! Votre message a bien été envoyé."
 
-#: inc/extras.php:118
+#: inc/extras.php:119
 msgid "Theme"
 msgstr "Thème"
 
-#: inc/night-mode-widget.php:121
+#: inc/night-mode-widget.php:129
 msgid "Title"
 msgstr "Titre"
 
@@ -577,7 +577,7 @@ msgstr "Ajourd'hui"
 msgid "Tomorrow"
 msgstr "Demain"
 
-#: inc/night-mode-widget.php:132
+#: inc/night-mode-widget.php:140
 msgid "Type"
 msgstr "Type"
 

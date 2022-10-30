@@ -1,26 +1,26 @@
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'],
-input[type='number'],
-input[type='tel'],
-input[type='range'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='color'],
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
 select,
 textarea {
     color: var(--text-color);
     border: none;
-    @include border('bottom');
+    @include border("bottom");
 
     padding: 3px;
-    font-size: 0.85em;
+    font-size: 1em;
     //color: var(--text-color);
     background-color: transparent;
 
@@ -33,7 +33,7 @@ select {
     padding: 0.75em;
     @include border;
 }
-select[name='mode-switcher'] {
+select[name="mode-switcher"] {
     padding: 0.75em 0.75em 0.75em 0.25em;
 }
 textarea {
@@ -105,7 +105,7 @@ ul.sub-menu li button {
 
 .slider:before {
     position: absolute;
-    content: '';
+    content: "";
     height: 1rem;
     width: 1rem;
     left: 0.2rem;
@@ -122,6 +122,24 @@ input:checked + .slider:before {
     transform: translateX(1rem);
 }
 
+/* Single button theme chooser */
+.widget_night_mode .single-button {
+    padding: 0;
+    margin-right: 8px;
+    input[type="checkbox"] {
+        position: absolute;
+        top: -999999px;
+        left: -9999999px;
+    }
+    svg {
+        width: 1.45rem;
+        height: 1.45rem;
+    }
+}
+.widget.qtranxs_widget {
+    margin-right: 4px;
+}
+
 /* Honey pot field */
 label.pot,
 input.pot {
@@ -136,7 +154,7 @@ input.pot {
 
 /* real field */
 span.input,
-span.input button[type='submit'] {
+span.input button[type="submit"] {
     display: block;
     margin: 2em 0;
 }
@@ -169,7 +187,7 @@ span.input.textarea-input textarea {
 .error {
     background-color: tomato;
 }
-span.input button[type='submit'] {
+span.input button[type="submit"] {
     padding: 0.6em 0.8em;
 }
 
@@ -178,13 +196,13 @@ form.search-form {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    
+
     input#s {
         @include breakpoint(md) {
             width: 116px;
         }
     }
-    
+
     input#s,
     button.search-submit {
         margin: 0;

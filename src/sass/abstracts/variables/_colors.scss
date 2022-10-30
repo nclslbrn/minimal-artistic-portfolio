@@ -1,20 +1,20 @@
 :root[data-theme="light"] {
-    --primary-color: #0043c8;
+    --primary-color: #0055ff;
     --text-color: #3e00c8;
-    --focus-color: #c05904;
+    --focus-color: #9005f6;
     --hover-color: #6802ff;
     --bg-color: #e6fee3;
-    --component-bg-color: #fcfcfc;
+    --component-bg-color: #e2ffff;
     --border-color: #3e00c8;
 }
 :root[data-theme="dark"] {
-    --primary-color: #e4cfff;
+    --primary-color: #bcfbf2;
     --text-color: #d9f9d4;
-    --focus-color: #ff9c2a;
+    --focus-color: #9005f6;
     --hover-color: #8b43ff;
-    --bg-color: #3e00c8;
-    --component-bg-color: #25303a;
-    --border-color: #6400ff;
+    --bg-color: #40059f;
+    --component-bg-color: #4a00be;
+    --border-color: #ba8dff;
 }
 :root {
     --shadows: 0 0 1em rgba(0, 0, 0, 0.1);
@@ -25,8 +25,4 @@
 ::selection {
     color: var(--bg-color);
     background-color: var(--hover-color);
-}
-.fluidbox--opened .fluidbox__overlay,
-.fluidbox__overlay {
-    background-color: var(--bg-color);
 }

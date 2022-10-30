@@ -19,7 +19,7 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php 
-					sprintf( 
+					echo sprintf( 
 						/* translators: %s: user input search term */
 						esc_html__( 'Search Results for: %s', 'Minimal-Artistic-Portfolio' ), 
 						'<span>' . get_search_query() . '</span>'

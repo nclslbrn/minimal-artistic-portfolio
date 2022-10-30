@@ -17,8 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Language: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2022-01-15 22:48+0000\n"
+"POT-Creation-Date: 2022-09-17 18:36+0000\n"
 "X-Generator: Loco https://localise.biz/"
+
+#: inc/template-tags.php:407
+#, php-format
+msgid "%1$s %2$s of %3$s %4$s"
+msgstr ""
 
 #: inc/template-tags.php:340
 msgid "* : require field"
@@ -167,7 +172,7 @@ msgstr ""
 msgid "error"
 msgstr ""
 
-#: inc/meta-box.php:45 inc/custom-post.php:66
+#: inc/custom-post.php:66 inc/meta-box.php:45
 msgid "Event"
 msgstr ""
 
@@ -183,17 +188,17 @@ msgstr ""
 #. %1$s = first date month name (F) %2$s = first date day num (j)  %3$s = first date year (Y) %4$s = second date month name (F) %5$s = second date day num (j) %6$s = second date year (Y).
 #: inc/template-tags.php:372
 #, php-format
-msgid "From %1$s %2$s s%3$s to %4$s %5$s %6$s"
+msgid "From %1$s %2$s %3$s to %4$s %5$s %6$s"
 msgstr ""
 
 #. From date to date with same year  %1$s = first date month name (F) %2$s = first date day num (j) %3$s = second date month name (F) %4$s = second date day num (j) %5$s = second date year (Y).
-#: inc/template-tags.php:384
+#: inc/template-tags.php:385
 #, php-format
 msgid "From %1$s %2$s to %3$s %4$s %5$s"
 msgstr ""
 
 #. From date to date with same year & the same month %1$s = first date day num (j)  %2$s = second date day num (j) %3$s = second date month name (F) %4$s = second date year (Y).
-#: inc/template-tags.php:397
+#: inc/template-tags.php:398
 #, php-format
 msgid "From %1$s to %2$s %3$s %4$s"
 msgstr ""
@@ -429,11 +434,11 @@ msgstr ""
 msgid "Publishing Soon"
 msgstr ""
 
-#: template-parts/content-project.php:30 template-parts/content-event.php:143
+#: template-parts/content-event.php:143
 msgid "Read more"
 msgstr ""
 
-#: template-parts/content-project.php:81
+#: template-parts/content-project.php:78
 msgid "Read the video"
 msgstr ""
 
@@ -584,7 +589,7 @@ msgstr ""
 msgid "Vimeo"
 msgstr ""
 
-#: template-parts/content-project.php:80
+#: template-parts/content-project.php:77
 msgid ""
 "Your browser doesn't support HTML5 video, but you can read this video with "
 "the link below."

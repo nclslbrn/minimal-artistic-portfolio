@@ -53,3 +53,31 @@ ins {
 big {
     font-size: 125%;
 }
+
+blockquote {
+    position: relative;
+    padding: 2rem 3rem;
+
+    &::before,
+    &::after {
+        position: absolute;
+        font-size: 4rem;
+        font-family: serif;
+        opacity: 0.5;
+        z-index: 1;
+    }
+    &::before {
+        content: "“";
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+    &::after {
+        content: "”";
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+blockquote ~ p {
+    margin-left: 2rem;
+}
