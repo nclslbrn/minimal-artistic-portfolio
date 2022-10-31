@@ -1,6 +1,23 @@
-a.simplelightbox {
+.entry-content p > a.simplelightbox,
+.entry-content > a.simplelightbox {
+    img {
+        box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0);
+        background-color: none;
+        transition: all 0.15s ease-in-out;
+    }
+    &:hover img,
+    &:focus img {
+        display: block;
+        opacity: 0.5;
+        box-shadow: 0 0 0 0.25rem var(--hover-color);
+        background-color: var(--hover-color);
+    }
+}
+
+.gallery a.simplelightbox {
     position: relative;
     display: block;
+    padding-bottom: 7px;
 
     &::before {
         content: "";

@@ -1,7 +1,7 @@
 button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'],
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
 .page-nav a,
 .page-nav span,
 .btn,
@@ -13,19 +13,20 @@ input[type='submit'],
 }
 
 main button,
-main input[type='button'],
-main input[type='reset'],
-main input[type='submit'],
+main input[type="button"],
+main input[type="reset"],
+main input[type="submit"],
 main nav.page-nav a,
 main nav.page-nav span,
 main .btn,
 main .button,
-main .social-sharing-module a {
+main .social-sharing-module a,
+main .contact-links ul li a {
     margin-bottom: 1em;
 
     &:hover {
         //color: var(--text-color);
-        @include border('bottom', --hover-color);
+        @include border("bottom", --hover-color);
         & svg {
             fill: var(--hover-color);
         }
@@ -35,13 +36,13 @@ main .social-sharing-module a {
 .btn,
 .button,
 button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'],
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
 main nav.page-nav a,
 main nav.page-nav span {
     border: none;
-    @include border('bottom', --border-color);
+    @include border("bottom", --border-color);
 
     &.active,
     &:active,
@@ -71,13 +72,42 @@ a.button,
 .social-sharing-module a,
 button[data-toggle] {
     margin: 0.25em;
-    @include border('bottom', --border-color);
+    @include border("bottom", --border-color);
     text-decoration: none;
 }
 
 .page-nav span,
 button[data-toggle].active {
     opacity: 0.75;
+}
+
+main .contact-links ul.works li a {
+    padding: 1em 1.25em 1em 0.75em;
+    margin-bottom: 0.25rem;
+}
+
+main .contact-links ul.networks li a {
+    padding: 0.5em 0.75em 0.5em 0.75em;
+    margin-bottom: 0.75rem;
+}
+
+main .contact-links ul li a {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    background-color: var(--component-bg-color);
+    text-decoration: none;
+    opacity: 1;
+    border-bottom: 2px solid var(--border-color);
+
+    img,
+    svg {
+        margin-right: 0.5rem;
+    }
+    &:hover {
+        opacity: 0.75;
+        border-bottom: 2px solid var(--hover-color);
+    }
 }
 
 .social-sharing-module > ul {

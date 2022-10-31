@@ -171,7 +171,7 @@ main article > .entry-content:last-of-type {
     flex-flow: row wrap;
     margin: 1em 0;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .gif-grid article {
     position: relative;

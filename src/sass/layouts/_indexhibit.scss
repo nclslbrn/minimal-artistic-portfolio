@@ -3,10 +3,18 @@ aside {
     width: 100%;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 body.page-template-homepage main .entry-content {
     margin-top: 1rem;
+}
+body.page-template-contact main article .contact-links {
+    display: flex;
+    flex-flow: row wrap;
+
+    .link-block {
+        flex-grow: 1;
+    }
 }
 
 body.page-template-homepage main .entry-content > article,
@@ -30,6 +38,8 @@ body.search .site-content main > article {
         padding-right: 1rem;
     }
     body.page .site-content .entry-content,
+    body.error404 main .page-content,
+    body.hfeed main .entry-content,
     #content.site-content .project-texts,
     #content.site-content .event-texts,
     #content.site-content article.page .entry-content,
@@ -45,6 +55,8 @@ body.search .site-content main > article {
     }
     .site-title,
     body.page main .entry-header .entry-title,
+    body.hfeed main .page-header .page-title,
+    body.error404 main .page-header .page-title,
     main article.project .entry-header .project-title,
     main article.event .entry-header .event-title,
     main header.page-header .page-title {
@@ -54,7 +66,10 @@ body.search .site-content main > article {
 
     body.page main .entry-header,
     body.page main .entry-content,
+    body.error404 main .page-header .page-title,
+    body.hfeed main .page-header .page-title,
     div.content-area main article.project .entry-header,
+    body.hfeed main .entry-content,
     div.content-area main article.project .entry-content .project-texts,
     div.content-area main article.event .entry-header,
     div.content-area main article.event .entry-content .event-texts,
@@ -62,19 +77,23 @@ body.search .site-content main > article {
     footer.site-footer {
         padding: 0 2rem;
     }
-
+    body.error404 main .page-header,
+    body.hfeed main .page-header,
     body main .entry-header {
         box-shadow: inset 0.5rem 0 0 var(--border-color);
     }
     footer.site-footer .site-info {
         text-align: center;
     }
-    body.page-template-contact main .entry-content {
+    .page-content {
+        min-height: 60vh;
+    }
+    body.page-template-contact main article .entry-content {
         display: flex;
         flex-flow: row nowrap;
         align-items: flex-start;
-    
-        .links,
+
+        .contact-links,
         form.contact {
             flex-grow: 1;
         }

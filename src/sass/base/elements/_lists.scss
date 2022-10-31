@@ -26,7 +26,6 @@ dd {
 	margin: 0 1em 1em;
 }
 
-
 ul {
 	list-style-type: square;
 
@@ -37,4 +36,9 @@ ul {
 			list-style: circle;
 		}
 	}
+}
+
+.contact-links ul {
+	list-style-type: none;
+	margin-left: 0;
 }
