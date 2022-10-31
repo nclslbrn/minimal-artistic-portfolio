@@ -302,6 +302,7 @@ function map_get_form_markup( $url ) {
 	if ( empty( $response[0] ) || 'message_sent' !== $response[0]['id'] ) : 
 		?>
 		<form action="<?php echo esc_url( $url ); ?>" method="post"  class="contact">
+			<h2><?php _e('Email',  'Minimal-Artistic-Portfolio' ); ?></h2>
 
 			<?php wp_nonce_field( 'map_form_process_mail', 'map_form_process_mail_nonce', true, true ); ?>
 

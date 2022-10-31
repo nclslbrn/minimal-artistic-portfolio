@@ -76,7 +76,7 @@ class Night_Mode_Widget extends WP_Widget {
                 </svg>
             </fieldset>
         <?php elseif ( $type === 'single-button') : ?>
-            <fieldset class="single-button button" data-current-theme <?php echo $title ? 'title="'. $title . '"' : ''; ?>>
+            <fieldset class="single-button" data-current-theme <?php echo $title ? 'title="'. $title . '"' : ''; ?>>
                 <label for="theme-button">
                     <?php echo esc_html__('Current mode', 'Minimal-Artistic-Portfolio' ); ?>
                 </label>

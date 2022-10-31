@@ -14,16 +14,21 @@ get_header(); ?>
 
 			<article class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php echo esc_html__( 'error', 'Minimal-Artistic-Portfolio' ); ?>404</h1>
+					<h1 class="page-title">
+						<?php echo esc_html__( 'Oops! That page can&rsquo;t be found.', 'Minimal-Artistic-Portfolio' ); ?></h1>
 				</header><!-- .page-header -->
 				
 				<div class="page-content">
-					
-					<h2 ><?php echo esc_html__( 'Oops! That page can&rsquo;t be found.', 'Minimal-Artistic-Portfolio' ); ?></h2>
-					<h5 class="center">
-						<?php echo esc_html__( 'Sorry, we couldn\'t find the page you were looking for!', 'Minimal-Artistic-Portfolio' ); ?>
-					</h5>
+					<iframe src="https://gateway.fxhash2.xyz/ipfs/QmehDxu1eCsCtSx369FLRCj7AawGtRyE6GKLKHHBC2UG8L/?fxhash=ooWavzytbacXbDYms1tdbeXL3TFDCNeRZan8TmSosb2Qo1y8ZVE" width="800" height="800">
 
+					</iframe>
+					<p><small>Degenerative grid | <a href="https://www.fxhash.xyz/generative/11977">fxhash project</a></small></p>
+					<p>
+						<span><?php echo esc_html__( 'error', 'Minimal-Artistic-Portfolio' ); ?> 404</span>
+						<small>
+							<?php echo esc_html__( 'Sorry, we couldn\'t find the page you were looking for!', 'Minimal-Artistic-Portfolio' ); ?>
+						</small>
+					</p>
 				</div><!-- .page-content -->
 			</article><!-- .error-404 -->
 

@@ -28,6 +28,9 @@ get_header();
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						
+					</header><!-- .entry-header -->
+					<div class="entry-content">
 						<div id="change-event-display-mode" class="event-menu">
 							<button data-toggle="map" class="button">
 								<svg class="icon icon-location">
@@ -42,9 +45,6 @@ get_header();
 								<?php esc_html( __( 'List', 'Minimal-Artistic-Portfolio' ) ); ?>
 							</button>
 						</div>
-					</header><!-- .entry-header -->
-					<div class="entry-content">
-
 						<div id="events-list">	
 
 							<?php map_list_posts_by_years( 'event', -1 ); ?>
