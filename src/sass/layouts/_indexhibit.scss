@@ -8,6 +8,7 @@ aside {
 body.page-template-homepage main .entry-content {
     margin-top: 1rem;
 }
+
 body.page-template-homepage main .entry-content > article,
 body.page-template-events main ul.year-events-list li article,
 body.search .site-content main > article {
@@ -22,6 +23,7 @@ body.search .site-content main > article {
         right: 0;
         width: auto;
         justify-content: flex-end;
+        z-index: 2;
     }
     #content.site-content {
         margin-left: 16%;
@@ -64,8 +66,17 @@ body.search .site-content main > article {
     body main .entry-header {
         box-shadow: inset 0.5rem 0 0 var(--border-color);
     }
-
     footer.site-footer .site-info {
         text-align: center;
+    }
+    body.page-template-contact main .entry-content {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+    
+        .links,
+        form.contact {
+            flex-grow: 1;
+        }
     }
 }

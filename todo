@@ -11,3 +11,11 @@
 - [x] Test nord palette
 - [ ] Contact page with social networks
 - [ ] A creative (coding) 404 page
+
+- [ ] Post production update
+  - [ ] Add alt description to every image
+  - [ ] Add meta description to every page/project/event with [:fr][:en][:]
+  - [ ] Add cover image even on page (to be integrated in open graph)
+  - [ ] Add imagify to convert jpg to webp
+  - [ ] Change quote markup on all post
+  - [ ] Change simple thumbnail to thumbnail gallery 

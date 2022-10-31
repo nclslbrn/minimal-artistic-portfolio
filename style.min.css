@@ -332,6 +332,7 @@ label.pot,input.pot{opacity:0;position:absolute;top:0;left:0;height:0;width:0;z-
 span.input,span.input button[type=submit]{display:block;margin:2em 0}
 span.input input,span.input.textarea-input textarea{padding:1em;background:var(--component-bg-color);border:1px solid var(--border-color);box-shadow:inset 0 -4px 0 var(--primary-color);transition:all .75s ease}
 span.input input:focus,span.input.textarea-input textarea:focus{color:var(--primary-color);box-shadow:inset 0 -4px 0 var(--focus-color);background:var(--bg-color)}
+span.input input[name=message_name],span.input input[name=message_email],span.input textarea[name=message_text]{width:100%}
 .success,.warning,.error{padding:.5em 1.5em .8em .5em;border-radius:2px}
 .success{background:#32cd32}
 .warning{background:orange}
@@ -479,6 +480,8 @@ body.page .site-content .entry-content,#content.site-content .project-texts,#con
 body.page main .entry-header,body.page main .entry-content,div.content-area main article.project .entry-header,div.content-area main article.project .entry-content .project-texts,div.content-area main article.event .entry-header,div.content-area main article.event .entry-content .event-texts,.site-content section.content-area main,footer.site-footer{padding:0 2rem}
 body main .entry-header{box-shadow:inset .5rem 0 0 var(--border-color)}
 footer.site-footer .site-info{text-align:center}
+body.page-template-contact main .entry-content{display:flex;flex-flow:row nowrap;align-items:flex-start}
+body.page-template-contact main .entry-content .links,body.page-template-contact main .entry-content form.contact{flex-grow:1}
 .main-navigation li{border-bottom:0}
 .main-navigation ul li a{padding:0;margin:0 0 .25rem 0;line-height:1.15}
 .menu-toggle{display:none}

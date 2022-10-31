@@ -52,37 +52,6 @@ function map_fluidbox_capable( $html, $id, $alt, $title, $align, $url, $size ) {
 	}
 	return $html;
 }
-/**
- * Add search form to topbar menu
- *
- * @param string $items menu items.
- * @param array  $args wp_nav_menu arguments.
- * @return string $items menu items with search form
- */
-function map_add_search_form_to_menu( $items, $args ) {
-	if ( 'primary' === $args->theme_location ) {
-		$items .= map_mode_chooser_menu();
-		/**  Uncomment  below to activate mode switcher.
-		 */
-		$items .= map_mode_chooser_button();
-
-		$items .= '<li class="search">';
-		$items .= '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '">';
-		$items .= '<input 
-						type="text" placeholder="' . esc_attr__( 'Search', 'Minimal-Artistic-Portfolio' ) . '" 
-						value="" name="s" id="s"/>';
-		$items .= '<input 
-						type="submit" tabindex="-1"	id="searchsubmit" 
-						value="' . esc_attr__( 'Search', 'Minimal-Artistic-Portfolio' ) . '"
-						style="position: absolute; left: -9999px; width: 1px; height: 1px;" />';
-		$items .= '</form>';
-		$items .= '</li>';
-
-	}
-	return $items;
-}
-
-/* add_filter( 'wp_nav_menu_items', 'map_add_search_form_to_menu', 10, 2 ); */
 
 
 /**

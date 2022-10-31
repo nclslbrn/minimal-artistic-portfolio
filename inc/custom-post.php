@@ -243,7 +243,11 @@ function map_get_event( $post_id ) {
 			$title = get_the_title( $event );
 			$url   = get_permalink( $event );
 
-			$event_module_result .= '<li><a href="' . $url . '">' . $title . '</a></li>';
+			$event_module_result .= '
+                <li>
+                    <a href="' . esc_url( $url ) . '">' . esc_html( $title ) . '</a>
+                </li>';
+				// <meta property="event" content="' . esc_attr( $title ) . '"/>.
 		}
 		$event_module = $event_module . '<ul class=\'related-events\'>' . $event_module_result . '</ul>';
 	}

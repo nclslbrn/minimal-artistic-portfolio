@@ -170,7 +170,11 @@ span.input.textarea-input textarea {
         background: var(--bg-color);
     }
 }
-
+span.input input[name="message_name"],
+span.input input[name="message_email"],
+span.input textarea[name="message_text"] {
+    width: 100%;
+}
 .success,
 .warning,
 .error {
