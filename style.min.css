@@ -19,7 +19,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */:root[data-theme=light]{--primary-color:#4c566a;--text-color:#2e3440;--focus-color:#81a1c1;--hover-color:#5e81ac;--bg-color:#e1eaf9;--component-bg-color:#e5e9f0;--border-color:#b4bfd3}
-:root[data-theme=dark]{--primary-color:#eceff4;--text-color:#e5e9f0;--focus-color:#81a1c1;--hover-color:#88c0d0;--bg-color:#2e3440;--component-bg-color:#3b4252;--border-color:#4c566a}
+:root[data-theme=dark]{--primary-color:#e4ebf7;--text-color:#e2e7ef;--focus-color:#81a1c1;--hover-color:#88c0d0;--bg-color:#2e3440;--component-bg-color:#3b4252;--border-color:#4c566a}
 :root{--shadows:0 0 1em rgba(0,0,0,0.1)}
 ::placeholder{color:var(--text-color)}
 ::selection{color:var(--bg-color);background-color:var(--hover-color)}
@@ -61,7 +61,7 @@ template{display:none}
 html{box-sizing:border-box}
 html{font-size:14px;font-size:calc(14px + 2*(100vw - 320px)/680);line-height:1.5}
 body,button,input,select,optgroup,textarea{color:var(--text-color);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;font-size:1rem;line-height:1.5;font-weight:500}
-h1,h2,h3,h4,h5,h6{font-family:"Helvetica Neue",sans-serif;font-family:"hk_groteskbold","Helvetica Neue",sans-serif;clear:both;color:var(--text-color);hyphens:auto;font-weight:700;opacity:.666}
+h1,h2,h3,h4,h5,h6{font-family:"Helvetica Neue",sans-serif;font-family:"hk_groteskbold","Helvetica Neue",sans-serif;clear:both;color:var(--text-color);hyphens:auto;font-weight:700;opacity:.75}
 h6{font-size:.6665rem}
 h5{font-size:.8884445rem}
 h4{font-size:1.1842965185rem}
@@ -324,7 +324,7 @@ ul.sub-menu li button:hover{background:rgba(0,0,0,0);color:var(--hover-color)}
 .slider:before{position:absolute;content:"";height:1rem;width:1rem;left:.2rem;bottom:.2rem;background-color:var(--border-color);transition:.4s}
 input:focus+.slider{box-shadow:0 0 1px var(--hover-color)}
 input:checked+.slider:before{transform:translateX(1rem)}
-.widget_night_mode .single-button{padding:0;margin-right:8px}
+.widget_night_mode .single-button{margin-right:8px}
 .widget_night_mode .single-button input[type=checkbox]{position:absolute;top:-999999px;left:-9999999px}
 .widget_night_mode .single-button svg{width:1.45rem;height:1.45rem}
 .widget.qtranxs_widget{margin-right:4px}
@@ -340,9 +340,9 @@ span.input button[type=submit]{padding:.6em .8em}
 form.search-form{display:flex;flex-flow:row nowrap;justify-content:flex-end}
 form.search-form input#s,form.search-form button.search-submit{margin:0}
 form.search-form button.search-submit{padding:.25em .5em;background:rgba(0,0,0,0)}
-aside{display:flex;width:100%;flex-flow:row nowrap;align-items:center;justify-content:space-between}
+aside{display:flex;width:100%;flex-flow:row wrap;align-items:center;justify-content:space-between}
 body.page-template-homepage main .entry-content{margin-top:1rem}
-body.page-template-homepage main .entry-content>article,body.search .site-content main>article{padding:.5rem;border:1px solid var(--border-color)}
+body.page-template-homepage main .entry-content>article,body.page-template-events main ul.year-events-list li article,body.search .site-content main>article{padding:.5rem;border:1px solid var(--border-color)}
 .main-navigation>ul{list-style-type:none}
 .main-navigation>ul li>ul{margin-left:0}
 .main-navigation>ul li>ul li{list-style-type:none;clear:both;float:none;line-height:1.5}
@@ -403,7 +403,8 @@ main article>.entry-content:last-of-type{padding-bottom:2em}
 .widget{margin:.5em 1em}
 .widget select{max-width:100%}
 .widget ul{padding:0}
-.widget li.active a,.widget li a{padding:.25em;text-decoration:none;border-bottom:1px solid var(--border-color)}
+.widget li.active a,.widget form input,.widget form button,.widget fieldset,.widget li a{padding:1rem;text-decoration:none;font-size:.85em;border-bottom:1px solid var(--border-color);text-transform:uppercase}
+.widget form input#s{padding:1rem 0}
 .widget li.active a,.widget li a:hover{color:var(--hover-color);border-color:var(--hover-color)}
 .widget_night_mode fieldset{display:inline-flex;align-items:center}
 .page-content .wp-smiley,.entry-content .wp-smiley,.comment-content .wp-smiley{border:0;margin-bottom:0;margin-top:0;padding:0}
@@ -455,7 +456,7 @@ body.no-scroll{display:block;max-height:100vh;pointer-events:none;overflow:hidde
 .project-summary,.event-summary{flex-flow:row nowrap;align-items:center;width:100%}
 #events-list section ul{margin:0 0 1.5em 12%}
 }@media(min-width:54rem)and (max-width:64rem){.site-title{text-align:center}
-}@media(min-width:54rem){form.search-form input#s{width:116px}
+}@media(min-width:54rem){form.search-form input#s{width:130px}
 .main-navigation>ul{margin:0 0 0 .8rem;flex-flow:column wrap;justify-content:flex-start;max-width:100%;box-shadow:none}
 .main-navigation>ul ul{display:block}
 .site .wrapper{width:90%}
@@ -470,12 +471,13 @@ body.no-scroll{display:block;max-height:100vh;pointer-events:none;overflow:hidde
 .site-header div.wrapper{position:relative;display:flex;flex-flow:row wrap;align-items:stretch;justify-content:flex-start;flex-flow:column nowrap}
 .site-header div.wrapper .site-title,.site-header div.wrapper aside{padding-left:.8rem}
 .site-header div.wrapper .site-title{font-size:1.5em;line-height:3.18}
-aside{position:absolute;padding:0;top:1.5rem;right:2rem;width:auto;justify-content:flex-end}
+aside{position:absolute;padding:0;top:0;right:0;width:auto;justify-content:flex-end}
 #content.site-content{margin-left:16%;padding-right:1rem}
 body.page .site-content .entry-content,#content.site-content .project-texts,#content.site-content .event-texts,#content.site-content article.page .entry-content,#content.site-content footer.site-footer .wrapper,body.page-template-gif-page .site-content main,body.search .site-content main,body.hfeed .site-content main{max-width:1280px}
 #content.site-content footer.site-footer .wrapper{margin-left:0}
-.site-title,body.page main .entry-header .entry-title,main article.project .entry-header .project-title,main article.event .entry-header .event-title,main header.page-header .page-title{margin:0;padding:.2em 0}
+.site-title,body.page main .entry-header .entry-title,main article.project .entry-header .project-title,main article.event .entry-header .event-title,main header.page-header .page-title{margin:0 0 .2em 0;padding:.2em 0 0 0}
 body.page main .entry-header,body.page main .entry-content,div.content-area main article.project .entry-header,div.content-area main article.project .entry-content .project-texts,div.content-area main article.event .entry-header,div.content-area main article.event .entry-content .event-texts,.site-content section.content-area main,footer.site-footer{padding:0 2rem}
+body main .entry-header{box-shadow:inset .5rem 0 0 var(--border-color)}
 footer.site-footer .site-info{text-align:center}
 .main-navigation li{border-bottom:0}
 .main-navigation ul li a{padding:0;margin:0 0 .25rem 0;line-height:1.15}

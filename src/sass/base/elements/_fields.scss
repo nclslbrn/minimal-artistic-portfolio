@@ -124,7 +124,6 @@ input:checked + .slider:before {
 
 /* Single button theme chooser */
 .widget_night_mode .single-button {
-    padding: 0;
     margin-right: 8px;
     input[type="checkbox"] {
         position: absolute;
@@ -199,7 +198,7 @@ form.search-form {
 
     input#s {
         @include breakpoint(md) {
-            width: 116px;
+            width: 130px;
         }
     }
 

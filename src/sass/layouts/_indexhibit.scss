@@ -1,7 +1,7 @@
 aside {
     display: flex;
     width: 100%;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -9,6 +9,7 @@ body.page-template-homepage main .entry-content {
     margin-top: 1rem;
 }
 body.page-template-homepage main .entry-content > article,
+body.page-template-events main ul.year-events-list li article,
 body.search .site-content main > article {
     padding: 0.5rem;
     border: 1px solid var(--border-color);
@@ -17,8 +18,8 @@ body.search .site-content main > article {
     aside {
         position: absolute;
         padding: 0;
-        top: 1.5rem;
-        right: 2rem;
+        top: 0;
+        right: 0;
         width: auto;
         justify-content: flex-end;
     }
@@ -45,8 +46,8 @@ body.search .site-content main > article {
     main article.project .entry-header .project-title,
     main article.event .entry-header .event-title,
     main header.page-header .page-title {
-        margin: 0;
-        padding: 0.2em 0;
+        margin: 0 0 0.2em 0;
+        padding: 0.2em 0 0 0;
     }
 
     body.page main .entry-header,
@@ -58,6 +59,10 @@ body.search .site-content main > article {
     .site-content section.content-area main,
     footer.site-footer {
         padding: 0 2rem;
+    }
+
+    body main .entry-header {
+        box-shadow: inset 0.5rem 0 0 var(--border-color);
     }
 
     footer.site-footer .site-info {
