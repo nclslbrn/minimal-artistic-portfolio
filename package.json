@@ -37,6 +37,7 @@
         "gulp-imagemin": "^7.1.0",
         "gulp-line-ending-corrector": "^1.0.1",
         "gulp-merge-media-queries": "^0.2.1",
+        "gulp-mode": "^1.1.0",
         "gulp-plumber": "^1.2.0",
         "gulp-remember": "^1.0.1",
         "gulp-rename": "^2.0.0",
@@ -52,8 +53,8 @@
         "vinyl-source-stream": "^2.0.0"
     },
     "scripts": {
-        "dev": "gulp",
-        "zip": "gulp zip",
+        "dev": "gulp --development",
+        "zip": "gulp zip --production",
         "styles": "gulp styles",
         "images": "gulp images",
         "js-custom": "gulp customJS",

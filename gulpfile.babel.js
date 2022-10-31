@@ -65,6 +65,11 @@ const remember = require( 'gulp-remember' ) //  Adds all the files it has ever s
 const plumber = require( 'gulp-plumber' ) // Prevent pipe breaking caused by errors from gulp plugins.
 // const beep = require( 'beepbeep' )
 const zip = require( 'gulp-zip' ) // Zip plugin or theme file.
+const mode = require( 'gulp-mode' )({
+	modes: [ 'production', 'development' ],
+	default: 'development',
+	verbose: false
+})
 
 /**
  * Custom Error Handler.
@@ -118,7 +123,7 @@ gulp.task( 'styles', () => {
 	return gulp
 		.src( config.styleSRC, { allowEmpty: true })
 		.pipe( plumber( errorHandler ) )
-		.pipe( sourcemaps.init() )
+		.pipe( ( mode.development( sourcemaps.init() ) ) )
 		.pipe(
 			sass({
 				errLogToConsole: config.errLogToConsole,
@@ -127,11 +132,11 @@ gulp.task( 'styles', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		.pipe( sourcemaps.write({ includeContent: false }) )
-		.pipe( sourcemaps.init({ loadMaps: true }) )
+		.pipe( ( mode.development( sourcemaps.write({ includeContent: false }) ) ) )
+		.pipe( ( mode.development( sourcemaps.init({ loadMaps: true }) ) ) )
 
-		// .pipe( autoprefixer( config.BROWSERS_LIST ) )
-		.pipe( sourcemaps.write( './' ) )
+		.pipe( ( mode.production( autoprefixer( config.BROWSERS_LIST ) ) ) )
+		.pipe( ( mode.development( sourcemaps.write( './' ) ) ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
@@ -170,7 +175,7 @@ gulp.task( 'stylesRTL', () => {
 	return gulp
 		.src( config.styleSRC, { allowEmpty: true })
 		.pipe( plumber( errorHandler ) )
-		.pipe( sourcemaps.init() )
+		.pipe( ( mode.development( ( sourcemaps.init() ) ) ) )
 		.pipe(
 			sass({
 				errLogToConsole: config.errLogToConsole,
@@ -179,13 +184,13 @@ gulp.task( 'stylesRTL', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		.pipe( sourcemaps.write({ includeContent: false }) )
-		.pipe( sourcemaps.init({ loadMaps: true }) )
+		.pipe( ( mode.development( sourcemaps.write({ includeContent: false }) ) ) )
+		.pipe( ( mode.development( sourcemaps.init({ loadMaps: true }) ) ) )
 		.pipe( autoprefixer( config.BROWSERS_LIST ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
 		.pipe( rtlcss() ) // Convert to RTL.
-		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
+		.pipe( ( mode.development( sourcemaps.write( './' ) ) ) ) // Output sourcemap for style-rtl.css.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
@@ -265,12 +270,12 @@ gulp.task( 'customJS', () => {
 		.bundle()
 		.pipe( source( `${config.jsCustomFile}.js` ) )
 		.pipe( buffer() )
-		.pipe( sourcemaps.init({loadMaps: true}) )
+		.pipe( ( mode.development( sourcemaps.init({loadMaps: true}) ) ) )
 		.pipe( plumber( errorHandler ) )
 		.pipe( uglify() )
 		.pipe( plumber.stop() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-		.pipe( sourcemaps.write() )
+		.pipe( ( mode.development( sourcemaps.write() ) ) )
 		.pipe( gulp.dest( config.jsCustomDestination ) )
 		.on( 'end', function() {
 			console.log( '✅ CUSTOM JS — completed!' )

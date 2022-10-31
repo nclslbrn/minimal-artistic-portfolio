@@ -95,6 +95,7 @@ const zipIgnoreGlob = [
 	'!./.gitignore',
 	'!./.svn',
 	'!./gulpfile.babel.js',
+    '!./gulp.config.js',
 	'!./wpgulp.config.js',
 	'!./.eslintrc.js',
 	'!./.eslintignore',
@@ -107,11 +108,9 @@ const zipIgnoreGlob = [
 	'!./assets/css',
 	'!./assets/img/raw/**/*',
 	'!./assets/img/raw',
-	'!/vendor/',
-	`!${imgSRC}`,
-	`!${styleSRC}`,
-	`!${jsCustomSRC}`,
-	`!${jsVendorSRC}`
+	'!./vendor/',
+    '!./style.css.map',
+	'!./src/'
 ]
 
 // >>>>> Translation options.
