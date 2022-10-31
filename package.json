@@ -48,13 +48,16 @@
         "gulp-uglifycss": "^1.0.6",
         "gulp-wp-pot": "^2.0.7",
         "gulp-zip": "^5.0.2",
+        "rimraf": "^3.0.2",
         "simplelightbox": "^2.10.4",
         "vinyl-buffer": "^1.0.1",
         "vinyl-source-stream": "^2.0.0"
     },
     "scripts": {
         "dev": "gulp --development",
-        "zip": "gulp zip --production",
+        "clean": "gulp clean",
+        "build": "gulp build --production",
+        "zip": "gulp build --production && gulp zip",
         "styles": "gulp styles",
         "images": "gulp images",
         "js-custom": "gulp customJS",

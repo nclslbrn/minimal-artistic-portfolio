@@ -63,7 +63,7 @@ const sort = require( 'gulp-sort' ) // Recommended to prevent unnecessary change
 const cache = require( 'gulp-cache' ) // Cache files in stream for later use.
 const remember = require( 'gulp-remember' ) //  Adds all the files it has ever seen back into the stream.
 const plumber = require( 'gulp-plumber' ) // Prevent pipe breaking caused by errors from gulp plugins.
-// const beep = require( 'beepbeep' )
+const rimraf = require( 'rimraf' )  // Clean build folder
 const zip = require( 'gulp-zip' ) // Zip plugin or theme file.
 const mode = require( 'gulp-mode' )({
 	modes: [ 'production', 'development' ],
@@ -379,6 +379,22 @@ gulp.task( 'translate', () => {
 })
 
 /**
+ * Clean task
+ * Remove everything in build folder
+ */
+
+gulp.task( 'clean', ( cb ) => {
+	return rimraf( './build/**/*', cb )
+})
+
+/**
+ * Build task
+ */
+gulp.task( 'build', ( cb ) => {
+	gulp.series( 'clean', 'styles', 'vendorsJS', 'customJS', 'images', 'fonts' )( cb )
+})
+
+/**
  * Zips theme or plugin and places in the parent directory
  *
  * zipIncludeGlob: Files to be included in the zip file
@@ -393,6 +409,7 @@ gulp.task( 'zip', () => {
 		.pipe( zip( config.zipName ) )
 		.pipe( gulp.dest( config.zipDestination ) )
 })
+
 
 /**
  * Watch Tasks.
