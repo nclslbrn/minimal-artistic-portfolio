@@ -7,11 +7,10 @@ body {
     background: var(--bg-color);
 }
 
-body #page {
-    background: url(./build/img/concrete-wall.png) repeat;
+body[data-theme="light"]  #page {
+    background: url(./build/img/exclusive-paper.png) repeat;
 }
-/* 
+
 body[data-theme="dark"] #page {
-    background: url(./build/img/fabric-1-light.png) repeat;
+    background: url(./build/img/maze-black.png) repeat;
 }
- */
