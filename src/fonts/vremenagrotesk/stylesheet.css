@@ -1,7 +1,0 @@
-@font-face {
-    font-family: 'vremenagroteskmedium';
-    src: url('./build/fonts/vremenagrotesk/vremenagroteskmedium.woff2') format('woff2'),
-         url('./build/fonts/vremenagrotesk/vremenagroteskmedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
