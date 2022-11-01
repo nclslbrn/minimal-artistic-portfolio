@@ -23,6 +23,9 @@ body.search .site-content main > article {
     padding: 0.5rem;
     border: 1px solid var(--border-color);
 }
+body.search .site-content main > article {
+    padding: 0.5rem 1.5rem;
+}
 @include breakpoint(lg) {
     aside {
         position: absolute;
@@ -79,7 +82,8 @@ body.search .site-content main > article {
     }
     body.error404 main .page-header,
     body.hfeed main .page-header,
-    body main .entry-header {
+    body.single-project main > article .entry-header,
+    body.single-event main > article .entry-header {
         box-shadow: inset 0.5rem 0 0 var(--border-color);
     }
     footer.site-footer .site-info {
