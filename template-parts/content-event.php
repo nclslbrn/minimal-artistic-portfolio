@@ -144,7 +144,6 @@ else :
 				</p>
 			<?php endif; ?>
 
-			<?php echo esc_html( __( 'Read more', 'Minimal-Artistic-Portfolio' ) ); ?>
 
 		</div><!-- .event-info -->
 		<meta property="name" value="<?php echo esc_attr( $post->post_title ); ?>"/>
