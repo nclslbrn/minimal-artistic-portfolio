@@ -137,7 +137,6 @@ add_action( 'widgets_init', 'map_widgets_init' );
  * Enqueue scripts and styles.
  */
 function map_scripts() {
-	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', '', '3.1.1', true );
 	wp_enqueue_style( 'leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all' );
 	wp_enqueue_style( 'Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', '2.0.0', 'all' );
 	wp_enqueue_style( 'Minimal-Artistic-Portfolio-font', get_template_directory_uri() . '/build/fonts/hk-grotesk-bold/stylesheet.css', '', '2.0.0', 'all' );

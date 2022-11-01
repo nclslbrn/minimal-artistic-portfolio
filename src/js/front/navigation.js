@@ -1,15 +1,27 @@
 export default function() {
+	const menuToggle = document.querySelector( '.menu-toggle' )
+	const subMenuToggle = document.querySelectorAll( '.menu-item-has-children' )
+	let menu
 
-	( function( $ ) {
-		$( '.menu-toggle' ).on( 'click', function() {
-			$( this ).toggleClass( 'open' )
-			$( this ).attr( 'aria-expanded', $( this ).hasClass( open ) ? 'false' : 'true' )
-			$( '#site-navigation' ).toggleClass( 'toggled' )
-			$( 'body' ).toggleClass( 'fixed' )
+	if ( menuToggle !== undefined ) {
+		const menuId = menuToggle.getAttribute( 'aria-labelledby' )
+		menu = document.getElementById( menuId ).parentNode
+		console.log( menu )
+		menuToggle.addEventListener( 'click', function() {
+			menuToggle.classList.toggle( 'open' )
+			menuToggle.setAttribute( 'aria-expanded',
+				menuToggle.classList.contains( 'open' ) ?
+					'false' :
+					'true'
+			)
+			menu.classList.toggle( 'toggled' )
+			document.body.classList.toggle( 'fixed' )
 		})
 
-		$( '.menu-item-has-children' ).click( function() {
-			$( this ).toggleClass( 'open' )
+		subMenuToggle.forEach( ( toggle ) => {
+			addEventListener( 'click', function() {
+				toggle.classList.toggle( 'open' )
+			})
 		})
-	}( jQuery ) )
+	}
 }

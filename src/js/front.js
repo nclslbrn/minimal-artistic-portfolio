@@ -1,8 +1,3 @@
-/*
-import '../fonts/Inter-Bold.woff'
-import '../fonts/Inter-Bold.woff2'
-import '../sass/style.scss'
-*/
 import map from './front/event-map'
 import mode from './front/mode-chooser'
 import nav from './front/navigation'
