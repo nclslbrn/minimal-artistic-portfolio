@@ -333,7 +333,6 @@ input:checked+.slider:before{transform:translateX(1rem)}
 .widget_night_mode .single-button{margin-right:8px}
 .widget_night_mode .single-button input[type=checkbox]{position:absolute;top:-999999px;left:-9999999px}
 .widget_night_mode .single-button svg{width:1.45rem;height:1.45rem}
-.widget.qtranxs_widget{margin-right:4px}
 label.pot,input.pot{opacity:0;position:absolute;top:0;left:0;height:0;width:0;z-index:-1}
 span.input,span.input button[type=submit]{display:block;margin:2em 0}
 span.input input,span.input.textarea-input textarea{padding:1em;background:var(--component-bg-color);border:1px solid var(--border-color);box-shadow:inset 0 -4px 0 var(--primary-color);transition:all .75s ease}
@@ -346,7 +345,7 @@ span.input input[name=message_name],span.input input[name=message_email],span.in
 span.input button[type=submit]{padding:.6em .8em}
 form.search-form{display:flex;flex-flow:row nowrap;justify-content:flex-end}
 form.search-form input#s,form.search-form button.search-submit{margin:0}
-form.search-form button.search-submit{padding:.25em .5em;background:rgba(0,0,0,0)}
+form.search-form button.search-submit{padding:.25em 1.5em;background:rgba(0,0,0,0)}
 aside{display:flex;width:100%;flex-flow:row wrap;align-items:center;justify-content:space-around}
 body.page-template-homepage main .entry-content{margin-top:1rem}
 body.page-template-contact main article .contact-links{display:flex;flex-flow:row wrap}
@@ -414,6 +413,7 @@ main article>.entry-content:last-of-type{padding-bottom:2em}
 .widget{margin:.5em 1em}
 .widget select{max-width:100%}
 .widget ul{padding:0}
+.widget ul li{opacity:1 !important}
 .widget li.active a,.widget form input,.widget form button,.widget fieldset label,.widget li a{padding:1rem;text-decoration:none;font-size:.85em;border-bottom:1px solid var(--border-color);text-transform:uppercase}
 .widget form input#s{padding:1rem 0}
 .widget fieldset label:hover,.widget li.active a,.widget li a:hover{color:var(--hover-color);border-color:var(--hover-color)}
@@ -490,7 +490,7 @@ body.page .site-content .entry-content,body.error404 main .page-content,body.hfe
 #content.site-content footer.site-footer .wrapper{margin-left:0}
 .site-title,body.page main .entry-header .entry-title,body.hfeed main .page-header .page-title,body.error404 main .page-header .page-title,main article.project .entry-header .project-title,main article.event .entry-header .event-title,main header.page-header .page-title{margin:0 0 .2em 0;padding:.2em 0 0 0}
 body.page main .entry-header,body.page main .entry-content,body.error404 main .page-header .page-title,body.hfeed main .page-header .page-title,div.content-area main article.project .entry-header,body.hfeed main .entry-content,div.content-area main article.project .entry-content .project-texts,div.content-area main article.event .entry-header,div.content-area main article.event .entry-content .event-texts,.site-content section.content-area main,footer.site-footer{padding:0 2rem}
-body.error404 main .page-header,body.hfeed main .page-header,body.single-project main>article .entry-header,body.single-event main>article .entry-header{box-shadow:inset .5rem 0 0 var(--border-color)}
+body.error404 main .page-header,body.hfeed main .page-header,body.single-project main>article .entry-header,body.single-event main>article .entry-header{box-shadow:inset .5rem 0 0 var(--border-color);max-width:60%}
 footer.site-footer .site-info{text-align:center}
 .page-content{min-height:60vh}
 body.page-template-contact main article .entry-content{display:flex;flex-flow:row nowrap;align-items:flex-start}

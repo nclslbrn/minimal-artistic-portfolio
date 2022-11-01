@@ -85,6 +85,7 @@ body.search .site-content main > article {
     body.single-project main > article .entry-header,
     body.single-event main > article .entry-header {
         box-shadow: inset 0.5rem 0 0 var(--border-color);
+        max-width: 60%;
     }
     footer.site-footer .site-info {
         text-align: center;
