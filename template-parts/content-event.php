@@ -21,10 +21,7 @@ if ( is_single() ) :
 	$map_event['content_classes'] .= '' !== $post->post_content ? ' filled' : '';
 	$map_event['content_classes'] .= false === $map_event['related_projects'] ? ' no-project' : '';
 	?>
-<article 
-	id="event-<?php echo get_the_ID(); ?>"
-	<?php post_class(); ?>
-	vocab="https://schema.org/" typeof="Event">
+<article id="event-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="event-title"><?php echo esc_html( $post->post_title ); ?></h1>
 	</header>
@@ -74,14 +71,11 @@ if ( is_single() ) :
 					<?php echo wp_kses_post( $map_event['related_projects'] ); ?>
 				<?php endif; ?>		
 			</div><!-- .event-properties -->
-			<div class="event-description" property="description">
+			<div class="event-description">
 				<?php the_content(); ?>
 			</div><!-- event-description -->
 		</div><!-- .event-texts -->
 	</div><!-- .entry-content -->
-	<meta property="name" value="<?php echo esc_attr( $post->post_title ); ?>"/>
-	<meta property="startDate" value="<?php echo esc_attr( date_i18n( 'Y-m-d', $map_event['begin_date'] ) ); ?>" />
-	<meta property="thumbnail" value="<?php echo esc_url( get_the_post_thumbnail_url( null, 'post-thumbnail' ) ); ?>" />
 </article>
 
 	<?php 
@@ -97,10 +91,7 @@ else :
 	);
 
 	?>
-	<article 
-		id="post<?php echo esc_attr( $post->ID ); ?>" 
-		<?php post_class( 'event-summary' ); ?>
-		vocab="https://schema.org/" typeof="Event">
+	<article id="post<?php echo esc_attr( $post->ID ); ?>" <?php post_class( 'event-summary' ); ?>>
 
 		<?php if ( ! empty( $map_event['thumbnail'] ) ) : ?>
 			<a class="event-featured-image" href="<?php echo esc_url( $map_event['link'] ); ?>">
@@ -146,9 +137,6 @@ else :
 
 
 		</div><!-- .event-info -->
-		<meta property="name" value="<?php echo esc_attr( $post->post_title ); ?>"/>
-		<meta property="startDate" value="<?php echo esc_attr( date_i18n( 'Y-m-d', $map_event['begin_date'] ) ); ?>" />
-		<meta property="thumbnail" value="<?php echo esc_url( get_the_post_thumbnail_url( null, 'post-thumbnail' ) ); ?>" />
 	</article>
 	<?php 
 endif;
