@@ -61,11 +61,28 @@ if ( ! is_single() ) { ?>
 				( 'self' === $map_video_provider && isset( $map_third_res_url ) )
 				)
 			) {
-				if ( in_array( $map_video_provider, array( 'vimeo', 'youtube' ), true ) ) {
-					echo '<div class="player" 
-						data-plyr-provider="' . esc_attr( $map_video_provider ) . '" 
-						data-plyr-embed-id="' . esc_attr( $map_video_id ) . '">
-						</div>';
+				if ( 'vimeo' === $map_video_provider ) {
+					echo '
+					<div class="player plyr__video-embed">
+						<iframe
+							src="https://player.vimeo.com/video/' . $map_video_id . '?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+							allowfullscreen
+							allowtransparency
+							allow="autoplay"
+						></iframe>
+					</div>
+					';
+				} elseif ( 'youtube' === $map_video_provider ) {
+					echo '
+					<div class="player plyr__video-embed">
+						<iframe
+							src="https://www.youtube.com/embed/' . $map_video_id . '?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+							allowfullscreen
+							allowtransparency
+							allow="autoplay"
+						></iframe>
+					</div>
+					';
 				} elseif ( 'self' === $map_video_provider && isset( $map_third_res_url ) ) {
 					echo '<video class="player selfhosted" controls crossorigin playsinline loop>';
 					if ( $map_first_res_url ) {
