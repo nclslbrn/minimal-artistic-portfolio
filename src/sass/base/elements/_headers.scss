@@ -9,6 +9,7 @@
         overflow-y: auto;
         border-bottom: none;
         // border-right: 2px double var(--border-color);
+        @include scrollbars(1rem, var(--border-color), var(--bg-color));
     }
 }
 

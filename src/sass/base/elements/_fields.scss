@@ -195,7 +195,6 @@ span.input button[type="submit"] {
 form.search-form {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-end;
 
     input#s {
         @include breakpoint(md) {

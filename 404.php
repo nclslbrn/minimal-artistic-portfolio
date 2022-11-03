@@ -13,13 +13,13 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<article class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title">
+				<header class="entry-header">
+					<h1 class="entry-title">
 						<?php echo esc_html__( 'error', 'Minimal-Artistic-Portfolio' ); ?> 404
 					</h1>
 				</header><!-- .page-header -->
 					
-				<div class="page-content">
+				<div class="entry-content">
 					<iframe src="https://gateway.fxhash2.xyz/ipfs/QmehDxu1eCsCtSx369FLRCj7AawGtRyE6GKLKHHBC2UG8L/?fxhash=ooWavzytbacXbDYms1tdbeXL3TFDCNeRZan8TmSosb2Qo1y8ZVE" width="800" height="800">			
 					</iframe>
 					<p><small>Degenerative grid | <a href="https://www.fxhash.xyz/generative/11977">fxhash project</a></small></p>

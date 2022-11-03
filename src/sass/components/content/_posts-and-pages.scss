@@ -22,20 +22,13 @@
     display: block;
 }
 
-.post,
-.page {
-    margin: 0 0 1.5em;
-}
-
 .updated:not(.published) {
     display: none;
 }
 
-.page-content,
 .entry-content,
-.entry-summary,
-body.search .site-content main > article {
-    margin: 0 0 1.5em 0;
+body.search .site-content main {
+    padding-bottom: 2rem;
 }
 
 .page-links {
@@ -53,7 +46,7 @@ main article > .entry-content:last-of-type {
 .event-summary {
     display: flex;
     flex-flow: column nowrap;
-    margin: 0 0 3em 0;
+    margin: 0 0 2em 0;
 
     @include breakpoint(sm) {
         flex-flow: row nowrap;
@@ -155,15 +148,11 @@ main article > .entry-content:last-of-type {
     }
 }
 
-/* Small height content 
+/* Article list
 --------------------------------------------- */
-/* .no-results,
-.not-found,
-.single-project .project-texts,
-.single-event .event-texts {
-    min-height: 60vh;
-} */
-
+section main article {
+    margin: 2rem;
+}
 /* GIF page
 --------------------------------------------- */
 .gif-grid {

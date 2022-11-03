@@ -5,9 +5,10 @@ body {
 
 body {
     background: var(--bg-color);
+    @include scrollbars(1rem, var(--border-color), var(--bg-color));
 }
 
-body[data-theme="light"]  #page {
+body[data-theme="light"] #page {
     background: url(./build/img/exclusive-paper.png) repeat;
 }
 

@@ -21,8 +21,8 @@ get_header(); ?>
 
 			if ( (is_category() || is_tax() || is_home()) && ! is_front_page() ) : 
 				?>
-				<header class="page-header">
-					<h1 class="page-title">
+				<header class="entry-header">
+					<h1 class="entry-title">
 						<?php _e( 'Archive', 'Minimal-Artistic-Portfolio' ); ?>
 					</h1>
 				</header><!-- .page-header -->

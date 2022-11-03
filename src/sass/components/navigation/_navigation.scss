@@ -216,7 +216,8 @@
 /* page num navigation */
 nav.page-nav {
     display: block;
-    margin-bottom: 3em;
+    padding-bottom: 2rem;
+    @include clearfix;
 }
 /* sharing menu */
 .social-sharing-module > ul,

@@ -28,12 +28,6 @@ get_header(); ?>
 								<h2>Works</h2>
 								<ul class="works">
 									<li>
-										<a href="https://nicolas-lebrun.fr">
-											<img src="https://nicolas-lebrun.fr/wp-content/uploads/2021/08/cropped-nl-32x32.png">
-											<span>nicolas-lebrun.fr</span>
-										</a>
-									</li>
-									<li>
 										<a href="https://www.fxhash.xyz/u/nclslbrn">
 											<img src="https://www.fxhash.xyz/favicon-32x32.png">
 											<span>Fxhash</span>

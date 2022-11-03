@@ -6,7 +6,7 @@ aside {
     justify-content: space-around;
 }
 body.page-template-homepage main .entry-content {
-    margin-top: 1rem;
+    padding-top: 1.5rem;
 }
 body.page-template-contact main article .contact-links {
     display: flex;
@@ -49,7 +49,8 @@ body.search .site-content main > article {
     #content.site-content footer.site-footer .wrapper,
     body.page-template-gif-page .site-content main,
     body.search .site-content main,
-    body.hfeed .site-content main {
+    body.hfeed .site-content main,
+    section main {
         max-width: 1280px;
     }
 
@@ -58,39 +59,59 @@ body.search .site-content main > article {
     }
     .site-title,
     body.page main .entry-header .entry-title,
-    body.hfeed main .page-header .page-title,
-    body.error404 main .page-header .page-title,
+    body.hfeed main .entry-header .entry-title,
+    body.error404 main .entry-header .entry-title,
     main article.project .entry-header .project-title,
     main article.event .entry-header .event-title,
-    main header.page-header .page-title {
-        margin: 0 0 0.2em 0;
-        padding: 0.2em 0 0 0;
+    main > header.entry-header .entry-title {
+        margin: 0;
+        padding: 0.2em 0;
     }
 
     body.page main .entry-header,
     body.page main .entry-content,
-    body.error404 main .page-header .page-title,
-    body.hfeed main .page-header .page-title,
+    body.search main > .entry-header,
+    body.error404 main .entry-header .entry-title,
+    body.hfeed main > .entry-header .entry-title,
     div.content-area main article.project .entry-header,
     body.hfeed main .entry-content,
     div.content-area main article.project .entry-content .project-texts,
     div.content-area main article.event .entry-header,
     div.content-area main article.event .entry-content .event-texts,
-    .site-content section.content-area main,
     footer.site-footer {
         padding: 0 2rem;
     }
-    body.error404 main .page-header,
+
+    body.page-template-homepage main .entry-header,
+    body.page-template-events main .entry-header,
+    body.page-template-contact main .entry-header,
+    body.page-template-gif-page main .entry-header,
+    body.page-template-default main .entry-header,
+    body.search main > .entry-header,
+    body.error404 main .entry-header,
     body.hfeed main .page-header,
     body.single-project main > article .entry-header,
     body.single-event main > article .entry-header {
         box-shadow: inset 0.5rem 0 0 var(--border-color);
         max-width: 60%;
     }
+
+    div.content-area main article.event .entry-content .event-texts,
+    div.content-area main article.project .entry-content .project-texts,
+    body.page-template-default main .entry-content,
+    body.page-template-events main .entry-content,
+    body.page-template-contact main .entry-content,
+    body.page-template-homepage main .entry-content,
+    body.error404 main .entry-content,
+    section main {
+        padding-top: 0.5rem;
+        box-shadow: inset 0.05rem 0 0 var(--border-color);
+    }
+
     footer.site-footer .site-info {
         text-align: center;
     }
-    .page-content {
+    .entry-content {
         min-height: 60vh;
     }
     body.page-template-contact main article .entry-content {

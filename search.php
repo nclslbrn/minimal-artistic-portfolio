@@ -16,8 +16,8 @@ get_header(); ?>
 		if ( have_posts() ) : 
 			?>
 
-			<header class="page-header">
-				<h1 class="page-title">
+			<header class="entry-header">
+				<h1 class="entry-title">
 					<?php 
 					echo sprintf( 
 						/* translators: %s: user input search term */
