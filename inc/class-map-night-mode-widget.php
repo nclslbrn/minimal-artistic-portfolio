@@ -51,11 +51,11 @@ class Map_Night_Mode_Widget extends WP_Widget {
 
 		?>
 
-		<?php echo esc_html( $args['before_widget'] ); ?>
+		<?php echo wp_kses_post( $args['before_widget'] ); ?>
 
 		<?php 
 		if ( $title ) {
-			echo esc_html( $args['before_title'] . $title . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
 		} 
 		?>
 		<?php if ( 'menu' === $type ) : ?>
@@ -68,11 +68,11 @@ class Map_Night_Mode_Widget extends WP_Widget {
 			<select name="mode-switcher">
 				<option value="light" <?php echo 'light' === $curr_mode ? 'selected' : ''; ?>>
 					☀️ 
-					<?php echo esc_html__( 'Light', 'Minimal-Artistic-Portfolio' ); ?>
+					<?php echo esc_html_e( 'Light', 'Minimal-Artistic-Portfolio' ); ?>
 				</option>
 				<option value="dark" <?php echo 'dark' === $curr_mode ? 'selected' : ''; ?>>
 					🌑 
-					<?php echo esc_html__( 'Dark', 'Minimal-Artistic-Portfolio' ); ?>   
+					<?php esc_html_e( 'Dark', 'Minimal-Artistic-Portfolio' ); ?>   
 				</option>                
 		</select>
 		<?php elseif ( 'switch' === $type ) : ?>
@@ -92,17 +92,19 @@ class Map_Night_Mode_Widget extends WP_Widget {
 				</svg>
 			</fieldset>
 		<?php elseif ( 'single-button' === $type ) : ?>
-			<fieldset class="single-button" data-current-theme <?php echo $title ? 'title="' . esc_attr( $title ) . '"' : ''; ?>>
-				<label for="theme-button">
-					<?php echo esc_html__( 'Current mode', 'Minimal-Artistic-Portfolio' ); ?>
+			<fieldset 
+				class="single-button" 
+				<?php echo $title ? 'title="' . esc_attr( $title ) . '"' : ''; ?>
+				data-current-theme>
+				<label for="theme-button" aria-label="<?php echo esc_attr__( 'Current mode', 'Minimal-Artistic-Portfolio' ); ?>">
+					<input id="theme-button" type="checkbox" name="mode-switcher">
+					<svg class="icon icon-<?php echo esc_attr( $icon_name ); ?>">
+						<use xlink:href="#icon-<?php echo esc_attr( $icon_name ); ?>"></use>
+					</svg>
 				</label>
-				<input id="theme-button" type="checkbox" name="mode-switcher">
-				<svg class="icon icon-<?php echo esc_attr( $icon_name ); ?>">
-					<use xlink:href="#icon-<?php echo esc_attr( $icon_name ); ?>"></use>
-				</svg>
 			</fieldset>
 		<?php endif; ?>
-		<?php echo esc_html( $args['after_widget'] ); ?>
+		<?php echo wp_kses_post( $args['after_widget'] ); ?>
 		<?php
 	}
  
@@ -181,7 +183,7 @@ class Map_Night_Mode_Widget extends WP_Widget {
  * @return void
  */
 function map_load_night_theme_widget() {
-	register_widget( 'Night_Mode_Widget' );
+	register_widget( 'Map_Night_Mode_Widget' );
 }
 add_action( 'widgets_init', 'map_load_night_theme_widget' );
 

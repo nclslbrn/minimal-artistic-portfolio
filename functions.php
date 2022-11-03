@@ -198,7 +198,7 @@ require get_template_directory() . '/inc/custom-post.php';
 /**
  * Load a dynamic project menu (comment to disable it)
  */
-require get_template_directory() . '/inc/class-map-dynamic-project-menu.php';
+require get_template_directory() . '/inc/map-dynamic-project-menu.php';
 
 /**
  * Load meta box features.
@@ -208,4 +208,4 @@ require get_template_directory() . '/inc/meta-box.php';
 /**
  * Load night mode widget
  */
-require get_template_directory() . '/inc/night-mode-widget.php';
+require get_template_directory() . '/inc/class-map-night-mode-widget.php';

@@ -25,6 +25,14 @@
         @include border("bottom");
         text-transform: uppercase;
     }
+    fieldset {
+        padding: 0;
+        margin: 0;
+
+        label {
+            padding: 0.75rem 1em;
+        }
+    }
     form input#s {
         padding: 1rem 0;
     }

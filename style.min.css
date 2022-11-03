@@ -415,6 +415,8 @@ main article>.entry-content:last-of-type{padding-bottom:2em}
 .widget ul{padding:0}
 .widget ul li{opacity:1 !important}
 .widget li.active a,.widget form input,.widget form button,.widget fieldset label,.widget li a{padding:1rem;text-decoration:none;font-size:.85em;border-bottom:1px solid var(--border-color);text-transform:uppercase}
+.widget fieldset{padding:0;margin:0}
+.widget fieldset label{padding:.75rem 1em}
 .widget form input#s{padding:1rem 0}
 .widget fieldset label:hover,.widget li.active a,.widget li a:hover{color:var(--hover-color);border-color:var(--hover-color)}
 .widget_night_mode fieldset{display:inline-flex;align-items:center}
