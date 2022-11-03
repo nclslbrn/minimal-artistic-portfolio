@@ -70,8 +70,7 @@ get_header(); ?>
 											</svg>
 											<span>Twitter</span>
 										</a>
-									</li>
-									
+									</li>							
 									<li>
 										<a href="https://mstdn.io/web/@nclslbrn">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mastodon" viewBox="0 0 16 16">
@@ -88,8 +87,7 @@ get_header(); ?>
 											</svg>
 											<span>Github</span>
 										</a>
-									</li>
-									
+									</li>						
 									<li>
 										<a href="https://discord.com/users/Nicolas%20Lebrun#9221">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
@@ -113,8 +111,7 @@ get_header(); ?>
 											</svg>
 											<span>Instagram</span>
 										</a>
-									</li>
-									
+									</li>							
 								</ul>
 							</div><!-- .link-block -->
 						</div>

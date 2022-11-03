@@ -198,7 +198,7 @@ require get_template_directory() . '/inc/custom-post.php';
 /**
  * Load a dynamic project menu (comment to disable it)
  */
-require get_template_directory() . '/inc/map-dynamic-project-menu.php';
+require get_template_directory() . '/inc/class-map-dynamic-project-menu.php';
 
 /**
  * Load meta box features.
