@@ -76,9 +76,10 @@ button[data-toggle] {
     text-decoration: none;
 }
 
-.page-nav span,
+.page-nav span.page-numbers.current,
 button[data-toggle].active {
-    opacity: 0.75;
+    color: var(--primary-color);
+    @include border("bottom", --hover-color);
 }
 
 main .contact-links ul.works li a {

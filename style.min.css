@@ -18,7 +18,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/:root[data-theme=light]{--primary-color:#2c323f;--text-color:#2e3440;--focus-color:#81a1c1;--hover-color:#5e81ac;--bg-color:#e1eaf9;--component-bg-color:#e5e9f0;--border-color:#b4bfd3}
+*/:root[data-theme=light]{--primary-color:#282c36;--text-color:#23272f;--focus-color:#81a1c1;--hover-color:#5e81ac;--bg-color:#e1eaf9;--component-bg-color:#e5e9f0;--border-color:#b4bfd3}
 :root[data-theme=dark]{--primary-color:#e4ebf7;--text-color:#e2e7ef;--focus-color:#81a1c1;--hover-color:#88c0d0;--bg-color:#2e3440;--component-bg-color:#3b4252;--border-color:#4c566a}
 :root{--shadows:0 0 1em rgba(0,0,0,0.1)}
 ::placeholder{color:var(--text-color)}
@@ -300,7 +300,7 @@ main button:hover svg,main input[type=button]:hover svg,main input[type=reset]:h
 form.search-form button.search-submit{border:0}
 .page-nav a,.page-nav span,.social-sharing-module a{background:rgba(0,0,0,0)}
 a.btn,a.button,.page-nav a,.page-nav span,.social-sharing-module a,button[data-toggle]{margin:.25em;border-bottom:1px solid var(--border-color);text-decoration:none}
-.page-nav span,button[data-toggle].active{opacity:.75}
+.page-nav span.page-numbers.current,button[data-toggle].active{color:var(--primary-color);border-bottom:1px solid var(--hover-color)}
 main .contact-links ul.works li a{padding:1em 1.25em 1em .75em;margin-bottom:.25rem}
 main .contact-links ul.networks li a{padding:.5em .75em .5em .75em;margin-bottom:.75rem}
 main .contact-links ul li a{display:inline-flex;align-items:center;width:auto;background-color:var(--component-bg-color);text-decoration:none;opacity:1;border-bottom:2px solid var(--border-color)}
@@ -414,7 +414,7 @@ main article>.entry-content:last-of-type{padding-bottom:2em}
 .widget select{max-width:100%}
 .widget ul{padding:0}
 .widget ul li{opacity:1 !important}
-.widget li.active a,.widget form input,.widget form button,.widget fieldset label,.widget li a{padding:1rem;text-decoration:none;font-size:.85em;border-bottom:1px solid var(--border-color);text-transform:uppercase}
+.widget li.active a,.widget form input,.widget form button,.widget fieldset label,.widget li a{padding:1rem;text-decoration:none;font-size:.85em;border-bottom:1px solid var(--border-color);text-transform:uppercase;opacity:1 !important}
 .widget fieldset{padding:0;margin:0}
 .widget fieldset label{padding:.75rem 1em}
 .widget form input#s{padding:1rem 0}

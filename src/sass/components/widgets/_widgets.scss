@@ -24,6 +24,7 @@
         font-size: 0.85em;
         @include border("bottom");
         text-transform: uppercase;
+        opacity: 1 !important;
     }
     fieldset {
         padding: 0;
