@@ -6,7 +6,6 @@ export default function() {
 	if ( menuToggle !== undefined ) {
 		const menuId = menuToggle.getAttribute( 'aria-labelledby' )
 		menu = document.getElementById( menuId ).parentNode
-		console.log( menu )
 		menuToggle.addEventListener( 'click', function() {
 			menuToggle.classList.toggle( 'open' )
 			menuToggle.setAttribute( 'aria-expanded',
