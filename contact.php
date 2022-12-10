@@ -128,6 +128,15 @@ get_header(); ?>
 			let containerBound = container.getBoundingClientRect();
 			
 			const iframe = document.createElement('iframe')
+			iframe.style.position = 'absolute';
+			iframe.style.top = 0
+			iframe.style.bottom = 0
+			iframe.style.left = 0
+			iframe.style.right = 0
+			iframe.style.zIndex = -1
+			iframe.width = '100%'
+			iframe.height = '100%'
+
 			iframe.src = iframeUrl + 
 				'?w=' + containerBound.width + 
 				'&h=' + containerBound.height + 
