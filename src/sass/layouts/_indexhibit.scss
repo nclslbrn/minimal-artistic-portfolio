@@ -92,7 +92,7 @@ body.search .site-content main > article {
     body.hfeed main .page-header,
     body.single-project main > article .entry-header,
     body.single-event main > article .entry-header {
-        box-shadow: inset 0.5rem 0 0 var(--border-color);
+        box-shadow: inset 0.5rem 0 0 var(--hover-color);
         max-width: 60%;
     }
 
@@ -105,7 +105,7 @@ body.search .site-content main > article {
     body.error404 main .entry-content,
     section main {
         padding-top: 0.5rem;
-        box-shadow: inset 0.05rem 0 0 var(--border-color);
+        // box-shadow: inset 0.05rem 0 0 var(--border-color);
     }
 
     footer.site-footer .site-info {
