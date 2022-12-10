@@ -25,7 +25,6 @@ main .contact-links ul li a {
     margin-bottom: 1em;
 
     &:hover {
-        //color: var(--text-color);
         @include border("bottom", --hover-color);
         & svg {
             fill: var(--hover-color);
@@ -82,14 +81,15 @@ button[data-toggle].active {
     @include border("bottom", --hover-color);
 }
 
-main .contact-links ul.works li a {
-    padding: 1em 1.25em 1em 0.75em;
-    margin-bottom: 1.25rem;
-}
-
+main .contact-links ul.works li a,
 main .contact-links ul.networks li a {
     padding: 0.5em 0.75em 0.5em 0.75em;
     margin-bottom: 0.75rem;
+}
+
+main .contact-links ul.works li a img {
+    width: 16px;
+    height: 16px;
 }
 
 main .contact-links ul li a {
