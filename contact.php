@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+			
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -115,7 +115,49 @@ get_header(); ?>
 			<?php endwhile; // End of the loop. ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
+	<script>
+		window.onload = function(event) {
+			const iframeUrl = "<?php echo get_template_directory_uri(); ?>/contact-sketch/";
+			let theme = document.documentElement.getAttribute('data-theme');
+			let bodyStyle = window.getComputedStyle(document.body);
+			let backgroundColor = bodyStyle.getPropertyValue('--bg-color');
+			let hoverColor = bodyStyle.getPropertyValue('--hover-color');
+			/* var backgroundColor = theme === 'dark' ? '2e3440' : 'e1eaf9'
+			var hoverColor = theme === 'dark' ? '88c0d0' : '5e81ac' */
+			const container = document.getElementById('main');
+			let containerBound = container.getBoundingClientRect();
+			
+			const iframe = document.createElement('iframe')
+			iframe.src = iframeUrl + 
+				'?w=' + containerBound.width + 
+				'&h=' + containerBound.height + 
+				'&c1=' + backgroundColor.replace('#', '') +
+				'&c2=' + hoverColor.replace('#', '');
 
-<?php
-get_sidebar();
+			const refreshButton = document.createElement('button')
+			refreshButton.innerText = 'Randomize/redraw'
+
+			window.addEventListener('resize', function(event) {
+				containerBound = container.getBoundingClientRect();
+			})
+			refreshButton.addEventListener('click', function(event) {
+				event.preventDefault();
+				theme = document.documentElement.getAttribute('data-theme');
+				bodyStyle = window.getComputedStyle(document.body);
+				backgroundColor = bodyStyle.getPropertyValue('--bg-color');
+				hoverColor = bodyStyle.getPropertyValue('--hover-color');
+				iframe.src =  iframeUrl + 
+				'?w=' + containerBound.width + 
+				'&h=' + containerBound.height + 
+				'&c1=' + backgroundColor.replace('#', '') +
+				'&c2=' + hoverColor.replace('#', '');
+			})
+
+			container.querySelector('article').appendChild(refreshButton)
+			container.appendChild(iframe);
+		};
+
+	</script>
+<?php 
+get_sidebar(); 
 get_footer();
