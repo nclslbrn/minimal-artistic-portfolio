@@ -81,12 +81,13 @@
     }
     ul li a {
         padding: 1em 0.8em;
-        font-size: 1em;
+        font-size: 0.85em;
+        font-weight: 500;
 
         @include breakpoint(lg) {
             padding: 0;
             margin: 0 0 0.25rem 0;
-            line-height: 1.15;
+            line-height: 1.5;
         }
 
         text-align: center;
@@ -142,16 +143,21 @@
 }
 .main-navigation {
     @include breakpoint(lg) {
-        position: relative;
-        width: auto;
-        top: unset;
+        /*
+        position: fixed;
+        top: 3.75rem;
         left: unset;
-
+        width: 20%;
+        */
+        position: relative;
         flex: 1 0 auto;
-
         display: flex;
         flex-flow: column nowrap;
         align-items: flex-start;
+        //max-height: calc(100vh - 3.75rem);
+        // overflow-y: auto;
+        // @include border("right");
+        // @include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 
         & > ul {
             padding-top: 0.5em;
@@ -159,6 +165,7 @@
         }
         ul.sub-menu {
             display: block;
+            margin: 0.5rem 0;
         }
 
         ul li a {
@@ -170,7 +177,7 @@
     display: flex;
     flex-flow: column nowrap;
     box-shadow: var(--shadows);
-    width: 200px;
+    width: 100%;
     align-items: stretch;
     float: right;
     background: var(--component-bg-color);
@@ -179,7 +186,8 @@
         margin: 0 0 0 0.8rem;
         flex-flow: column wrap;
         justify-content: flex-start;
-        max-width: 100%;
+        max-width: 90%;
+        max-width: calc(100% - 1rem);
         box-shadow: none;
 
         ul {

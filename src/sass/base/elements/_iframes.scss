@@ -1,0 +1,13 @@
+.entry-content iframe {
+    display: block;
+    aspect-ratio: 4 / 3;
+    margin: 1rem 0;
+    width: 80%;
+    height: 100%;
+}
+
+iframe[aria-label="Sketch Preview"] {
+    display: block;
+    width: 100%;
+    height: 100%;
+}

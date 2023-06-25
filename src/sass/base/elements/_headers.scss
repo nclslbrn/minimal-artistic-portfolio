@@ -1,15 +1,10 @@
 .site-header {
     position: relative;
-    @include border("bottom");
 
     @include breakpoint(lg) {
-        position: fixed;
-        width: 16%;
-        height: 100vh;
-        overflow-y: auto;
+        flex: 2 0 20%;
+        max-width: 20%;
         border-bottom: none;
-        // border-right: 2px double var(--border-color);
-        @include scrollbars(1rem, var(--border-color), var(--bg-color));
     }
 }
 
@@ -31,11 +26,6 @@
         .site-title,
         aside {
             padding-left: 0.8rem;
-        }
-
-        .site-title {
-            font-size: 1.5em;
-            line-height: 3.18;
         }
     }
 

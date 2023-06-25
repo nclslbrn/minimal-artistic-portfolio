@@ -1,34 +1,34 @@
 // stylelint-disable value-keyword-case
-$font__main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
 // stylelint-enable value-keyword-case
-$font__code: monaco, consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
-$font__pre: 'Courier 10 Pitch', courier, monospace;
-$font__heading: 'hk_groteskbold', 'Helvetica Neue', sans-serif;
+$font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", courier, monospace;
+$font__heading: "hk_groteskbold", "Helvetica Neue", sans-serif;
 
-$font__line-height-body: 1.5;
+$font__line-height-body: 1.6;
 $font__line-height-pre: 1.6;
 
 $headline_baseline: 0.1415;
 $body_baseline: 0.233;
 
-$body_font_size: 14px;
+$body_font_size: 17px;
 
 $type-ratios: (
-    'minorSecond': 1.067,
-    'majorSecond': 1.125,
-    'minorThird': 1.2,
-    'majorThird': 1.25,
-    'perfectFourth': 1.333,
-    'augmentedFourth': 1.414,
-    'perfectFifth': 1.5,
-    'goldenRatio': 1.618
+    "minorSecond": 1.067,
+    "majorSecond": 1.125,
+    "minorThird": 1.2,
+    "majorThird": 1.25,
+    "perfectFourth": 1.333,
+    "augmentedFourth": 1.414,
+    "perfectFifth": 1.5,
+    "goldenRatio": 1.618,
 );
 @function type-ratio($key) {
     @return map-get($type-ratios, $key);
 }
 // Select by key of map, or use a custom value
-$type-size-ratio: type-ratio('perfectFourth');
+$type-size-ratio: type-ratio("majorThird");
 
 // List in descending order to prevent extra sort function
 $type-levels: 6, 5, 4, 3, 2, 1;

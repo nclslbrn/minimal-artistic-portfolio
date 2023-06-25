@@ -1,5 +1,5 @@
 .widget {
-    margin: 0.5em 1em;
+    margin: 0.25em 1em;
 
     // Make sure select elements fit in widgets.
     select {
@@ -19,9 +19,9 @@
     form button,
     fieldset label,
     li a {
-        padding: 1rem;
+        padding: 0.5rem;
         text-decoration: none;
-        font-size: 0.85em;
+        font-size: 0.8em;
         @include border("bottom");
         text-transform: uppercase;
         opacity: 1 !important;
@@ -31,11 +31,12 @@
         margin: 0;
 
         label {
-            padding: 0.75rem 1em;
+            padding: 0.5em;
         }
     }
     form input#s {
-        padding: 1rem 0;
+        padding: 0.5rem 0;
+        line-height: 1.6;
     }
     fieldset label:hover,
     li.active a,

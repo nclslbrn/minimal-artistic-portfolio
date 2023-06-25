@@ -5,13 +5,13 @@ body {
 
 body {
     background: var(--bg-color);
-    @include scrollbars(1rem, var(--border-color), var(--bg-color));
+    @include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 }
 
-body[data-theme="light"] #page {
-    background: url(./build/img/exclusive-paper.png) repeat;
+html[data-theme="light"] body #page {
+    background: url(./build/img/dust.png) repeat;
 }
 
-body[data-theme="dark"] #page {
-    background: url(./build/img/maze-black.png) repeat;
+html[data-theme="dark"] body #page {
+    background: url(./build/img/dark-dust.png) repeat;
 }

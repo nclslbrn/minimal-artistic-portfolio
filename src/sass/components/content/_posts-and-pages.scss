@@ -37,7 +37,7 @@ body.search .site-content main {
 }
 
 main article > .entry-content:last-of-type {
-    padding-bottom: 2em;
+    padding: 1em 0;
 }
 
 /* Project & event list
@@ -100,6 +100,7 @@ main article > .entry-content:last-of-type {
         .project-description,
         .event-description {
             flex: 0 1 auto;
+            padding-right: 7rem;
         }
 
         .project-cartel,
