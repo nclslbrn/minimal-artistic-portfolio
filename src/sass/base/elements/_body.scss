@@ -8,6 +8,10 @@ body {
     @include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 }
 
+body.admin-bar #page {
+    position: relative;
+}
+
 html[data-theme="light"] body #page {
     background: url(./build/img/dust.png) repeat;
 }

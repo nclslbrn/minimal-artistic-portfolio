@@ -12,7 +12,6 @@
 
 // Loops to enumerate the classes for gallery columns.
 @for $i from 2 through 9 {
-
 	.gallery-columns-#{$i} {
 		grid-template-columns: repeat($i, 1fr);
 	}
@@ -20,4 +19,34 @@
 
 .gallery-caption {
 	display: block;
+}
+
+.ext-gallery {
+	display: grid;
+	column-gap: 1em;
+	row-gap: 1em;
+	grid-template-rows: masonry;
+
+	grid-template-columns: repeat(2, 1fr);
+
+	@include breakpoint(sm) {
+		padding-right: 0;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@include breakpoint(md) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@include breakpoint(lg) {
+		grid-template-columns: repeat(5, 1fr);
+	}
+	@include breakpoint(xl) {
+		padding-right: 1em;
+		grid-template-columns: repeat(7, 1fr);
+	}
+}
+
+.ext-gallery a img {
+	max-width: 100%;
+	height: auto;
+	float: left;
 }

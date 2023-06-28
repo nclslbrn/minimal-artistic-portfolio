@@ -80,7 +80,7 @@
         text-decoration: none;
     }
     ul li a {
-        padding: 1em 0.8em;
+        padding: 1em 5em;
         font-size: 0.85em;
         font-weight: 500;
 
@@ -112,9 +112,9 @@
     }
 
     position: absolute;
-    width: 100%;
+    width: auto;
     top: 100%;
-    left: 0;
+    right: 0;
     height: auto;
     z-index: 999;
 
@@ -180,7 +180,7 @@
     width: 100%;
     align-items: stretch;
     float: right;
-    background: var(--component-bg-color);
+    background: var(--bg-color);
 
     @include breakpoint(md) {
         margin: 0 0 0 0.8rem;

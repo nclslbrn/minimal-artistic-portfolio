@@ -45,6 +45,7 @@ if ( ! is_single() ) { ?>
 	$map_content_classes  = '';
 	$map_content_classes .= '' !== $post->post_content ? ' filled' : '';
 	$map_content_classes .= false === $map_related_events ? ' no-event' : '';
+	$map_ext_gallery 	  = get_post_meta( $post->ID, 'ext_gallery', true );
 	?>
 	<article id="project-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
 
@@ -126,6 +127,12 @@ if ( ! is_single() ) { ?>
 				</div><!-- .project-description -->
 
 			</div><!-- .project-text -->
+
+			<?php if ( $map_ext_gallery && !empty($map_ext_gallery)) : ?>
+				<div class="ext-gallery">
+					<?php echo wp_kses_post($map_ext_gallery); ?>
+				</div>
+			<?php endif; ?>
 		</div><!-- .entry-content -->
 	</article>
 	<?php

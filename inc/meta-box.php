@@ -75,6 +75,18 @@ function map_adding_new_metabox() {
 			'__back_compat_meta_box' => true,
 		)
 	);
+
+	add_meta_box(
+		'ext_gallery',
+		__( 'External gallery', 'Minimal-Artistic-Portfolio' ),
+		'map_add_project_ext_gallery',
+		'project',
+		'normal',
+		'high',
+		array(
+			'__back_compat_meta_box' => true,
+		)
+	);
 }
 add_action( 'add_meta_boxes', 'map_adding_new_metabox' );
 
@@ -202,6 +214,13 @@ function map_add_project_cover_options( $post ) {
 
 	<?php
 }
+
+function map_add_project_ext_gallery( $post ) {
+	$ext_gallery = get_post_meta( $post->ID, 'ext_gallery', true );
+	?>
+	<textarea name="ext_gallery" rows="12" style="display: block;width: 100%;"><?php echo wp_kses_post($ext_gallery); ?></textarea>
+	<?php
+}
 /**
  * Save every post meta of event post
  *
@@ -222,7 +241,7 @@ function map_save_event_postmeta( $post_id ) {
 
 				$begin_date = sanitize_user( wp_unslash( $_POST['InputBeginDate'] ) );
 				$end_date   = sanitize_user( wp_unslash( $_POST['InputEndDate'] ) );
-							 
+
 				update_post_meta( $post_id, 'BEGINDATE', $begin_date );
 				update_post_meta( $post_id, 'ENDDATE', $end_date );
 
@@ -281,7 +300,7 @@ function map_save_project_postmeta( $post_id ) {
 				$is_video = sanitize_user( wp_unslash( $_POST['is_video'] ) );
 				update_post_meta( $post_id, 'IS_VIDEO', $is_video );
 			}
-  
+
 			if ( ! isset( $_POST['video_id'] ) || ( 
 			isset( $_POST['video_id'] ) && 
 			get_post_meta( $post_id, 'VIDEO_ID', true ) !== $_POST['video_id'] ) 
@@ -301,8 +320,7 @@ function map_save_project_postmeta( $post_id ) {
 			) {
 				update_post_meta( $post_id, '720P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['720pVideoUrl'] ) ) );
 			}
-			if ( ! isset( $_POST['1080pVideoUrl'] ) || 
-			isset( $_POST['1080pVideoUrl'] ) && 
+			if ( ! isset( $_POST['1080pVideoUrl'] ) || isset( $_POST['1080pVideoUrl'] ) && 
 			get_post_meta( $post_id, '1080P_VIDEO_URL', true ) !== $_POST['1080pVideoUrl'] ) {
 				update_post_meta( $post_id, '1080P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['1080pVideoUrl'] ) ) );
 			}
@@ -313,6 +331,10 @@ function map_save_project_postmeta( $post_id ) {
 			) {
 				$video_provider = sanitize_user( wp_unslash( $_POST['video_provider'] ) );
 				update_post_meta( $post_id, 'VIDEO_PROVIDER', $video_provider );
+			}
+
+			if (get_post_meta($post_id, 'ext_gallery', true) !== wp_kses_post($_POST['ext_gallery'])) {
+				update_post_meta( $post_id, 'ext_gallery', wp_kses_post($_POST['ext_gallery']));
 			}
 		}
 	}
