@@ -8,7 +8,7 @@ Webpack and more.
 [Demo here](https://nicolas-lebrun.fr/) (It's not demo content but my own artistic works)
 
 1st Note: Translation content function work with [qTranslateX](https://wordpress.org/plugins/qtranslate-x/) you can use another plugin, static contents are translated (english/french) with a .po file.
-2nd Note: Currently Gutenbeg blocks are not supported but they should work in the lower right part of events and projects pages (where post_content/the_content() is output).
+2nd Note: Currently Gutenbeg blocks are not supported but if your site use only one language, it should work.
 
 ## Features
 
@@ -16,7 +16,7 @@ Webpack and more.
 
 -   They can have a cartel (technical information of the artwork)
 -   They can be linked to an event post
--   They can have featured image and a video (currently Plyr library is used to display a player of a Vimeo or YouTube vimeo)
+-   They can have featured image and a video (currently Plyr library is used to display a player of a Vimeo or YouTube video)
 
 ### Events post
 
