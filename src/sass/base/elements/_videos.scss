@@ -1,5 +1,5 @@
 //@import '../../../../node_modules/plyr/dist/plyr';
-@import '../../../../node_modules/plyr/src/sass/plyr';
+@import "../../../../node_modules/plyr/src/sass/plyr";
 
 :root {
     --plyr-color-main: var(--bg-color);
@@ -7,7 +7,6 @@
     --plyr-font-size-small: 1em;
 }
 .plyr button {
-    
     span {
         color: var(--text-color);
     }
@@ -18,12 +17,12 @@
     }
     & span:hover,
     &:hover span,
-    &:focus span{
+    &:focus span {
         color: var(--hover-color);
     }
 }
-.plyr__menu__container .plyr__control[role=menuitemradio].plyr__tab-focus::before, 
-.plyr__menu__container .plyr__control[role=menuitemradio]:hover::before {
+.plyr__menu__container .plyr__control[role="menuitemradio"].plyr__tab-focus::before,
+.plyr__menu__container .plyr__control[role="menuitemradio"]:hover::before {
     background: var(--hover-color);
 }
 /* .plyr button.plyr__control[role="menuitemradio"] {
@@ -43,9 +42,25 @@
 }
 .plyr .plyr__menu__container {
     background: var(--bg-color);
-
 }
 .plyr .plyr__controls .plyr__controls__item,
 .plyr .plyr__controls .plyr__controls__item button.plyr__control {
     margin-bottom: 0 !important;
+}
+
+.plyr__video-wrapper,
+.plyr__video-embed {
+    background: transparent;
+}
+.entry-content .player,
+.entry-content .plyr {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: transparent;
+}
+
+.entry-content .player iframe,
+.entry-content .plyr iframe {
+    aspect-ratio: unset;
+    width: 100%;
 }
