@@ -20,7 +20,7 @@ get_header(); ?>
 				</header><!-- .page-header -->
 					
 				<div class="entry-content">
-					<iframe src="https://gateway.fxhash2.xyz/ipfs/QmehDxu1eCsCtSx369FLRCj7AawGtRyE6GKLKHHBC2UG8L/?fxhash=ooWavzytbacXbDYms1tdbeXL3TFDCNeRZan8TmSosb2Qo1y8ZVE" width="800" height="800">			
+					<iframe src="https://gateway.fxhash2.xyz/ipfs/QmehDxu1eCsCtSx369FLRCj7AawGtRyE6GKLKHHBC2UG8L/?fxhash=ooWavzytbacXbDYms1tdbeXL3TFDCNeRZan8TmSosb2Qo1y8ZVE" width="800" height="800" style="aspect-ratio: 1/1;">			
 					</iframe>
 					<p><small>Degenerative grid | <a href="https://www.fxhash.xyz/generative/11977">fxhash project</a></small></p>
 					<p>
