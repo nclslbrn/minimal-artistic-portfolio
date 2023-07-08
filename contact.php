@@ -43,11 +43,29 @@ get_header(); ?>
 										</a>
 									</li>
 									<li>
+										<a href="https://deca.art/nclslbrn">
+											<img src="https://deca.art/icons/favicon-32x32.png" width="32" heigth="32"/>
+											<span>deca</span>
+										</a>
+									</li>
+									<li>
+										<a href="https://nclslbrn.github.io/">
+											<img src="https://nclslbrn.github.io/img/favicon.png" width="32" heigth="32"/>
+											<span>nclslbrn.github.io</span>
+										</a>
+									</li>
+									<li>
+										<a href="https://opensea.io/collection/kallax">
+											<img src="https://opensea.io/static/images/logos/opensea-logo.svg" width="32" height="32"/>
+											<span>Kallax</span>
+										</a>
+									</li>
+									<!-- <li>
 										<a href="https://maison-contemporain.com/fr/artiste/lebrun-nicolas/">
 											<img src="https://maison-contemporain.com/wp-content/uploads/2022/03/cropped-icon-mc-1-32x32.png">
 											<span>Maison contemporain</span>
 										</a>
-									</li>
+									</li> -->
 								</ul>
 							</div><!-- .link-block -->
 							<div class="link-block">
@@ -96,6 +114,12 @@ get_header(); ?>
 										</a>
 									</li>
 									<li>
+										<a href="https://www.threads.net/@nclslbrn">
+											<img width="16" height="16" src="data:image/png;base64,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">
+											<span>Threads</span>
+										</a>
+									</li>
+									<li>
 										<a href="https://www.instagram.com/nclslbrn/">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
 												<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
@@ -112,58 +136,6 @@ get_header(); ?>
 			<?php endwhile; // End of the loop. ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	<script>
-		window.onload = function(event) {
-			const iframeUrl = "<?php echo get_template_directory_uri(); ?>/contact-sketch/";
-			let theme = document.documentElement.getAttribute('data-theme');
-			let bodyStyle = window.getComputedStyle(document.body);
-			let backgroundColor = bodyStyle.getPropertyValue('--bg-color');
-			let hoverColor = bodyStyle.getPropertyValue('--hover-color');
-			/* var backgroundColor = theme === 'dark' ? '2e3440' : 'e1eaf9'
-			var hoverColor = theme === 'dark' ? '88c0d0' : '5e81ac' */
-			const container = document.getElementById('main');
-			let containerBound = container.getBoundingClientRect();
-			
-			const iframe = document.createElement('iframe')
-			iframe.style.position = 'absolute';
-			iframe.style.top = 0
-			iframe.style.bottom = 0
-			iframe.style.left = 0
-			iframe.style.right = 0
-			iframe.style.zIndex = -1
-			iframe.width = '100%'
-			iframe.height = '100%'
-
-			iframe.src = iframeUrl + 
-				'?w=' + containerBound.width + 
-				'&h=' + containerBound.height + 
-				'&c1=' + backgroundColor.replace('#', '') +
-				'&c2=' + hoverColor.replace('#', '');
-
-			const refreshButton = document.createElement('button')
-			refreshButton.innerText = 'Randomize/redraw'
-
-			window.addEventListener('resize', function(event) {
-				containerBound = container.getBoundingClientRect();
-			})
-			refreshButton.addEventListener('click', function(event) {
-				event.preventDefault();
-				theme = document.documentElement.getAttribute('data-theme');
-				bodyStyle = window.getComputedStyle(document.body);
-				backgroundColor = bodyStyle.getPropertyValue('--bg-color');
-				hoverColor = bodyStyle.getPropertyValue('--hover-color');
-				iframe.src =  iframeUrl + 
-				'?w=' + containerBound.width + 
-				'&h=' + containerBound.height + 
-				'&c1=' + backgroundColor.replace('#', '') +
-				'&c2=' + hoverColor.replace('#', '');
-			})
-
-			container.querySelector('article').appendChild(refreshButton)
-			container.appendChild(iframe);
-		};
-
-	</script>
-<?php 
+	<?php 
 get_sidebar(); 
 get_footer();
