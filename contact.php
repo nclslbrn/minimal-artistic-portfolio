@@ -51,7 +51,7 @@ get_header(); ?>
 									<li>
 										<a href="https://make.nicolas-lebrun.fr/">
 											<img src="https://make.nicolas-lebrun.fr/favicon.png" width="32" heigth="32"/>
-											<span>nclslbrn.github.io</span>
+											<span>make</span>
 										</a>
 									</li>
 									<li>
