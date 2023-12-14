@@ -5,9 +5,8 @@ export default function() {
 
 	// const dataBlock = document.getElementById( 'eventsMapData' )
 	const layer = {
-		url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}',
-		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		subdomains: 'abcd',
+		url: 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}',
+		attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', subdomains: 'abcd',
 		minZoom: 0,
 		maxZoom: 20,
 		ext: 'png'
@@ -42,10 +41,10 @@ export default function() {
 
 			leaflet.marker([ latitude, longitude ]).addTo( singleEventMap )
 
-		// mulitple events map
+			// mulitple events map
 		} else if (
 			null !== window.eventsMapData &&
-        window.eventsMapData !== undefined
+			window.eventsMapData !== undefined
 		) {
 			const multipleEventsMap = leaflet
 				.map( 'map' )
@@ -74,8 +73,8 @@ export default function() {
 			const eventList = document.getElementById( 'events-list' )
 			if (
 				0 < viewButton.length &&
-            null !== eventList &&
-            eventList !== undefined
+				null !== eventList &&
+				eventList !== undefined
 			) {
 				for ( let i = 0; i < viewButton.length; i++ ) {
 					viewButton[i].addEventListener( 'click', () => {
