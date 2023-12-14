@@ -48,10 +48,10 @@ get_header(); ?>
 											<span>deca</span>
 										</a>
 									</li>
-									<li>
-										<a href="https://make.nicolas-lebrun.fr/">
-											<img src="https://make.nicolas-lebrun.fr/favicon.png" width="32" heigth="32"/>
-											<span>make</span>
+									<li> 
+										<a href="https://forsaken-ideas.nicolas-lebrun.fr/"> 
+											<img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>" width="32" heigth="32"> 
+											<span>Forsaken Ideas</span> 
 										</a>
 									</li>
 									<li>
@@ -75,7 +75,7 @@ get_header(); ?>
 									<li>
 										<a href="https://twitter.com/nclslbrn">
 											<img src="https://abs.twimg.com/favicons/twitter.3.ico" width="16" height="16"/> 
-											<span>Twitter</span>
+											<span>X</span>
 										</a>
 									</li>
 									<li>
