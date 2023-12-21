@@ -22,31 +22,56 @@
 }
 
 .ext-gallery {
-	display: grid;
-	column-gap: 1em;
-	row-gap: 1em;
-	grid-template-rows: masonry;
-
-	grid-template-columns: repeat(2, 1fr);
-
-	@include breakpoint(sm) {
-		padding-right: 0;
-		grid-template-columns: repeat(3, 1fr);
-	}
+	position: relative;
+	max-width: 100%;
+	overflow-x: scroll;
+	padding-bottom: 82vw;
 	@include breakpoint(md) {
-		grid-template-columns: repeat(4, 1fr);
-	}
-	@include breakpoint(lg) {
-		grid-template-columns: repeat(5, 1fr);
-	}
-	@include breakpoint(xl) {
-		padding-right: 1em;
-		grid-template-columns: repeat(7, 1fr);
+		padding-bottom: 26vw;
 	}
 }
 
-.ext-gallery a img {
-	max-width: 100%;
-	height: auto;
-	float: left;
+.ext-gallery .scroll-wrapper {
+	position: absolute;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	white-space: nowrap;
+	overflow-x: visible;
+	padding: 1em 0 3em 0;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.ext-gallery .scroll-wrapper a {
+	padding: 1em;
+	text-align: center;
+	flex: 0 0 45vw;
+	@include breakpoint(md) {
+		flex: 0 0 18vw;
+	}
+}
+
+.ext-gallery .scroll-wrapper a:hover {
+	background: transparent;
+	transition: background ease-in-out 300ms;
+}
+
+.ext-gallery .scroll-wrapper a img {
+	opacity: 1;
+	transition: all ease-in-out 100ms;
+	object-fit: contain;
+	box-shadow: var(--shadows);
+	@include breakpoint(md) {
+		max-height: 17vw;
+	}
+}
+
+.ext-gallery .scroll-wrapper a:hover {
+	background: var(--component-bg-color);
+}
+
+.ext-gallery .scroll-wrapper a:hover img {
+	opacity: 0.8;
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }

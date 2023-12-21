@@ -130,7 +130,9 @@ if ( ! is_single() ) { ?>
 
 			<?php if ( $map_ext_gallery && !empty($map_ext_gallery)) : ?>
 				<div class="ext-gallery">
-					<?php echo wp_kses_post($map_ext_gallery); ?>
+					<div class="scroll-wrapper">
+						<?php echo wp_kses_post($map_ext_gallery); ?>
+					</div>
 				</div>
 			<?php endif; ?>
 		</div><!-- .entry-content -->
