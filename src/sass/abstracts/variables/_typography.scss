@@ -4,7 +4,7 @@ $font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
 // stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
-$font__heading: "hk_groteskbold", "Helvetica Neue", sans-serif;
+$font__heading: Geist, "Helvetica Neue", sans-serif;
 
 $font__line-height-body: 1.6;
 $font__line-height-pre: 1.6;
@@ -24,6 +24,7 @@ $type-ratios: (
     "perfectFifth": 1.5,
     "goldenRatio": 1.618,
 );
+
 @function type-ratio($key) {
     @return map-get($type-ratios, $key);
 }

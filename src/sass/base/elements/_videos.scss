@@ -1,5 +1,5 @@
 //@import '../../../../node_modules/plyr/dist/plyr';
-@import "../../../../node_modules/plyr/src/sass/plyr";
+//@import "../../../../node_modules/plyr/src/sass/plyr";
 
 :root {
     --plyr-color-main: var(--bg-color);
@@ -33,7 +33,7 @@
         background: var(--border-color);
     }
     &:hover::after {
-        
+
     }
 } */
 .plyr__menu__container .plyr__control--back::before {

@@ -67,6 +67,6 @@
         "cache-clear": "gulp clearCache"
     },
     "dependencies": {
-        "plyr": "^3.7.2"
+        "vidstack": "^1.11.30"
     }
 }

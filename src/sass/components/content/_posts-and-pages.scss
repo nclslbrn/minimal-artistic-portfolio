@@ -1,5 +1,6 @@
 .site .wrapper {
     display: block;
+    min-height: 100%;
 
     @include breakpoint(xs) {
         width: 95%;
@@ -15,7 +16,6 @@
     }
 
     @include center-block;
-    min-height: 100%;
 }
 
 .sticky {
@@ -73,7 +73,7 @@ main article > .entry-content:last-of-type {
     }
 }
 
-/* Post by year 
+/* Post by year
 --------------------------------------------- */
 
 #events-list section ul {

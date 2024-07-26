@@ -1,62 +1,70 @@
 // every inline svg
 svg.icon {
-    width: 1em;
-    height: 1em;
-    fill: var(--text-color);
-    pointer-events: none;
+  width: 1em;
+  height: 1em;
+  fill: var(--text-color);
+  pointer-events: none;
 }
 
 // mobile menu icon (animated)
 button.menu-toggle .menu-icon {
-    margin: 0;
-    left: 25%;
+  margin: 0;
+  left: 25%;
 }
 
 button.menu-toggle .menu-icon,
 button.menu-toggle .menu-icon::before,
 button.menu-toggle .menu-icon::after {
+  @include breakpoint(xs) {
+    width: 24px;
+    height: 2px;
+  }
+
+  & {
     display: block;
     position: absolute;
     top: 50%;
-    @include breakpoint(xs) {
-        width: 24px;
-        height: 2px;
-    }
     background: var(--text-color);
     transition: all 0.3s;
+  }
 }
+
 button.menu-toggle .menu-icon:hover,
 button.menu-toggle .menu-icon:focus,
 button.menu-toggle .menu-icon:hover::before,
 button.menu-toggle .menu-icon:focus::before,
 button.menu-toggle .menu-icon:hover::after,
 button.menu-toggle .menu-icon:focus::after {
-    background: var(--hover-color);
+  background: var(--hover-color);
 }
+
 .menu-toggle.open .menu-icon,
 .menu-toggle.open .menu-icon:hover,
 .menu-toggle.open .menu-icon:focus {
-    background: transparent;
+  background: transparent;
 }
 
 .menu-toggle.open .menu-icon::before {
-    margin-top: 0px;
-    transform: rotate(-45deg);
+  margin-top: 0px;
+  transform: rotate(-45deg);
 }
+
 .menu-toggle.open .menu-icon::after {
-    margin-top: 0px;
-    transform: rotate(45deg);
+  margin-top: 0px;
+  transform: rotate(45deg);
 }
 
 .menu-toggle .menu-icon::before,
 .menu-toggle .menu-icon::after {
-    content: '';
+  content: '';
 }
+
 @include breakpoint(xs) {
-    .menu-toggle .menu-icon::before {
-        margin-top: -9px;
-    }
-    .menu-toggle .menu-icon::after {
-        margin-top: 9px;
-    }
+  .menu-toggle .menu-icon::before {
+    margin-top: -9px;
+  }
+
+  .menu-toggle .menu-icon::after {
+    margin-top: 9px;
+  }
 }
