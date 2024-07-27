@@ -79,7 +79,7 @@ export default function () {
 				viewButton.forEach((btn) => {
 					btn.addEventListener("click", () => {
 						const target = btn.getAttribute("data-toggle");
-						viewButton.forEach((b) => b.classList.remove('active'))
+						viewButton.forEach((b) => b.classList.remove("active"));
 						btn.classList.add("active");
 						if ("map" === target) {
 							eventList.style.display = "none";
