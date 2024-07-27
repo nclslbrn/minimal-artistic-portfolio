@@ -65,16 +65,6 @@ main article>.entry-content:last-of-type {
 	a.event-featured-image,
 	a.project-featured-image {
 		flex: 1 0 50%;
-
-		img {
-			float: left;
-			filter: contrast(100%);
-			transition: all 150ms ease-out;
-		}
-
-		&:hover img {
-			filter: contrast(150%);
-		}
 	}
 
 	div.event-info,

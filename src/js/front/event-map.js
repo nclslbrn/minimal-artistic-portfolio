@@ -4,9 +4,8 @@ export default function () {
 
 	// const dataBlock = document.getElementById( 'eventsMapData' )
 	const layer = {
-		url: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
-		attribution:
-			'&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		url: "https://tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=1a3WPGMMAFNzR82i1XPtxKdscVlFu6FnfMGaIkRcffu5B2fgGxHhIIHvV9M7syeH",
+		attribution: "<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors",
 		subdomains: "abcd",
 		minZoom: 0,
 		maxZoom: 20,

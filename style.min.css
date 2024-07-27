@@ -21,7 +21,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */@font-face{font-family:Geist;font-style:normal;font-weight:100 900;font-display:swap;src:url("./build/fonts/GeistVF.woff2") format("woff2")}
 :root[data-theme=light]{--primary-color:#282c36;--text-color:#08090a;--focus-color:#4b4e61;--hover-color:#0327f4;--bg-color:#feffff;--component-bg-color:#dbe3f3;--border-color:#e6e0e0}
 :root[data-theme=dark]{--primary-color:#e4ebf7;--text-color:#e2e7ef;--focus-color:#5cacfb;--hover-color:#4d61fa;--bg-color:#21252e;--component-bg-color:#3b4252;--border-color:#4c566a}
-:root{--shadows:0 0 1em rgba(0,0,0,0.1)}
+:root{--shadows:0 0 1em .25em rgba(0,0,0,0.1)}
 ::placeholder{color:var(--text-color)}
 ::selection{color:var(--bg-color);background-color:var(--hover-color)}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}
@@ -242,8 +242,6 @@ main article>.entry-content:last-of-type{padding:1em 0}
 .project-summary,.event-summary{display:flex;flex-flow:column nowrap;margin:0 0 2em 0}
 .project-summary div.event-info,.project-summary div.project-cartel,.event-summary div.event-info,.event-summary div.project-cartel{flex:1 0 auto}
 .project-summary a.event-featured-image,.project-summary a.project-featured-image,.event-summary a.event-featured-image,.event-summary a.project-featured-image{flex:1 0 50%}
-.project-summary a.event-featured-image img,.project-summary a.project-featured-image img,.event-summary a.event-featured-image img,.event-summary a.project-featured-image img{float:left;filter:contrast(100%);transition:all 150ms ease-out}
-.project-summary a.event-featured-image:hover img,.project-summary a.project-featured-image:hover img,.event-summary a.event-featured-image:hover img,.event-summary a.project-featured-image:hover img{filter:contrast(150%)}
 .project-summary div.event-info,.project-summary div.project-cartel,.event-summary div.event-info,.event-summary div.project-cartel{flex-basis:50%;padding-left:2em}
 .project-summary div.event-info .project-title a,.project-summary div.event-info .event-title a,.project-summary div.project-cartel .project-title a,.project-summary div.project-cartel .event-title a,.event-summary div.event-info .project-title a,.event-summary div.event-info .event-title a,.event-summary div.project-cartel .project-title a,.event-summary div.project-cartel .event-title a{text-decoration:none}
 #events-list section ul{margin:0;padding:0;list-style-type:none}
@@ -275,6 +273,8 @@ section main article{margin:2rem}
 .widget_night_mode fieldset{display:inline-flex;align-items:center}
 .entry-content .wp-smiley,.comment-content .wp-smiley{border:0;margin-bottom:0;margin-top:0;padding:0}
 .custom-logo-link{display:inline-block}
+a.event-featured-image img,a.project-featured-image img,a.fluidbox img,.gallery a img{float:left;filter:contrast(100%);box-shadow:0 0 0 0 rgba(51,51,51,0);opacity:1;transition:all 150ms ease-out}
+a.event-featured-image:hover img,a.project-featured-image:hover img,a.fluidbox:hover img,.gallery a:hover img{filter:contrast(125%);opacity:.8;box-shadow:var(--shadows)}
 .wp-caption{margin-bottom:1.5em;max-width:100%}
 .wp-caption img[class*=wp-image-]{display:block;margin-left:auto;margin-right:auto}
 .wp-caption .wp-caption-text{margin:.8075em 0}
@@ -305,7 +305,11 @@ section main article{margin:2rem}
 .gallery-columns-8{grid-template-columns:repeat(8,1fr)}
 .gallery-columns-9{grid-template-columns:repeat(9,1fr)}
 .gallery-caption{display:block}
-.ext-gallery{position:relative;max-width:100%;overflow-x:scroll;padding-bottom:82vw}
+.ext-gallery{position:relative;max-width:100%;overflow-x:scroll;padding-bottom:82vw;border-bottom:1px solid var(--component-bg-color)}
+.ext-gallery::-webkit-scrollbar{width:.5rem;height:.5rem}
+.ext-gallery::-webkit-scrollbar-thumb{background:var(--component-bg-color)}
+.ext-gallery::-webkit-scrollbar-track{background:var(--bg-color)}
+.ext-gallery{scrollbar-face-color:var(--component-bg-color);scrollbar-track-color:var(--bg-color)}
 .ext-gallery .scroll-wrapper{position:absolute;display:flex;flex-flow:row nowrap;align-items:center;white-space:nowrap;overflow-x:visible;padding:1em 0 3em 0;scrollbar-width:none;-ms-overflow-style:none}
 .ext-gallery .scroll-wrapper a{padding:1em;text-align:center;flex:0 0 45vw}
 .ext-gallery .scroll-wrapper a:hover{background:rgba(0,0,0,0);transition:background ease-in-out 300ms}
