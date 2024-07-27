@@ -5,6 +5,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Minimal-Artistic-Portfolio
+ * @var Post $post the global WordPress post object
  */
 
 if ( is_single() ) :
@@ -32,8 +33,8 @@ if ( is_single() ) :
 			</div>
 
 			<?php if ( $map_event['latt'] && $map_event['long'] ) : ?>
-				<div id='map' 
-					class='map single-marker' 
+				<div id='map'
+					class='map single-marker'
 					data-latitude="<?php echo esc_attr( $map_event['latt'] ); ?>"
 					data-longitude="<?php echo esc_attr( $map_event['long'] ); ?>">
 				</div>
@@ -56,20 +57,20 @@ if ( is_single() ) :
 						<use xlink:href="#icon-calendar"></use>
 						</svg>
 							<span>
-								<?php 
-								echo esc_html( 
-									map_friendly_date( 
-										$map_event['begin_date'], 
-										$map_event['end_date'] 
-									) 
-								); 
+								<?php
+								echo esc_html(
+									map_friendly_date(
+										$map_event['begin_date'],
+										$map_event['end_date']
+									)
+								);
 								?>
 							</span>
 					</p>
 				<?php endif; ?>
 				<?php if ( $map_event['related_projects'] ) : ?>
 					<?php echo wp_kses_post( $map_event['related_projects'] ); ?>
-				<?php endif; ?>		
+				<?php endif; ?>
 			</div><!-- .event-properties -->
 			<div class="event-description">
 				<?php the_content(); ?>
@@ -78,8 +79,8 @@ if ( is_single() ) :
 	</div><!-- .entry-content -->
 </article>
 
-	<?php 
-else : 
+	<?php
+else :
 	global $q_config;
 	$map_lang  = isset( $q_config['language'] ) ? $q_config['language'] : false;
 	$map_event = array(
@@ -102,7 +103,7 @@ else :
 		<div class="event-info">
 
 			<h3 class="event-title">
-				<a 
+				<a
 					href="<?php echo esc_url( $map_event['link'] ); ?>"
 					<?php echo $map_lang ? 'hreflang="' . esc_attr( $map_lang ) . '"' : ''; ?>>
 					<?php echo esc_attr( $post->post_title ); ?>
@@ -123,13 +124,13 @@ else :
 						<use xlink:href="#icon-calendar"></use>
 					</svg>
 					<span>
-						<?php 
-						echo esc_html( 
-							map_friendly_date( 
-								$map_event['begin_date'], 
-								$map_event['end_date'] 
+						<?php
+						echo esc_html(
+							map_friendly_date(
+								$map_event['begin_date'],
+								$map_event['end_date']
 							)
-						); 
+						);
 						?>
 					</span>
 				</p>
@@ -138,5 +139,5 @@ else :
 
 		</div><!-- .event-info -->
 	</article>
-	<?php 
+	<?php
 endif;

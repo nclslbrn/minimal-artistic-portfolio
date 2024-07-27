@@ -1,21 +1,22 @@
-<?php 
+<?php
 /**
  * Template for displaying one event within single-event.php
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Minimal-Artistic-Portfolio
+ * @var Post $post the global WordPress post object
  */
 
 $map_cartel = get_post_meta( $post->ID, 'CARTEL', true );
 global $q_config;
-$map_lang = isset( $q_config['language'] ) ? $q_config['language'] : false; 
+$map_lang = isset( $q_config['language'] ) ? $q_config['language'] : false;
 if ( ! is_single() ) { ?>
 
 <article id="project-<?php echo get_the_ID(); ?>" <?php post_class( 'project-summary' ); ?>>
-	<a 
-		href="<?php echo esc_url( get_permalink() ); ?>" 
-		title="<?php echo esc_html( get_the_title() ); ?>" 
+	<a
+		href="<?php echo esc_url( get_permalink() ); ?>"
+		title="<?php echo esc_html( get_the_title() ); ?>"
 		class="project-featured-image project-<?php echo get_the_ID(); ?>-featured-image"
 		<?php echo $map_lang ? 'hreflang="' . esc_attr( $map_lang ) . '"' : ''; ?>>
 		<?php echo get_the_post_thumbnail( get_the_ID(), 'cover' ); ?>
@@ -32,10 +33,10 @@ if ( ! is_single() ) { ?>
 		</p>
 	</div><!-- .cartel -->
 </article><!-- project-summary -->
-	<?php 
+	<?php
 } else {
 	// $map_is_video boolean string '0' = image '1' = video
-	$map_is_video         = get_post_meta( $post->ID, 'IS_VIDEO', true ); 
+	$map_is_video         = get_post_meta( $post->ID, 'IS_VIDEO', true );
 	$map_video_id         = get_post_meta( $post->ID, 'VIDEO_ID', true );
 	$map_video_provider   = get_post_meta( $post->ID, 'VIDEO_PROVIDER', true );
 	$map_first_res_url    = get_post_meta( $post->ID, '576P_VIDEO_URL', true );
@@ -64,48 +65,57 @@ if ( ! is_single() ) { ?>
 			) {
 				if ( 'vimeo' === $map_video_provider ) {
 					echo '
-					<div class="player plyr__video-embed">
-						<iframe
-							src="https://player.vimeo.com/video/' . $map_video_id . '?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
-							allowfullscreen
-							allowtransparency
-							allow="autoplay"
-						></iframe>
-					</div>
+						<media-player
+							title="'.$post->post_title.'"
+							src="vimeo/'.$map_video_id.'">
+							<media-provider>
+								<media-poster
+									class="vds-poster"
+									src="'.get_the_post_thumbnail_url($post->ID).'"
+									alt="'.$post->post_title.'">
+								</media-poster>
+							</media-provider>
+							<media-video-layout></media-video-layout>
+					</media-player>
 					';
 				} elseif ( 'youtube' === $map_video_provider ) {
+					// class="player plyr__video-embed"
 					echo '
-					<div class="player plyr__video-embed">
-						<iframe
-							src="https://www.youtube.com/embed/' . $map_video_id . '?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
-							allowfullscreen
-							allowtransparency
-							allow="autoplay"
-						></iframe>
-					</div>
+						<media-player
+							title="'.$post->post_title.'"
+							src="youtube/'.$map_video_id.'">
+							<media-provider>
+								<media-poster
+									class="vds-poster"
+									src="'.get_the_post_thumbnail_url($post->ID).'"
+									alt="'.$post->post_title.'">
+								</media-poster>
+							</media-provider>
+							<media-video-layout></media-video-layout>
+						</media-player>
 					';
 				} elseif ( 'self' === $map_video_provider && isset( $map_third_res_url ) ) {
-					echo '<video class="player selfhosted" controls crossorigin playsinline loop>';
-					if ( $map_first_res_url ) {
-						echo '<source src=\'' . esc_url( $map_first_res_url ) . '\' type=\'video/mp4\' size=\'576\'> '; 
-					}
-					if ( $map_second_res_url ) { 
-						echo '<source src=\'' . esc_url( $map_second_res_url ) . '\' type=\'video/mp4\' size=\'720\'>';
-					}
-					if ( $map_third_res_url ) {
-						echo '<source src=\'' . esc_url( $map_third_res_url ) . '\' type=\'video/mp4\' size=\'1080\'>';
-			
-						echo '<p>' .
-						esc_html( __( 'Your browser doesn\'t support HTML5 video, but you can read this video with the link below.', 'Minimal-Artistic-Portfolio' ) );      
-						echo '<a href=\'' . esc_url( $map_third_res_url ) . '\'>' . esc_html__( 'Read the video', 'Minimal-Artistic-Portfolio' ) . '</a>';
-						echo '</p>';
-					}
-					echo '</video>';
+					echo '<media-player loop="true">
+									<media-provider>'.
+										( $map_first_res_url
+										? '<source src=\'' . esc_url( $map_first_res_url ) . '\' type=\'video/mp4\' size=\'576\'>' : '').
+										( $map_second_res_url
+										? '<source src=\'' . esc_url( $map_second_res_url ) . '\' type=\'video/mp4\' size=\'720\'>' : '').
+										( $map_third_res_url
+										? '<source src=\'' . esc_url( $map_third_res_url ) . '\' type=\'video/mp4\' size=\'1080\'>' : '').
+										'<media-poster
+											class="vds-poster"
+											src="'.get_the_post_thumbnail_url($post->ID).'"
+											alt="'.$post->post_title.'">
+										</media-poster>
+									</media-provider>
+									<media-video-layout></media-video-layout>
+								</media-player>';
 				}
 			} else {
 				echo get_the_post_thumbnail( get_the_ID(), 'full' );
 			}
-			
+
 			?>
 			<div class="project-texts<?php echo esc_attr( $map_content_classes ); ?>">
 				<div class="project-cartel">
@@ -115,10 +125,10 @@ if ( ! is_single() ) { ?>
 							<?php echo esc_html( mysql2date( 'Y', $post->post_date_gmt ) . '.' ); ?>
 						</p>
 					<?php endif ?>
-					<?php 
+					<?php
 					if ( $map_related_events ) {
 						echo wp_kses_post( $map_related_events );
-					} 
+					}
 					?>
 				</div><!-- .project-cartel -->
 
