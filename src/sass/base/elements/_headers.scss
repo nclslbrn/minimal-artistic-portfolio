@@ -1,35 +1,36 @@
 .site-header {
-    position: relative;
+	position: relative;
 
-    @include breakpoint(lg) {
-        flex: 2 0 20%;
-        max-width: 20%;
-        border-bottom: none;
-    }
+	@include breakpoint(lg) {
+		flex: 2 0 20%;
+		max-width: 20%;
+		border-bottom: none;
+	}
 }
 
 .site-header div.wrapper {
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	margin: 0 auto;
 
-    @include breakpoint(lg) {
-        position: relative;
-        display: flex;
-        flex-flow: row wrap;
-        align-items: stretch;
-        justify-content: flex-start;
-        flex-flow: column nowrap;
+	@include breakpoint(lg) {
+		position: relative;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: stretch;
+		justify-content: flex-start;
+		flex-flow: column nowrap;
 
-        .site-title,
-        aside {
-            padding-left: 0.8rem;
-        }
-    }
+		.site-title,
+		aside {
+			padding-left: 0.8rem;
+		}
+	}
 
-    .site-title a {
-        text-decoration: none;
-    }
+	.site-title a {
+		text-decoration: none;
+		color: inherit;
+	}
 }

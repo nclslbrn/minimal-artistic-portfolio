@@ -7,9 +7,9 @@ input[type="submit"],
 .btn,
 .button,
 .social-sharing-module a {
-    background: transparent;
-    line-height: 1;
-    padding: 0.6em 1em 0.4em;
+	background: transparent;
+	line-height: 1;
+	padding: 0.6em 1em 0.4em;
 }
 
 main button,
@@ -22,14 +22,15 @@ main .btn,
 main .button,
 main .social-sharing-module a,
 main .contact-links ul li a {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 
-    &:hover {
-        @include border("bottom", --hover-color);
-        & svg {
-            fill: var(--hover-color);
-        }
-    }
+	&:hover {
+		@include border("bottom", --hover-color);
+
+		& svg {
+			fill: var(--hover-color);
+		}
+	}
 }
 
 .btn,
@@ -40,28 +41,29 @@ input[type="reset"],
 input[type="submit"],
 main nav.page-nav a,
 main nav.page-nav span {
-    border: none;
-    @include border("bottom", --border-color);
+	border: none;
+	@include border("bottom", --border-color);
 
-    &.active,
-    &:active,
-    &:hover,
-    &:focus {
-        border-color: var(--hover-color);
-        svg {
-            fill: var(--hover-color);
-        }
-    }
+	&.active,
+	&:active,
+	&:hover,
+	&:focus {
+		border-color: var(--hover-color);
+
+		svg {
+			fill: var(--hover-color);
+		}
+	}
 }
 
 form.search-form button.search-submit {
-    border: none;
+	border: none;
 }
 
 .page-nav a,
 .page-nav span,
 .social-sharing-module a {
-    background: transparent;
+	background: transparent;
 }
 
 a.btn,
@@ -70,52 +72,53 @@ a.button,
 .page-nav span,
 .social-sharing-module a,
 button[data-toggle] {
-    margin: 0.25em;
-    @include border("bottom", --border-color);
-    text-decoration: none;
+	margin: 0.25em;
+	@include border("bottom", --border-color);
+	text-decoration: none;
 }
 
 .page-nav span.page-numbers.current,
 button[data-toggle].active {
-    color: var(--primary-color);
-    @include border("bottom", --hover-color);
+	color: var(--primary-color);
+	@include border("bottom", --hover-color);
 }
 
 main .contact-links ul.works li a,
 main .contact-links ul.networks li a {
-    padding: 0.5em 0.75em 0.5em 0.75em;
-    margin-bottom: 0.75rem;
+	padding: 0.5em 0.75em 0.5em 0.75em;
+	margin-bottom: 0.75rem;
 }
 
 main .contact-links ul.works li a img {
-    width: 16px;
-    height: 16px;
+	width: 16px;
+	height: 16px;
 }
 
 main .contact-links ul li a {
-    display: inline-flex;
-    align-items: center;
-    width: auto;
-    background-color: var(--component-bg-color);
-    text-decoration: none;
-    opacity: 1;
-    border-bottom: 2px solid var(--border-color);
+	display: inline-flex;
+	align-items: center;
+	width: auto;
+	background-color: var(--component-bg-color);
+	text-decoration: none;
+	opacity: 1;
+	border-bottom: 2px solid var(--border-color);
 
-    img,
-    svg {
-        margin-right: 0.5rem;
-    }
-    &:hover {
-        opacity: 0.75;
-        border-bottom: 2px solid var(--hover-color);
-    }
+	img,
+	svg {
+		margin-right: 0.5rem;
+	}
+
+	&:hover {
+		opacity: 0.75;
+		border-bottom: 2px solid var(--hover-color);
+	}
 }
 
-.social-sharing-module > ul {
-    display: flex;
-    flex-flow: row wrap;
+.social-sharing-module>ul {
+	display: flex;
+	flex-flow: row wrap;
 }
 
 span.input button {
-    float: right;
+	float: right;
 }

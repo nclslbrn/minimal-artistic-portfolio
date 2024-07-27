@@ -1,21 +1,21 @@
 body {
-    color: var(--text-color);
-    box-sizing: border-box;
+	color: var(--text-color);
+	box-sizing: border-box;
 }
 
 body {
-    background: var(--bg-color);
-    @include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
+	background: var(--bg-color);
+	@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 }
 
 body.admin-bar #page {
-    position: relative;
+	position: relative;
 }
 
 html[data-theme="light"] body #page {
-    background: url(./build/img/dust.png) repeat;
+	background: url(./build/img/dust.png) repeat;
 }
 
 html[data-theme="dark"] body #page {
-    background: url(./build/img/dark-dust.png) repeat;
+	background: url(./build/img/dark-dust.png) repeat;
 }

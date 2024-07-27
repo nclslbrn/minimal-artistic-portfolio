@@ -15,202 +15,221 @@ input[type="datetime-local"],
 input[type="color"],
 select,
 textarea {
-    color: var(--text-color);
-    border: none;
-    @include border("bottom");
+	color: var(--text-color);
+	border: none;
+	@include border("bottom");
 
-    padding: 3px;
-    font-size: 1em;
-    //color: var(--text-color);
-    background-color: transparent;
+	padding: 3px;
+	font-size: 1em;
+	//color: var(--text-color);
+	background-color: transparent;
 
-    &:focus {
-        color: var(--focus-color);
-    }
+	&:focus {
+		color: var(--focus-color);
+	}
 }
 
 select {
-    padding: 0.75em;
-    @include border;
+	padding: 0.75em;
+	@include border;
 }
+
 select[name="mode-switcher"] {
-    padding: 0.75em 0.75em 0.75em 0.25em;
+	padding: 0.75em 0.75em 0.75em 0.25em;
 }
+
 textarea {
-    width: 100%;
+	width: 100%;
 }
 
 fieldset {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border: none;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
 }
+
 input,
 textarea {
-    outline: none;
-    @include border;
-    &:focus {
-        border-color: var(--hover-color);
-    }
+	outline: none;
+	@include border;
+
+	&:focus {
+		border-color: var(--hover-color);
+	}
 }
 
 input,
 button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 ul.sub-menu li button {
-    color: var(--primary-color);
-    border: none;
+	color: var(--primary-color);
+	border: none;
 
-    &:hover {
-        background: transparent;
-        color: var(--hover-color);
-    }
+	&:hover {
+		background: transparent;
+		color: var(--hover-color);
+	}
 }
 
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 2.4rem;
-    height: 1.4rem;
-    margin: 0.25em 0.2rem;
+	position: relative;
+	display: inline-block;
+	width: 2.4rem;
+	height: 1.4rem;
+	margin: 0.25em 0.2rem;
 }
+
 .mode-switcher {
-    vertical-align: middle;
+	vertical-align: middle;
 }
+
 .mode-switcher svg {
-    font-size: 2rem;
-    margin: 0 0.25rem;
+	font-size: 2rem;
+	margin: 0 0.25rem;
 }
+
 /* Hide default HTML checkbox */
 .switch input {
-    display: none;
+	display: none;
 }
 
 /* The slider */
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    @include border;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	@include border;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 1rem;
-    width: 1rem;
-    left: 0.2rem;
-    bottom: 0.2rem;
-    background-color: var(--border-color);
-    transition: 0.4s;
+	position: absolute;
+	content: "";
+	height: 1rem;
+	width: 1rem;
+	left: 0.2rem;
+	bottom: 0.2rem;
+	background-color: var(--border-color);
+	transition: 0.4s;
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px var(--hover-color);
+input:focus+.slider {
+	box-shadow: 0 0 1px var(--hover-color);
 }
 
-input:checked + .slider:before {
-    transform: translateX(1rem);
+input:checked+.slider:before {
+	transform: translateX(1rem);
 }
 
 /* Single button theme chooser */
 .widget_night_mode .single-button {
-    margin-right: 8px;
-    input[type="checkbox"] {
-        position: absolute;
-        top: -999999px;
-        left: -9999999px;
-    }
-    svg {
-        width: 1.2rem;
-        height: 1.2rem;
-    }
-    label {
-        padding-bottom: 0.2rem;
-    }
+	margin-right: 8px;
+
+	input[type="checkbox"] {
+		position: absolute;
+		top: -999999px;
+		left: -9999999px;
+	}
+
+	svg {
+		width: 1.2rem;
+		height: 1.2rem;
+	}
+
+	label {
+		padding-bottom: 0.2rem;
+	}
 }
 
 /* Honey pot field */
 label.pot,
 input.pot {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 0;
-    width: 0;
-    z-index: -1;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 0;
+	z-index: -1;
 }
 
 /* real field */
 span.input,
 span.input button[type="submit"] {
-    display: block;
-    margin: 2em 0;
+	display: block;
+	margin: 2em 0;
 }
+
 span.input input,
 span.input.textarea-input textarea {
-    padding: 1em;
-    background: var(--component-bg-color);
-    @include border;
-    box-shadow: inset 0 -4px 0 var(--primary-color);
-    transition: all 0.75s ease;
-    &:focus {
-        color: var(--primary-color);
-        box-shadow: inset 0 -4px 0 var(--focus-color);
-        background: var(--bg-color);
-    }
+	padding: 1em;
+	background: var(--component-bg-color);
+	@include border;
+	box-shadow: inset 0 -4px 0 var(--primary-color);
+	transition: all 0.75s ease;
+
+	&:focus {
+		color: var(--primary-color);
+		box-shadow: inset 0 -4px 0 var(--focus-color);
+		background: var(--bg-color);
+	}
 }
+
 span.input input[name="message_name"],
 span.input input[name="message_email"],
 span.input textarea[name="message_text"] {
-    width: 100%;
+	width: 100%;
 }
+
 .success,
 .warning,
 .error {
-    padding: 0.5em 1.5em 0.8em 0.5em;
-    border-radius: 2px;
+	padding: 0.5em 1.5em 0.8em 0.5em;
+	border-radius: 2px;
 }
+
 .success {
-    background: limegreen;
+	background: limegreen;
 }
+
 .warning {
-    background: orange;
+	background: orange;
 }
+
 .error {
-    background-color: tomato;
+	background-color: tomato;
 }
+
 span.input button[type="submit"] {
-    padding: 0.6em 0.8em;
+	padding: 0.6em 0.8em;
 }
 
 /* Default search form */
 form.search-form {
-    display: flex;
-    flex-flow: row nowrap;
+	display: flex;
+	flex-flow: row nowrap;
 
-    input#s {
-        @include breakpoint(md) {
-            width: 130px;
-        }
-    }
+	input#s {
+		@include breakpoint(md) {
+			width: 130px;
+		}
+	}
 
-    input#s,
-    button.search-submit {
-        margin: 0;
-    }
-    button.search-submit {
-        padding: 0.25em 1.5em;
-        background: transparent;
-    }
+	input#s,
+	button.search-submit {
+		margin: 0;
+	}
+
+	button.search-submit {
+		padding: 0.25em 1.5em;
+		background: transparent;
+	}
 }

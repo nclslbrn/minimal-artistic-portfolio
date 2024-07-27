@@ -25,17 +25,7 @@
 .plyr__menu__container .plyr__control[role="menuitemradio"]:hover::before {
     background: var(--hover-color);
 }
-/* .plyr button.plyr__control[role="menuitemradio"] {
-    &::before {
-        background: var(--component-bg-color);
-    }
-    &::after {
-        background: var(--border-color);
-    }
-    &:hover::after {
 
-    }
-} */
 .plyr__menu__container .plyr__control--back::before {
     background-color: var(--component-bg-color);
     box-shadow: 0 1px 0 var(--hover-color);
@@ -56,6 +46,7 @@
 .entry-content .plyr {
     position: relative;
     aspect-ratio: 16 / 9;
+		max-width: 1920px;
     background: transparent;
 }
 

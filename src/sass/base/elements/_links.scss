@@ -1,26 +1,26 @@
 a {
-    color: var(--primary-color);
+	color: var(--primary-color);
 
-    &:visited {
-        color: var(--primary-color);
-    }
+	&:visited {
+		color: var(--primary-color);
+	}
 
-    &:hover,
-    &:focus,
-    &:active {
-        color: var(--hover-color);
-    }
+	&:hover,
+	&:focus,
+	&:active {
+		color: var(--hover-color);
+	}
 
-    &:focus {
-        outline: thin dotted;
-    }
+	&:focus {
+		outline: thin dotted;
+	}
 
-    &:hover,
-    &:active {
-        outline: 0;
-    }
+	&:hover,
+	&:active {
+		outline: 0;
+	}
 }
 
 .entry-content a {
-    font-weight: 500;
+	font-weight: 500;
 }

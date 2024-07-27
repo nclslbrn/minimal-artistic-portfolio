@@ -13,7 +13,8 @@
 
 .site-main {
 	grid-area: main;
-	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+	overflow: hidden;
+	/* Resolves issue with <pre> elements forcing full width. */
 }
 
 .widget-area {

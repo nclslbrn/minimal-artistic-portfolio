@@ -26,6 +26,7 @@
 	max-width: 100%;
 	overflow-x: scroll;
 	padding-bottom: 82vw;
+
 	@include breakpoint(md) {
 		padding-bottom: 26vw;
 	}
@@ -47,6 +48,7 @@
 	padding: 1em;
 	text-align: center;
 	flex: 0 0 45vw;
+
 	@include breakpoint(md) {
 		flex: 0 0 18vw;
 	}
@@ -62,6 +64,7 @@
 	transition: all ease-in-out 100ms;
 	object-fit: contain;
 	box-shadow: var(--shadows);
+
 	@include breakpoint(md) {
 		max-height: 17vw;
 	}

@@ -1,121 +1,122 @@
 aside {
-    display: flex;
-    width: 100%;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-around;
+	display: flex;
+	width: 100%;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
 }
+
 body.page-template-contact main article .contact-links {
-    display: flex;
-    flex-flow: row wrap;
+	display: flex;
+	flex-flow: row wrap;
 
-    .link-block {
-        flex-grow: 1;
-    }
+	.link-block {
+		flex-grow: 1;
+	}
 }
 
-body.page-template-homepage main .entry-content > article,
-body.page-template-events main ul.year-events-list li article,
-body.search .site-content main > article {
-    padding: 0.5rem;
-    border: 1px solid var(--border-color);
+body.search .site-content main>article {
+	padding: 0.5rem 1.5rem;
 }
-body.search .site-content main > article {
-    padding: 0.5rem 1.5rem;
-}
+
 @include breakpoint(lg) {
-    body #page {
-        display: flex;
-        flex-flow: row nowrap;
-    }
+	body #page {
+		display: flex;
+		flex-flow: row nowrap;
+	}
 
-    aside {
-        position: absolute;
-        padding: 0;
-        top: 0;
-        right: 0;
-        width: auto;
-        justify-content: flex-end;
-        z-index: 2;
-    }
-    #content {
-        flex: 1 1 80%;
-    }
+	aside {
+		position: absolute;
+		padding: 0;
+		top: 0;
+		right: 0;
+		width: auto;
+		justify-content: flex-end;
+		z-index: 2;
+	}
 
-    #content.site-content footer.site-footer .wrapper {
-        margin-left: 0;
-    }
-    .site-title,
-    body.page main .entry-header .entry-title,
-    body.hfeed main .entry-header .entry-title,
-    body.error404 main .entry-header .entry-title,
-    main article.project .entry-header .project-title,
-    main article.event .entry-header .event-title,
-    main article.post .entry-header .entry-title,
-    main > header.entry-header .entry-title {
-        margin: 0;
-        padding: 0.2em 0;
-        font-size: 1em;
-        line-height: 3em;
-    }
+	#content {
+		flex: 1 1 80%;
+	}
 
-    .site-title a {
-        margin-bottom: 2px;
-    }
+	#content.site-content footer.site-footer .wrapper {
+		margin-left: 0;
+	}
 
-    body.page-template-homepage main .entry-header,
-    body.page-template-events main .entry-header,
-    body.page-template-contact main .entry-header,
-    body.page-template-gif-page main .entry-header,
-    body.page-template-default main .entry-header,
-    body.search main > .entry-header,
-    body.error404 main .entry-header,
-    body.hfeed main .page-header,
-    body.single-post main article.post .entry-header,
-    body.single-project main > article .entry-header,
-    body.single-event main > article .entry-header {
-        // box-shadow: inset 0.5rem 0 0 var(--hover-color);
-        max-width: 60%;
-    }
+	.site-title,
+	body.page main .entry-header .entry-title,
+	body.hfeed main .entry-header .entry-title,
+	body.error404 main .entry-header .entry-title,
+	main article.project .entry-header .project-title,
+	main article.event .entry-header .event-title,
+	main article.post .entry-header .entry-title,
+	main>header.entry-header .entry-title {
+		margin: 0;
+		padding: 1em 0;
+		font-size: 2em;
+		line-height: 0.85;
+		font-weight: 900;
+	}
 
-    div.content-area main article.event .entry-content .event-texts,
-    div.content-area main article.project .entry-content .project-texts,
-    body.page-template-default main .entry-content,
-    body.page-template-events main .entry-content,
-    body.page-template-contact main .entry-content,
-    body.page-template-homepage main .entry-content,
-    body.post main .entry-content,
-    body.error404 main .entry-content,
-    body.page-template-contact main article .entry-content,
-    section main {
-        max-width: 1920px;
-        padding-top: 2.5rem;
-        padding-right: 5rem;
-    }
+	.site-title a {
+		margin-bottom: 2px;
+	}
 
-    footer.site-footer .site-info {
-        text-align: center;
-    }
-    .entry-content {
-        min-height: 60vh;
-    }
-    body.page-template-contact main article .entry-content {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: flex-start;
-        .contact-links,
-        form.contact {
-            flex-grow: 1;
-        }
-    }
+	body.page-template-homepage main .entry-header,
+	body.page-template-events main .entry-header,
+	body.page-template-contact main .entry-header,
+	body.page-template-gif-page main .entry-header,
+	body.page-template-default main .entry-header,
+	body.search main>.entry-header,
+	body.error404 main .entry-header,
+	body.hfeed main .page-header,
+	body.single-post main article.post .entry-header,
+	body.single-project main>article .entry-header,
+	body.single-event main>article .entry-header {
+		max-width: 60%;
+	}
 
-    body main article .entry-content p,
-    body main article .entry-content pre,
-    body main article .entry-content blockquote,
-    body main article .entry-content em,
-    body main article .entry-content ul,
-    div.content-area main article.event .entry-content .event-texts,
-    div.content-area main article.project .entry-content .project-texts {
-        max-width: 1280px;
-    }
+	div.content-area main article.event .entry-content .event-texts,
+	div.content-area main article.project .entry-content .project-texts,
+	body.page-template-default main .entry-content,
+	body.page-template-events main .entry-content,
+	body.page-template-contact main .entry-content,
+	body.page-template-homepage main .entry-content,
+	body.post main .entry-content,
+	body.error404 main .entry-content,
+	body.page-template-contact main article .entry-content,
+	section main {
+		max-width: 1920px;
+		padding-top: 2.5rem;
+		padding-right: 5rem;
+	}
+
+	footer.site-footer .site-info {
+		text-align: center;
+	}
+
+	.entry-content {
+		min-height: 60vh;
+	}
+
+	body.page-template-contact main article .entry-content {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: flex-start;
+
+		.contact-links,
+		form.contact {
+			flex-grow: 1;
+		}
+	}
+
+	body main article .entry-content>p,
+	body main article .entry-content>pre,
+	body main article .entry-content>blockquote,
+	body main article .entry-content>em,
+	body main article .entry-content>ul,
+	div.content-area main article.event .entry-content .event-texts>p,
+	div.content-area main article.project .entry-content .project-texts>p {
+		max-width: 80%;
+	}
 }

@@ -1,52 +1,55 @@
 .widget {
-    margin: 0.25em 1em;
+	margin: 1em;
 
-    // Make sure select elements fit in widgets.
-    select {
-        max-width: 100%;
-    }
+	// Make sure select elements fit in widgets.
+	select {
+		max-width: 100%;
+	}
 
-    ul {
-        padding: 0;
-    }
+	ul {
+		padding: 0;
+	}
 
-    ul li {
-        opacity: 1 !important;
-    }
+	ul li {
+		opacity: 1 !important;
+	}
 
-    li.active a,
-    form input,
-    form button,
-    fieldset label,
-    li a {
-        padding: 0.5rem;
-        text-decoration: none;
-        font-size: 0.8em;
-        @include border("bottom");
-        text-transform: uppercase;
-        opacity: 1 !important;
-    }
-    fieldset {
-        padding: 0;
-        margin: 0;
+	li.active a,
+	form input,
+	form button,
+	fieldset label,
+	li a {
+		padding: 0.5rem;
+		text-decoration: none;
+		font-size: 0.8em;
+		@include border("bottom");
+		text-transform: uppercase;
+		opacity: 1 !important;
+	}
 
-        label {
-            padding: 0.5em;
-        }
-    }
-    form input#s {
-        padding: 0.5rem 0;
-        line-height: 1.6;
-    }
-    fieldset label:hover,
-    li.active a,
-    li a:hover {
-        color: var(--hover-color);
-        border-color: var(--hover-color);
-    }
+	fieldset {
+		padding: 0;
+		margin: 0;
+
+		label {
+			padding: 0.5em;
+		}
+	}
+
+	form input#s {
+		padding: 0.5rem 0;
+		line-height: 1.6;
+	}
+
+	fieldset label:hover,
+	li.active a,
+	li a:hover {
+		color: var(--hover-color);
+		border-color: var(--hover-color);
+	}
 }
 
 .widget_night_mode fieldset {
-    display: inline-flex;
-    align-items: center;
+	display: inline-flex;
+	align-items: center;
 }

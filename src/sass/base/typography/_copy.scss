@@ -1,79 +1,81 @@
 p {
-    margin-bottom: 1.5em;
+	margin-bottom: 1.5em;
 }
 
 dfn,
 cite,
 em,
 i {
-    font-style: italic;
+	font-style: italic;
 }
 
 blockquote {
-    margin: 0 1.5em;
+	margin: 0 1.5em;
 }
 
 address {
-    margin: 0 0 1.5em;
+	margin: 0 0 1.5em;
 }
 
 pre {
-    background: var(--border-color);
-    font-family: $font__pre;
-    line-height: $font__line-height-pre;
-    margin-bottom: 1.6em;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1.6em;
+	background: var(--border-color);
+	font-family: $font__pre;
+	line-height: $font__line-height-pre;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
 }
 
 code,
 kbd,
 tt,
 var {
-    font-family: $font__code;
+	font-family: $font__code;
 }
 
 abbr,
 acronym {
-    border-bottom: 1px dotted var(--border-color);
-    cursor: help;
+	border-bottom: 1px dotted var(--border-color);
+	cursor: help;
 }
 
 mark,
 ins {
-    background: var(--bg-color);
-    text-decoration: none;
+	background: var(--bg-color);
+	text-decoration: none;
 }
 
 big {
-    font-size: 125%;
+	font-size: 125%;
 }
 
 blockquote {
-    position: relative;
-    padding: 2rem 3rem;
+	position: relative;
+	padding: 2rem 3rem;
 
-    &::before,
-    &::after {
-        position: absolute;
-        font-size: 4rem;
-        font-family: serif;
-        opacity: 0.5;
-        z-index: 1;
-    }
-    &::before {
-        content: "“";
-        top: 0.5rem;
-        left: 0.5rem;
-    }
-    &::after {
-        content: "”";
-        bottom: 0.5rem;
-        right: 0.5rem;
-    }
+	&::before,
+	&::after {
+		position: absolute;
+		font-size: 4rem;
+		font-family: serif;
+		opacity: 0.5;
+		z-index: 1;
+	}
+
+	&::before {
+		content: "“";
+		top: 0.5rem;
+		left: 0.5rem;
+	}
+
+	&::after {
+		content: "”";
+		bottom: 0.5rem;
+		right: 0.5rem;
+	}
 }
 
-blockquote ~ p {
-    margin-left: 2rem;
+blockquote~p {
+	margin-left: 2rem;
 }

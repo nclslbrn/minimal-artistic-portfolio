@@ -30,7 +30,6 @@
 	li {
 		position: relative;
 		padding-bottom: 0;
-		transition: all 0.35s ease-out;
 		@include border("bottom");
 
 		&:last-child {
@@ -242,7 +241,6 @@ nav.page-nav {
 
 /* footer */
 footer.site-footer {
-	padding-top: 1rem;
 	padding-bottom: 1rem;
 	display: flex;
 	flex-flow: column wrap;

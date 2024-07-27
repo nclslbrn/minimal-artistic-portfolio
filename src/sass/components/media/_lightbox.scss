@@ -1,88 +1,99 @@
-.entry-content p > a.simplelightbox,
-.entry-content > a.simplelightbox {
-    img {
-        box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0);
-        background-color: none;
-        transition: all 0.15s ease-in-out;
-    }
-    &:hover img,
-    &:focus img {
-        display: block;
-        opacity: 0.5;
-        box-shadow: 0 0 0 0.25rem var(--hover-color);
-        background-color: var(--hover-color);
-    }
+.entry-content p>a.simplelightbox,
+.entry-content>a.simplelightbox {
+	img {
+		box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0);
+		background-color: none;
+		transition: all 0.15s ease-in-out;
+	}
+
+	&:hover img,
+	&:focus img {
+		display: block;
+		opacity: 0.5;
+		box-shadow: 0 0 0 0.25rem var(--hover-color);
+		background-color: var(--hover-color);
+	}
 }
 
 .gallery a.simplelightbox {
-    position: relative;
-    display: block;
-    padding-bottom: 7px;
+	position: relative;
+	display: block;
+	padding-bottom: 7px;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 7px;
-        background-color: var(--primary-color);
-        box-shadow: 0 0 0 0.25rem var(--bg-color);
-        z-index: -1;
-        opacity: 0.5;
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 7px;
-        background: url(build/img/expand.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: 0;
-        opacity: 0;
-    }
-    img {
-        opacity: 1;
-        z-index: 1;
-    }
-    img,
-    &::before,
-    &::after {
-        transition: all 0.15s ease-in-out;
-    }
-    &:hover,
-    &:focus {
-        img {
-            opacity: 0.25;
-        }
-        &::before {
-            box-shadow: 0 0 0 0.25rem var(--hover-color);
-        }
-        &::after {
-            opacity: 0.25;
-        }
-    }
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 7px;
+		background-color: var(--primary-color);
+		box-shadow: 0 0 0 0.25rem var(--bg-color);
+		z-index: -1;
+		opacity: 0.5;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 7px;
+		background: url(build/img/expand.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 0;
+		opacity: 0;
+	}
+
+	img {
+		opacity: 1;
+		z-index: 1;
+	}
+
+	img,
+	&::before,
+	&::after {
+		transition: all 0.15s ease-in-out;
+	}
+
+	&:hover,
+	&:focus {
+		img {
+			opacity: 0.25;
+		}
+
+		&::before {
+			box-shadow: 0 0 0 0.25rem var(--hover-color);
+		}
+
+		&::after {
+			opacity: 0.25;
+		}
+	}
 }
 
 .sl-overlay {
-    background: var(--bg-color) !important;
+	background: var(--bg-color) !important;
 }
+
 .sl-spinner {
-    border-color: var(--text-color) !important;
+	border-color: var(--text-color) !important;
 }
+
 .sl-wrapper .sl-navigation button,
 .sl-wrapper .sl-close,
 .sl-wrapper .sl-counter {
-    color: var(--text-color) !important;
+	color: var(--text-color) !important;
 }
+
 .sl-wrapper .sl-counter {
-    font-weight: 700;
-    font-size: 1.2rem;
+	font-weight: 700;
+	font-size: 1.2rem;
 }
+
 .sl-wrapper .sl-image .sl-caption {
-    bottom: unset;
-    top: 100%;
+	bottom: unset;
+	top: 100%;
 }
