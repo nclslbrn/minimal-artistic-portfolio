@@ -53,13 +53,13 @@ main article>.entry-content:last-of-type {
 
 	@include breakpoint(sm) {
 		flex-flow: row nowrap;
-		align-items: center;
 		width: 100%;
 	}
 
 	div.event-info,
 	div.project-cartel {
 		flex: 1 0 auto;
+		border: 1px solid var(--border-color);
 	}
 
 	a.event-featured-image,
@@ -70,11 +70,27 @@ main article>.entry-content:last-of-type {
 	div.event-info,
 	div.project-cartel {
 		flex-basis: 50%;
-		padding-left: 2em;
+		padding: 0 1em;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+
+		& .project-title,
+		& .event-title {
+			margin: 0.5em 0;
+			line-height: 1;
+		}
 
 		& .project-title a,
 		& .event-title a {
 			text-decoration: none;
+			font-weight: 900;
+			line-height: 1;
+		}
+
+		& p {
+			margin: 0.5em 0;
+			line-height: 1.5;
 		}
 	}
 }

@@ -33,5 +33,11 @@
 		text-decoration: none;
 		color: inherit;
 		letter-spacing: -0.06em;
+		font-weight: 300;
+
+		&:hover,
+		&:focus {
+			color: var(--hover-color);
+		}
 	}
 }

@@ -91,9 +91,14 @@ const zipIncludeGlob = ['./**/*'] // Default: Include all files/folders in curre
 // Default ignored files and folders for the zip file.
 const zipIgnoreGlob = [
 	'!./{node_modules,node_modules/**/*}',
+	'!./node_modules/',
 	'!./.editorconfig',
 	'!./.eslintignore',
 	'!./.eslintrc.js',
+	'!./.babelrc',
+	'!./wpgulp.config.js',
+	'!./gulp.config.js',
+	'!./gulpfile.babel.js',
 	'!./.git',
 	'!./.gitignore',
 	'!./.svn',
@@ -107,6 +112,8 @@ const zipIgnoreGlob = [
 	'!.phpcs.xml.dist',
 	'!./package.json',
 	'!./package-lock.json',
+	'!./yarn.lock',
+	'!./loco.xml',
 	'!./src/*',
 	'!./src/sass/**/*',
 	'!./src/sass',

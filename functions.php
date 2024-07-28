@@ -165,7 +165,7 @@ add_action( 'admin_head', 'map_admin_scripts' );
  * ADD A DIFFERENT SIZE FOR EVENT COVER
  *
  */
-add_image_size( 'cover', 640, 400, true );
+add_image_size( 'cover', 711, 400, true );
 add_image_size( 'carton', 400, 640, false );
 
 /**

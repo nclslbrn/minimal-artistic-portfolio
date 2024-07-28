@@ -6,6 +6,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Minimal-Artistic-Portfolio
+ * @var Post $post the global WordPress post object
  */
 
 $map_posts_per_page = get_option( 'posts_per_page' );
@@ -34,17 +35,17 @@ get_header(); ?>
 		<?php $map_gif_query = new WP_Query( $map_gif_query_args ); ?>
 		<?php if ( $map_gif_query->have_posts() ) : ?>
 			<div class="entry-content">
-			
+
 				<div class="gif-grid">
 					<?php while ( $map_gif_query->have_posts() ) : $map_gif_query->the_post(); ?>
 						<?php if ( get_the_post_thumbnail_url( $post, 'full' ) ) : ?>
 							<article id="post-<?php echo esc_attr( $post->ID ); ?>" class="animated-gif">
-								<a  class="fluidbox" 
-									href="<?php echo esc_url( get_the_post_thumbnail_url( $post, 'full' ) ); ?>" 
+								<a  class="fluidbox"
+									href="<?php echo esc_url( get_the_post_thumbnail_url( $post, 'full' ) ); ?>"
 									data-fluidbox-loader>
-									<img 
+									<img
 										src="<?php echo esc_url( get_the_post_thumbnail_url( $post, 'medium' ) ); ?>"
-										title="<?php echo esc_html( $post->post_title ); ?>" 
+										title="<?php echo esc_html( $post->post_title ); ?>"
 										class="gif-thumbnail">
 								</a>
 								<div class="gif-source hidden">
@@ -58,17 +59,17 @@ get_header(); ?>
 				<?php if ( $map_gif_query->max_num_pages > 0 ) : ?>
 					<nav class="page-nav">
 						<?php
-				
+
 							echo wp_kses_post(
 								paginate_links(
-									array( 
+									array(
 										'prev_next' => false,
 										'current'   => max( 1, get_query_var( 'paged' ) ),
 										'total'     => $map_gif_query->max_num_pages,
 									)
 								)
 							);
-						
+
 						?>
 					</nav>
 				<?php endif; ?>

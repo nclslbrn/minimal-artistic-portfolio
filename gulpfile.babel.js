@@ -406,7 +406,7 @@ gulp.task("build", (cb) => {
 gulp.task("zip", () => {
 	const src = [...config.zipIncludeGlob, ...config.zipIgnoreGlob];
 	return gulp
-		.src(src)
+		.src(src, { encoding: false })
 		.pipe(zip(config.zipName))
 		.pipe(gulp.dest(config.zipDestination));
 });
