@@ -45,7 +45,7 @@ function map_create_post_types() { // phpcs:ignore
 			'show_in_menu'        => true,
 			'show_in_nav_menus'   => true,
 			'show_in_rest'        => true,
-			'supports'            => array( 'title', 'editor', 'revisions', 'thumbnail' ),
+			'supports'            => array( 'title', 'editor', 'revisions', 'thumbnail', 'custom-fields'),
 			'taxonomies'          => array( 'category', 'post_tag' ),
 		)
 	);
@@ -83,7 +83,7 @@ function map_create_post_types() { // phpcs:ignore
 			'show_in_menu'        => true,
 			'show_in_nav_menus'   => true,
 			'show_in_rest'        => true,
-			'supports'            => array( 'title', 'editor', 'revisions', 'thumbnail' ),
+			'supports'            => array( 'title', 'editor', 'revisions', 'thumbnail', 'custom-fields' ),
 			'taxonomies'          => array( 'category', 'post_tag' ),
 		)
 	);
@@ -141,7 +141,25 @@ function map_create_post_types() { // phpcs:ignore
 		)
 	);
     // phpcs:ignore
-    register_taxonomy('post_tag', array( 'post', 'page', 'project', 'event' ));
+	register_taxonomy('post_tag', array( 'post', 'page', 'project', 'event' ));
+
+	register_post_meta('project', 'cartel_section', array(
+		'show_in_rest' => true,
+		'single'			 => true,
+		'type'				 => 'string',
+		'auth_callback' => function() {
+        return current_user_can( 'edit_posts' );
+    }
+	));
+
+	register_post_meta('project', 'ext_gallery', array(
+		'show_in_rest' => true,
+		'single'			 => true,
+		'type'				 => 'string',
+		'auth_callback' => function() {
+        return current_user_can( 'edit_posts' );
+    }
+	));
 }
 add_action( 'init', 'map_create_post_types' );
 
