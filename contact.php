@@ -84,6 +84,13 @@ get_header(); ?>
 										</a>
 									</li>
 									<li>
+										<a href="https://warpcast.com/nclslbrn">
+											<img src="https://warpcast.com/logo192.png" width="16" height="16"/>
+											<span>Warpcast</span>
+										</a>
+									</li>
+
+									<li>
 										<a rel="me" href="https://mstdn.io/@nclslbrn">
 											<img src="https://mstdn.io/packs/media/icons/apple-touch-icon-57x57-c9dca808280860c51d0357f6a3350f4d.png" width="16" height="16"/>
 											<span>Mastodon</span>

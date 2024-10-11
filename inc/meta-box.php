@@ -1,10 +1,10 @@
 <?php
 /**
  * Functions to get and save custom metadata
- * 
+ *
  * Event has a begin and end date, a place, a lattitude and a lontitude
- * Project has a cartel text, and cover options for displaying video or image  
- * 
+ * Project has a cartel text, and cover options for displaying video or image
+ *
  * @package Minimal-Artistic-Portfolio.
  * @version 1.0.0.
  */
@@ -12,7 +12,7 @@
 /**
  * Add every metabox for project & event
  */
-function map_adding_new_metabox() { 
+function map_adding_new_metabox() {
 	/**
 	 * Event
 	 */
@@ -23,9 +23,6 @@ function map_adding_new_metabox() {
 		'event',
 		'normal',
 		'high',
-		array(
-			'__back_compat_meta_box' => true,
-		)
 	);
 
 	add_meta_box(
@@ -35,9 +32,6 @@ function map_adding_new_metabox() {
 		'event',
 		'normal',
 		'high',
-		array(
-			'__back_compat_meta_box' => true,
-		)
 	);
 
 	add_meta_box(
@@ -47,14 +41,11 @@ function map_adding_new_metabox() {
 		'project',
 		'side',
 		'high',
-		array(
-			'__back_compat_meta_box' => true,
-		)
 	);
 
 	/**
 	 * Projects
-	 */ 
+	 */
 	add_meta_box(
 		'cartel_section',
 		'Cartel',
@@ -71,10 +62,7 @@ function map_adding_new_metabox() {
 		'project',
 		'normal',
 		'high',
-		array(
-			'__back_compat_meta_box' => true,
-		)
-	);
+		);
 
 	add_meta_box(
 		'ext_gallery',
@@ -82,10 +70,7 @@ function map_adding_new_metabox() {
 		'map_add_project_ext_gallery',
 		'project',
 		'normal',
-		'high',
-		array(
-			'__back_compat_meta_box' => true,
-		)
+		'high'
 	);
 }
 add_action( 'add_meta_boxes', 'map_adding_new_metabox' );
@@ -107,7 +92,7 @@ function map_add_cartel_meta( $post ) {
 
 /**
  * Create date selector for event post
- * 
+ *
  * @param object $post the event post.
  */
 function map_create_event_date_meta( $post ) {
@@ -158,7 +143,7 @@ function map_add_project_linked_event( $post ) {
 function map_add_event_location( $post ) {
 	$place    = get_post_meta( $post->ID, 'PLACE', true );
 	$map_latt = get_post_meta( $post->ID, 'LATT', true );
-	$map_long = get_post_meta( $post->ID, 'LONG', true ); 
+	$map_long = get_post_meta( $post->ID, 'LONG', true );
 	?>
 	<label> <?php echo esc_html( __( 'Place', 'Minimal-Artistic-Portfolio' ) ); ?></label>
 	<input type="text" name="InputPlace" id="place" value="<?php echo esc_textarea( $place ); ?>"/>
@@ -180,7 +165,7 @@ function map_add_project_cover_options( $post ) {
 	$video_provider = get_post_meta( $post->ID, 'VIDEO_PROVIDER', true );
 	$first_res_url  = get_post_meta( $post->ID, '576P_VIDEO_URL', true );
 	$second_res_url = get_post_meta( $post->ID, '720P_VIDEO_URL', true );
-	$third_res_url  = get_post_meta( $post->ID, '1080P_VIDEO_URL', true ); 
+	$third_res_url  = get_post_meta( $post->ID, '1080P_VIDEO_URL', true );
 	?>
 <label><?php echo esc_html( __( 'Cover is an image or a video ?', 'Minimal-Artistic-Portfolio' ) ); ?></label><br/>
 <input id="not_a_video" type="radio" name="is_video" value="0" <?php echo '0' === $is_video ? ' checked' : ''; ?>/>
@@ -227,10 +212,10 @@ function map_add_project_ext_gallery( $post ) {
  * @param int $post_id the id of the event.
  */
 function map_save_event_postmeta( $post_id ) {
-		
+
 	if ( isset( $_POST['publish'] ) || isset( $_POST['save'] ) ) {
-		if ( ! isset( $_POST['save_event_meta_nonce'] ) || 
-			! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_event_meta_nonce'] ) ), 'save_event_meta' ) 
+		if ( ! isset( $_POST['save_event_meta_nonce'] ) ||
+			! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_event_meta_nonce'] ) ), 'save_event_meta' )
 		) {
 
 			wp_die( 'Sorry, your nonce did not verify event.' );
@@ -272,15 +257,15 @@ add_action( 'save_post_event', 'map_save_event_postmeta' );
 
 /**
  * Save every post meat of project
- * 
+ *
  * @param int $post_id the id of the project.
  */
 function map_save_project_postmeta( $post_id ) {
 	if ( isset( $_POST['publish'] ) || isset( $_POST['save'] ) ) {
 
 		if (
-		! isset( $_POST['save_project_meta_nonce'] ) || 
-		! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_project_meta_nonce'] ) ), 'save_project_meta' ) 
+		! isset( $_POST['save_project_meta_nonce'] ) ||
+		! wp_verify_nonce( sanitize_user( wp_unslash( $_POST['save_project_meta_nonce'] ) ), 'save_project_meta' )
 		) {
 			wp_die( 'Sorry, your nonce did not verify.' );
 
@@ -301,26 +286,26 @@ function map_save_project_postmeta( $post_id ) {
 				update_post_meta( $post_id, 'IS_VIDEO', $is_video );
 			}
 
-			if ( ! isset( $_POST['video_id'] ) || ( 
-			isset( $_POST['video_id'] ) && 
-			get_post_meta( $post_id, 'VIDEO_ID', true ) !== $_POST['video_id'] ) 
+			if ( ! isset( $_POST['video_id'] ) || (
+			isset( $_POST['video_id'] ) &&
+			get_post_meta( $post_id, 'VIDEO_ID', true ) !== $_POST['video_id'] )
 			) {
 				$video_id = sanitize_user( wp_unslash( $_POST['video_id'] ) );
 				update_post_meta( $post_id, 'VIDEO_ID', $video_id );
 			}
-			if ( ! isset( $_POST['576pVideoUrl'] ) || ( 
-			isset( $_POST['576pVideoUrl'] ) && 
+			if ( ! isset( $_POST['576pVideoUrl'] ) || (
+			isset( $_POST['576pVideoUrl'] ) &&
 			get_post_meta( $post_id, '576P_VIDEO_URL', true ) !== $_POST['576pVideoUrl'] )
 			) {
 				update_post_meta( $post_id, '576P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['576pVideoUrl'] ) ) );
 			}
-			if ( ! isset( $_POST['720pVideoUrl'] ) || ( 
-			isset( $_POST['720pVideoUrl'] ) && 
+			if ( ! isset( $_POST['720pVideoUrl'] ) || (
+			isset( $_POST['720pVideoUrl'] ) &&
 			get_post_meta( $post_id, '720P_VIDEO_URL', true ) !== $_POST['720pVideoUrl'] )
 			) {
 				update_post_meta( $post_id, '720P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['720pVideoUrl'] ) ) );
 			}
-			if ( ! isset( $_POST['1080pVideoUrl'] ) || isset( $_POST['1080pVideoUrl'] ) && 
+			if ( ! isset( $_POST['1080pVideoUrl'] ) || isset( $_POST['1080pVideoUrl'] ) &&
 			get_post_meta( $post_id, '1080P_VIDEO_URL', true ) !== $_POST['1080pVideoUrl'] ) {
 				update_post_meta( $post_id, '1080P_VIDEO_URL', sanitize_user( wp_unslash( $_POST['1080pVideoUrl'] ) ) );
 			}

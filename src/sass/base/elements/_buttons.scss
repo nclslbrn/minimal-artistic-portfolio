@@ -86,7 +86,7 @@ button[data-toggle].active {
 main .contact-links ul.works li a,
 main .contact-links ul.networks li a {
 	display: block;
-	padding: 0.5em 0.75em 0.5em 0.75em;
+	padding: 0.66em 0.75em 0.66em 0.75em;
 	margin-bottom: 0.75rem;
 }
 
@@ -102,7 +102,7 @@ main .contact-links ul li a {
 	background-color: var(--component-bg-color);
 	text-decoration: none;
 	opacity: 1;
-	border-bottom: 2px solid var(--border-color);
+	border-bottom: 3px solid var(--border-color);
 
 	img,
 	svg {
@@ -110,8 +110,7 @@ main .contact-links ul li a {
 	}
 
 	&:hover {
-		opacity: 0.75;
-		border-bottom: 2px solid var(--hover-color);
+		border-bottom: 3px solid var(--hover-color);
 	}
 }
 

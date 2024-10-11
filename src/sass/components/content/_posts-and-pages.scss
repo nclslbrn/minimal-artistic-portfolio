@@ -122,6 +122,13 @@ main article>.entry-content:last-of-type {
 		.project-description,
 		.event-description {
 			flex: 0 1 auto;
+		}
+
+		.project-description>p,
+		.project-description>strong,
+		.project-description>blockquote,
+		.project-description>em,
+		.event-description>p {
 			padding-right: 7rem;
 		}
 

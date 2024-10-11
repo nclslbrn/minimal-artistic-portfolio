@@ -1999,6 +1999,11 @@ bach@^2.0.1:
     async-settle "^2.0.0"
     now-and-later "^3.0.0"
 
+baguettebox.js@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/baguettebox.js/-/baguettebox.js-1.12.0.tgz#85fc462ec303b81cc08e68442b3fec8a4fefbdf6"
+  integrity sha512-/pg/9xMpr5aL3MIpXwtoPegr1edO2feHmWwx0h2eVOuqFguOgLQWzlbyqWxzzAOLMKch/df87uO7sXMrQuwUmw==
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"

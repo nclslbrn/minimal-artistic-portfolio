@@ -44,7 +44,7 @@ function map_create_post_types() { // phpcs:ignore
 			'menu_icon'           => 'dashicons-lightbulb',
 			'show_in_menu'        => true,
 			'show_in_nav_menus'   => true,
-			'show_in_rest'        => false,
+			'show_in_rest'        => true,
 			'supports'            => array( 'title', 'editor', 'revisions', 'thumbnail' ),
 			'taxonomies'          => array( 'category', 'post_tag' ),
 		)
@@ -478,7 +478,7 @@ function map_at_glance_content_table_end() {
 	foreach ( $post_types as $post_type ) {
 		$num_posts = wp_count_posts( $post_type->name );
 		$num       = number_format_i18n( $num_posts->publish );
-		
+
 		$text = _n(
             $post_type->labels->singular_name, // phpcs:ignore
             $post_type->labels->name, // phpcs:ignore

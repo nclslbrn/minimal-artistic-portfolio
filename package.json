@@ -66,5 +66,7 @@
         "styles-rtl": "gulp stylesRTL",
         "cache-clear": "gulp clearCache"
     },
-    "dependencies": {}
+    "dependencies": {
+        "baguettebox.js": "^1.12.0"
+    }
 }
