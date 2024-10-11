@@ -1,6 +1,6 @@
 {
     "name": "minimal-artistic-portfolio",
-    "version": "2.0.0",
+    "version": "1.0.4",
     "description": "A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel, Gulp and more.",
     "keywords": [
         "portfolio",

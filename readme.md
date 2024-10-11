@@ -24,7 +24,7 @@ Webpack and more.
 -   They can have a location to display a map [Leafleft](https://github.com/Leaflet/Leaflet)
 -   They are ordered from newer to older on the events.php page template (grouped by year)
 
-### GIFs post
+### GIFs post
 
 -   A simple image post to build a single gallery page.
 -   Grid gallery show thumbnail but also embed a hidden image to be preloaded,
@@ -32,13 +32,20 @@ Webpack and more.
 
 ### Commons features
 
--   Projects and events can have galleries, you just have to add thumbnail linked to full size image into post content, the editor will detect it and add a [Fluidbox](http://terrymun.github.io/Fluidbox/demo/index.html#content) class.
+-   Projects and events can have galleries, you just have to add thumbnail linked to full size image into post content, the editor will detect it and add `fluidbox` class.
 -   They have share button (Facebook, Twitter and email)
 -   contact page template (admin email is used to recieve email, there is no option to change it)
 -   two menus (header & footer), page can be nested in a dropdown in the header navigation bar, these two menus are responsive
 
 
 ## Changelog
+
+### Ver.1.0.5
+- Project and event are now editable with Gtutenberg (WordPress Block)
+- Add a lightbox for .wp-block-gallery and a.fluidbox with [BaguetteBox](https://github.com/feimosi/baguetteBox.js)
+- Add an alternate style to gallery block, tiled, to compose irregular grid of picture
+- Add three styles, column 1, 2, 3 to image block for image sizing within or without tiled image gallery
+- Borders are back
 
 ### Ver.1.0.4
 - Refactoring with phpcs and wp-coding-standarts (composer dependency)
@@ -79,35 +86,6 @@ Added a simple image post called gif (but could be used with static picture), wi
 
 ### Installation
 
--   install with `npm install`
--   update your change (SASS, PHP, image, fonts) with `gulp watch` and build it with `build`
+-   install with `npm install` or `yarn`
+-   update your change (SASS, PHP, image, fonts) with `npm run dev`/`yarn dev` and build it with `npm run build`/`yarn build`
 
-## Build with/thanks
-
-<a href="https://github.com/WordPress/WordPress" style="text-decoration: none;">
-<img src="https://raw.githubusercontent.com/WordPress/WordPress/master/wp-admin/images/wordpress-logo.png" alt="Wordpress" width="139">
-</a>
-
-<a href="https://github.com/gulpjs/gulp" style="text-decoration: none;">
-<img src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png" alt="Gulp" width="100">
-</a>
-
-<a href="https://github.com/cssnano/cssnano" style="text-decoration: none;">
-<img src="https://camo.githubusercontent.com/d9f9a3bba9fdb5fba126be247ddb1228da667c64/68747470733a2f2f7261776769742e636f6d2f6373736e616e6f2f6373736e616e6f2f6d61737465722f6d656469612f6c6f676f2e737667" alt="CSSNano" width="139">
-</a>
-
-<a href="https://github.com/sass/sass" style="text-decoration: none;">
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png" alt="Sass" width="100">
-</a>
-
-<a href="https://github.com/postcss/autoprefixer" style="text-decoration: none;">
-<img src="https://camo.githubusercontent.com/f265315f74ed08b94e473cd7f6f04c291e59a8e2/687474703a2f2f706f73746373732e6769746875622e696f2f6175746f70726566697865722f6c6f676f2e737667" alt="Autoprefixer" width="100">
-</a>
-
-<a href="https://github.com/Browsersync/browser-sync" style="text-decoration: none;">
-<img src="https://raw.githubusercontent.com/BrowserSync/browsersync.github.io/master/public/img/logo-gh.png" alt="browserSync" width="139">
-</a>
-
-<a href="https://github.com/npm/cli" style="text-decoration: none;">
-<img src="https://raw.githubusercontent.com/npm/logos/master/npm%20square/n-large.png" alt="NPM" width="100">
-</a>
