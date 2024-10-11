@@ -212,3 +212,8 @@ require get_template_directory() . '/inc/meta-box.php';
  * Load night mode widget
  */
 require get_template_directory() . '/inc/class-map-night-mode-widget.php';
+
+/**
+ * Load custom gutenberg block
+ */
+require get_template_directory() . '/inc/gutenberg-block.php';

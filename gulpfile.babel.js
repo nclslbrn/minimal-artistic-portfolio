@@ -281,6 +281,17 @@ gulp.task("customJS", () => {
 		});
 });
 
+
+gulp.task("backJS", () => {
+	return gulp
+		.src(config.jsBackSRC)
+		.pipe(gulp.dest(config.jsBackDestination))
+		.on("end", function () {
+			console.log("✅ BACK JS — completed!");
+		});
+
+})
+
 /**
  * Task: `images`.
  *
@@ -390,6 +401,7 @@ gulp.task("build", (cb) => {
 		"styles",
 		"vendorsJS",
 		"customJS",
+		"backJS",
 		"images",
 		"fonts",
 	)(cb);
@@ -432,6 +444,7 @@ gulp.task(
 			gulp.watch(config.watchJsCustom, gulp.series("customJS", reload)); // Reload on customJS file changes.
 			gulp.watch(config.imgSRC, gulp.series("images", reload)); // Reload on customJS file changes.
 			gulp.watch(config.fontSRC, gulp.series("fonts", reload)); // Reload on customJS file changes.
+			gulp.watch(config.jsBackSRC, gulp.series("backJS", reload));
 		},
 	),
 );

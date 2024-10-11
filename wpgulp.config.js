@@ -53,6 +53,11 @@ const jsCustomDestination = './build/js/'
 // Compiled JS custom file name. Default set to custom i.e. custom.js.
 const jsCustomFile = 'front'
 
+
+const jsBackSRC = './src/js/editor.js'
+const jsBackDestination = './build/js/'
+const jsBackFile = 'editor'
+
 // Images options.
 
 // Source folder of images which should be optimized and watched.
@@ -177,6 +182,9 @@ module.exports = {
 	jsCustomSRC,
 	jsCustomDestination,
 	jsCustomFile,
+	jsBackSRC,
+	jsBackDestination,
+	jsBackFile,
 	imgSRC,
 	imgDST,
 	fontSRC,

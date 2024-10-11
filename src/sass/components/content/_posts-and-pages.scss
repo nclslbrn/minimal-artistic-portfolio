@@ -40,7 +40,7 @@ body.search .site-content main {
 }
 
 main article>.entry-content:last-of-type {
-	padding: 1em 0;
+	padding-top: 1em;
 }
 
 /* Project & event list
@@ -50,6 +50,8 @@ main article>.entry-content:last-of-type {
 	display: flex;
 	flex-flow: column nowrap;
 	margin: 0 0 2em 0;
+	align-items: stretch;
+	justify-content: flex-start;
 
 	@include breakpoint(sm) {
 		flex-flow: row nowrap;
@@ -64,7 +66,7 @@ main article>.entry-content:last-of-type {
 
 	a.event-featured-image,
 	a.project-featured-image {
-		flex: 1 0 50%;
+		flex: 0 0 auto;
 	}
 
 	div.event-info,
@@ -114,6 +116,7 @@ main article>.entry-content:last-of-type {
 .single-event .event-texts {
 	display: flex;
 	flex-flow: column nowrap;
+	align-items: flex-start;
 	margin-top: 1.4em;
 
 	@include breakpoint(md) {
@@ -129,14 +132,24 @@ main article>.entry-content:last-of-type {
 		.project-description>blockquote,
 		.project-description>em,
 		.event-description>p {
-			padding-right: 7rem;
+			padding-left: 2rem;
+			padding: 0 5rem 1rem 2rem;
+			margin: 0;
+			border-left: 1px solid var(--border-color);
 		}
 
 		.project-cartel,
 		.event-properties {
-			padding-right: 2rem;
+			padding-right: 1rem;
+			padding-bottom: 2rem;
 			flex: 1 0 20%;
 			hyphens: auto;
+			border-bottom: 1px solid var(--border-color);
+		}
+
+		.project-cartel p,
+		.event-properties p {
+			margin: 0;
 		}
 	}
 }
