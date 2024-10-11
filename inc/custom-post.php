@@ -147,18 +147,15 @@ function map_create_post_types() { // phpcs:ignore
 		'show_in_rest' => true,
 		'single'			 => true,
 		'type'				 => 'string',
-		'auth_callback' => function() {
-        return current_user_can( 'edit_posts' );
-    }
+		'sanitize_callback'  => 'wp_kses_post',
 	));
 
 	register_post_meta('project', 'ext_gallery', array(
 		'show_in_rest' => true,
 		'single'			 => true,
 		'type'				 => 'string',
-		'auth_callback' => function() {
-        return current_user_can( 'edit_posts' );
-    }
+		'sanitize_callback'  => 'wp_kses_post',
+
 	));
 }
 add_action( 'init', 'map_create_post_types' );

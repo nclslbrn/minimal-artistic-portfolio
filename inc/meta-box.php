@@ -8,7 +8,7 @@
  * @package Minimal-Artistic-Portfolio.
  * @version 1.0.0.
  */
-
+// TODO: https://developer.wordpress.org/news/2023/03/03/creating-a-custom-block-that-stores-post-meta/
 /**
  * Add every metabox for project & event
  */
@@ -85,7 +85,7 @@ function map_add_cartel_meta( $post ) {
 	wp_editor(
 		htmlspecialchars_decode( $cartel ),
 		'mettaabox_ID_stylee',
-		$settings = array( 'textarea_name' => 'Cartel' )
+		array( 'textarea_name' => 'Cartel' )
 	);
 	wp_nonce_field( 'save_project_meta', 'save_project_meta_nonce', true, true );
 }
@@ -111,7 +111,6 @@ function map_create_event_date_meta( $post ) {
  * @param object $post the project post.
  */
 function map_add_project_linked_event( $post ) {
-	$custom             = get_post_custom( $post->ID );
 	$row_saved_event_id = (array) get_post_meta( $post->ID, 'event', true );
 	$saved_event_id     = array_map( 'intval', $row_saved_event_id );
 	$count              = 0;
@@ -380,7 +379,6 @@ function map_get_metabox( $post_id, $key, $single ) {
 			echo '</div>';
 		} elseif ( is_array( $meta_values ) ) {
 			echo '<div class="' . esc_attr( strtolower( $key ) ) . '">';
-			$values = '';
 			foreach ( $meta_values as $value ) {
 				echo wp_kses_post( html_entity_decode( $value, ENT_COMPAT, 'UTF-8' ) );
 			}
