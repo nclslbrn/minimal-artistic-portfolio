@@ -10,11 +10,11 @@
 
 if ( is_single() ) :
 	$map_event = array(
-		'latt'             => get_post_meta( $post->ID, 'LATT', true ),
-		'long'             => get_post_meta( $post->ID, 'LONG', true ),
-		'place_name'       => get_post_meta( $post->ID, 'PLACE', true ),
-		'begin_date'       => strtotime( get_post_meta( $post->ID, 'BEGINDATE', true ) ),
-		'end_date'         => strtotime( get_post_meta( $post->ID, 'ENDDATE', true ) ),
+		'latt'             => get_post_meta( $post->ID, 'latt', true ),
+		'long'             => get_post_meta( $post->ID, 'long', true ),
+		'place_name'       => get_post_meta( $post->ID, 'place', true ),
+		'begin_date'       => strtotime( get_post_meta( $post->ID, 'begin_date', true ) ),
+		'end_date'         => strtotime( get_post_meta( $post->ID, 'end_date', true ) ),
 		'related_projects' => map_get_project( $post->ID ),
 		'content_classes'  => ' ',
 	);
@@ -86,9 +86,9 @@ else :
 	$map_event = array(
 		'link'       => get_permalink( $post->ID ),
 		'thumbnail'  => get_the_post_thumbnail( $post->ID, 'carton' ),
-		'place'      => get_post_meta( $post->ID, 'PLACE', true ),
-		'begin_date' => strtotime( get_post_meta( $post->ID, 'BEGINDATE', 'true' ) ),
-		'end_date'   => strtotime( get_post_meta( $post->ID, 'ENDDATE', 'true' ) ),
+		'place'      => get_post_meta( $post->ID, 'place', true ),
+		'begin_date' => strtotime( get_post_meta( $post->ID, 'begin_date', 'true' ) ),
+		'end_date'   => strtotime( get_post_meta( $post->ID, 'end_date', 'true' ) ),
 	);
 
 	?>

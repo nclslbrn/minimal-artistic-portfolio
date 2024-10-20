@@ -8,7 +8,7 @@
  * @var Post $post the global WordPress post object
  */
 
-$map_cartel = get_post_meta( $post->ID, 'CARTEL', true );
+$map_cartel = get_post_meta( $post->ID, 'cartel', true );
 global $q_config;
 $map_lang = isset( $q_config['language'] ) ? $q_config['language'] : false;
 if ( ! is_single() ) { ?>
@@ -36,12 +36,12 @@ if ( ! is_single() ) { ?>
 	<?php
 } else {
 	// $map_is_video boolean string '0' = image '1' = video
-	$map_is_video         = get_post_meta( $post->ID, 'IS_VIDEO', true );
-	$map_video_id         = get_post_meta( $post->ID, 'VIDEO_ID', true );
-	$map_video_provider   = get_post_meta( $post->ID, 'VIDEO_PROVIDER', true );
-	$map_first_res_url    = get_post_meta( $post->ID, '576P_VIDEO_URL', true );
-	$map_second_res_url   = get_post_meta( $post->ID, '720P_VIDEO_URL', true );
-	$map_third_res_url    = get_post_meta( $post->ID, '1080P_VIDEO_URL', true );
+	$map_is_video         = get_post_meta( $post->ID, 'is_video', true );
+	$map_video_id         = get_post_meta( $post->ID, 'video_id', true );
+	$map_video_provider   = get_post_meta( $post->ID, 'video_provider', true );
+	$map_first_res_url    = get_post_meta( $post->ID, '576p_video_url', true );
+	$map_second_res_url   = get_post_meta( $post->ID, '720p_video_url', true );
+	$map_third_res_url    = get_post_meta( $post->ID, '1080p_video_url', true );
 	$map_related_events   = map_get_event( $post->ID );
 	$map_content_classes  = '';
 	$map_content_classes .= '' !== $post->post_content ? ' filled' : '';

@@ -3,26 +3,38 @@
 		list-style-type: none;
 	}
 
+	@include breakpoint(lg) {
+		>ul>li::before {
+			content: '╴';
+			color: var(--border-color);
+			float: left;
+			line-height: 1;
+			margin-right: 0.1em;
+		}
+	}
+
 	>ul li>ul {
 		margin-left: 0;
+		margin-bottom: 0.5em;
 
 		li {
 			list-style-type: none;
 			clear: both;
 			float: none;
 			line-height: 1.5;
+			margin: 0.5em 0;
 
 			&::before {
-				content: "/";
-				color: var(--text-color);
+				position: absolute;
+				content: "─";
+				color: var(--border-color);
 				float: left;
 				line-height: 1;
 				margin-right: 0.2em;
-				opacity: 0.5;
 			}
 
 			a {
-				margin-left: 1em;
+				margin-left: 1.5em;
 			}
 		}
 	}
@@ -96,7 +108,7 @@
 
 		@include breakpoint(lg) {
 			padding: 0;
-			margin: 0 0 0.25rem 0;
+			margin: 0;
 			line-height: 1.5;
 		}
 	}
@@ -162,11 +174,12 @@
 		&>ul {
 			padding-top: 0.5em;
 			padding-bottom: 1rem;
+			border-left: 1px solid var(--border-color);
 		}
 
 		ul.sub-menu {
 			display: block;
-			margin: 0.5rem 0;
+			margin: 0 0 1.5em 0;
 		}
 
 		ul li a {
@@ -244,7 +257,6 @@ footer.site-footer {
 	display: flex;
 	flex-flow: column wrap;
 	padding-top: 1em;
-	border-top: 1px solid var(--border-color);
 
 	ul.menu {
 		display: flex;

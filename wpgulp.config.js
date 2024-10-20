@@ -26,6 +26,9 @@ const styleSRC = './src/sass/style.scss'
 // Path to place the compiled CSS file. Default set to root folder.
 const styleDestination = './'
 
+const editorStyleSRC = './src/sass/editor.scss'
+const editorStyleDestination = './';
+
 // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
 const outputStyle = 'compressed'
 const errLogToConsole = true
@@ -173,6 +176,8 @@ module.exports = {
 	injectChanges,
 	styleSRC,
 	styleDestination,
+	editorStyleSRC,
+	editorStyleDestination,
 	outputStyle,
 	errLogToConsole,
 	precision,

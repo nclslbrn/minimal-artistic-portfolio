@@ -26,13 +26,13 @@
 	max-width: 100%;
 	overflow-x: scroll;
 	padding-bottom: 82vw;
-	border-bottom: 1px solid var(--component-bg-color);
+	border-bottom: 1px solid var(--border-color);
 
 	@include breakpoint(md) {
 		padding-bottom: 26vw;
 	}
 
-	@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
+	@include scrollbars(0.5rem, var(--border-color), var(--bg-color));
 }
 
 .ext-gallery .scroll-wrapper {

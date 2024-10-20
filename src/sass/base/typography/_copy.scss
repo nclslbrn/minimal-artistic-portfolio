@@ -53,10 +53,11 @@ big {
 blockquote {
 	position: relative;
 	padding: 2rem 3rem;
+	clear: both;
+	float: none;
 
 	&::before,
 	&::after {
-		position: absolute;
 		font-size: 4rem;
 		font-family: serif;
 		opacity: 0.5;
@@ -65,14 +66,19 @@ blockquote {
 
 	&::before {
 		content: "“";
-		top: 0.5rem;
-		left: 0.5rem;
+		float: left;
+		margin: -0.5em 0 -1em -3rem;
 	}
 
 	&::after {
+		position: absolute;
 		content: "”";
 		bottom: 0.5rem;
 		right: 0.5rem;
+	}
+
+	p {
+		font-style: italic;
 	}
 }
 

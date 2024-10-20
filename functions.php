@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Minimal-Artistic-Portfolio functions and definitions.
  *
@@ -7,7 +8,7 @@
  * @package Minimal-Artistic-Portfolio
  */
 
-if ( ! function_exists( 'map_setup' ) ) :
+if (! function_exists('map_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -15,23 +16,24 @@ if ( ! function_exists( 'map_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function map_setup() {
+	function map_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Minimal-Artistic-Portfolio, use a find and replace
 		 * to change 'Minimal-Artistic-Portfolio' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'Minimal-Artistic-Portfolio', get_template_directory() . '/languages' );
+		load_theme_textdomain('Minimal-Artistic-Portfolio', get_template_directory() . '/languages');
 		$local      = get_locale();
 		$local_file = get_template_directory() . "/languages/$local";
 
-		if ( is_readable( $local_file ) ) {
+		if (is_readable($local_file)) {
 			require_once $local_file;
 		}
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -39,20 +41,20 @@ if ( ! function_exists( 'map_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary'     => esc_html__( 'Primary', 'Minimal-Artistic-Portfolio' ),
-				'footer-menu' => esc_html__( 'Footer Menu', 'Minimal-Artistic-Portfolio' ),
+				'primary'     => esc_html__('Primary', 'Minimal-Artistic-Portfolio'),
+				'footer-menu' => esc_html__('Footer Menu', 'Minimal-Artistic-Portfolio'),
 			)
 		);
 
@@ -97,9 +99,13 @@ if ( ! function_exists( 'map_setup' ) ) :
 				)
 			)
 		);
+
+		// Add front style to Gutenberg editor block
+		add_theme_support('editor-styles');
+		add_editor_style( 'editor.css' );
 	}
 endif;
-add_action( 'after_setup_theme', 'map_setup' );
+add_action('after_setup_theme', 'map_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -108,22 +114,24 @@ add_action( 'after_setup_theme', 'map_setup' );
  *
  * @global int $content_width
  */
-function map_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'map_content_width', 640 );
+function map_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('map_content_width', 640);
 }
-add_action( 'after_setup_theme', 'map_content_width', 0 );
+add_action('after_setup_theme', 'map_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function map_widgets_init() {
+function map_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'Minimal-Artistic-Portfolio' ),
+			'name'          => esc_html__('Sidebar', 'Minimal-Artistic-Portfolio'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'Minimal-Artistic-Portfolio' ),
+			'description'   => esc_html__('Add widgets here.', 'Minimal-Artistic-Portfolio'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -131,42 +139,34 @@ function map_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'map_widgets_init' );
+add_action('widgets_init', 'map_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function map_scripts() {
-	wp_enqueue_style( 'leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all' );
-	wp_enqueue_style( 'Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', '2.0.1', 'all' );
-	wp_enqueue_style( 'Minimal-Artistic-Portfolio-font', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all' );
-	wp_enqueue_script( 'leafletScript', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false );
-	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array( 'leafletScript' ), '2.0.1', true );
-	wp_enqueue_style( 'vidstack-theme', 'https://cdn.vidstack.io/player/theme.css', '', '', 'all');
-	wp_enqueue_style( 'vidstack-video', 'https://cdn.vidstack.io/player/video.css', '', '', 'all');
-	wp_enqueue_script_module( 'vidstack-script', 'https://cdn.vidstack.io/player@1.11.21', array(), '1.11.21', true);
+function map_scripts()
+{
+	wp_enqueue_style('leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all');
+	wp_enqueue_style('Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', '2.0.1', 'all');
+	wp_enqueue_style('Minimal-Artistic-Portfolio-font', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all');
+	wp_enqueue_script('leafletScript', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false);
+	wp_enqueue_script('Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array('leafletScript'), '2.0.1', true);
+	wp_enqueue_style('vidstack-theme', 'https://cdn.vidstack.io/player/theme.css', '', '', 'all');
+	wp_enqueue_style('vidstack-video', 'https://cdn.vidstack.io/player/video.css', '', '', 'all');
+	wp_enqueue_script_module('vidstack-script', 'https://cdn.vidstack.io/player@1.11.21', array(), '1.11.21', true);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'map_scripts' );
-
-/**
- * Add a dedicated stylesheet for WordPress Admin
- */
-function map_admin_scripts() {
-	wp_enqueue_style( 'Minimal-Artistic-Portfolio-adminstyle', get_template_directory_uri() . '/admin.css', '', '1.0.0', 'all' );
-	wp_enqueue_script( 'Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/back.js', array( 'leafletScript' ), '1.0.0', true );
-}
-add_action( 'admin_head', 'map_admin_scripts' );
+add_action('wp_enqueue_scripts', 'map_scripts');
 
 /*
  * ADD A DIFFERENT SIZE FOR EVENT COVER
  *
  */
-add_image_size( 'cover', 711, 400, true );
-add_image_size( 'carton', 400, 640, false );
+add_image_size('cover', 711, 400, true);
+add_image_size('carton', 400, 640, false);
 
 /**
  * Implement the Custom Header feature.
@@ -206,7 +206,11 @@ require get_template_directory() . '/inc/map-dynamic-project-menu.php';
 /**
  * Load meta box features.
  */
-require get_template_directory() . '/inc/meta-box.php';
+require get_template_directory() . '/lib/index.php';
+require get_template_directory() . '/inc/meta-box-project.php';
+require get_template_directory() . '/inc/meta-box-event.php';
+
+
 
 /**
  * Load night mode widget

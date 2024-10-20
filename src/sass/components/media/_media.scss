@@ -20,6 +20,7 @@ a.event-featured-image img,
 a.project-featured-image img,
 a.fluidbox img,
 .gallery a img {
+	float: left;
 	object-fit: cover;
 	min-height: 100%;
 	filter: contrast(100%);

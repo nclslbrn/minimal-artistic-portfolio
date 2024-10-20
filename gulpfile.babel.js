@@ -155,6 +155,41 @@ gulp.task("styles", () => {
 		});
 });
 
+gulp.task("editorStyles", () => {
+	return gulp
+		.src(config.editorStyleSRC, { allowEmpty: true })
+		.pipe(plumber(errorHandler))
+		.pipe(mode.development(sourcemaps.init()))
+		.pipe(
+			sass({
+				errLogToConsole: config.errLogToConsole,
+				outputStyle: config.outputStyle,
+				precision: config.precision,
+			}),
+		)
+		.on("error", sass.logError)
+		.pipe(mode.development(sourcemaps.write({ includeContent: false })))
+		.pipe(mode.development(sourcemaps.init({ loadMaps: true })))
+
+		.pipe(mode.production(autoprefixer(config.BROWSERS_LIST)))
+		.pipe(mode.development(sourcemaps.write("./")))
+		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		.pipe(gulp.dest(config.editorStyleDestination))
+		.pipe(filter("**/*.css")) // Filtering stream to only css files.
+		.pipe(mmq({ log: true })) // Merge Media Queries only for .min.css version.
+		.pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
+		.pipe(rename({ suffix: ".min" }))
+		.pipe(minifycss({ maxLineLen: 10 }))
+		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		.pipe(plumber.stop())
+		.pipe(gulp.dest(config.editorStyleDestination))
+		.pipe(filter("**/*.css")) // Filtering stream to only css files.
+		.pipe(browserSync.stream()) // Reloads style.min.css if that is enqueued.
+
+		.on("end", function () {
+			console.log("✅ EDITOR STYLES — completed!");
+		});
+});
 /**
  * Task: `stylesRTL`.
  *
@@ -281,7 +316,6 @@ gulp.task("customJS", () => {
 		});
 });
 
-
 gulp.task("backJS", () => {
 	return gulp
 		.src(config.jsBackSRC)
@@ -289,8 +323,7 @@ gulp.task("backJS", () => {
 		.on("end", function () {
 			console.log("✅ BACK JS — completed!");
 		});
-
-})
+});
 
 /**
  * Task: `images`.
@@ -399,6 +432,7 @@ gulp.task("build", (cb) => {
 	gulp.series(
 		"clean",
 		"styles",
+		"editorStyles",
 		"vendorsJS",
 		"customJS",
 		"backJS",
@@ -432,6 +466,7 @@ gulp.task(
 	"default",
 	gulp.parallel(
 		"styles",
+		"editorStyles",
 		"vendorsJS",
 		"customJS",
 		"images",
@@ -440,6 +475,7 @@ gulp.task(
 		() => {
 			gulp.watch(config.watchPhp, reload); // Reload on PHP file changes.
 			gulp.watch(config.watchStyles, gulp.parallel("styles")); // Reload on SCSS file changes.
+			gulp.watch(config.watchStyles, gulp.parallel("editorStyles"));
 			gulp.watch(config.watchJsVendor, gulp.series("vendorsJS", reload)); // Reload on vendorsJS file changes.
 			gulp.watch(config.watchJsCustom, gulp.series("customJS", reload)); // Reload on customJS file changes.
 			gulp.watch(config.imgSRC, gulp.series("images", reload)); // Reload on customJS file changes.
