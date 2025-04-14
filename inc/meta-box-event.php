@@ -26,15 +26,17 @@ add_action(
 		));
 
 		$cmb->add_field(array(
-			'name' => __('Begin date', 'Minimal-Artistic-Portfolio'),
-			'id'   => 'begin_date',
-			'type' => 'text_date',
+			'name' 		  => __('Begin date', 'Minimal-Artistic-Portfolio'),
+			'id'   		  => 'begin_date',
+			'type' 		  => 'text_date',
+			'date_format' => 'Y-m-d',
 		));
 
 		$cmb->add_field(array(
-			'name' => __('End date', 'Minimal-Artistic-Portfolio'),
-			'id'   => 'end_date',
-			'type' => 'text_date',
+			'name' 		  => __('End date', 'Minimal-Artistic-Portfolio'),
+			'id'   		  => 'end_date',
+			'type' 		  => 'text_date',
+			'date_format' => 'Y-m-d',
 		));
 
 		$cmb->add_field( array(
