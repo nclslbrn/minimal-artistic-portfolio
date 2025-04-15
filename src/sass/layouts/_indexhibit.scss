@@ -19,7 +19,7 @@ body.page-template-contact main article .contact-links {
 	}
 }
 
-body.search .site-content main>article {
+body.search .site-content main > article {
 	padding: 0.5rem 1.5rem;
 }
 
@@ -54,11 +54,21 @@ body.search .site-content main>article {
 	main article.project .entry-header .project-title,
 	main article.event .entry-header .event-title,
 	main article.post .entry-header .entry-title,
-	main>header.entry-header .entry-title {
+	main > header.entry-header .entry-title {
 		margin: 0;
-		padding: 1em 0;
+		padding: 1.5em 1em;
 		font-size: 2em;
 		line-height: 0.85;
+	}
+
+	body.page main .entry-header .entry-title,
+	body.hfeed main .entry-header .entry-title,
+	body.error404 main .entry-header .entry-title,
+	main article.project .entry-header .project-title,
+	main article.event .entry-header .event-title,
+	main article.post .entry-header .entry-title,
+	main > header.entry-header .entry-title {
+		font-style: italic;
 		font-weight: 700;
 	}
 
@@ -71,12 +81,12 @@ body.search .site-content main>article {
 	body.page-template-contact main .entry-header,
 	body.page-template-gif-page main .entry-header,
 	body.page-template-default main .entry-header,
-	body.search main>.entry-header,
+	body.search main > .entry-header,
 	body.error404 main .entry-header,
 	body.hfeed main .page-header,
 	body.single-post main article.post .entry-header,
-	body.single-project main>article .entry-header,
-	body.single-event main>article .entry-header {
+	body.single-project main > article .entry-header,
+	body.single-event main > article .entry-header {
 		max-width: 60%;
 	}
 
@@ -92,7 +102,6 @@ body.search .site-content main>article {
 	body.page-template-contact main article .entry-content,
 	section main {
 		max-width: 1920px;
-		padding-top: 2.5rem;
 		padding-right: 5rem;
 	}
 
@@ -115,13 +124,13 @@ body.search .site-content main>article {
 		}
 	}
 
-	body main article .entry-content>p,
-	body main article .entry-content>pre,
-	body main article .entry-content>blockquote,
-	body main article .entry-content>em,
-	body main article .entry-content>ul,
-	div.content-area main article.event .entry-content .event-texts>p,
-	div.content-area main article.project .entry-content .project-texts>p {
+	body main article .entry-content > p,
+	body main article .entry-content > pre,
+	body main article .entry-content > blockquote,
+	body main article .entry-content > em,
+	body main article .entry-content > ul,
+	div.content-area main article.event .entry-content .event-texts > p,
+	div.content-area main article.project .entry-content .project-texts > p {
 		max-width: 80%;
 	}
 

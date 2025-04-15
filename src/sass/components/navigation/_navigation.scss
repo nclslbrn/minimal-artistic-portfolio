@@ -1,19 +1,9 @@
 .main-navigation {
-	>ul {
+	> ul {
 		list-style-type: none;
 	}
 
-	@include breakpoint(lg) {
-		>ul>li::before {
-			content: '╴';
-			color: var(--border-color);
-			float: left;
-			line-height: 1;
-			margin-right: 0.1em;
-		}
-	}
-
-	>ul li>ul {
+	> ul li > ul {
 		margin-left: 0;
 		margin-bottom: 0.5em;
 
@@ -24,17 +14,8 @@
 			line-height: 1.5;
 			margin: 0.5em 0;
 
-			&::before {
-				position: absolute;
-				content: "─";
-				color: var(--border-color);
-				float: left;
-				line-height: 1;
-				margin-right: 0.2em;
-			}
-
 			a {
-				margin-left: 1.5em;
+				margin-left: 0.5em;
 			}
 		}
 	}
@@ -42,6 +23,7 @@
 	li {
 		position: relative;
 		padding-bottom: 0;
+		margin: 0.5em 0;
 		@include border("bottom");
 
 		&:last-child {
@@ -57,8 +39,8 @@
 		padding-right: 1em;
 	}
 
-	li.menu-item-has-children>a::after,
-	li.menu-item-has-children>a::before {
+	li.menu-item-has-children > a::after,
+	li.menu-item-has-children > a::before {
 		content: "";
 		display: block;
 		top: 0;
@@ -76,20 +58,13 @@
 		transition: margin 0.05s ease-out;
 	}
 
-	li.menu-item-has-children>a::after {
-		margin-top: 1.15em;
-		top: 0;
-		border-color: var(--component-bg-color) transparent transparent transparent;
-		z-index: 999;
-	}
-
-	li.menu-item-has-children:hover>a::before,
-	li.menu-item-has-children:hover>a::after {
+	li.menu-item-has-children:hover > a::before,
+	li.menu-item-has-children:hover > a::after {
 		margin-top: 1em;
 		border-color: transparent transparent var(--primary-color) transparent;
 	}
 
-	li.menu-item-has-children:hover>a::after {
+	li.menu-item-has-children:hover > a::after {
 		margin-top: 1.05em;
 		border-color: transparent transparent var(--component-bg-color) transparent;
 	}
@@ -171,15 +146,19 @@
 		flex-flow: column nowrap;
 		align-items: flex-start;
 
-		&>ul {
+		& > ul {
 			padding-top: 0.5em;
 			padding-bottom: 1rem;
-			border-left: 1px solid var(--border-color);
 		}
 
 		ul.sub-menu {
 			display: block;
-			margin: 0 0 1.5em 0;
+			margin: 0;
+			padding: 0 0 0.5em 0;
+		}
+
+		ul li {
+			padding: 0.25em 0.5em 0.25em 1em;
 		}
 
 		ul li a {
@@ -188,7 +167,7 @@
 	}
 }
 
-.main-navigation>ul {
+.main-navigation > ul {
 	display: flex;
 	flex-flow: column nowrap;
 	box-shadow: var(--shadows);
@@ -198,7 +177,7 @@
 	background: var(--bg-color);
 
 	@include breakpoint(md) {
-		margin: 0 0 0 0.8rem;
+		margin: 0;
 		flex-flow: column wrap;
 		justify-content: flex-start;
 		max-width: 90%;
@@ -245,7 +224,7 @@ nav.page-nav {
 }
 
 /* sharing menu */
-.social-sharing-module>ul,
+.social-sharing-module > ul,
 #menu-footer {
 	padding: 0;
 	margin: 0;

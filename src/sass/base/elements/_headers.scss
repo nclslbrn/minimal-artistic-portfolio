@@ -25,19 +25,27 @@
 
 		.site-title,
 		aside {
-			padding-left: 0.8rem;
+			padding-left: 0.4rem;
 		}
+		/*
+		.site-title {
+			border-bottom: 1px solid var(--border-color);
+		}
+		*/
 	}
 
 	.site-title a {
 		text-decoration: none;
+		opacity: 1;
 		color: inherit;
 		letter-spacing: -0.06em;
 		font-weight: 300;
+		/* color: var(--bg-color); */
 
 		&:hover,
 		&:focus {
 			color: var(--hover-color);
+			/* background-color: var(--bg-color); */
 		}
 	}
 }

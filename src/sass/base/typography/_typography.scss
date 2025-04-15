@@ -2,6 +2,7 @@ html {
 	font-size: $body_font_size;
 	font-size: calc($body_font_size + 2 * ((100vw - 320px) / 680));
 	line-height: 1.5;
+	font-weight: 300;
 }
 
 body,

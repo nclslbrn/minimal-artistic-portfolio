@@ -4,18 +4,18 @@ body {
 }
 
 body {
-	background: var(--bg-color);
+	background-image: repeating-linear-gradient(
+			to right,
+			transparent,
+			transparent 18.25%,
+			var(--component-bg-color) 18.25%,
+			var(--component-bg-color) 18.4%
+		),
+		linear-gradient(-25deg, var(--bg-color), var(--component-bg-color));
+	//var(--component-bg-color));
 	@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 }
 
 body.admin-bar #page {
 	position: relative;
-}
-
-html[data-theme="light"] body #page {
-	background: url(./build/img/dust.png) repeat;
-}
-
-html[data-theme="dark"] body #page {
-	background: url(./build/img/dark-dust.png) repeat;
 }

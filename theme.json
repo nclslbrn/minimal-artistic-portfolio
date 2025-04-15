@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"layout": {
+			"contentSize": "1135px",
+			"wideSize": "1135px"
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "Geist,'Helvetica Neue,sans-serif",
+					"slug": "Geist",
+					"name": "Geist"
+				},
+				{
+					"fontFamily": "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif",
+					"slug": "system-fonts",
+					"name": "System Fonts"
+				},
+				{
+					"fontFamily": "monaco,consolas,'Andale Mono','DejaVu Sans Mono',monospace",
+					"slug": "monaco-consolas",
+					"name": "Monaco Consolas"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/paragraph": {
+				"typography": {
+					"fontFamily": "Geist, serif"
+				}
+			},
+			"core/h1": {
+				"typography": {
+					"fontFamily": "Geist, serif"
+				}
+			}
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontFamily": "Geist, serif"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontFamily": "Geist, serif"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "Geist, serif"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontFamily": "Geist, serif"
+				}
+			}
+		}
+	},
+	"customTemplates": {},
+	"templateParts": {},
+	"patterns": []
+}
