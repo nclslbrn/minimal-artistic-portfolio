@@ -11,7 +11,6 @@
 	display: inline-block;
 }
 
-
 article.project .entry-content [data-media-player] {
 	max-width: 1920px;
 }
@@ -19,21 +18,28 @@ article.project .entry-content [data-media-player] {
 a.event-featured-image img,
 a.project-featured-image img,
 a.fluidbox img,
+.wp-block-image a img,
 .gallery a img {
 	float: left;
 	object-fit: cover;
 	min-height: 100%;
-	filter: contrast(100%);
-	box-shadow: 0 0 0 0 #3330;
 	opacity: 1;
 	transition: all 150ms ease-out;
+}
+
+a.event-featured-image:hover,
+a.project-featured-image:hover,
+a.fluidbox:hover,
+.wp-block-image a:hover,
+.gallery a:hover {
+	background-color: var(--hover-color);
 }
 
 a.event-featured-image:hover img,
 a.project-featured-image:hover img,
 a.fluidbox:hover img,
+.wp-block-image a:hover img,
 .gallery a:hover img {
-	filter: contrast(125%);
 	opacity: 0.8;
 	box-shadow: var(--shadows);
 }

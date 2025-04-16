@@ -1,17 +1,18 @@
+$grid-size: 1.9vw;
+$stroke-width: 0.1vw;
+
 body {
 	color: var(--text-color);
 	box-sizing: border-box;
 }
 
 body {
-	background-image: repeating-linear-gradient(
-			to right,
-			transparent,
-			transparent 18.25%,
-			var(--component-bg-color) 18.25%,
-			var(--component-bg-color) 18.4%
-		),
-		linear-gradient(-25deg, var(--bg-color), var(--component-bg-color));
+	background-image: radial-gradient(
+		var(--component-bg-color) 2px,
+		transparent 2px
+	);
+	background-size: 32px 32px;
+	background-color: var(--bg-color);
 	//var(--component-bg-color));
 	@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 }
