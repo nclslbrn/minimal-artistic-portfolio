@@ -20,7 +20,7 @@ body.page-template-contact main article .contact-links {
 }
 
 body.search .site-content main > article {
-	padding: 0.5rem 1.5rem;
+	padding: 0.5rem 0;
 }
 
 @include breakpoint(lg) {
@@ -56,7 +56,7 @@ body.search .site-content main > article {
 	main article.post .entry-header .entry-title,
 	main > header.entry-header .entry-title {
 		margin: 0;
-		padding: 1.5em 1em;
+		padding: 1.5em 0;
 		font-size: 2em;
 		line-height: 0.85;
 	}

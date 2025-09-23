@@ -11,12 +11,6 @@
 			list-style-type: none;
 			clear: both;
 			float: none;
-			line-height: 1.5;
-			margin: 0.5em 0;
-
-			a {
-				margin-left: 0.5em;
-			}
 		}
 	}
 
@@ -75,8 +69,7 @@
 	}
 
 	ul li a {
-		padding: 1em 5em;
-		font-size: 0.85em;
+		padding: 1rem 2.5rem;
 		font-weight: 500;
 		text-align: center;
 		background: transparent;
@@ -84,7 +77,6 @@
 		@include breakpoint(lg) {
 			padding: 0;
 			margin: 0;
-			line-height: 1.5;
 		}
 	}
 
@@ -147,7 +139,6 @@
 		align-items: flex-start;
 
 		& > ul {
-			padding-top: 0.5em;
 			padding-bottom: 1rem;
 		}
 
@@ -158,11 +149,14 @@
 		}
 
 		ul li {
-			padding: 0.25em 0.5em 0.25em 1em;
+			padding: 0 0.5em 0 0.75em;
+			margin: 0;
 		}
 
 		ul li a {
 			text-align: left;
+			line-height: 1.2;
+			margin-bottom: 1.66em;
 		}
 	}
 }

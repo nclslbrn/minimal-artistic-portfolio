@@ -1,5 +1,5 @@
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.66em;
 }
 
 dfn,
@@ -20,8 +20,7 @@ address {
 pre {
 	background: var(--border-color);
 	font-family: $font__pre;
-	line-height: $font__line-height-pre;
-	margin-bottom: 1.6em;
+	margin-bottom: 1.66em;
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.6em;
@@ -82,6 +81,6 @@ blockquote {
 	}
 }
 
-blockquote~p {
+blockquote ~ p {
 	margin-left: 2rem;
 }

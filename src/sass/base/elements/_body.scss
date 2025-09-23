@@ -1,6 +1,3 @@
-$grid-size: 1.9vw;
-$stroke-width: 0.1vw;
-
 body {
 	color: var(--text-color);
 	box-sizing: border-box;
@@ -11,7 +8,7 @@ body {
 		var(--component-bg-color) 2px,
 		transparent 2px
 	);
-	background-size: 32px 32px;
+	background-size: 4px 4px;
 	background-color: var(--bg-color);
 	//var(--component-bg-color));
 	@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
