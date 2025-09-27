@@ -29,6 +29,18 @@ body.search .site-content main > article {
 		flex-flow: row nowrap;
 	}
 
+	#page header.site-header,
+	#page #content {
+		max-height: 100vh;
+		overflow-y: auto;
+		@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
+	}
+
+	#page #content {
+		padding-left: 1rem;
+	}
+
+
 	aside {
 		position: absolute;
 		padding: 0;
@@ -36,6 +48,7 @@ body.search .site-content main > article {
 		right: 0;
 		width: auto;
 		justify-content: flex-end;
+		background: var(--bg-color);
 		z-index: 2;
 	}
 

@@ -5,10 +5,11 @@ body {
 
 body {
 	background-image: radial-gradient(
-		var(--component-bg-color) 2px,
-		transparent 2px
+		var(--border-color) 0.033em,
+		transparent 0.033em,
+		transparent 2em
 	);
-	background-size: 4px 4px;
+	background-size: 2em 2em;
 	background-color: var(--bg-color);
 	//var(--component-bg-color));
 	@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));

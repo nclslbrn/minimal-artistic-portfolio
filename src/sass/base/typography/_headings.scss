@@ -29,6 +29,7 @@ $level-size: 0.75rem;
 	@include breakpoint(xs) {
 		@include breakpoint(md, max) {
 			font-size: 1.9em;
+			line-height: 1;
 		}
 	}
 
