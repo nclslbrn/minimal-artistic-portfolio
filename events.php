@@ -36,13 +36,13 @@ get_header();
 								<svg class="icon icon-location">
 									<use xlink:href="#icon-location"></use>
 								</svg>
-								<?php esc_html( __( 'Map', 'Minimal-Artistic-Portfolio' ) ); ?>
+								<?php esc_html_e( 'Map', 'Minimal-Artistic-Portfolio' ); ?>
 							</button>
 							<button data-toggle="events-list" class="button active">
 								<svg class="icon icon-calendar">
 									<use xlink:href="#icon-calendar"></use>
 								</svg>
-								<?php esc_html( __( 'List', 'Minimal-Artistic-Portfolio' ) ); ?>
+								<?php esc_html_e( 'List', 'Minimal-Artistic-Portfolio' ); ?>
 							</button>
 						</div>
 						<div id="events-list">	
