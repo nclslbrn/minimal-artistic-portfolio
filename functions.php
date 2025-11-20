@@ -108,6 +108,108 @@ endif;
 add_action('after_setup_theme', 'map_setup');
 
 /**
+ * Vite Development/Production Helper
+ * Add this to your functions.php
+ */
+
+// Check if Vite dev server is running
+function is_vite_dev_server_running() {
+    $vite_dev_server = 'http://localhost:3000';
+    $context = stream_context_create(['http' => ['timeout' => 1]]);
+    return @file_get_contents($vite_dev_server, false, $context) !== false;
+}
+
+// Get Vite asset URL
+function get_vite_asset($entry) {
+    $vite_dev_server = 'http://localhost:3000';
+    $is_dev = is_vite_dev_server_running();
+
+    if ($is_dev) {
+        return $vite_dev_server . '/' . $entry;
+    } else {
+        // Production mode - read manifest
+        $manifest_path = get_template_directory() . '/dist/.vite/manifest.json';
+
+        if (file_exists($manifest_path)) {
+            $manifest = json_decode(file_get_contents($manifest_path), true);
+
+            if (isset($manifest[$entry]['file'])) {
+                return get_template_directory_uri() . '/dist/' . $manifest[$entry]['file'];
+            }
+        }
+    }
+
+    return '';
+}
+
+// Enqueue Vite assets
+function enqueue_vite_assets() {
+    $is_dev = is_vite_dev_server_running();
+
+    if ($is_dev) {
+        // Development mode
+        wp_enqueue_script(
+            'vite-client',
+            'http://localhost:3000/@vite/client',
+            array(),
+            null,
+            false
+        );
+        wp_script_add_data('vite-client', 'type', 'module');
+
+        wp_enqueue_script(
+            'theme-main',
+            'http://localhost:3000/dev/js/main.js',
+            array('vite-client'),
+            null,
+            true
+        );
+        wp_script_add_data('theme-main', 'type', 'module');
+
+    } else {
+        // Production mode
+        $manifest_path = get_template_directory() . '/dist/.vite/manifest.json';
+
+        if (file_exists($manifest_path)) {
+            $manifest = json_decode(file_get_contents($manifest_path), true);
+
+            // Enqueue CSS
+            if (isset($manifest['dev/sass/style.scss']['file'])) {
+                wp_enqueue_style(
+                    'theme-style',
+                    get_template_directory_uri() . '/dist/' . $manifest['dev/sass/style.scss']['file'],
+                    array(),
+                    null
+                );
+            }
+
+            // Enqueue JS
+            if (isset($manifest['dev/js/main.js']['file'])) {
+                wp_enqueue_script(
+                    'theme-main',
+                    get_template_directory_uri() . '/dist/' . $manifest['dev/js/main.js']['file'],
+                    array(),
+                    null,
+                    true
+                );
+                wp_script_add_data('theme-main', 'type', 'module');
+            }
+        }
+    }
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_vite_assets');
+
+// Optional: Add module preload for better performance
+function add_vite_preload_tags($html, $handle, $href, $media) {
+    if ($handle === 'theme-main') {
+        return '<link rel="modulepreload" href="' . esc_url($href) . '">';
+    }
+    return $html;
+}
+add_filter('style_loader_tag', 'add_vite_preload_tags', 10, 4);
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
