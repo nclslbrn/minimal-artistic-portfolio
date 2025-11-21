@@ -1,7 +1,6 @@
 // vite.config.js
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import { glob } from 'glob';
 
 export default defineConfig(({ mode }) => {
   const isDev = mode === 'development';
@@ -15,10 +14,10 @@ export default defineConfig(({ mode }) => {
       manifest: true,
       rollupOptions: {
         input: {
-          main: resolve(__dirname, 'src/js/front.js'),
-          back: resolve(__dirname, 'src/js/back.js'),
-		  editor: resolve(__dirname, 'src/js/editor.js'),
-          style: resolve(__dirname, 'src/sass/style.scss'),
+          main:   resolve(__dirname, 'src/js/front.js'),
+          back:   resolve(__dirname, 'src/js/back.js'),
+		      editor: resolve(__dirname, 'src/js/editor.js'),
+          style:  resolve(__dirname, 'src/sass/style.scss'),
         },
         output: {
           entryFileNames: 'js/[name].js',
@@ -44,24 +43,23 @@ export default defineConfig(({ mode }) => {
 
     css: {
       devSourcemap: true,
+      /*
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "${resolve(__dirname, 'dev/sass/_0-settings.scss')}";`
+          additionalData: `@import "${resolve(__dirname, 'src/sass/_0-settings.scss')}";`
         }
       }
+      */
     },
-
+    
+    
     server: {
       host: 'localhost',
-      port: 3000,
+      port: 5173,
       strictPort: true,
       open: false,
-      cors: true,
-      hmr: {
-        host: 'nicolas-lebrun.local',
-        protocol: 'ws',
-      },
     },
+    
 
     plugins: [
       {

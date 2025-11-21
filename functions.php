@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Minimal-Artistic-Portfolio functions and definitions.
  *
@@ -108,108 +107,6 @@ endif;
 add_action('after_setup_theme', 'map_setup');
 
 /**
- * Vite Development/Production Helper
- * Add this to your functions.php
- */
-
-// Check if Vite dev server is running
-function is_vite_dev_server_running() {
-    $vite_dev_server = 'http://localhost:3000';
-    $context = stream_context_create(['http' => ['timeout' => 1]]);
-    return @file_get_contents($vite_dev_server, false, $context) !== false;
-}
-
-// Get Vite asset URL
-function get_vite_asset($entry) {
-    $vite_dev_server = 'http://localhost:3000';
-    $is_dev = is_vite_dev_server_running();
-
-    if ($is_dev) {
-        return $vite_dev_server . '/' . $entry;
-    } else {
-        // Production mode - read manifest
-        $manifest_path = get_template_directory() . '/dist/.vite/manifest.json';
-
-        if (file_exists($manifest_path)) {
-            $manifest = json_decode(file_get_contents($manifest_path), true);
-
-            if (isset($manifest[$entry]['file'])) {
-                return get_template_directory_uri() . '/dist/' . $manifest[$entry]['file'];
-            }
-        }
-    }
-
-    return '';
-}
-
-// Enqueue Vite assets
-function enqueue_vite_assets() {
-    $is_dev = is_vite_dev_server_running();
-
-    if ($is_dev) {
-        // Development mode
-        wp_enqueue_script(
-            'vite-client',
-            'http://localhost:3000/@vite/client',
-            array(),
-            null,
-            false
-        );
-        wp_script_add_data('vite-client', 'type', 'module');
-
-        wp_enqueue_script(
-            'theme-main',
-            'http://localhost:3000/dev/js/main.js',
-            array('vite-client'),
-            null,
-            true
-        );
-        wp_script_add_data('theme-main', 'type', 'module');
-
-    } else {
-        // Production mode
-        $manifest_path = get_template_directory() . '/dist/.vite/manifest.json';
-
-        if (file_exists($manifest_path)) {
-            $manifest = json_decode(file_get_contents($manifest_path), true);
-
-            // Enqueue CSS
-            if (isset($manifest['dev/sass/style.scss']['file'])) {
-                wp_enqueue_style(
-                    'theme-style',
-                    get_template_directory_uri() . '/dist/' . $manifest['dev/sass/style.scss']['file'],
-                    array(),
-                    null
-                );
-            }
-
-            // Enqueue JS
-            if (isset($manifest['dev/js/main.js']['file'])) {
-                wp_enqueue_script(
-                    'theme-main',
-                    get_template_directory_uri() . '/dist/' . $manifest['dev/js/main.js']['file'],
-                    array(),
-                    null,
-                    true
-                );
-                wp_script_add_data('theme-main', 'type', 'module');
-            }
-        }
-    }
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_vite_assets');
-
-// Optional: Add module preload for better performance
-function add_vite_preload_tags($html, $handle, $href, $media) {
-    if ($handle === 'theme-main') {
-        return '<link rel="modulepreload" href="' . esc_url($href) . '">';
-    }
-    return $html;
-}
-add_filter('style_loader_tag', 'add_vite_preload_tags', 10, 4);
-
-/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -248,11 +145,42 @@ add_action('widgets_init', 'map_widgets_init');
  */
 function map_scripts()
 {
+	if (defined('IS_DEV_SERVER') && defined('VITE_SERVER_URL') && IS_DEV_SERVER) {
+        wp_enqueue_script_module('vite-client', VITE_SERVER_URL . '/@vite/client', [], null);
+        wp_enqueue_script_module('Minimal-Artistic-Portfolio-front', VITE_SERVER_URL . '/src/js/front.js', [], null);
+        wp_enqueue_script_module('Minimal-Artistic-Portfolio-back', VITE_SERVER_URL . '/src/js/back.js', [], null);
+        wp_enqueue_script_module('Minimal-Artistic-Portfolio-editor', VITE_SERVER_URL . '/src/js/editor.js', [], null);
+		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_SERVER_URL . '/src/sass/style.scss', [], null);
+    } else {
+        $manifest_path = get_theme_file_path('build/.vite/manifest.json');
+        if (!file_exists($manifest_path)) {
+            return;
+        }
+
+        $manifest = json_decode(file_get_contents($manifest_path), true);
+        if (isset($manifest['src/js/front.js'])) {
+            $js_file = $manifest['src/js/front.js']['file'];
+            wp_enqueue_script(
+				'Minimal-Artistic-Portfolio-front', 
+				get_template_directory_uri() . '/build/' . $js_file, [], 
+				null,
+                [
+                    'strategy'  => 'defer',
+                    'in_footer' => true,
+                ]
+            );
+
+            $css_file = $manifest['src/js/style.js']['css'][0];
+            if (isset($css_file)) {
+                wp_enqueue_style('Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/build/' . $css_file, [], null);
+            }
+        }
+    }
 	wp_enqueue_style('leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all');
-	wp_enqueue_style('Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', '2.0.4', 'all');
-	//wp_enqueue_style('Minimal-Artistic-Portfolio-font', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all');
+	// wp_enqueue_style('Minimal-Artistic-Portfolio-style'v, get_template_directory_uri() . '/style.css', '', '2.0.4', 'all');
+	//wp_enqueue_style('Minimal-Artistic-Portfolio-front', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all');
 	wp_enqueue_script('leafletScript', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false);
-	wp_enqueue_script('Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array('leafletScript'), '2.0.3', true);
+	// wp_enqueue_script('Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array('leafletScript'), '2.0.3', true);
 	wp_enqueue_style('vidstack-theme', 'https://cdn.vidstack.io/player/theme.css', '', '', 'all');
 	wp_enqueue_style('vidstack-video', 'https://cdn.vidstack.io/player/video.css', '', '', 'all');
 	wp_enqueue_script_module('vidstack-script', 'https://cdn.vidstack.io/player@1.11.21', array(), '1.11.21', true);
