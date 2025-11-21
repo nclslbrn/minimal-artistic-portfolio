@@ -10,34 +10,34 @@ $woocommerce__color-success: #0f834d;
 $woocommerce__color-info: #3d9cd2;
 
 // Import variables and mixins
-@import "abstracts/abstracts";
+@use "abstracts/abstracts";
 
 /**
  * Shop tables
  */
-@import "plugins/woocommerce/tables";
+@use "plugins/woocommerce/tables";
 
 /**
  * Products
  */
-@import "plugins/woocommerce/products";
+@use "plugins/woocommerce/products";
 
 /**
  * Single product
  */
-@import "plugins/woocommerce/single-product";
+@use "plugins/woocommerce/single-product";
 
 /**
  * Checkout
  */
-@import "plugins/woocommerce/checkout";
+@use "plugins/woocommerce/checkout";
 
 /**
  * General WooCommerce components
  */
-@import "plugins/woocommerce/components";
+@use "plugins/woocommerce/components";
 
 /**
  * WooCommerce widgets
  */
-@import "plugins/woocommerce/widgets";
+@use "plugins/woocommerce/widgets";

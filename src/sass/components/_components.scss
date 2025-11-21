@@ -1,31 +1,31 @@
 /* Navigation
 --------------------------------------------- */
-@import 'navigation/navigation';
+@use 'navigation/navigation';
 
 /* Posts and pages
 --------------------------------------------- */
-@import 'content/posts-and-pages';
+@use 'content/posts-and-pages';
 
 /* Comments
 --------------------------------------------- */
-// @import "comments/comments";
+// @use "comments/comments";
 
 /* Widgets
 --------------------------------------------- */
-@import 'widgets/widgets';
+@use 'widgets/widgets';
 
 /* Media
 --------------------------------------------- */
-@import 'media/media';
+@use 'media/media';
 
 /* Captions
 --------------------------------------------- */
-@import 'media/captions';
+@use 'media/captions';
 
 /* LightBox
 --------------------------------------------- */
-@import 'media/lightbox';
+@use 'media/lightbox';
 
 /* Galleries
 --------------------------------------------- */
-@import 'media/galleries';
+@use 'media/galleries';

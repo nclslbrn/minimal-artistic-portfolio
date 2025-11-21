@@ -43,13 +43,18 @@ export default defineConfig(({ mode }) => {
 
     css: {
       devSourcemap: true,
-      /*
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "${resolve(__dirname, 'src/sass/_0-settings.scss')}";`
+          api: 'modern',
+          additionalData: `
+            @use "${resolve(__dirname, 'src/sass/variables.scss')}" as *;
+            `
+        },
+        sass: {
+          api: 'modern',
         }
       }
-      */
+      
     },
     
     

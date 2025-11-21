@@ -1,7 +1,7 @@
-@import 'variables/colors';
-@import 'variables/typography';
-@import 'variables/structure';
-@import 'variables/columns';
-@import 'variables/breakpoints';
-@import 'variables/borders';
-@import 'mixins/mixins';
+@use 'variables/typography' as *;
+@use 'variables/colors' as *;
+@use 'variables/structure' as *;
+@use 'variables/columns' as *;
+@use 'variables/breakpoints' as *;
+@use 'variables/borders' as *;
+@use 'mixins/mixins' as *;

@@ -1,3 +1,6 @@
+@use "headings";
+@use "copy";
+
 html {
 	font-size: $body_font_size;
 	font-size: calc($body_font_size + 2 * ((100vw - 320px) / 680));
@@ -22,6 +25,3 @@ article .entry-content .entry-meta,
 article footer.entry-footer {
 	margin-top: 3rem;
 }
-
-@import "headings";
-@import "copy";

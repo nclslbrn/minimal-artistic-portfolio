@@ -1,0 +1,111 @@
+@use "sass:map";
+
+$border-width: 1px;
+$border-style: solid;
+$breakpoints: (
+    xs: 12rem,
+    sm: 32rem,
+    md: 54rem,
+    lg: 64rem,
+    xl: 80rem
+);
+
+:root[data-theme="light"] {
+    --primary-color: #282c36;
+    --text-color: #08090a;
+    --focus-color: #4b4e61;
+    --hover-color: #029357;
+    --bg-color: #f3f3f3;
+    --component-bg-color: #eeeeee;
+    --border-color: #b5a3a3;
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #e4ebf7;
+    --text-color: #e2e7ef;
+    --focus-color: #5cacfb;
+    --hover-color: #65ffba;
+    --bg-color: #21252e;
+    --component-bg-color: #272d3c;
+    --border-color: #40557d;
+}
+
+:root {
+    --shadows: 0 0 1em 0.25em rgba(0, 0, 0, 0.1);
+}
+
+::placeholder {
+    color: var(--text-color);
+}
+
+::selection {
+    color: var(--bg-color);
+    background-color: var(--hover-color);
+}
+
+$columns: (
+    1: 100%,
+    2: 50%,
+    3: 33.33%,
+    4: 25%,
+    5: 20%,
+    6: 16.66%,
+    7: 14.28%,
+    8: 12.5%,
+    9: 11.11%
+);
+
+$columns__margin: 3.8%;
+
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+
+// stylelint-disable value-keyword-case
+$font__main: geist,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    "Helvetica Neue",
+    sans-serif;
+// stylelint-enable value-keyword-case
+$font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+
+$font__pre: "Courier 10 Pitch", courier, monospace;
+
+$font__heading: geistmono, "Helvetica Neue", sans-serif;
+
+$body_font_size: 16px;
+
+$type-ratios: (
+    "minorSecond": 1.067,
+    "majorSecond": 1.125,
+    "minorThird": 1.2,
+    "majorThird": 1.25,
+    "perfectFourth": 1.333,
+    "augmentedFourth": 1.414,
+    "perfectFifth": 1.5,
+    "goldenRatio": 1.618,
+);
+
+@function type-ratio($key) {
+    @return map.get($type-ratios, $key);
+}
+
+@font-face {
+    font-family: geist;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("./build/fonts/Geist[wght].woff2") format("woff2");
+}
+
+// Select by key of map, or use a custom value
+$type-size-ratio: type-ratio("majorThird");
+
+// List in descending order to prevent extra sort function
+$type-levels: 6, 5, 4, 3, 2, 1;
