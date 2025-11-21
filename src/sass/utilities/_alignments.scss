@@ -1,5 +1,6 @@
-.alignleft {
+@use "../abstracts/mixins/mixins" as m;
 
+.alignleft {
 	/*rtl:ignore*/
 	float: left;
 
@@ -9,7 +10,6 @@
 }
 
 .alignright {
-
 	/*rtl:ignore*/
 	float: right;
 
@@ -21,7 +21,7 @@
 .aligncenter {
 	clear: both;
 
-	@include center-block;
+	@include m.center-block;
 
 	& {
 		margin-bottom: 1.5em;

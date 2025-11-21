@@ -1,13 +1,15 @@
+@use "../abstracts/mixins/mixins" as m;
+
 .laptop-only {
-    display: none;
-    @include breakpoint(md) {
-        display: block;
-    }
+	display: none;
+	@include m.breakpoint(md) {
+		display: block;
+	}
 }
 
 .mobile-only {
-    display: block;
-    @include breakpoint(md) {
-        display: none;
-    }
+	display: block;
+	@include m.breakpoint(md) {
+		display: none;
+	}
 }

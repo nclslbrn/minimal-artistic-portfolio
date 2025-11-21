@@ -1,83 +1,85 @@
 @use "sass:map";
+@use "../variables/breakpoints" as break;
+@use "../variables/borders" as bor;
+@use "../variables/columns" as col;
 
 // Center block
 @mixin center-block {
-  & {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+	& {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-  width: map.get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+	width: map.get(col.$columns, $numberColumns) -
+		((col.$columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 // responsive breakpoints
 @mixin breakpoint($breakpoint: md, $key: min, $orientation: false) {
-  @if $orientation {
-    @media (#{$key}-width: map.get($breakpoints, $breakpoint)) and (orientation : $orientation) {
-      @content;
-    }
-  }
-
-  @else {
-    @media (#{$key}-width: map.get($breakpoints, $breakpoint)) {
-      @content;
-    }
-  }
+	@if $orientation {
+		@media (#{$key}-width: map.get(break.$breakpoints, $breakpoint)) and (orientation : $orientation) {
+			@content;
+		}
+	} @else {
+		@media (#{$key}-width: map.get(break.$breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
 }
 
 @mixin border($side: "all", $color-id: false) {
-  $border-color: var(--border-color);
+	$border-color: var(--border-color);
 
-  // Assign new CSS var if needed
-  @if ($color-id) {
-    $border-color: var($color-id);
-  }
+	// Assign new CSS var if needed
+	@if ($color-id) {
+		$border-color: var($color-id);
+	}
 
-  @if ($side =="all") {
-    border: $border-width $border-style $border-color;
-  }
-
-  @else {
-    border-#{$side}: $border-width $border-style $border-color;
-  }
+	@if ($side == "all") {
+		border: bor.$border-width bor.$border-style $border-color;
+	} @else {
+		border-#{$side}: bor.$border-width bor.$border-style $border-color;
+	}
 }
 
 @mixin clearfix() {
+	&::before,
+	&::after {
+		content: "";
+		display: table;
+	}
 
-  &::before,
-  &::after {
-    content: "";
-    display: table;
-  }
-
-  &::after {
-    clear: both;
-  }
+	&::after {
+		clear: both;
+	}
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+@mixin scrollbars(
+	$size,
+	$foreground-color,
+	$background-color: mix($foreground-color, white, 50%)
+) {
+	// For Google Chrome
+	&::-webkit-scrollbar {
+		width: $size;
+		height: $size;
+	}
 
-  // For Google Chrome
-  &::-webkit-scrollbar {
-    width: $size;
-    height: $size;
-  }
+	&::-webkit-scrollbar-thumb {
+		background: $foreground-color;
+	}
 
-  &::-webkit-scrollbar-thumb {
-    background: $foreground-color;
-  }
+	&::-webkit-scrollbar-track {
+		background: $background-color;
+	}
 
-  &::-webkit-scrollbar-track {
-    background: $background-color;
-  }
-
-  // For Internet Explorer
-  & {
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
-  }
+	// For Internet Explorer
+	& {
+		scrollbar-face-color: $foreground-color;
+		scrollbar-track-color: $background-color;
+	}
 }

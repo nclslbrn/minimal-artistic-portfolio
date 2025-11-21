@@ -1,3 +1,5 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 .gallery {
 	margin-bottom: 1.5em;
 	display: grid;
@@ -28,11 +30,11 @@
 	padding-bottom: 82vw;
 	border-bottom: 1px solid var(--border-color);
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		padding-bottom: 26vw;
 	}
 
-	@include scrollbars(0.5rem, var(--border-color), var(--bg-color));
+	@include m.scrollbars(0.5rem, var(--border-color), var(--bg-color));
 }
 
 .ext-gallery .scroll-wrapper {
@@ -52,7 +54,7 @@
 	text-align: center;
 	flex: 0 0 45vw;
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		flex: 0 0 18vw;
 	}
 }
@@ -68,7 +70,7 @@
 	object-fit: contain;
 	box-shadow: var(--shadows);
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		max-height: 17vw;
 	}
 }
@@ -88,34 +90,21 @@
 }
 
 .wp-block-image.is-style-oneCol,
-.wp-block-gallery.has-nested-images.is-style-tiled figure.is-style-oneCol:not(#individual-image) {
-	width: calc(100% - var(--wp--style--unstable-gallery-gap, 16px)*.66667);
+.wp-block-gallery.has-nested-images.is-style-tiled
+	figure.is-style-oneCol:not(#individual-image) {
+	width: calc(100% - var(--wp--style--unstable-gallery-gap, 16px) * 0.66667);
 }
 
 .wp-block-image.is-style-twoCol,
-.wp-block-gallery.has-nested-images.is-style-tiled figure.is-style-twoCol:not(#individual-image) {
-	width: calc(50% - var(--wp--style--unstable-gallery-gap, 16px)*.66667);
+.wp-block-gallery.has-nested-images.is-style-tiled
+	figure.is-style-twoCol:not(#individual-image) {
+	width: calc(50% - var(--wp--style--unstable-gallery-gap, 16px) * 0.66667);
 }
 
 .wp-block-image.is-style-threeCol,
-.wp-block-gallery.has-nested-images.is-style-tiled figure.is-style-threeCol:not(#individual-image) {
-	width: calc(33.3333% - var(--wp--style--unstable-gallery-gap, 16px)*.66667);
+.wp-block-gallery.has-nested-images.is-style-tiled
+	figure.is-style-threeCol:not(#individual-image) {
+	width: calc(
+		33.3333% - var(--wp--style--unstable-gallery-gap, 16px) * 0.66667
+	);
 }
-
-
-
-/*
-.wp-block-gallery.is-style-tiled figure.size-large {
-  max-height: 100%;
-  min-width: 100%;
-  object-fit: cover;
-  vertical-align: bottom;
-}
-
-.wp-block-gallery.is-style-tiled figure.size-medium {
-  max-height: unset;
-  min-width: unset;
-  object-fit: contain;
-  vertical-align: bottom;
-}
-*/

@@ -1,10 +1,11 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 .wp-caption {
 	margin-bottom: 1.5em;
 	max-width: 100%;
 
 	img[class*="wp-image-"] {
-
-		@include center-block;
+		@include m.center-block;
 	}
 
 	.wp-caption-text {

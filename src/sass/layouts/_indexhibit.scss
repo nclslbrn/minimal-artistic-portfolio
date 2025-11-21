@@ -1,3 +1,5 @@
+@use "../abstracts/mixins/mixins" as m;
+
 aside {
 	display: flex;
 	width: 100%;
@@ -23,7 +25,7 @@ body.search .site-content main > article {
 	padding: 0.5rem 0;
 }
 
-@include breakpoint(lg) {
+@include m.breakpoint(lg) {
 	body #page {
 		display: flex;
 		flex-flow: row nowrap;
@@ -33,13 +35,12 @@ body.search .site-content main > article {
 	#page #content {
 		max-height: 100vh;
 		overflow-y: auto;
-		@include scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
+		@include m.scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 	}
 
 	#page #content {
 		padding-left: 1rem;
 	}
-
 
 	aside {
 		position: absolute;

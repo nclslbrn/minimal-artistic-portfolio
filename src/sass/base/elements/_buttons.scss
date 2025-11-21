@@ -1,3 +1,5 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 button,
 input[type="button"],
 input[type="reset"],
@@ -25,7 +27,7 @@ main .contact-links ul li a {
 	margin-bottom: 1em;
 
 	&:hover {
-		@include border("bottom", --hover-color);
+		@include m.border("bottom", --hover-color);
 
 		& svg {
 			fill: var(--hover-color);
@@ -42,7 +44,7 @@ input[type="submit"],
 main nav.page-nav a,
 main nav.page-nav span {
 	border: none;
-	@include border("bottom", --border-color);
+	@include m.border("bottom", --border-color);
 
 	&.active,
 	&:active,
@@ -73,14 +75,14 @@ a.button,
 .social-sharing-module a,
 button[data-toggle] {
 	margin: 0.25em;
-	@include border("bottom", --border-color);
+	@include m.border("bottom", --border-color);
 	text-decoration: none;
 }
 
 .page-nav span.page-numbers.current,
 button[data-toggle].active {
 	color: var(--primary-color);
-	@include border("bottom", --hover-color);
+	@include m.border("bottom", --hover-color);
 }
 
 main .contact-links ul.works li a,
@@ -114,7 +116,7 @@ main .contact-links ul li a {
 	}
 }
 
-.social-sharing-module>ul {
+.social-sharing-module > ul {
 	display: flex;
 	flex-flow: row wrap;
 }

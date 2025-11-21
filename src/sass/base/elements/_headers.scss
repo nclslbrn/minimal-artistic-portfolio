@@ -1,7 +1,9 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 .site-header {
 	position: relative;
 
-	@include breakpoint(lg) {
+	@include m.breakpoint(lg) {
 		flex: 2 0 20%;
 		max-width: 20%;
 		border-bottom: none;
@@ -15,7 +17,7 @@
 	justify-content: space-between;
 	margin: 0 auto;
 
-	@include breakpoint(lg) {
+	@include m.breakpoint(lg) {
 		position: relative;
 		display: flex;
 		flex-flow: row wrap;
@@ -27,11 +29,6 @@
 		aside {
 			padding-left: 0.4rem;
 		}
-		/*
-		.site-title {
-			border-bottom: 1px solid var(--border-color);
-		}
-		*/
 	}
 
 	.site-title a {
@@ -40,12 +37,10 @@
 		color: inherit;
 		letter-spacing: -0.06em;
 		font-weight: 300;
-		/* color: var(--bg-color); */
 
 		&:hover,
 		&:focus {
 			color: var(--hover-color);
-			/* background-color: var(--bg-color); */
 		}
 	}
 }

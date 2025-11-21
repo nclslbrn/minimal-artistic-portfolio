@@ -1,7 +1,9 @@
-@use 'variables/typography' as *;
-@use 'variables/colors' as *;
-@use 'variables/structure' as *;
-@use 'variables/columns' as *;
-@use 'variables/breakpoints' as *;
-@use 'variables/borders' as *;
-@use 'mixins/mixins' as *;
+/*
+@forward "variables/typography";
+@forward "variables/colors";
+@forward "variables/structure";
+@forward "variables/columns";
+@forward "variables/breakpoints";
+@forward "variables/borders";
+@forward "mixins/mixins";
+*/
