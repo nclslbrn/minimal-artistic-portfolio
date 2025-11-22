@@ -1,3 +1,5 @@
+import '../fonts/Geist[wght].woff2'
+
 import map from './front/event-map'
 import mode from './front/mode-chooser'
 import nav from './front/navigation'

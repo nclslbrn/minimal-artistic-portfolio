@@ -1,16 +1,8 @@
 @use "sass:map";
 
 // stylelint-disable value-keyword-case
-$font__main: geist,
-	-apple-system,
-	BlinkMacSystemFont,
-	"Segoe UI",
-	Roboto,
-	Oxygen-Sans,
-	Ubuntu,
-	Cantarell,
-	"Helvetica Neue",
-	sans-serif;
+$font__main: geist, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 // stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
@@ -40,7 +32,7 @@ $type-ratios: (
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: swap;
-	src: url("./build/fonts/Geist[wght].woff2") format("woff2");
+	src: url("../fonts/Geist[wght].woff2") format("woff2");
 }
 
 // Select by key of map, or use a custom value

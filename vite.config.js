@@ -49,10 +49,7 @@ export default defineConfig(({ mode }) => {
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          api: 'modern',
-          /* additionalData: `
-            @use "${resolve(__dirname, 'src/sass/variables.scss')}" as *;
-            ` */
+          api: 'modern'
         },
         sass: {
           api: 'modern',
