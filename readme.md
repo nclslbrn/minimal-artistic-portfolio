@@ -14,7 +14,6 @@ WARNING: You must define two variables in your wp-config.php file for local deve
 /* Add any custom values between this line and the "stop editing" line. */
 define( 'VITE_SERVER_URL', 'http://localhost:5173');
 define( 'IS_DEV_SERVER', true );
-define( 'FS_METHOD', 'direct' );
 ```
 
 ## Features
