@@ -6,6 +6,11 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/vite-asset-files.php';
+define('VITE_ASSETS', map_get_vite_assets_files());
 
 if (! function_exists('map_setup')) :
 	/**
@@ -101,7 +106,7 @@ if (! function_exists('map_setup')) :
 
 		// Add front style to Gutenberg editor block
 		add_theme_support('editor-styles');
-		add_editor_style( 'editor.css' );
+		add_editor_style( VITE_ASSETS['editor-css'] );
 	}
 endif;
 add_action('after_setup_theme', 'map_setup');
@@ -145,36 +150,24 @@ add_action('widgets_init', 'map_widgets_init');
  */
 function map_scripts()
 {
-	if (defined('IS_DEV_SERVER') && defined('VITE_SERVER_URL') && IS_DEV_SERVER) {
-        wp_enqueue_script_module('vite-client', VITE_SERVER_URL . '/@vite/client', [], null);
-        wp_enqueue_script_module('Minimal-Artistic-Portfolio-front', VITE_SERVER_URL . '/src/js/front.js', [], null);
-        wp_enqueue_script_module('Minimal-Artistic-Portfolio-back', VITE_SERVER_URL . '/src/js/back.js', [], null);
-        wp_enqueue_script_module('Minimal-Artistic-Portfolio-editor', VITE_SERVER_URL . '/src/js/editor.js', [], null);
+	if (VITE_ASSETS['vite-client']) {
+        wp_enqueue_script_module('vite-client', VITE_ASSETS['vite-client'], [], null);
+        wp_enqueue_script_module('Minimal-Artistic-Portfolio-front', VITE_ASSETS['front-js'], [], null);
+//        wp_enqueue_script_module('Minimal-Artistic-Portfolio-back', VITE_SERVER_URL . '/src/js/back.js', [], null);
+  //      wp_enqueue_script_module('Minimal-Artistic-Portfolio-editor', VITE_SERVER_URL . '/src/js/editor.js', [], null);
 		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_SERVER_URL . '/src/sass/style.scss', [], null);
     } else {
-        $manifest_path = get_theme_file_path('build/.vite/manifest.json');
-        if (!file_exists($manifest_path)) {
-            return;
-        }
+        wp_enqueue_script(
+			'Minimal-Artistic-Portfolio-front',
+			VITE_ASSETS['front-js'],
+			[],
+			null,
+            [
+				'strategy'  => 'defer',
+				'in_footer' => true,
+			]);
+		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_ASSETS['front-css'], [], null);
 
-        $manifest = json_decode(file_get_contents($manifest_path), true);
-        if (isset($manifest['src/js/front.js'])) {
-            $js_file = $manifest['src/js/front.js']['file'];
-            wp_enqueue_script(
-				'Minimal-Artistic-Portfolio-front', 
-				get_template_directory_uri() . '/build/' . $js_file, [], 
-				null,
-                [
-                    'strategy'  => 'defer',
-                    'in_footer' => true,
-                ]
-            );
-
-            $css_file = $manifest['src/js/style.js']['css'][0];
-            if (isset($css_file)) {
-                wp_enqueue_style('Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/build/' . $css_file, [], null);
-            }
-        }
     }
 	//wp_enqueue_style('Minimal-Artistic-Portfolio-style'v, get_template_directory_uri() . '/style.css', '', '2.0.4', 'all');
 	wp_enqueue_style('leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all');
@@ -190,6 +183,35 @@ function map_scripts()
 	}
 }
 add_action('wp_enqueue_scripts', 'map_scripts');
+
+
+if (VITE_ASSETS['editor-js'])
+{
+	add_action(
+		'enqueue_block_editor_assets',
+		function()
+		{
+			wp_enqueue_script(
+				'map-editor',
+				VITE_ASSETS['editor-js'],
+				array('wp-blocks', 'wp-dom'),
+				filemtime(VITE_ASSETS['editor-js']),
+				true
+			);
+		}
+	);
+}
+
+if (VITE_ASSETS['back-css'])
+{
+	add_action(
+		'admin_enqueue_scripts',
+		function()
+		{
+			wp_enqueue_style('map-back-style', VITE_ASSETS['back.css']);
+		}
+	);
+}
 
 /*
  * ADD A DIFFERENT SIZE FOR EVENT COVER
@@ -246,8 +268,3 @@ require get_template_directory() . '/inc/meta-box-event.php';
  * Load night mode widget
  */
 require get_template_directory() . '/inc/class-map-night-mode-widget.php';
-
-/**
- * Load custom gutenberg block
- */
-require get_template_directory() . '/inc/gutenberg-block.php';

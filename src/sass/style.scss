@@ -51,7 +51,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Variables
 --------------------------------------------------------------*/
-// @use "abstracts/abstracts" as *;
+@use "abstracts/variables/colors" as *;
 
 /* Normalize
 --------------------------------------------- */
