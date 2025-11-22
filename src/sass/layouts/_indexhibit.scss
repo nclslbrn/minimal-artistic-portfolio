@@ -29,12 +29,24 @@ body.search .site-content main > article {
 	body #page {
 		display: flex;
 		flex-flow: row nowrap;
+		background: linear-gradient(
+			45deg,
+			var(--bg-color),
+			var(--component-bg-color)
+		);
 	}
 
 	#page header.site-header,
 	#page #content {
 		max-height: 100vh;
 		overflow-y: auto;
+		background-image: radial-gradient(
+			var(--border-color) 0,
+			transparent 0.07em,
+			transparent 2em
+		);
+		background-size: 2em 2em;
+
 		@include m.scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 	}
 
@@ -49,7 +61,7 @@ body.search .site-content main > article {
 		right: 0;
 		width: auto;
 		justify-content: flex-end;
-		background: var(--bg-color);
+		background: var(--component-bg-color);
 		z-index: 2;
 	}
 
@@ -82,7 +94,6 @@ body.search .site-content main > article {
 	main article.event .entry-header .event-title,
 	main article.post .entry-header .entry-title,
 	main > header.entry-header .entry-title {
-		font-style: italic;
 		font-weight: 700;
 	}
 

@@ -6,14 +6,6 @@ body {
 }
 
 body {
-	background-image: radial-gradient(
-		var(--border-color) 0.033em,
-		transparent 0.033em,
-		transparent 2em
-	);
-	background-size: 2em 2em;
-	background-color: var(--bg-color);
-
 	@include m.scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 }
 
