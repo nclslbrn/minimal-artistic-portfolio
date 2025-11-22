@@ -140,7 +140,7 @@
 			padding-bottom: 2rem;
 			flex: 1 0 20%;
 			hyphens: auto;
-			border-bottom: 1px solid var(--border-color);
+			@include m.border("bottom");
 		}
 
 		.project-cartel > p:first-child,

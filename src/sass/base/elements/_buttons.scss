@@ -8,6 +8,7 @@ input[type="submit"],
 .page-nav span,
 .btn,
 .button,
+.wp-block-buttons > .wp-block-button,
 .social-sharing-module a {
 	background: transparent;
 	line-height: 1;
@@ -22,6 +23,7 @@ main nav.page-nav a,
 main nav.page-nav span,
 main .btn,
 main .button,
+main .wp-block-buttons > .wp-block-button,
 main .social-sharing-module a,
 main .contact-links ul li a {
 	margin-bottom: 1em;
@@ -39,6 +41,7 @@ main .contact-links ul li a {
 .button,
 button,
 input[type="button"],
+.wp-block-buttons > .wp-block-button,
 input[type="reset"],
 input[type="submit"],
 main nav.page-nav a,
@@ -56,6 +59,15 @@ main nav.page-nav span {
 			fill: var(--hover-color);
 		}
 	}
+}
+
+.btn,
+.button,
+/* button, */
+input[type="button"],
+.wp-block-buttons > .wp-block-button {
+	@include m.border("all", --border-color);
+	transition: border-color 0.35s ease-in-out;
 }
 
 form.search-form button.search-submit {

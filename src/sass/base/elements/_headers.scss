@@ -7,6 +7,14 @@
 		flex: 2 0 20%;
 		max-width: 20%;
 		border-bottom: none;
+
+		background: linear-gradient(
+			45deg,
+			var(--bg-color),
+			var(--component-bg-color)
+		);
+		background-attachment: fixed;
+		@include m.border("right");
 	}
 }
 
@@ -17,6 +25,8 @@
 	justify-content: space-between;
 	margin: 0 auto;
 
+	@include m.border("bottom");
+
 	@include m.breakpoint(lg) {
 		position: relative;
 		display: flex;
@@ -24,19 +34,19 @@
 		align-items: stretch;
 		justify-content: flex-start;
 		flex-flow: column nowrap;
+		border-bottom: none;
 
 		.site-title,
 		aside {
-			padding-left: 0.4rem;
+			padding-left: 1.5rem;
 		}
 	}
 
 	.site-title a {
 		text-decoration: none;
+		font-weight: 700;
+		color: var(--hover-color);
 		opacity: 1;
-		color: inherit;
-		letter-spacing: -0.06em;
-		font-weight: 300;
 
 		&:hover,
 		&:focus {

@@ -140,9 +140,11 @@
 		flex-flow: column nowrap;
 		align-items: flex-start;
 		margin-left: 1em;
+		@include m.border("top");
 
 		& > ul {
 			padding-bottom: 1rem;
+			padding-top: 1em;
 		}
 
 		ul.sub-menu {
