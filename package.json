@@ -1,76 +1,42 @@
 {
-    "name": "minimal-artistic-portfolio",
-    "version": "1.0.5",
-    "description": "A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel, Gulp and more.",
-    "keywords": [
-        "portfolio",
-        "gulp",
-        "minimal",
-        "day & night themes"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/nclslbrn/Minimal-artist-portfolio.git"
-    },
-    "author": "Nicolas Lebrun",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/nclslbrn/Minimal-artist-portfolio/issues"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.0.0",
-        "@babel/preset-env": "^7.12.1",
-        "@babel/preset-react": "^7.25.7",
-        "@babel/register": "^7.0.0",
-        "babel-preset-env": "^1.7.0",
-        "babelify": "^10.0.0",
-        "browser-sync": "^3.0.2",
-        "browserify": "^17.0.0",
-        "eslint": "^7.12.0",
-        "eslint-config-wordpress": "^2.0.0",
-        "gulp": "^5.0.0",
-        "gulp-autoprefixer": "^7.0.1",
-        "gulp-babel": "^8.0.0",
-        "gulp-cache": "^1.0.2",
-        "gulp-concat": "^2.5.2",
-        "gulp-dart-sass": "^1.0.2",
-        "gulp-filter": "^6.0.0",
-        "gulp-imagemin": "^7.1.0",
-        "gulp-line-ending-corrector": "^1.0.1",
-        "gulp-merge-media-queries": "^0.2.1",
-        "gulp-mode": "^1.1.0",
-        "gulp-plumber": "^1.2.0",
-        "gulp-remember": "^1.0.1",
-        "gulp-rename": "^2.0.0",
-        "gulp-rtlcss": "^1.2.0",
-        "gulp-sort": "^2.0.0",
-        "gulp-sourcemaps": "^3.0.0",
-        "gulp-uglify": "^3.0.0",
-        "gulp-uglifycss": "^1.0.6",
-        "gulp-wp-pot": "^2.0.7",
-        "gulp-zip": "^5.0.2",
-        "rimraf": "^3.0.2",
-        "simplelightbox": "^2.10.4",
-        "vinyl-buffer": "^1.0.1",
-        "vinyl-source-stream": "^2.0.0"
-    },
-    "scripts": {
-        "dev": "gulp --development",
-        "clean": "gulp clean",
-        "build": "gulp build --production",
-        "zip": "gulp build --production && gulp zip",
-        "styles": "gulp styles",
-        "images": "gulp images",
-        "js-custom": "gulp customJS",
-        "js-vendors": "gulp vendorsJS",
-        "translate": "gulp translate",
-        "styles-rtl": "gulp stylesRTL",
-        "cache-clear": "gulp clearCache"
-    },
-    "dependencies": {
-        "@wordpress/scripts": "^30.1.0",
-        "baguettebox.js": "^1.12.0",
-        "path": "^0.12.7",
-        "webpack-remove-empty-scripts": "^1.0.4"
-    }
+  "name": "minimal-artistic-portfolio",
+  "version": "1.0.5",
+  "description": "A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel, Gulp and more.",
+  "keywords": [
+    "portfolio",
+    "gulp",
+    "minimal",
+    "day & night themes"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nclslbrn/Minimal-artist-portfolio.git"
+  },
+  "author": "Nicolas Lebrun",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nclslbrn/Minimal-artist-portfolio/issues"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11",
+    "sass": "^1.80.7",
+    "glob": "^11.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49"
+  },
+  "dependencies": {
+    "baguettebox.js": "^1.11.1",
+    "leaflet": "^1.9.4",
+    "plyr": "^3.7.8"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

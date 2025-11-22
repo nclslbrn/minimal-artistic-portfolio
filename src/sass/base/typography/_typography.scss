@@ -1,6 +1,10 @@
+@use "../../abstracts/variables/typography" as t;
+@use "headings";
+@use "copy";
+
 html {
-	font-size: $body_font_size;
-	font-size: calc($body_font_size + 2 * ((100vw - 320px) / 680));
+	font-size: t.$body_font_size;
+	font-size: calc(t.$body_font_size + 2 * ((100vw - 320px) / 680));
 	line-height: 1.5;
 	font-weight: 300;
 }
@@ -12,7 +16,7 @@ select,
 optgroup,
 textarea {
 	color: var(--text-color);
-	font-family: $font__main;
+	font-family: t.$font__main;
 	font-size: 1rem;
 	line-height: 1.66em;
 	font-weight: 500;
@@ -22,6 +26,3 @@ article .entry-content .entry-meta,
 article footer.entry-footer {
 	margin-top: 3rem;
 }
-
-@import "headings";
-@import "copy";

@@ -3,7 +3,7 @@ Theme Name: Minimal-Artistic-Portfolio
 Theme URI: https://github.com/nclslbrn/minimal-artist-portfolio
 Author: Nicolas Lebrun
 Author URI: https://about.me/nicolaslebrun
-Description: A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel, Gulp and more.
+Description: A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Vite and more.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -48,45 +48,35 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 
-@font-face {
-	font-family: geist;
-	font-style: normal;
-	font-weight: 100 900;
-	font-display: swap;
-	src: url("./build/fonts/Geist[wght].woff2") format("woff2");
-}
-
-// Import variables and mixins.
-@import "abstracts/abstracts";
-
 /*--------------------------------------------------------------
-# Generic
+# Variables
 --------------------------------------------------------------*/
+@use "abstracts/variables/colors" as *;
 
 /* Normalize
 --------------------------------------------- */
-@import "generic/normalize";
+@use "generic/normalize";
 
 /* Box sizing
 --------------------------------------------- */
-@import "generic/box-sizing";
+@use "generic/box-sizing";
 
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-@import "base/base";
+@use "base/base";
 
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-// @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
-// @import 'layouts/sidebar-content'; // Uncomment this line for a sidebar on left side of your content.
-@import "layouts/indexhibit";
+// @use "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
+// @use 'layouts/sidebar-content'; // Uncomment this line for a sidebar on left side of your content.
+@use "layouts/indexhibit";
 
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-@import "components/components";
+@use "components/components";
 
 /*--------------------------------------------------------------
 # Plugins
@@ -94,7 +84,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /* Jetpack infinite scroll
 --------------------------------------------- */
-@import "plugins/jetpack/infinite-scroll";
+@use "plugins/jetpack/infinite-scroll";
 
 /*--------------------------------------------------------------
 # Utilities
@@ -102,12 +92,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /* Accessibility
 --------------------------------------------- */
-@import "utilities/accessibility";
+@use "utilities/accessibility";
 
 /* Alignments
 --------------------------------------------- */
-@import "utilities/alignments";
+@use "utilities/alignments";
 
 /* Extras
 --------------------------------------------- */
-@import "utilities/screen-size";
+@use "utilities/screen-size";

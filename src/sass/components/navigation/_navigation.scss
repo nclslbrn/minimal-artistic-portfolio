@@ -1,5 +1,6 @@
-.main-navigation {
+@use "../../abstracts/mixins/mixins" as m;
 
+.main-navigation {
 	> ul {
 		list-style-type: none;
 	}
@@ -19,13 +20,13 @@
 		position: relative;
 		padding-bottom: 0;
 		margin: 0;
-		@include border("bottom");
+		@include m.border("bottom");
 
 		&:last-child {
 			border-bottom: none;
 		}
 
-		@include breakpoint(lg) {
+		@include m.breakpoint(lg) {
 			border-bottom: none;
 		}
 	}
@@ -71,11 +72,11 @@
 
 	ul li a {
 		padding: 1rem 2.5rem;
-		font-weight: 500;
+		font-size: 0.95em;
 		text-align: center;
 		background: transparent;
 
-		@include breakpoint(lg) {
+		@include m.breakpoint(lg) {
 			padding: 0;
 			margin: 0;
 		}
@@ -126,21 +127,24 @@
 	width: auto;
 	border-bottom: none;
 
-	@include breakpoint(lg) {
+	@include m.breakpoint(lg) {
 		display: none;
 	}
 }
 
 .main-navigation {
-	@include breakpoint(lg) {
+	@include m.breakpoint(lg) {
 		position: relative;
 		flex: 1 0 auto;
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: flex-start;
+		margin-left: 1em;
+		@include m.border("top");
 
 		& > ul {
 			padding-bottom: 1rem;
+			padding-top: 1em;
 		}
 
 		ul.sub-menu {
@@ -171,7 +175,7 @@
 	float: right;
 	background: var(--bg-color);
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		margin: 0;
 		flex-flow: column wrap;
 		justify-content: flex-start;
@@ -184,7 +188,7 @@
 		}
 	}
 
-	@include breakpoint(lg) {
+	@include m.breakpoint(lg) {
 		background: none;
 	}
 }
@@ -215,7 +219,7 @@
 nav.page-nav {
 	display: block;
 	padding-bottom: 2rem;
-	@include clearfix;
+	@include m.clearfix;
 }
 
 /* sharing menu */

@@ -1,26 +1,30 @@
-//@import '../../../../node_modules/plyr/dist/plyr';
-//@import "../../../../node_modules/plyr/src/sass/plyr";
+//@use '../../../../node_modules/plyr/dist/plyr';
+//@use "../../../../node_modules/plyr/src/sass/plyr";
 
 :root {
     --plyr-color-main: var(--bg-color);
     --plyr-video-background: var(--text-color);
     --plyr-font-size-small: 1em;
 }
+
 .plyr button {
     span {
         color: var(--text-color);
     }
+
     &:hover,
     &:focus {
         border-bottom: none;
         color: var(--hover-color);
     }
+
     & span:hover,
     &:hover span,
     &:focus span {
         color: var(--hover-color);
     }
 }
+
 .plyr__menu__container .plyr__control[role="menuitemradio"].plyr__tab-focus::before,
 .plyr__menu__container .plyr__control[role="menuitemradio"]:hover::before {
     background: var(--hover-color);
@@ -30,9 +34,11 @@
     background-color: var(--component-bg-color);
     box-shadow: 0 1px 0 var(--hover-color);
 }
+
 .plyr .plyr__menu__container {
     background: var(--bg-color);
 }
+
 .plyr .plyr__controls .plyr__controls__item,
 .plyr .plyr__controls .plyr__controls__item button.plyr__control {
     margin-bottom: 0 !important;
@@ -42,11 +48,12 @@
 .plyr__video-embed {
     background: transparent;
 }
+
 .entry-content .player,
 .entry-content .plyr {
     position: relative;
     aspect-ratio: 16 / 9;
-		max-width: 1920px;
+    max-width: 1920px;
     background: transparent;
 }
 

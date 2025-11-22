@@ -1,3 +1,5 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 // every inline svg
 svg.icon {
 	width: 1em;
@@ -15,7 +17,7 @@ button.menu-toggle .menu-icon {
 button.menu-toggle .menu-icon,
 button.menu-toggle .menu-icon::before,
 button.menu-toggle .menu-icon::after {
-	@include breakpoint(xs) {
+	@include m.breakpoint(xs) {
 		width: 24px;
 		height: 2px;
 	}
@@ -56,10 +58,10 @@ button.menu-toggle .menu-icon:focus::after {
 
 .menu-toggle .menu-icon::before,
 .menu-toggle .menu-icon::after {
-	content: '';
+	content: "";
 }
 
-@include breakpoint(xs) {
+@include m.breakpoint(xs) {
 	.menu-toggle .menu-icon::before {
 		margin-top: -9px;
 	}

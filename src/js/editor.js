@@ -1,5 +1,4 @@
 wp.domReady( () => {
-
 	wp.blocks.registerBlockStyle( 'core/gallery', [
 		{
 			name: 'default',

@@ -1,24 +1,26 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 .site .wrapper {
 	display: block;
 	min-height: 100%;
 
-	@include breakpoint(xs) {
+	@include m.breakpoint(xs) {
 		width: 95%;
 	}
 
-	@include breakpoint(sm) {
+	@include m.breakpoint(sm) {
 		width: 85%;
 	}
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		width: 90%;
 	}
 
-	@include breakpoint(lg) {
+	@include m.breakpoint(lg) {
 		width: 100%;
 	}
 
-	@include center-block;
+	@include m.center-block;
 }
 
 .sticky {
@@ -49,7 +51,7 @@
 	justify-content: flex-start;
 	background: var(--bg-color);
 
-	@include breakpoint(sm) {
+	@include m.breakpoint(sm) {
 		flex-flow: row nowrap;
 		width: 100%;
 	}
@@ -100,7 +102,7 @@
 	padding: 0;
 	list-style-type: none;
 
-	@include breakpoint(sm) {
+	@include m.breakpoint(sm) {
 		margin: 0 0 1.5em 12%;
 	}
 }
@@ -114,7 +116,7 @@
 	align-items: flex-start;
 	margin-top: 1.4em;
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		flex-flow: row nowrap;
 
 		.project-description,
@@ -138,7 +140,7 @@
 			padding-bottom: 2rem;
 			flex: 1 0 20%;
 			hyphens: auto;
-			border-bottom: 1px solid var(--border-color);
+			@include m.border("bottom");
 		}
 
 		.project-cartel > p:first-child,
@@ -175,7 +177,7 @@
 	display: flex;
 	flex-flow: column nowrap;
 
-	@include breakpoint(md) {
+	@include m.breakpoint(md) {
 		flex-flow: row nowrap;
 		align-items: stretch;
 		overflow: hidden;

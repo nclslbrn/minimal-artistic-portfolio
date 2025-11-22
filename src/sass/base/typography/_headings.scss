@@ -1,10 +1,14 @@
+@use "../../abstracts/variables/typography" as t;
+@use "../../abstracts/variables/breakpoints" as b;
+@use "../../abstracts/mixins/mixins" as m;
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	font-family: $font__heading;
+	font-family: t.$font__heading;
 	clear: both;
 	color: var(--text-color);
 	hyphens: auto;
@@ -15,8 +19,8 @@ h6 {
 
 $level-size: 0.75rem;
 
-@each $level in $type-levels {
-	$level-size: $level-size * $type-size-ratio;
+@each $level in t.$type-levels {
+	$level-size: $level-size * t.$type-size-ratio;
 
 	// Output heading styles
 	// Assign to element and create utility class
@@ -26,15 +30,15 @@ $level-size: 0.75rem;
 }
 
 .site-title {
-	@include breakpoint(xs) {
-		@include breakpoint(md, max) {
+	@include m.breakpoint(xs) {
+		@include m.breakpoint(md, max) {
 			font-size: 1.9em;
 			line-height: 1;
 		}
 	}
 
-	@include breakpoint(md) {
-		@include breakpoint(lg, max) {
+	@include m.breakpoint(md) {
+		@include m.breakpoint(lg, max) {
 			text-align: center;
 		}
 	}

@@ -2,13 +2,20 @@
 
 ![Wordpress](https://img.shields.io/wordpress/v/akismet.svg)
 
-A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Babel,
-Webpack and more.
+A wordpress theme for artist (painter, sculptor, video-producer, ...) made with SASS, Vite and more.
 
 [Demo here](https://nicolas-lebrun.fr/) (It's not demo content but my own artistic works)
 
-1st Note: Translation content function work with [qTranslateX](https://wordpress.org/plugins/qtranslate-x/) you can use another plugin, static contents are translated (english/french) with a .po file.
-2nd Note: Currently Gutenbeg blocks are not supported but if your site use only one language, it should work.
+Translation content function work with [qTranslateX](https://wordpress.org/plugins/qtranslate-x/) you can use another plugin, static contents are translated (english/french) with a .po file.
+
+WARNING: You must define two variables in your wp-config.php file for local development.
+
+```php
+/* Add any custom values between this line and the "stop editing" line. */
+define( 'VITE_SERVER_URL', 'http://localhost:5173');
+define( 'IS_DEV_SERVER', true );
+define( 'FS_METHOD', 'direct' );
+```
 
 ## Features
 
@@ -39,6 +46,11 @@ Webpack and more.
 
 
 ## Changelog
+
+
+### Ver.1.0.6
+- Change front assets bundling (from Gulp to Vite)
+- Update Sass files with the last syntax (@use & @forward)
 
 ### Ver.1.0.5
 - Project and event are now editable with Gtutenberg (WordPress Block)

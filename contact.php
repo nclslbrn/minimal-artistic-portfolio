@@ -20,11 +20,7 @@ get_header(); ?>
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					</header><!-- .entry-header -->
 
-					<div class="entry-content"
-					style="background:
-						url(<?php echo get_the_post_thumbnail_url($post->ID); ?>),
-						linear-gradient(var(--component-bg-color), var(--bg-color));
-					background-blend-mode: multiply;">
+					<div class="entry-content">
 						<div class="contact-links">
 							<div class="link-block">
 								<h2>Works</h2>
@@ -55,7 +51,7 @@ get_header(); ?>
 									</li>
 									<li>
 										<a href="https://opensea.io/collection/kallax">
-											<img src="https://opensea.io/static/images/logos/opensea-logo.svg" width="32" height="32"/>
+											<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAO8AIAAgUOSNWQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+kLFg4YDH4OIMAAAAP9SURBVFjDtZddbFRFFMd/c3tLt6V002KhoK20xYolhbR+pJU0ErfWpH1RHlqIQVFINMb4UXyQ+0L8YLc8QBM/8c1EaoPRRGOoCR9KIKFLItQQ7AOWRVBTLMW4hezKdsv4MBd3796727Gt52XunDNz5j8zd875H4GuBKUf6AACQCNQA5TY1kkgApwBjgKDWGJSx63QWLgO2AF0A4WacGPAANCLJUZnByAki5C8BbwCmMxOpoC9CN5kh4jrAwjKlcDXQD3zI2eBJ7DExZkBBGUTcAhYPJNXU4AEpqUWiD+ANixxLjsAtfNwrsXzgGmgTMDoS5CchooP4RbaIFrST8Jw3Lk69pw772+FsRfg2w1QWgzlfvAZ2lexFPiKkPS5AUje1rnzjSfgehweqkvp9j8Ctfq/6RokO50A1FN7OdeshwvhdJf6/uiY0/ZkM4Sfh54qpCaIHoKyNv0E3pjpqb3zKLKpFvY0QN8l+HXCab+jBELdiF2rtAAssNfEICT9wKZco7cuhdbV6odtb1C6kcseXk3o6YRnlmiBeIqgXGQg6QB8uUZufwzMPPVdWa7aX655j/UtgO0BLQCFQKdhx/as0lsP91Wm+v4i1Y5Fs89ZfTcEirVABAw7sXhKhQHPrXfqbk6pdmFBdq+GgHXLtAA0GnZW85T3W5Hl/oxI8pdqV5Tl9mzoxYYaIy2lOqStGDoecIfq4YhqV92Z3asETl/RAuDP+vRea0EmphCJKefx94VhXSHU5QBw/jf4JqoXEEwgCpRmGjoPIzjsPelgO7Ig3zuTJqfhve/c+q4yZKAGjkUQA3/+q540bSZzv+NiTGjKgDQeh+M3oMMPa6sRVyeh3L68cXu3UsLnQ/DB77CtAvn4vXDPMlixBPwLFeCrXwIpABETGM4E0F0JwY1OAOcuQ0M/DEbhro+hPh9+el3ZqvdBLC0d9lTBri6ELz+luxGHAydht5MfDZs2h9uWrv1hwn2Ey0vh1SqIJVW/IC9l27Jc7R5gbQU8vR7SF4/dhBf3w6duv0cFQbnIztMOvje6BWr13vKM8sn38GzYpf5bhRpLXAf6XZNOwC0598UvjcPWsKdpAEtEb4eLXiDhyH4X4LPjcwORSELvoCdbSgKhVDq2xAVgb+aozSdh5xcQuQL/FUc8AX0HYd+Yp/ldLPGzkxOGpA/JKWCN14xOPzQuBiE0VpdwZAyGPIk4I8CDWCLmRUqrgSGbu/0fcg1oTi9WnClDsdU2+1XMt0wA7ZmVkjtnKd7eYhcT8yUjNh0/48qansMtcRFBM7DbLq9mK0lgj33no7MtTlfaBHITUKT7CIADQAhLnJ9bdZwCUuJRnt+mK1E7qf2YVp5rJeR/AORfGDVnn8thAAAAAElFTkSuQmCC" width="32" height="32"/>
 											<span>Kallax</span>
 										</a>
 									</li>
@@ -86,7 +82,7 @@ get_header(); ?>
 
 									<li>
 										<a rel="me" href="https://mstdn.io/@nclslbrn">
-											<img src="https://mstdn.io/packs/media/icons/apple-touch-icon-57x57-c9dca808280860c51d0357f6a3350f4d.png" width="16" height="16"/>
+											<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEIUlEQVR4Ab3WA5ArWRQG4F7bW67dwtrmG3OfGXTHWNu2bdu2d/ysOB1uMrYn5tmz6nujqfGp+qL/5vYfhyk0ajXsrdPBKp0u9bhOl/4B2ZFPr0934fkICiJAKTTyn3bkQzyuq9PrU+/r9XAj7nMyM9W5+mrYCw96l1abGkEwd9INWi2cNunBNRo4QqdJmLSaBMyTqEaTlOc9+CUsHK5VxfwI5llSq4quyH30yujXCBbIAMfBIcLBtYrQ2RpFGPK5VBeGjz+Mg2FnEnh7Cja0JOHpJ2I56x64NwqN9QmwWZNgMSXhm6/icPUVESHPplWGbybveFn4CbUsBNluvCYMvb1pyDcNdQlh3ccfxCCdZ1lgIg333x2h9qQFW4QCKi5Qp+YCQNPIAuD1JGGyeeeNKDx8fzj34NSMDKfhUm1Q2FcgC/SSAtJxr5odB9qj9weBnnA4DZs3xmHbljhEo2nhEXZ1pP65nMIz484EvkRxGB3NbPTeWxGyNzFMFRiLIKB9+2VE2AAfIdx9a0DI7rsjkPOoX30hJORXXzIOoRBZsHVTXMgoAVJAPJJEQGuujwobdHUkITt3OxNCPj6WArUkM9+xNSbkuJZkREwooBQNJxHQNjaTAk4+AZPlPm9u3vAHyf1/kpySJgXWDcYQ0DIK2OOQnTfVkZfI5cjNG34nuR8LkkxAPQNr+icQ0DY2RagCMcjOm/4I0wVy8obfwlQBklMmhAKK1X39CGgbqAIOWwyy88bfqQJ8bl7/K8l9WIBkgiFSYFVPOwLahsZwRoGsHAuE6ALZORYI0QWycrSyh3wPyFZ02+UruoGCBUJUgShk57dc0Q+P3j30j7tvGMjJ638JkgKeeE6uWNHdIRSQL+vcJF/eCbQNDVQBa5RkU4MFAlSBWO4aPCZ5BpZ1/IKAggWCdAGSTVHdz5kFsnMs8TopsKTtEwS0J+/th8/eGfnHS48PkmyKHruL3P/Vp/Pcf3HbYlJgse9x2WI/LJglfvN998GupECt7zLuIh8skIC81p/535Ct9pZyNV5YAJ2yKu/5TPbIFnsPZKs9KQTzw+tma9y3i8r4/ZlCw1a5bAgK4apdIq7KWctWum5hq5xvsNWuL/G8DrMdXJVr+z+XK53fYP4hW+l+SlrtvpKrdi8RVfFHMlMZroq/j610QGHOG5n5HGWl8zBpOT+MIB9JOW8Sifg957UEW2ZdJS21paRlNshHUmb7DV/HoyfbQ11mOlhSYjthxiWkJTadpNQaR1BACrWg19Hj/5yXWT4Tl1r/wMvtCCQl1npmNiNdZDxbUmz2I5ghLDDLkZ239UBpkfFWSZGxD8HUmXzSYuM6Zq5m8WLvXqILDRXiRYaHRYsMv4sX7XTj5RAa+ZtkkcEpvtDwrXiR8QHRhcYLGAZ2mc7+fwF11cCzN7GgtAAAAABJRU5ErkJggg==" width="16" height="16"/>
 											<span>Mastodon</span>
 										</a>
 									</li>

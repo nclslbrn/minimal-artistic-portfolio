@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Minimal-Artistic-Portfolio functions and definitions.
  *
@@ -7,6 +6,11 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/vite-asset-files.php';
+define('VITE_ASSETS', map_get_vite_assets_files());
 
 if (! function_exists('map_setup')) :
 	/**
@@ -102,7 +106,7 @@ if (! function_exists('map_setup')) :
 
 		// Add front style to Gutenberg editor block
 		add_theme_support('editor-styles');
-		add_editor_style( 'editor.css' );
+		add_editor_style( VITE_ASSETS['editor-css'] );
 	}
 endif;
 add_action('after_setup_theme', 'map_setup');
@@ -146,11 +150,30 @@ add_action('widgets_init', 'map_widgets_init');
  */
 function map_scripts()
 {
+	if (VITE_ASSETS['vite-client']) {
+        wp_enqueue_script_module('vite-client', VITE_ASSETS['vite-client'], [], null);
+        wp_enqueue_script_module('Minimal-Artistic-Portfolio-front', VITE_ASSETS['front-js'], [], null);
+//        wp_enqueue_script_module('Minimal-Artistic-Portfolio-back', VITE_SERVER_URL . '/src/js/back.js', [], null);
+  //      wp_enqueue_script_module('Minimal-Artistic-Portfolio-editor', VITE_SERVER_URL . '/src/js/editor.js', [], null);
+		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_SERVER_URL . '/src/sass/style.scss', [], null);
+    } else {
+        wp_enqueue_script(
+			'Minimal-Artistic-Portfolio-front',
+			VITE_ASSETS['front-js'],
+			[],
+			null,
+            [
+				'strategy'  => 'defer',
+				'in_footer' => true,
+			]);
+		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_ASSETS['front-css'], [], null);
+
+    }
+	//wp_enqueue_style('Minimal-Artistic-Portfolio-style'v, get_template_directory_uri() . '/style.css', '', '2.0.4', 'all');
 	wp_enqueue_style('leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all');
-	wp_enqueue_style('Minimal-Artistic-Portfolio-style', get_template_directory_uri() . '/style.css', '', '2.0.4', 'all');
-	//wp_enqueue_style('Minimal-Artistic-Portfolio-font', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all');
+	//wp_enqueue_style('Minimal-Artistic-Portfolio-front', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all');
 	wp_enqueue_script('leafletScript', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false);
-	wp_enqueue_script('Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array('leafletScript'), '2.0.3', true);
+	// wp_enqueue_script('Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array('leafletScript'), '2.0.3', true);
 	wp_enqueue_style('vidstack-theme', 'https://cdn.vidstack.io/player/theme.css', '', '', 'all');
 	wp_enqueue_style('vidstack-video', 'https://cdn.vidstack.io/player/video.css', '', '', 'all');
 	wp_enqueue_script_module('vidstack-script', 'https://cdn.vidstack.io/player@1.11.21', array(), '1.11.21', true);
@@ -160,6 +183,35 @@ function map_scripts()
 	}
 }
 add_action('wp_enqueue_scripts', 'map_scripts');
+
+
+if (VITE_ASSETS['editor-js'])
+{
+	add_action(
+		'enqueue_block_editor_assets',
+		function()
+		{
+			wp_enqueue_script(
+				'map-editor',
+				VITE_ASSETS['editor-js'],
+				array('wp-blocks', 'wp-dom'),
+				filemtime(VITE_ASSETS['editor-js']),
+				true
+			);
+		}
+	);
+}
+
+if (VITE_ASSETS['back-css'])
+{
+	add_action(
+		'admin_enqueue_scripts',
+		function()
+		{
+			wp_enqueue_style('map-back-style', VITE_ASSETS['back.css']);
+		}
+	);
+}
 
 /*
  * ADD A DIFFERENT SIZE FOR EVENT COVER
@@ -216,8 +268,3 @@ require get_template_directory() . '/inc/meta-box-event.php';
  * Load night mode widget
  */
 require get_template_directory() . '/inc/class-map-night-mode-widget.php';
-
-/**
- * Load custom gutenberg block
- */
-require get_template_directory() . '/inc/gutenberg-block.php';

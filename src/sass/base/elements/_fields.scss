@@ -1,3 +1,5 @@
+@use "../../abstracts/mixins/mixins" as m;
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -17,11 +19,10 @@ select,
 textarea {
 	color: var(--text-color);
 	border: none;
-	@include border("bottom");
+	@include m.border("bottom");
 
 	padding: 3px;
 	font-size: 1em;
-	//color: var(--text-color);
 	background-color: transparent;
 
 	&:focus {
@@ -31,7 +32,7 @@ textarea {
 
 select {
 	padding: 0.75em;
-	@include border;
+	@include m.border;
 }
 
 select[name="mode-switcher"] {
@@ -52,7 +53,7 @@ fieldset {
 input,
 textarea {
 	outline: none;
-	@include border;
+	@include m.border;
 
 	&:focus {
 		border-color: var(--hover-color);
@@ -107,7 +108,7 @@ ul.sub-menu li button {
 	bottom: 0;
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
-	@include border;
+	@include m.border;
 }
 
 .slider:before {
@@ -121,11 +122,11 @@ ul.sub-menu li button {
 	transition: 0.4s;
 }
 
-input:focus+.slider {
+input:focus + .slider {
 	box-shadow: 0 0 1px var(--hover-color);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
 	transform: translateX(1rem);
 }
 
@@ -172,7 +173,7 @@ span.input input,
 span.input.textarea-input textarea {
 	padding: 1em;
 	background: var(--component-bg-color);
-	@include border;
+	@include m.border;
 	box-shadow: inset 0 -4px 0 var(--primary-color);
 	transition: all 0.75s ease;
 
@@ -218,7 +219,7 @@ form.search-form {
 	flex-flow: row nowrap;
 
 	input#s {
-		@include breakpoint(md) {
+		@include m.breakpoint(md) {
 			width: 130px;
 		}
 	}

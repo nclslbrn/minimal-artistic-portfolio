@@ -45,7 +45,7 @@
 					"fontFamily": "Geist, serif"
 				}
 			},
-			"h1": {
+			"h2": {
 				"typography": {
 					"fontFamily": "Geist, serif"
 				}
@@ -61,8 +61,5 @@
 				}
 			}
 		}
-	},
-	"customTemplates": {},
-	"templateParts": {},
-	"patterns": []
+	}
 }

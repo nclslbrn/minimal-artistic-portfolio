@@ -1,3 +1,5 @@
+@use "../../abstracts/variables/typography" as t;
+
 p {
 	margin-bottom: 1.66em;
 }
@@ -19,7 +21,7 @@ address {
 
 pre {
 	background: var(--border-color);
-	font-family: $font__pre;
+	font-family: t.$font__pre;
 	margin-bottom: 1.66em;
 	max-width: 100%;
 	overflow: auto;
@@ -30,7 +32,7 @@ code,
 kbd,
 tt,
 var {
-	font-family: $font__code;
+	font-family: t.$font__code;
 }
 
 abbr,
