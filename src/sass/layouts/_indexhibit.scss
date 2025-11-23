@@ -7,6 +7,32 @@ aside {
 	align-items: center;
 	justify-content: space-around;
 }
+body #page {
+	background: linear-gradient(
+		45deg,
+		var(--bg-color),
+		var(--component-bg-color)
+	);
+}
+body .wrapper {
+	opacity: 0;
+	animation: fadeIn 350ms forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+#page header.site-header,
+#page #content {
+	background-image: radial-gradient(
+		var(--border-color) 0,
+		transparent 0.07em,
+		transparent 2em
+	);
+	background-size: 2em 2em;
+}
 
 body.page-template-contact main article .entry-content {
 	padding-left: 1.5em;
@@ -29,24 +55,12 @@ body.search .site-content main > article {
 	body #page {
 		display: flex;
 		flex-flow: row nowrap;
-		background: linear-gradient(
-			45deg,
-			var(--bg-color),
-			var(--component-bg-color)
-		);
 	}
 
 	#page header.site-header,
 	#page #content {
 		max-height: 100vh;
 		overflow-y: auto;
-		background-image: radial-gradient(
-			var(--border-color) 0,
-			transparent 0.07em,
-			transparent 2em
-		);
-		background-size: 2em 2em;
-
 		@include m.scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
 	}
 
