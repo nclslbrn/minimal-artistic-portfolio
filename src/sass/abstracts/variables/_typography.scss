@@ -8,9 +8,9 @@ $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
 $font__pre: "Courier 10 Pitch", courier, monospace;
 
-$font__heading: geistmono, "Helvetica Neue", sans-serif;
+$font__heading: Raveo, "Helvetica Neue", sans-serif;
 
-$body_font_size: 16px;
+$body_font_size: 18px;
 
 $type-ratios: (
 	"minorSecond": 1.067,
@@ -28,15 +28,15 @@ $type-ratios: (
 }
 
 @font-face {
-	font-family: geist;
+	font-family: Raveo;
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: swap;
-	src: url("../fonts/Geist.woff2") format("woff2");
+	src: url("../fonts/RaveoVF.woff2") format("woff2");
 }
 
 // Select by key of map, or use a custom value
-$type-size-ratio: type-ratio("majorThird");
+$type-size-ratio: type-ratio("majorSecond");
 
 // List in descending order to prevent extra sort function
 $type-levels: 6, 5, 4, 3, 2, 1;

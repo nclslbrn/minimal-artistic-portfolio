@@ -1,4 +1,4 @@
-import '../fonts/Geist.woff2'
+import '../fonts/RaveoVF.woff2'
 
 import map from './front/event-map'
 import mode from './front/mode-chooser'
