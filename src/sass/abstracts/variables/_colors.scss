@@ -6,6 +6,7 @@
 	--bg-color: #f3f3f3;
 	--component-bg-color: #eeeeee;
 	--border-color: #e5dee8;
+	--shadows: 0 0 1em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 :root[data-theme="dark"] {
@@ -16,10 +17,7 @@
 	--bg-color: #21252e;
 	--component-bg-color: #272d3c;
 	--border-color: #352b55;
-}
-
-:root {
-	--shadows: 0 0 1em 0.25em rgba(0, 0, 0, 0.1);
+	--shadows: 0 0 2em 0 rgb(0 0 0);
 }
 
 ::placeholder {

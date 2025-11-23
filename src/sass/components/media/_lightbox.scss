@@ -1,4 +1,3 @@
-
 /*!
  * baguetteBox.js
  * @author  feimosi
@@ -17,21 +16,24 @@
 	height: 100%;
 	z-index: 1000000;
 	background-color: none !important;
-	transition: opacity .5s ease;
+	transition: opacity 0.5s ease;
 
 	&::after {
-		content: '';
+		content: "";
 		display: none;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: var(--bg-color);
+		background: linear-gradient(
+			45deg,
+			var(--bg-color),
+			var(--component-bg-color)
+		);
 		opacity: 0.66;
 		z-index: -1;
 	}
-
 
 	&.visible {
 		opacity: 1;
@@ -44,7 +46,8 @@
 		display: inline-block;
 		position: relative;
 		width: 100%;
-		height: 100%;
+		height: 90%;
+		margin-top: 4%;
 		text-align: center;
 		z-index: 1000000;
 
@@ -63,6 +66,7 @@
 			max-height: 100%;
 			max-width: 100%;
 			vertical-align: middle;
+			box-shadow: var(--shadows);
 		}
 
 		figcaption {
@@ -75,7 +79,7 @@
 			white-space: normal;
 			color: #ccc;
 			background-color: #000;
-			background-color: rgba(0, 0, 0, .6);
+			background-color: rgba(0, 0, 0, 0.6);
 			font-family: sans-serif;
 		}
 
@@ -96,14 +100,14 @@
 	height: 100%;
 	width: 100%;
 	white-space: nowrap;
-	transition: left .4s ease, transform .4s ease;
+	transition: left 0.4s ease, transform 0.4s ease;
 
 	&.bounce-from-right {
-		animation: bounceFromRight .4s ease-out;
+		animation: bounceFromRight 0.4s ease-out;
 	}
 
 	&.bounce-from-left {
-		animation: bounceFromLeft .4s ease-out;
+		animation: bounceFromLeft 0.4s ease-out;
 	}
 }
 
@@ -156,7 +160,7 @@
 	color: var(--text-color);
 	font: 1.6em sans-serif;
 	line-height: 1;
-	transition: background-color .4s ease;
+	transition: background-color 0.4s ease;
 
 	&:focus,
 	&:hover {
@@ -211,7 +215,7 @@
 	height: 100%;
 	border-radius: 50%;
 	background-color: #fff;
-	opacity: .6;
+	opacity: 0.6;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -223,7 +227,6 @@
 }
 
 @keyframes bounce {
-
 	0%,
 	100% {
 		transform: scale(0);
