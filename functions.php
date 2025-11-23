@@ -153,27 +153,12 @@ function map_scripts()
 	if (VITE_ASSETS['vite-client']) {
         wp_enqueue_script_module('vite-client', VITE_ASSETS['vite-client'], [], null);
         wp_enqueue_script_module('Minimal-Artistic-Portfolio-front', VITE_ASSETS['front-js'], [], null);
-//        wp_enqueue_script_module('Minimal-Artistic-Portfolio-back', VITE_SERVER_URL . '/src/js/back.js', [], null);
-  //      wp_enqueue_script_module('Minimal-Artistic-Portfolio-editor', VITE_SERVER_URL . '/src/js/editor.js', [], null);
-		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_SERVER_URL . '/src/sass/style.scss', [], null);
     } else {
-        wp_enqueue_script(
-			'Minimal-Artistic-Portfolio-front',
-			VITE_ASSETS['front-js'],
-			[],
-			null,
-            [
-				'strategy'  => 'defer',
-				'in_footer' => true,
-			]);
-		wp_enqueue_style('Minimal-Artistic-Portfolio-style', VITE_ASSETS['front-css'], [], null);
-
-    }
-	//wp_enqueue_style('Minimal-Artistic-Portfolio-style'v, get_template_directory_uri() . '/style.css', '', '2.0.4', 'all');
+		wp_enqueue_script('Minimal-Artistic-Portfolio-front', VITE_ASSETS['front-js'], [], null, [ 'strategy'  => 'defer', 'in_footer' => true ]);
+	}
+	wp_enqueue_style('map-front-css', VITE_ASSETS['front-css'], [], null);
 	wp_enqueue_style('leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all');
-	//wp_enqueue_style('Minimal-Artistic-Portfolio-front', get_template_directory_uri() . '/build/fonts/stylesheet.css', '', '2.0.0', 'all');
 	wp_enqueue_script('leafletScript', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false);
-	// wp_enqueue_script('Minimal-Artistic-Portfolio-script', get_template_directory_uri() . '/build/js/front.js', array('leafletScript'), '2.0.3', true);
 	wp_enqueue_style('vidstack-theme', 'https://cdn.vidstack.io/player/theme.css', '', '', 'all');
 	wp_enqueue_style('vidstack-video', 'https://cdn.vidstack.io/player/video.css', '', '', 'all');
 	wp_enqueue_script_module('vidstack-script', 'https://cdn.vidstack.io/player@1.11.21', array(), '1.11.21', true);
@@ -208,7 +193,7 @@ if (VITE_ASSETS['back-css'])
 		'admin_enqueue_scripts',
 		function()
 		{
-			wp_enqueue_style('map-back-style', VITE_ASSETS['back.css']);
+			wp_enqueue_style('map-back-style', VITE_ASSETS['back-css']);
 		}
 	);
 }
