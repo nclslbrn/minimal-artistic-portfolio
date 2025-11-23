@@ -61,7 +61,7 @@ body.search .site-content main > article {
 		right: 0;
 		width: auto;
 		justify-content: flex-end;
-		background: var(--component-bg-color);
+		background: color-mix(in srgb, var(--component-bg-color) 90%, transparent);
 		z-index: 2;
 	}
 
