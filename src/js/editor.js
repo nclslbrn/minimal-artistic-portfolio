@@ -28,6 +28,14 @@ wp.domReady( () => {
 		{
 			name: 'threeCol',
 			label: '3 columns'
+		},
+		{
+			name: 'fourCol',
+			label: '4 columns'
+		},
+		{
+			name: 'fiveCol',
+			label: '5 columns'
 		}
 	]);
 

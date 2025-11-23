@@ -37,3 +37,15 @@
 		33.3333% - var(--wp--style--unstable-gallery-gap, 16px) * 0.66667
 	);
 }
+
+wp-block-image.is-style-threeCol,
+.wp-block-gallery.has-nested-images.is-style-tiled
+	figure.is-style-fourCol:not(#individual-image) {
+	width: calc(25% - var(--wp--style--unstable-gallery-gap, 16px) * 0.66667);
+}
+
+wp-block-image.is-style-threeCol,
+.wp-block-gallery.has-nested-images.is-style-tiled
+	figure.is-style-fiveCol:not(#individual-image) {
+	width: calc(20% - var(--wp--style--unstable-gallery-gap, 16px) * 0.66667);
+}
