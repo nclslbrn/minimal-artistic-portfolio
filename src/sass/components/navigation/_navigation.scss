@@ -83,8 +83,8 @@
 	}
 
 	[aria-current="page"],
-	.current_page_item,
-	.current-menu-item,
+	.current_page_item > a,
+	.current-menu-item > a,
 	.current_page_ancestor,
 	.current-menu-ancestor {
 		color: var(--hover-color);
