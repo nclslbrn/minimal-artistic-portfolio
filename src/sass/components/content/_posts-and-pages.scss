@@ -200,7 +200,8 @@ section main article {
 
 /* GIF page
 --------------------------------------------- */
-.gif-grid {
+.gif-grid,
+.tokens {
 	display: flex;
 	flex-flow: row wrap;
 	margin: 1em 0;
@@ -208,11 +209,16 @@ section main article {
 	justify-content: flex-start;
 }
 
-.gif-grid article {
+.gif-grid article,
+.tokens div {
 	position: relative;
 	padding: 1em;
 	width: fit-content;
 	text-align: center;
+}
+
+.tokens div {
+	flex-basis: calc(33.33% - 2em);
 }
 
 .gif-grid article a {
