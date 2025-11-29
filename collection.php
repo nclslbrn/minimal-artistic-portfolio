@@ -20,7 +20,7 @@ get_header(); ?>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<div class="tokens"></div>
+						<div class="token-grid"></div>
 
 						<button id="load-more-tokens">
 							Load More

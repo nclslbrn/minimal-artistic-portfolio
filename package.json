@@ -33,6 +33,7 @@
   "dependencies": {
     "baguettebox.js": "^1.11.1",
     "dir-archiver": "^2.1.0",
+    "grid-rows-masonry": "^1.2.4",
     "leaflet": "^1.9.4",
     "plyr": "^3.7.8"
   },

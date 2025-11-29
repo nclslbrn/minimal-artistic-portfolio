@@ -200,8 +200,7 @@ section main article {
 
 /* GIF page
 --------------------------------------------- */
-.gif-grid,
-.tokens {
+.gif-grid {
 	display: flex;
 	flex-flow: row wrap;
 	margin: 1em 0;
@@ -209,16 +208,11 @@ section main article {
 	justify-content: flex-start;
 }
 
-.gif-grid article,
-.tokens div {
+.gif-grid article {
 	position: relative;
 	padding: 1em;
 	width: fit-content;
 	text-align: center;
-}
-
-.tokens div {
-	flex-basis: calc(33.33% - 2em);
 }
 
 .gif-grid article a {
@@ -264,4 +258,22 @@ section main article {
 	height: 1px;
 	visibility: hidden;
 	overflow: hidden;
+}
+
+/* Tezos token collection grid
+ ------------------------------------------- */
+
+.token-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: masonry;
+	gap: 40px;
+}
+
+.token-grid > div {
+	height: fit-content;
+}
+
+.token-grid > div img {
+	display: block;
 }
