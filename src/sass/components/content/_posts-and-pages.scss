@@ -270,10 +270,20 @@ section main article {
 	gap: 40px;
 }
 
-.token-grid > div {
+.token-grid > figure {
+	display: inline-block;
+	position: relative;
 	height: fit-content;
 }
 
-.token-grid > div img {
+.token-grid > figure::after {
+	content: "";
+	display: table;
+	clear: both;
+	float: none;
+}
+
+.token-grid > figure img {
 	display: block;
+	max-width: 100%;
 }
