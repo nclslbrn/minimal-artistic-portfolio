@@ -90,6 +90,10 @@
 		& p {
 			margin: 0.5em 0;
 			line-height: 1.5;
+			max-width: 100%;
+			max-width: calc(100% - 1em);
+			word-wrap: break-word;
+  			white-space: preserve;
 		}
 	}
 }
