@@ -8,16 +8,15 @@
  *
  * @package Minimal-Artistic-Portfolio
  */
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo("charset"); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="pingback" href="<?php bloginfo("pingback_url"); ?>">
 	<?php wp_head(); ?>
 </head>
 
@@ -62,44 +61,59 @@
 				<title>search</title>
 				<path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
 			</symbol>
+			<symbol id="icon-times" viewBox="0 0 72 72">
+				<path d="M52.242 19.758c-2.34-2.343-6.144-2.343-8.484 0l-7.758 7.758-7.758-7.758c-2.34-2.343-6.144-2.343-8.484 0-2.343 2.343-2.343 6.141 0 8.484l7.755 7.758-7.755 7.758c-2.343 2.343-2.343 6.141 0 8.484 1.17 1.173 2.706 1.758 4.242 1.758s3.072-0.585 4.242-1.758l7.758-7.758 7.758 7.758c1.17 1.173 2.706 1.758 4.242 1.758s3.072-0.585 4.242-1.758c2.343-2.343 2.343-6.141 0-8.484l-7.755-7.758 7.755-7.758c2.343-2.343 2.343-6.141 0-8.484z"></path>
+			</symbol>
+			<symbol id="icon-chevron-right" viewBox="0 0 72 72">
+				<path d="M25.758 16.758c-2.343 2.343-2.343 6.141 0 8.484l10.755 10.758-10.755 10.758c-2.343 2.343-2.343 6.141 0 8.484 1.17 1.173 2.706 1.758 4.242 1.758s3.072-0.585 4.242-1.758l19.245-19.242-19.245-19.242c-2.34-2.343-6.144-2.343-8.484 0z"></path>
+			</symbol>
+			<symbol id="icon-chevron-left" viewBox="0 0 72 72">
+				<path d="M43.242 16.758c-2.34-2.343-6.144-2.343-8.484 0l-19.245 19.242 19.245 19.242c1.17 1.173 2.706 1.758 4.242 1.758s3.072-0.585 4.242-1.758c2.343-2.343 2.343-6.141 0-8.484l-10.755-10.758 10.755-10.758c2.343-2.343 2.343-6.141 0-8.484z"></path>
+			</symbol>
 		</defs>
-	</svg>	
+	</svg>
 
 
 	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'Minimal-Artistic-Portfolio' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e(
+  	"Skip to content",
+  	"Minimal-Artistic-Portfolio",
+  ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="wrapper">
 				<div class="site-branding">
 					<h1 class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php echo esc_textarea( get_bloginfo( 'name' ) ); ?>
+						<a href="<?php echo esc_url(home_url("/")); ?>" rel="home">
+							<?php echo esc_textarea(get_bloginfo("name")); ?>
 						</a>
 					</h1>
 				</div><!-- .site-branding -->
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<?php 
-					
-					wp_nav_menu(
-						array(
-							'theme_location'   => 'primary',
-							'menu_id'          => 'primary-menu',
-							'container'        => '',
-							'add_project_list' => true,
-							'wrap_into_year'   => false,
-							'depth'            => 3,
-						)
-					);
-					?>
+					<?php wp_nav_menu([
+     	"theme_location" => "primary",
+     	"menu_id" => "primary-menu",
+     	"container" => "",
+     	"add_project_list" => true,
+     	"wrap_into_year" => false,
+     	"depth" => 3,
+     ]); ?>
+					<div class="laptop-only site-info">
+						<p>
+							<?php echo esc_url(get_site_url()) . " "; ?> © <?php esc_html_e(
+ 	"All right reserved",
+ 	"Minimal-Artistic-Portfolio",
+ ); ?>
+						</p>
+					</div>
 				</nav><!-- #site-navigation -->
 
-				<button 
-					class="menu-toggle" 
-					aria-controls="primary-menu" 
+				<button
+					class="menu-toggle"
+					aria-controls="primary-menu"
 					aria-labelledby="primary-menu"
 					aria-label="open-menu"
-					name="menu-button" 
+					name="menu-button"
 					aria-expanded="false">
 					<span class="menu-icon"></span>
 				</button>

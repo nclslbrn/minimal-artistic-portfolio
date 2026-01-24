@@ -62,7 +62,8 @@
 
 	li.menu-item-has-children:hover > a::after {
 		margin-top: 1.05em;
-		border-color: transparent transparent var(--component-bg-color) transparent;
+		border-color: transparent transparent var(--component-bg-color)
+			transparent;
 	}
 
 	a {
@@ -223,29 +224,8 @@ nav.page-nav {
 }
 
 /* sharing menu */
-.social-sharing-module > ul,
-#menu-footer {
+.social-sharing-module > ul {
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
-}
-
-/* footer */
-footer.site-footer {
-	display: flex;
-	flex-flow: column wrap;
-	padding-top: 1em;
-
-	ul.menu {
-		display: flex;
-		width: 100%;
-		flex-flow: row wrap;
-		justify-content: space-between;
-	}
-
-	ul.menu li a {
-		display: block;
-		padding: 0.5em 1em;
-		font-size: 0.85em;
-	}
 }

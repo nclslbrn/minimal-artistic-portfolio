@@ -1,23 +1,23 @@
 :root[data-theme="light"] {
-	--primary-color: #282c36;
-	--text-color: #08090a;
+	--primary-color: #5f5f5f;
+	--text-color: #22262b;
 	--focus-color: #4b4e61;
-	--hover-color: #029357;
-	--bg-color: #f3f3f3;
-	--component-bg-color: #eeeeee;
-	--border-color: #e5dee8;
-	--shadows: 0 0 1em 0.5em rgba(0, 0, 0, 0.15);
+	--hover-color: #913a3a;
+	--bg-color: #e2e1d9;
+	--component-bg-color: #b8bbc1;
+	--border-color: #b5b3b6;
+	--shadows: 0 0 0.5em 0.25em rgba(0, 0, 0, 0.05);
 }
 
 :root[data-theme="dark"] {
-	--primary-color: #e4ebf7;
-	--text-color: #e2e7ef;
+	--primary-color: #8fae98;
+	--text-color: #a5918e;
 	--focus-color: #5cacfb;
-	--hover-color: #65ffba;
+	--hover-color: #ba6060;
 	--bg-color: #21252e;
 	--component-bg-color: #272d3c;
 	--border-color: #2e3f4d;
-	--shadows: 0 0 2em 0 rgb(0 0 0);
+	--shadows: 0 0 1em 0 rgb(0 0 0, 0.66);
 }
 
 ::placeholder {

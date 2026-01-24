@@ -9,10 +9,10 @@
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/vite-asset-files.php';
-define('VITE_ASSETS', map_get_vite_assets_files());
+require get_template_directory() . "/inc/vite-asset-files.php";
+define("VITE_ASSETS", map_get_vite_assets_files());
 
-if (! function_exists('map_setup')) :
+if (!function_exists("map_setup")):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -28,8 +28,11 @@ if (! function_exists('map_setup')) :
 		 * If you're building a theme based on Minimal-Artistic-Portfolio, use a find and replace
 		 * to change 'Minimal-Artistic-Portfolio' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain('Minimal-Artistic-Portfolio', get_template_directory() . '/languages');
-		$local      = get_locale();
+		load_theme_textdomain(
+			"Minimal-Artistic-Portfolio",
+			get_template_directory() . "/languages",
+		);
+		$local = get_locale();
 		$local_file = get_template_directory() . "/languages/$local";
 
 		if (is_readable($local_file)) {
@@ -37,7 +40,7 @@ if (! function_exists('map_setup')) :
 		}
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support('automatic-feed-links');
+		add_theme_support("automatic-feed-links");
 
 		/*
 		 * Let WordPress manage the document title.
@@ -45,71 +48,59 @@ if (! function_exists('map_setup')) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support('title-tag');
+		add_theme_support("title-tag");
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support('post-thumbnails');
+		add_theme_support("post-thumbnails");
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'primary'     => esc_html__('Primary', 'Minimal-Artistic-Portfolio'),
-				'footer-menu' => esc_html__('Footer Menu', 'Minimal-Artistic-Portfolio'),
-			)
-		);
+		register_nav_menus([
+			"primary" => esc_html__("Primary", "Minimal-Artistic-Portfolio"),
+		]);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support(
-			'html5',
-			array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
-		);
+		add_theme_support("html5", [
+			"search-form",
+			"comment-form",
+			"comment-list",
+			"gallery",
+			"caption",
+		]);
 
 		/*
 		 * Enable support for Post Formats.
 		 * See https://developer.wordpress.org/themes/functionality/post-formats/
 		 */
-		add_theme_support(
-			'post-formats',
-			array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-			)
-		);
+		add_theme_support("post-formats", [
+			"aside",
+			"image",
+			"video",
+			"quote",
+			"link",
+		]);
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'map_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
+			"custom-background",
+			apply_filters("map_custom_background_args", [
+				"default-color" => "ffffff",
+				"default-image" => "",
+			]),
 		);
 
 		// Add front style to Gutenberg editor block
-		add_theme_support('editor-styles');
-		add_editor_style( VITE_ASSETS['editor-css'] );
+		add_theme_support("editor-styles");
+		add_editor_style(VITE_ASSETS["editor-css"]);
 	}
 endif;
-add_action('after_setup_theme', 'map_setup');
+add_action("after_setup_theme", "map_setup");
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -120,9 +111,9 @@ add_action('after_setup_theme', 'map_setup');
  */
 function map_content_width()
 {
-	$GLOBALS['content_width'] = apply_filters('map_content_width', 640);
+	$GLOBALS["content_width"] = apply_filters("map_content_width", 640);
 }
-add_action('after_setup_theme', 'map_content_width', 0);
+add_action("after_setup_theme", "map_content_width", 0);
 
 /**
  * Register widget area.
@@ -131,125 +122,159 @@ add_action('after_setup_theme', 'map_content_width', 0);
  */
 function map_widgets_init()
 {
-	register_sidebar(
-		array(
-			'name'          => esc_html__('Sidebar', 'Minimal-Artistic-Portfolio'),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__('Add widgets here.', 'Minimal-Artistic-Portfolio'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+	register_sidebar([
+		"name" => esc_html__("Sidebar", "Minimal-Artistic-Portfolio"),
+		"id" => "sidebar-1",
+		"description" => esc_html__(
+			"Add widgets here.",
+			"Minimal-Artistic-Portfolio",
+		),
+		"before_widget" => '<section id="%1$s" class="widget %2$s">',
+		"after_widget" => "</section>",
+		"before_title" => '<h2 class="widget-title">',
+		"after_title" => "</h2>",
+	]);
 }
-add_action('widgets_init', 'map_widgets_init');
+add_action("widgets_init", "map_widgets_init");
 
 /**
  * Enqueue scripts and styles.
  */
 function map_scripts()
 {
-	if (VITE_ASSETS['vite-client']) {
-        wp_enqueue_script_module('vite-client', VITE_ASSETS['vite-client'], [], null);
-        wp_enqueue_script_module('Minimal-Artistic-Portfolio-front', VITE_ASSETS['front-js'], [], null);
-    } else {
-		wp_enqueue_script('Minimal-Artistic-Portfolio-front', VITE_ASSETS['front-js'], [], null, [ 'strategy'  => 'defer', 'in_footer' => true ]);
+	if (VITE_ASSETS["vite-client"]) {
+		wp_enqueue_script_module(
+			"vite-client",
+			VITE_ASSETS["vite-client"],
+			[],
+			null,
+		);
+		wp_enqueue_script_module(
+			"Minimal-Artistic-Portfolio-front",
+			VITE_ASSETS["front-js"],
+			[],
+			null,
+		);
+	} else {
+		wp_enqueue_script(
+			"Minimal-Artistic-Portfolio-front",
+			VITE_ASSETS["front-js"],
+			[],
+			null,
+			["strategy" => "defer", "in_footer" => true],
+		);
 	}
-	wp_enqueue_style('map-front-css', VITE_ASSETS['front-css'], [], null);
-	wp_enqueue_style('leafletStyle', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css', '', '1.7.1', 'all');
-	wp_enqueue_script('leafletScript', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', '', '2.1.9', false);
-	wp_enqueue_style('vidstack-theme', 'https://cdn.vidstack.io/player/theme.css', '', '', 'all');
-	wp_enqueue_style('vidstack-video', 'https://cdn.vidstack.io/player/video.css', '', '', 'all');
-	wp_enqueue_script_module('vidstack-script', 'https://cdn.vidstack.io/player@1.11.21', array(), '1.11.21', array());
+	wp_enqueue_style("map-front-css", VITE_ASSETS["front-css"], [], null);
+	wp_enqueue_style(
+		"leafletStyle",
+		"https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css",
+		"",
+		"1.7.1",
+		"all",
+	);
+	wp_enqueue_script(
+		"leafletScript",
+		"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js",
+		"",
+		"2.1.9",
+		false,
+	);
+	wp_enqueue_style(
+		"vidstack-theme",
+		"https://cdn.vidstack.io/player/theme.css",
+		"",
+		"",
+		"all",
+	);
+	wp_enqueue_style(
+		"vidstack-video",
+		"https://cdn.vidstack.io/player/video.css",
+		"",
+		"",
+		"all",
+	);
+	wp_enqueue_script_module(
+		"vidstack-script",
+		"https://cdn.vidstack.io/player@1.11.21",
+		[],
+		"1.11.21",
+		[],
+	);
 
-	if (is_singular() && comments_open() && get_option('thread_comments')) {
-		wp_enqueue_script('comment-reply');
+	if (is_singular() && comments_open() && get_option("thread_comments")) {
+		wp_enqueue_script("comment-reply");
 	}
 }
-add_action('wp_enqueue_scripts', 'map_scripts');
+add_action("wp_enqueue_scripts", "map_scripts");
 
-
-if (VITE_ASSETS['editor-js'])
-{
-	add_action(
-		'enqueue_block_editor_assets',
-		function()
-		{
-			wp_enqueue_script(
-				'map-editor',
-				VITE_ASSETS['editor-js'],
-				array('wp-blocks', 'wp-dom'),
-				filemtime(VITE_ASSETS['editor-js']),
-				true
-			);
-		}
-	);
+if (VITE_ASSETS["editor-js"]) {
+	add_action("enqueue_block_editor_assets", function () {
+		wp_enqueue_script(
+			"map-editor",
+			VITE_ASSETS["editor-js"],
+			["wp-blocks", "wp-dom"],
+			filemtime(VITE_ASSETS["editor-js"]),
+			true,
+		);
+	});
 }
 
-if (VITE_ASSETS['back-css'])
-{
-	add_action(
-		'admin_enqueue_scripts',
-		function()
-		{
-			wp_enqueue_style('map-back-style', VITE_ASSETS['back-css']);
-		}
-	);
+if (VITE_ASSETS["back-css"]) {
+	add_action("admin_enqueue_scripts", function () {
+		wp_enqueue_style("map-back-style", VITE_ASSETS["back-css"]);
+	});
 }
 
 /*
  * ADD A DIFFERENT SIZE FOR EVENT COVER
  *
  */
-add_image_size('cover', 711, 400, true);
-add_image_size('carton', 400, 640, false);
+add_image_size("cover", 711, 400, true);
+add_image_size("carton", 400, 640, false);
 
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . "/inc/custom-header.php";
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . "/inc/template-tags.php";
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
+require get_template_directory() . "/inc/extras.php";
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . "/inc/customizer.php";
 
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php';
+require get_template_directory() . "/inc/jetpack.php";
 
 /**
  * Load custom post type feature (ie: projects & events).
  */
-require get_template_directory() . '/inc/custom-post.php';
+require get_template_directory() . "/inc/custom-post.php";
 
 /**
  * Load a dynamic project menu (comment to disable it)
  */
-require get_template_directory() . '/inc/map-dynamic-project-menu.php';
+require get_template_directory() . "/inc/map-dynamic-project-menu.php";
 
 /**
  * Load meta box features.
  */
-require get_template_directory() . '/lib/index.php';
-require get_template_directory() . '/inc/meta-box-project.php';
-require get_template_directory() . '/inc/meta-box-event.php';
-
-
+require get_template_directory() . "/lib/index.php";
+require get_template_directory() . "/inc/meta-box-project.php";
+require get_template_directory() . "/inc/meta-box-event.php";
 
 /**
  * Load night mode widget
  */
-require get_template_directory() . '/inc/class-map-night-mode-widget.php';
+require get_template_directory() . "/inc/class-map-night-mode-widget.php";
