@@ -88,7 +88,7 @@ get_header(); ?>
 									</li>
 
 									<li>
-										<a href="https://bsky.app/profile/nclslbrn.bsky.social">
+										<a href="https://bsky.app/profile/nicolas-lebrun.fr">
 											<img src="https://bsky.app/static/favicon-32x32.png" width="16" height="16"/>
 											<span>Bluesky</span>
 										</a>
