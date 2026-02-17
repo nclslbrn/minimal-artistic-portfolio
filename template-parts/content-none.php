@@ -43,7 +43,7 @@
 	else : 
 		?>
 
-		<p><?php esc_hmlt__( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'Minimal-Artistic-Portfolio' ); ?></p>
+		<p><?php echo esc_html__( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'Minimal-Artistic-Portfolio' ); ?></p>
 		<?php
 			get_search_form();
 
