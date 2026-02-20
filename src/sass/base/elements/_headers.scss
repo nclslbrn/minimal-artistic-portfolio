@@ -8,13 +8,6 @@
 		flex: 2 0 20%;
 		max-width: 20%;
 		border-bottom: none;
-
-		background: linear-gradient(
-			45deg,
-			var(--bg-color),
-			var(--component-bg-color)
-		);
-		background-attachment: fixed;
 		@include m.border("right");
 	}
 }

@@ -7,13 +7,14 @@ aside {
 	align-items: center;
 	justify-content: space-around;
 }
-body #page {
-	background: linear-gradient(
-		45deg,
-		var(--bg-color),
-		var(--component-bg-color)
-	);
+
+body {
+	background: var(--bg-color);
+	transition:
+		color 0.5s,
+		background-color 0.5s;
 }
+
 body .wrapper {
 	opacity: 0;
 	animation: fadeIn 350ms forwards;
@@ -24,14 +25,16 @@ body .wrapper {
 		opacity: 1;
 	}
 }
-#page header.site-header,
-#page #content {
-	background-image: radial-gradient(
-		var(--border-color) 0,
-		transparent 0.07em,
+
+.site .wrapper {
+	background-image: linear-gradient(
+		0deg,
+		rgb(from var(--border-color) r g b / 0.15) 0,
+		transparent 0.05em,
 		transparent 2em
 	);
-	background-size: 2em 2em;
+	background-attachment: local;
+	background-size: 1.6em 1.6em;
 }
 
 body.page-template-contact main article .entry-content {
@@ -61,7 +64,11 @@ body.search .site-content main > article {
 	#page #content {
 		max-height: 100vh;
 		overflow-y: auto;
-		@include m.scrollbars(0.5rem, var(--component-bg-color), var(--bg-color));
+		@include m.scrollbars(
+			0.5rem,
+			var(--component-bg-color),
+			var(--bg-color)
+		);
 	}
 
 	#page #content {
@@ -75,7 +82,7 @@ body.search .site-content main > article {
 		right: 0;
 		width: auto;
 		justify-content: flex-end;
-		background: color-mix(in srgb, var(--component-bg-color) 90%, transparent);
+		background: color-mix(in srgb, var(--bg-color) 90%, transparent);
 		z-index: 2;
 	}
 
@@ -162,6 +169,12 @@ body.search .site-content main > article {
 		}
 	}
 
+	body main article .entry-content > h1,
+	body main article .entry-content > h2,
+	body main article .entry-content > h3,
+	body main article .entry-content > h4,
+	body main article .entry-content > h5,
+	body main article .entry-content > h6,
 	body main article .entry-content > p,
 	body main article .entry-content > pre,
 	body main article .entry-content > blockquote,

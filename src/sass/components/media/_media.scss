@@ -27,19 +27,28 @@ a.fluidbox img,
 	transition: all 150ms ease-out;
 }
 
+a.event-featured-image,
+a.project-featured-image,
+a.fluidbox,
+.wp-block-image a,
+.gallery a {
+	box-shadow: var(--shadows);
+	transition: box-shadow 300ms ease-out;
+
+	& > img {
+		opacity: 1;
+		transition: opacity 300ms ease-out;
+	}
+}
+
 a.event-featured-image:hover,
 a.project-featured-image:hover,
 a.fluidbox:hover,
 .wp-block-image a:hover,
 .gallery a:hover {
-	background-color: var(--hover-color);
-}
+	box-shadow: var(--hover-shadows);
 
-a.event-featured-image:hover img,
-a.project-featured-image:hover img,
-a.fluidbox:hover img,
-.wp-block-image a:hover img,
-.gallery a:hover img {
-	opacity: 0.8;
-	box-shadow: var(--shadows);
+	& > img {
+		opacity: 0.75;
+	}
 }

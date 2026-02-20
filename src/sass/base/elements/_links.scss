@@ -1,5 +1,6 @@
 a {
 	color: var(--primary-color);
+	transition: color 300ms ease-out;
 
 	&:visited {
 		color: var(--primary-color);
@@ -20,4 +21,3 @@ a {
 		outline: 0;
 	}
 }
-

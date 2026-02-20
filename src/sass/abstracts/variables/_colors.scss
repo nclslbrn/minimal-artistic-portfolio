@@ -1,23 +1,25 @@
 :root[data-theme="light"] {
-	--primary-color: #2c6265;
-	--text-color: #364353;
-	--focus-color: #4b4e61;
+	--primary-color: #253c59;
+	--text-color: #28293e;
+	--focus-color: #383e82;
 	--hover-color: #c32e4d;
 	--bg-color: #f4eeee;
-	--component-bg-color: #cccfda;
-	--border-color: #b5b3b6;
+	--component-bg-color: #dfe2ee;
+	--border-color: #ccc;
 	--shadows: 0 0 0.5em 0.25em rgba(0, 0, 0, 0.05);
+	--hover-shadows: 0 0 0.05em 0.15em rgb(from var(--hover-color) r g b / 0.25);
 }
 
 :root[data-theme="dark"] {
-	--primary-color: #6a8b7f;
-	--text-color: #8f967f;
-	--focus-color: #5cacfb;
-	--hover-color: #bd6363;
-	--bg-color: #1a1f2a;
-	--component-bg-color: #272d3c;
+	--primary-color: #c4e1d7;
+	--text-color: #a6bfbc;
+	--focus-color: #5cc5ca;
+	--hover-color: #cc6363;
+	--bg-color: #181c24;
+	--component-bg-color: #21242d;
 	--border-color: #2e3f4d;
 	--shadows: 0 0 1em 0 rgb(0 0 0, 0.66);
+	--hover-shadows: 0 0 0.05em 0.15em rgb(from var(--hover-color) r g b / 0.75);
 }
 
 ::placeholder {
@@ -28,3 +30,8 @@
 	color: var(--bg-color);
 	background-color: var(--hover-color);
 }
+/*
+html * {
+	border: 1px solid var(--border-color);
+}
+*/
