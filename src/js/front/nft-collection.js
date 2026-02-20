@@ -18,6 +18,7 @@ const nftCollection = async () => {
 	onchfsLink = (uri) => uri.replace('onchfs://', onchfsGateway),
 	requestTezosTokenFromTezAdress = async () => {
 		isLoading = true
+		loadMoreButton.classList.add('loading')
 		const res = await fetch(
 			`${tzktApiUrl}/balances?account=${tezCollectorAdress}&balance.ne=0&token.metadata.displayUri.null=false&offset=${numRequest*tokenPerRequest}&limit=${tokenPerRequest}&select=id,balance,token.tokenId as tokenId,token.contract as contract,token.metadata.name as name,token.metadata.displayUri as displayUri,token.metadata.artifactUri as artifactUri`,
 		);
@@ -67,6 +68,7 @@ const nftCollection = async () => {
 				.filter((item) => item.name !== '[WAITING TO BE SIGNED]')
 				.map(item => tokenGridElem.appendChild(embedToken(item)))
 				isLoading = false
+				loadMoreButton.classList.remove('loading')
 				numRequest++
 			})
     },
@@ -76,7 +78,7 @@ const nftCollection = async () => {
 		const description = document.createElement('figcaption')
 
 		thumbnail.src = ipfsLink(token.displayUri)
-		// thumbnail.loading = 'lazy'
+		// 		thumbnail.loading = 'lazy'
 		thumbnail.alt = `${token.name} by `
 
 		description.innerHTML = `<a target="_blank" href="${token.artifactUri}">${token.name}</a>`
