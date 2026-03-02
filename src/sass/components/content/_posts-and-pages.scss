@@ -151,7 +151,14 @@
 			padding-bottom: 2rem;
 			flex: 1 0 20%;
 			hyphens: auto;
-			@include m.border("bottom");
+
+			&::after {
+				content: "";
+				display: block;
+				margin-top: 1rem;
+				width: calc(100% - 1rem);
+				@include m.border("bottom");
+			}
 		}
 	}
 }
