@@ -16,6 +16,7 @@
 	height: 100%;
 	z-index: 1000000;
 	background-color: none !important;
+	backdrop-filter: blur(5px);
 	transition: opacity 0.5s ease;
 
 	&::after {
@@ -31,7 +32,7 @@
 			var(--bg-color),
 			var(--component-bg-color)
 		);
-		opacity: 0.66;
+		opacity: 0.5;
 		z-index: -1;
 	}
 

@@ -7,27 +7,50 @@
  * @package Minimal-Artistic-Portfolio
  */
 
-get_header(); ?>
+get_header();
+
+// Pick a random project
+$map_random_post = get_posts([
+	"posts_per_page" => 1,
+	"orderby" => "rand",
+	"post_status" => "publish",
+	"post_type" => "project",
+]);
+$map_random_cover = false;
+
+if ($map_random_post) {
+	$map_random_cover = get_the_post_thumbnail_url($map_random_post[0]->ID);
+}
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<article class="error-404 not-found">
+			<article class="error-404 not-found" style="<?php echo $article_style; ?>">
 				<header class="entry-header">
 					<h1 class="entry-title">
-						<?php echo esc_html__( 'error', 'Minimal-Artistic-Portfolio' ); ?> 404
+						<?php echo esc_html__("error", "Minimal-Artistic-Portfolio"); ?> 404
 					</h1>
 				</header><!-- .page-header -->
-					
+
 				<div class="entry-content">
-					<iframe src="https://gateway.fxhash2.xyz/ipfs/QmehDxu1eCsCtSx369FLRCj7AawGtRyE6GKLKHHBC2UG8L/?fxhash=ooWavzytbacXbDYms1tdbeXL3TFDCNeRZan8TmSosb2Qo1y8ZVE" width="800" height="800" style="aspect-ratio: 1/1;">			
-					</iframe>
-					<p><small>Degenerative grid | <a href="https://www.fxhash.xyz/generative/11977">fxhash project</a></small></p>
+					<?php if ($map_random_post && $map_random_cover): ?>
+						<img
+							src="<?php echo $map_random_cover; ?>"
+							alt="<?php echo $map_random_post->title[0]; ?>"
+						/>
+					<?php endif; ?>
 					<p>
-						<?php echo esc_html__( 'Oops! That page can&rsquo;t be found.', 'Minimal-Artistic-Portfolio' ); ?>
+						<?php echo esc_html__(
+      	"Oops! That page can&rsquo;t be found.",
+      	"Minimal-Artistic-Portfolio",
+      ); ?>
 					</p>
 					<p>
-						<?php echo esc_html__( 'Sorry, we couldn\'t find the page you were looking for!', 'Minimal-Artistic-Portfolio' ); ?>
+						<?php echo esc_html__(
+      	'Sorry, we couldn\'t find the page you were looking for!',
+      	"Minimal-Artistic-Portfolio",
+      ); ?>
 					</p>
 				</div><!-- .page-content -->
 			</article><!-- .error-404 -->
@@ -38,3 +61,4 @@ get_header(); ?>
 <?php
 get_sidebar();
 get_footer();
+

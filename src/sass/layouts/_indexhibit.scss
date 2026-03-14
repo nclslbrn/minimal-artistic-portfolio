@@ -10,9 +10,7 @@ aside {
 
 body {
 	background: var(--bg-color);
-	transition:
-		color 0.5s,
-		background-color 0.5s;
+	transition: color 0.5s ease-in;
 }
 
 body .wrapper {
@@ -72,7 +70,7 @@ body.search .site-content main > article {
 	}
 
 	#page #content {
-		padding: 0 2rem;
+		padding: 0 4rem 0 2rem;
 	}
 
 	aside {
@@ -82,7 +80,16 @@ body.search .site-content main > article {
 		right: 0;
 		width: auto;
 		justify-content: flex-end;
-		background: color-mix(in srgb, var(--bg-color) 90%, transparent);
+		background: linear-gradient(
+			230deg,
+			color-mix(in srgb, var(--bg-color) 75%, transparent),
+			color-mix(in srgb, var(--bg-color) 25%, transparent)
+		);
+		mask:
+			linear-gradient(to bottom, black, black 90%, transparent),
+			linear-gradient(to right, transparent, black 1em, black);
+		mask-composite: intersect;
+		backdrop-filter: blur(4px);
 		z-index: 2;
 	}
 

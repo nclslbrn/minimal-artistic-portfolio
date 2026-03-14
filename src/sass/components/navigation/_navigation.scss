@@ -93,7 +93,7 @@
 	}
 }
 
-/* Small menu. */
+// Site menu: phone and tablet
 .main-navigation {
 	display: none;
 	position: absolute;
@@ -133,6 +133,7 @@
 	}
 }
 
+// Site menu: laptop and destop
 .main-navigation {
 	@include m.breakpoint(lg) {
 		position: relative;
@@ -159,10 +160,12 @@
 			margin: 0;
 		}
 
-		ul li a {
-			text-align: left;
-			line-height: 1.2;
+		ul li a,
+		.site-info p {
 			margin-bottom: 1.66em;
+			font-size: 0.9em;
+			line-height: 0.9;
+			text-align: left;
 		}
 	}
 }
